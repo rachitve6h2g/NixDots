@@ -6,8 +6,9 @@ let
     ".." = "cd ..";
     svi = "sudo vim";
     syscon = "cd /etc/nixos/";
-    update = "sudo nixos-rebuild switch";
     cleanall = "sudo nix-collect-garbage --delete-old && nix-collect-garbage --delete-old";
+    home-switch= "home-manager switch --flake /home/chris/.dotfiles/NixDots";
+    system-switch = "sudo nixos-rebuild switch --flake /home/chris/.dotfiles/NixDots";
   };
   extraRc = /*bash*/''
     export WLR_NO_HARDWARE_CURSORS="1";

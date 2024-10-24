@@ -4,10 +4,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
-		# Home-manager setup
-		home-manager = {
-			url = "github:nix-community/home-manager";
-			inputs.nixpkgs.follows = "nixpkgs";
+    # Home-manager setup
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # for Cliphist overlay, see ./home/Sway/miscServies.nix
@@ -42,25 +42,30 @@
     self,
     nixpkgs,
     home-manager,
-    ...}@inputs: {
+    ...
+    } @inputs: let 
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+      };
+      lib = nixpkgs.lib;
+    in {
       nixosConfigurations = {
-        mynixos = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+        mynixos = lib.nixosSystem {
+          inherit system;
           specialArgs = {inherit inputs;};
-
-					modules = [
+          modules = [
             ./host
-
-						home-manager.nixosModules.home-manager
-						{
-							home-manager = {
-								useGlobalPkgs = true;
-								useUserPackages = true;
-								extraSpecialArgs = {inherit inputs;};
-								users."chris" = import ./home;
-							};
-						}
           ];
+        };
+      };
+
+      # Home-manager configurations go here 
+      homeConfigurations = {
+        chris = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./home ];
+          extraSpecialArgs = { inherit inputs; };
         };
       };
     };
