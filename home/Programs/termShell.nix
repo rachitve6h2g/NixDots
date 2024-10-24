@@ -5,7 +5,7 @@ let
     ll = "ls -l";
     ".." = "cd ..";
     svi = "sudo vim";
-    syscon = "cd /etc/nixos/";
+    syscon = "cd /home/chris/.dotfiles/NixDots";
     cleanall = "sudo nix-collect-garbage --delete-old && nix-collect-garbage --delete-old";
     home-switch= "home-manager switch --flake /home/chris/.dotfiles/NixDots";
     system-switch = "sudo nixos-rebuild switch --flake /home/chris/.dotfiles/NixDots";

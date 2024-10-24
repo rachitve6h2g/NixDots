@@ -45,14 +45,7 @@ in
 
       bars = [
         {
-          command = "swaybar";
-          statusCommand = "${pkgs.i3status-rust.override { withICUCalendar = false; }}/bin/i3status-rust";
-          fonts = {
-            names = [ "Iosevka Nerd Font" ];
-            style = "Bold Semi-Condensed";
-            size = 11.0;
-          };
-          position = "top";
+          command = "waybar";
         }
       ];
 

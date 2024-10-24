@@ -102,6 +102,7 @@
       sof-firmware
       pciutils
       alsa-tools
+      home-manager
     ];
   };
 
