@@ -1,5 +1,7 @@
 {
-	imports = [
-    ./neovim.nix
-	];
+  imports = [
+    # ./neovim.nix
+    ./vim.nix
+    ./nixvim.nix
+  ];
 }

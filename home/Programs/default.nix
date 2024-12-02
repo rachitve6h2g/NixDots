@@ -1,15 +1,22 @@
+{pkgs, ... }:
 {
-	imports = [
-		./Editors
-
-    # Non-directories
-    ./browser.nix
-    ./btop.nix
-    ./misc.nix
+  imports = [
+    ./browsers.nix
+    ./essentials.nix
     ./git.nix
-    ./termShell.nix
     ./media.nix
-    # ./calAndMail.nix # calendar is disabled now because of not being able to set it up
+    ./shell.nix
+    ./terminal.nix
     ./yazi.nix
-	];
+
+    ./Editors
+  ];
+
+  # Misc pakcges go here 
+  home = {
+    packages = with pkgs; [
+      # For bluetooth control
+      bluetuith
+    ];
+  };
 }

@@ -1,40 +1,48 @@
 {
-  description = "My Flake";
+  description = "A simple NixOS flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    # NixOS official package source, using the nixos-24.11 branch here
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    # Home-manager setup
+    # The ricing part is new
+    stylix = {
+      url = "github:danth/stylix";
+    };
+
+    # Home-Manager configuration here
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # for Cliphist overlay, see ./home/Sway/miscServies.nix
-    cliphist = {
-      url = "github:sentriz/cliphist";
+    # for nix formatting
+    alejandra = {
+      url = "github:kamadorueda/alejandra";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Enabling hyprland thru this
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+    };
+
+    # Yazi plugins
+    yazi-plugins = {
+      url = "github:yazi-rs/plugins";
       flake = false;
     };
 
-    # Gruvbox GRUB theme
-    tartarus-grub = {
-      url = "github:AllJavi/tartarus-grub";
+    # Yazi flavors 
+    yazi-flavors = {
+      url = "github:yazi-rs/flavors";
       flake = false;
     };
 
-    # Gruvy Bat
-    gruvbox-bat = {
-      url = "github:molchalin/gruvbox-material-bat";
-      flake = false;
-    };
-
-    # Nix colors for a good and easy rice
-    nix-colors.url = "github:misterio77/nix-colors";
-
-    # Neovim toggleterm plugin by akinsho
-    plugin-terminal = {
-      url = "github:akinsho/toggleterm.nvim";
-      flake = false;
+    # Let's use the NixVim distro
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -42,31 +50,41 @@
     self,
     nixpkgs,
     home-manager,
+    alejandra,
+    stylix,
+    nixvim,
     ...
-    } @inputs: let 
+  } @ inputs: {
+    nixosConfigurations.nixosbtw = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-      };
-      lib = nixpkgs.lib;
-    in {
-      nixosConfigurations = {
-        mynixos = lib.nixosSystem {
-          inherit system;
-          specialArgs = {inherit inputs;};
-          modules = [
-            ./host
-          ];
-        };
-      };
+      specialArgs = {inherit inputs;};
+      modules = [
 
-      # Home-manager configurations go here 
-      homeConfigurations = {
-        chris = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./home ];
-          extraSpecialArgs = { inherit inputs; };
-        };
-      };
+        # Ricing using stylix.
+        stylix.nixosModules.stylix
+
+        # Importing the configuration.nix
+        ./host
+
+        # The good formatter
+        # Will shift to nixfmt with treefmt once 
+        # I learn to use it.
+        {
+          environment.systemPackages = [alejandra.defaultPackage.${system}];
+        }
+
+        # Using home-manager module as a NixOS module is better
+        # For pure NixOS distro
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.chris = (import ./home);
+            extraSpecialArgs = {inherit inputs;};
+          };
+        }
+      ];
     };
+  };
 }

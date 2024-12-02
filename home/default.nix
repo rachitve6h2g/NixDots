@@ -1,22 +1,28 @@
-{ inputs, ... }:
 {
-	imports = [
-    inputs.nix-colors.homeManagerModules.default
-		./Programs
-     ./Sway
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    ./Programs
+    ./Desktop
+  ];
+  home = {
+    username = "chris";
+    homeDirectory = "/home/chris";
+    stateVersion = "24.11";
+  };
+  programs.home-manager.enable = true;
 
-    # Import the xdg settings here (makes file managers know which folder is meant for what )
-    ./xdgSettings.nix
-	];
+  stylix = {
+    enable = true;
+    autoEnable = true;
 
-  colorScheme = inputs.nix-colors.colorSchemes.gruvbox-material-dark-hard;
-	
-	home = {
-		username = "chris";
-		homeDirectory = "/home/chris";
-
-		stateVersion = "24.11";
-	};
-
-	programs.home-manager.enable = true;
+    fonts = {
+      monospace = {
+        name = "Iosevka Nerd Font Mono";
+        package = (pkgs.nerdfonts.override {fonts = [ "Iosevka" ]; });
+      };
+    };
+  };
 }

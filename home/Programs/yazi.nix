@@ -1,126 +1,52 @@
-{ pkgs, ... }:
 {
-  programs.yazi = {
-    enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true;
-    initLua = ./Themes/Yazi/init.lua;
-
-    shellWrapperName = "yy";
-    settings = {
-      opener = {
-        edit = [
-          {
-            block = true;
-            run = "vim  \"$@\"";
-          }
-        ];
-        play = [
-          {
-            run = "vlc \"$@\"";
-            orphan = true;
-            for = "unix";
-          }
-        ];
-
-        zathura-open = [
-          {
-            run = "zathura \"$@\"";
-            orphan = true;
-          }
-        ];
-      };
-
-      open = {
-        prepend_rules = [
-          {
-            name = "*.pdf";
-            use = "zathura-open";
-          }
-        ];
-      };
-
-      plugin = { # See plugins below
-        prepend_previewers = [
-          {
-            mime = "video/*";
-            run = "video-ffmpeg";
-          }
-
-          # Epub preview settings 
-          {
-            mime = "application/epub+zip";
-            run = "epub-preview";
-          }
-        ];
-        prepend_preloaders = [
-          {
-            mime = "video/*";
-            run = "video-ffmpeg";
-          }
-        ];
-      };
-    };
-
-    keymap = {
-      manager = {
-        prepend_keymap = [
-           # For mounting phone or mtp devices
-          {
-            on = [ "b" "m" ];
-            run = "shell --interactive \"aft-mtp-mount ~/myDevice/\"";
-            desc = "Mount phone device";
-          }
-
-          # For unmounting phone devices
-          {
-            on = [ "b" "u" ];
-            run = "shell --interactive \"kitty -e sudo umount -R ~/myDevice\"";
-            desc = "Unmount the phone";
-          }
-
-          # For going into the directory of usb media (see udiskie)
-          {
-            on = [ "g" "m" ];
-            run = "cd /run/media";
-            desc = "Go into mounted USB media";
-          }
-        ];
-      };
-    };
-
-    flavors = {
-      catppuccin-mocha = ./Themes/Yazi/catppuccin-mocha.yazi;
-      # catppuccin-mocha = ${inputs.catppuccin-yazi}/flavors/catppuccin-mocha.yazi;
-      gruvbox-dark = ./Themes/Yazi/gruvbox-dark.yazi;
-    };
-
-    theme = { # It goes with the flavors section above
-      flavor = {
-        use = "gruvbox-dark";
-      };
-    };
-
-    plugins = {
-      video-ffmpeg = ./Themes/Yazi/video-ffmpeg.yazi;
-      epub-preview = ./Themes/Yazi/epub-preview.yazi;
-      yatline-gruvbox-material = ./Themes/Yazi/yatline-gruvbox-material.yazi;
-      yatline = ./Themes/Yazi/yatline.yazi;
-    };
-  };
-
-  home.packages = with pkgs;[ 
-    android-file-transfer
-    ffmpeg # For use with the video-ffmpeg.yazi plugin
-    epub-thumbnailer # for viewing epub format files
-  ];
-
-  # Enable udiskie and other services here to mount the usb pendrive
-  services = {
-    udiskie = {
+  pkgs,
+  inputs,
+  ...
+}: let
+  yazi-plugins = inputs.yazi-plugins;
+  yazi-flavors = inputs.yazi-flavors;
+in {
+  programs = {
+    yazi = {
       enable = true;
-      automount = true;
-      notify = true;
+      enableZshIntegration = true;
+      shellWrapperName = "y";
+
+      # Settings for yazi.toml
+      settings = {
+        manager = {
+          show_hidden = true;
+        };
+
+        opener = {
+          edit = [
+            {
+              block = true;
+              run = "vim \"$@\"";
+            }
+          ];
+
+          play = [
+            {
+              run = "mpv \"$@\"";
+              orphan = true;
+              for = "unix";
+            }
+          ];
+        };
+      };
+
+      # Set the flavors here
+      flavors = {
+        catppuccin-mocha = "${yazi-flavors}/catppuccin-mocha.yazi";
+      };
+
+      # Use the theme above
+      theme = {
+        flavor = {
+          use = "catppuccin-mocha";
+        };
+      };
     };
   };
 }

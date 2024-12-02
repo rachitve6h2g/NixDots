@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   home.packages = with pkgs; [
     git-crypt
     git-filter-repo
@@ -42,8 +45,8 @@
     };
   };
 
-  # Always see that these keys are in gitignore before 
-  # pushing them to github. 
+  # Always see that these keys are in gitignore before
+  # pushing them to github.
   # home.file = {
   #   ".ssh/id_ed25519".source = ./dangerSshKeys/id_ed25519;
   #   ".ssh/id_ed25519.pub".source = ./dangerSshKeys/id_ed25519.pub;

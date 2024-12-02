@@ -1,20 +1,13 @@
-{ pkgs, inputs, ... }:
-
-# see flake.nix in main directory
-let
-  own-terminal-nvim = pkgs.vimUtils.buildVimPlugin {
-    name = "toggleterm";
-    src = inputs.plugin-terminal;
-  };
-in 
 {
-
+  pkgs,
+  inputs,
+  ...
+}: {
   programs.neovim = {
     enable = true;
 
     viAlias = true;
     vimAlias = true;
-
 
     extraPackages = with pkgs; [
       lua-language-server
@@ -25,9 +18,9 @@ in
 
     # Lua configuration can be sourced like so
     extraLuaConfig = ''
-      ${builtins.readFile(./nvim/options.lua)}
-      ${builtins.readFile(./nvim/keymap.lua)}
-      ${builtins.readFile(./nvim/plugin/other.lua)}
+      ${builtins.readFile ./nvim/options.lua}
+      ${builtins.readFile ./nvim/keymap.lua}
+      ${builtins.readFile ./nvim/plugin/other.lua}
     '';
 
     # Adding plugins
@@ -35,53 +28,62 @@ in
       {
         plugin = nvim-tree-lua;
         type = "lua";
-        config = builtins.readFile(./nvim/plugin/nvim-tree.lua);
+        config = builtins.readFile ./nvim/plugin/nvim-tree.lua;
       }
 
       {
         plugin = nvim-surround;
         type = "lua";
-        config = /*lua*/ "require(\"nvim-surround\").setup({})";
+        config =
+          /*
+          lua
+          */
+          "require(\"nvim-surround\").setup({})";
       }
 
       {
         plugin = nvim-lspconfig;
         type = "lua";
-        config = builtins.readFile(./nvim/plugin/lsp.lua);
+        config = builtins.readFile ./nvim/plugin/lsp.lua;
       }
 
       {
         plugin = comment-nvim;
         type = "lua";
-        config = /*lua*/ "require(\"Comment\").setup()";
+        config =
+          /*
+          lua
+          */
+          "require(\"Comment\").setup()";
       }
 
       {
         plugin = gruvbox-material-nvim;
         type = "lua";
-        config = builtins.readFile(./nvim/plugin/gruvbox.lua);
+        config = builtins.readFile ./nvim/plugin/gruvbox.lua;
       }
-
 
       {
         plugin = nvim-cmp;
         type = "lua";
-        config = builtins.readFile( ./nvim/plugin/cmp.lua);
+        config = builtins.readFile ./nvim/plugin/cmp.lua;
       }
 
       {
         plugin = telescope-nvim;
         type = "lua";
-        config = builtins.readFile(./nvim/plugin/telescope.lua);
+        config = builtins.readFile ./nvim/plugin/telescope.lua;
       }
 
       {
         plugin = indent-blankline-nvim-lua;
         type = "lua";
-        config = /*lua*/ "require(\"ibl\").setup()";
+        config =
+          /*
+          lua
+          */
+          "require(\"ibl\").setup()";
       }
-
-
 
       neodev-nvim
       telescope-fzf-native-nvim
@@ -93,44 +95,42 @@ in
       nvim-web-devicons
 
       {
-        plugin = (nvim-treesitter.withPlugins (p: [
-          p.c 
+        plugin = nvim-treesitter.withPlugins (p: [
+          p.c
           p.nix
-          p.lua 
+          p.lua
           p.bash
           p.json
           p.jsonc
           p.css
           p.scss
           p.typescript
-        ]));
+        ]);
         type = "lua";
-        config = builtins.readFile(./nvim/plugin/treesitter.lua);
+        config = builtins.readFile ./nvim/plugin/treesitter.lua;
       }
 
       {
         plugin = nvim-highlight-colors;
         type = "lua";
-        config = builtins.readFile(./nvim/plugin/csscolors.lua);
+        config = builtins.readFile ./nvim/plugin/csscolors.lua;
       }
 
       {
         plugin = lspkind-nvim;
         type = "lua";
-        config = builtins.readFile(./nvim/plugin/lspkind.lua);
+        config = builtins.readFile ./nvim/plugin/lspkind.lua;
       }
       vim-nix
 
       {
         plugin = plenary-nvim;
         type = "lua";
-        config = /*lua*/ "local async = require (\"plenary.async\")";
-      }
-      
-      {
-        plugin = own-terminal-nvim;
-        type = "lua";
-        config = /*lua*/ "require(\"toggleterm\").setup()";
+        config =
+          /*
+          lua
+          */
+          "local async = require (\"plenary.async\")";
       }
     ];
   };
