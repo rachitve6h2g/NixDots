@@ -36,7 +36,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  networking.hostName = "nixosbtw"; # Define your hostname.
+  networking.hostName = "NixOSbtw"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
@@ -66,19 +66,8 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  programs = {
-    dconf.enable = true;
-  };
 
   security.rtkit.enable = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-  ];
 
   # Enable flakes and stuff (idk why the eff, it's experimental?!)
   nix.settings.experimental-features = ["nix-command" "flakes"];

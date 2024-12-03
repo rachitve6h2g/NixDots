@@ -15,6 +15,28 @@ in {
     wl-clipboard
   ];
 
+  # xdg Settings
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals =
+        (with pkgs; [
+          xdg-desktop-portal-wlr
+          xdg-desktop-portal-gtk
+        ])
+        ++ [hyprPackages.xdg-desktop-portal-hyprland];
+
+      # Write the portals.conf file
+      config = {
+        common = {
+          default = [
+            "hyprland"
+          ];
+        };
+      };
+    };
+  };
+
   # For hyprland
   wayland.windowManager.hyprland = {
     enable = true;
@@ -42,6 +64,7 @@ in {
       # Autostart apps
       exec-once = [
         "${pkgs.mako}/bin/mako"
+        "${pkgs.xfce.thunar}/bin/thunar --daemon"
         "${pkgs.hyprpaper}/bin/hyprpaper"
         "${pkgs.hypridle}/bin/hypridle"
         "${pkgs.waybar}/bin/waybar"
@@ -97,8 +120,7 @@ in {
           "$mod, mouse_down, workspace, e+1"
           "$mod, mouse_up, workspace, e-1"
 
-          # For tofi launcher 
-
+          # For tofi launcher
         ]
         ++ (
           # workspaces
@@ -396,6 +418,13 @@ in {
     cliphist = {
       enable = true;
       allowImages = true;
+    };
+
+    # Enable desktop notifications
+    mako = {
+      enable = true;
+      actions = true;
+      anchor = "top-left";
     };
   };
 }

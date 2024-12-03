@@ -1,7 +1,8 @@
 {
   imports = [
     ./hyprland.nix
+    ./theme.nix
     ./waybar.nix
-    ./tofi.nix
+    ./wofi.nix
   ];
 }

@@ -1,11 +1,10 @@
-{ pkgs, ... }:
-{
-  # Qt settings 
-  qt = {
-    enable = true;
-    platformTheme = "gnome";
-    style = "adwaita-dark";
-  };
+{pkgs, ...}: {
+  # Qt settings
+  #qt = {
+  #  enable = true;
+  #  platformTheme = "gnome";
+  #  style = "adwaita-dark";
+  #};
 
   stylix = {
     enable = true;
@@ -25,15 +24,15 @@
       followSystem = true;
     };
 
-    # Manage fonts here 
+    # Manage fonts here
     fonts = {
       monospace = {
         name = "Iosevka Nerd Font Mono";
-        package = (pkgs.nerdfonts.override { fonts = [ "Iosevka" ]; });
+        package = pkgs.nerd-fonts.iosevka;
       };
     };
 
-    # Target specific 
+    # Target specific
     targets = {
       nixvim.enable = false; # For use with the home-manager module only
     };

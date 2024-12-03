@@ -1,5 +1,4 @@
-{pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ./browsers.nix
     ./essentials.nix
@@ -12,7 +11,7 @@
     ./Editors
   ];
 
-  # Misc pakcges go here 
+  # Misc pakcges go here
   home = {
     packages = with pkgs; [
       # For bluetooth control

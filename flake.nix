@@ -33,7 +33,7 @@
       flake = false;
     };
 
-    # Yazi flavors 
+    # Yazi flavors
     yazi-flavors = {
       url = "github:yazi-rs/flavors";
       flake = false;
@@ -42,6 +42,12 @@
     # Let's use the NixVim distro
     nixvim = {
       url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # A good Display manager is always important
+    sddm-sugar-candy-nix = {
+      url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -53,13 +59,15 @@
     alejandra,
     stylix,
     nixvim,
+    sddm-sugar-candy-nix,
     ...
-  } @ inputs: {
-    nixosConfigurations.nixosbtw = nixpkgs.lib.nixosSystem rec {
+  } @ inputs: let
+    hostname = "NixOSbtw";
+  in {
+    nixosConfigurations."${hostname}" = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
-
         # Ricing using stylix.
         stylix.nixosModules.stylix
 
@@ -67,12 +75,21 @@
         ./host
 
         # The good formatter
-        # Will shift to nixfmt with treefmt once 
+        # Will shift to nixfmt with treefmt once
         # I learn to use it.
         {
           environment.systemPackages = [alejandra.defaultPackage.${system}];
         }
 
+        # Add sugar-candy and its overlays
+        sddm-sugar-candy-nix.nixosModules.default
+        {
+          nixpkgs = {
+            overlays = [
+              sddm-sugar-candy-nix.overlays.default
+            ];
+          };
+        }
         # Using home-manager module as a NixOS module is better
         # For pure NixOS distro
         home-manager.nixosModules.home-manager
@@ -80,7 +97,7 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.chris = (import ./home);
+            users.chris = import ./home;
             extraSpecialArgs = {inherit inputs;};
           };
         }

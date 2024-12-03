@@ -9,7 +9,7 @@
     ffetch = "${pkgs.fastfetch}/bin/fastfetch";
   };
 
-  # Session variables 
+  # Session variables
   sessionVars = {
     SUDO_PROMPT = "$(tput setaf 1 bold)[sudo]$(tput sgr0) $(tput setaf 3)password for$(tput sgr0) $(tput setaf 5)%p$(tput sgr0):";
   };
@@ -29,7 +29,7 @@ in {
         strategy = ["completion"];
       };
 
-      # Set the sessionVariables here 
+      # Set the sessionVariables here
       sessionVariables = sessionVars;
       cdpath = [
         "/etc/nixos/"

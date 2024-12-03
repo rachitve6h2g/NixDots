@@ -3,6 +3,9 @@
   lib,
   ...
 }: {
+  # Disable stylix for kitty
+  stylix.targets.kitty.enable = false;
+
   programs.kitty = {
     enable = true;
     package = pkgs.kitty;
@@ -17,19 +20,22 @@
     # lib.mkDefault or lib.mkForce
     font = {
       name = lib.mkForce "Iosevka Nerd Fonts";
-      size = lib.mkForce 12;
+      package = lib.mkForce pkgs.nerd-fonts.iosevka;
+      size = lib.mkForce 13;
     };
+
+    themeFile = "Catppuccin-Mocha";
 
     # General settings
     settings = {
       confirm_os_window_close = 0;
       enable_audio_bell = false;
 
-      # Anything related to background or appearance is
-      # handeled by Stylix
+      # Background opacity set here
+      background_opacity = 0.8;
+
+      # blur it bro
+      background_blur = 4;
     };
   };
-
-  # the opacity is managed by stylix
-  stylix.opacity.terminal = 0.85;
 }

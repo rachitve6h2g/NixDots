@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   # Enable sound.
   # hardware.pulseaudio.enable = true;
   # OR

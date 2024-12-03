@@ -32,6 +32,9 @@
     ssh = {
       enable = true;
       addKeysToAgent = "yes";
+      hashKnownHosts = true;
+      userKnownHostsFile = "${config.home.homeDirectory}/.ssh/known_hosts";
+
       extraConfig = ''
         Host github.com
         IdentityFile ~/.ssh/id_ed25519

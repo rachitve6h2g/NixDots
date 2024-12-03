@@ -6,7 +6,6 @@
   lib,
   pkgs,
   modulesPath,
-  inputs,
   ...
 }: {
   imports = [
@@ -24,37 +23,37 @@
 
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-uuid/61f15d54-e776-490a-b2c7-54c72937704c";
+      device = "/dev/disk/by-uuid/3e39b3b4-5cde-4e2a-b44d-40c601106463";
       fsType = "btrfs";
       options = ["subvol=@root" "compress=zstd"];
     };
 
+    "/boot" = {
+      device = "/dev/disk/by-uuid/3485-D064";
+      fsType = "vfat";
+      options = ["fmask=0022" "dmask=0022"];
+    };
+
     "/home" = {
-      device = "/dev/disk/by-uuid/61f15d54-e776-490a-b2c7-54c72937704c";
+      device = "/dev/disk/by-uuid/3e39b3b4-5cde-4e2a-b44d-40c601106463";
       fsType = "btrfs";
       options = ["subvol=@home" "compress=zstd"];
     };
 
     "/nix" = {
-      device = "/dev/disk/by-uuid/61f15d54-e776-490a-b2c7-54c72937704c";
+      device = "/dev/disk/by-uuid/3e39b3b4-5cde-4e2a-b44d-40c601106463";
       fsType = "btrfs";
-      options = ["subvol=nix" "compress=zstd" "noatime"];
+      options = ["subvol=@nix" "noatime" "compress=zstd"];
     };
 
-    "/boot" = {
-      device = "/dev/disk/by-uuid/A223-7D1C";
-      fsType = "vfat";
-      options = ["fmask=0022" "dmask=0022"];
+    "/swap" = {
+      device = "/dev/disk/by-uuid/3e39b3b4-5cde-4e2a-b44d-40c601106463";
+      fsType = "btrfs";
+      options = ["subvol=swap" "noatime"];
     };
-
-    # "/swap" = {
-    #   device = "/dev/disk/by-uuid/61f15d54-e776-490a-b2c7-54c72937704c";
-    #   fsType = "btrfs";
-    #   options = [ "noatime" ];
-    # };
   };
 
-  swapDevices = [{device = "/swap/swapfile";}];
+  swapDevices = [{device = "/swap/swafile";}];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -64,30 +63,5 @@
   # networking.interfaces.wlp1s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware = {
-    graphics = {
-      enable = true;
-      package = lib.mkForce inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.mesa.drivers;
-      extraPackages = with pkgs; [
-        intel-compute-runtime
-        intel-media-driver
-        intel-vaapi-driver
-        libvdpau-va-gl
-      ];
-    };
-
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-      package = pkgs.bluez;
-      settings = {
-        General = {
-          Experimental = true;
-          Enable = "Source,Sink,Media,Socket";
-        };
-      };
-    };
-
-    cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  };
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

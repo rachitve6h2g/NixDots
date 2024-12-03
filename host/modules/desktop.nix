@@ -4,15 +4,36 @@
   inputs,
   ...
 }: {
-
   # for not building Hyprland for source
   nix.settings = {
     substituters = ["https://hyprland.cachix.org"];
     trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
   };
+
+  # Services
+  services = {
+    displayManager = {
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+        sugarCandyNix = {
+          enable = true;
+          settings = {
+            Background = lib.cleanSource ../../wallpapers/wall.jpg;
+            ScreenWidth = 1920;
+            ScreenHeight = 1080;
+            FormPosition = "left";
+            HaveFormBackground = true;
+            PartialBlur = true;
+          };
+        };
+      };
+    };
+  };
+
   security.pam.services.hyprlock = {};
   programs = {
-    # Enabling Hyprland here for SDDM to recognize 
+    # Enabling Hyprland here for SDDM to recognize
     # Also enable uswm (the recommended way to start hyprland
     uwsm = {
       enable = true;
@@ -24,7 +45,7 @@
         };
       };
     };
-    hyprland = let 
+    hyprland = let
       hyprPackages = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
     in {
       enable = true;
