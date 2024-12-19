@@ -7,7 +7,6 @@
   yazi-plugins = inputs.yazi-plugins;
   yazi-flavors = inputs.yazi-flavors;
 in {
-  stylix.targets.yazi.enable = false; # For applying the theme from the official yazi-flavors repo
   programs = {
     yazi = {
       enable = true;

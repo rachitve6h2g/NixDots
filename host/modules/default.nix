@@ -3,11 +3,10 @@
     ./applications.nix
     ./bluetooth.nix
     ./desktop.nix
-    # ./editor.nix
-    # ./fonts.nix # Stylix for managing fonts as well
+    ./fonts.nix
     ./graphics.nix
     ./sound.nix
-    ./styles.nix
+    ./storageopts.nix
     ./thunar.nix
     ./users.nix
     ./xdgSettings.nix

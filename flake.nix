@@ -6,10 +6,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     # The ricing part is new
-    stylix = {
-      url = "github:danth/stylix";
-    };
-
+    nix-colors.url = "github:misterio77/nix-colors";
     # Home-Manager configuration here
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -57,20 +54,15 @@
     nixpkgs,
     home-manager,
     alejandra,
-    stylix,
-    nixvim,
     sddm-sugar-candy-nix,
     ...
   } @ inputs: let
-    hostname = "NixOSbtw";
+    hostname = "nixwolf";
   in {
     nixosConfigurations."${hostname}" = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
-        # Ricing using stylix.
-        stylix.nixosModules.stylix
-
         # Importing the configuration.nix
         ./host
 

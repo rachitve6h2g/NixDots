@@ -4,6 +4,10 @@
   inputs,
   ...
 }: {
+  nixpkgs.config.packageOverrides = pkgs: {
+    intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
+  };
+
   hardware = {
     graphics = {
       enable = true;
@@ -15,5 +19,10 @@
         libvdpau-va-gl
       ];
     };
+  };
+
+  # set the LIBVA_DRIVER_NAME variable
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";
   };
 }

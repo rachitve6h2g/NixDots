@@ -20,7 +20,8 @@
     };
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
-      "i915.force_probe=a7a0"
+      "i915.force_probe=!a7a0"
+      "xe.force_probe=a7a0"
     ];
     loader = {
       grub = {
@@ -36,9 +37,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  networking.hostName = "NixOSbtw"; # Define your hostname.
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.hostName = "nixwolf"; # Define your hostname.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
@@ -66,8 +65,13 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
-
-  security.rtkit.enable = true;
+  security = {
+    rtkit.enable = true;
+    sudo = {
+      enable = true;
+      package = pkgs.sudo.override { withInsults = true; };
+    };
+  };
 
   # Enable flakes and stuff (idk why the eff, it's experimental?!)
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -113,5 +117,5 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 }

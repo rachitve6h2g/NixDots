@@ -13,9 +13,6 @@
   #  EDITOR = lib.mkForce "nvim";
   #};
 
-  # Disable stylix for nixvim
-  stylix.targets.nixvim.enable = false;
-
   programs = {
     nixvim = {
       enable = true;
@@ -59,6 +56,10 @@
 
       # Plugins
       plugins = {
+        nvim-surround = {
+          enable = true;
+        };
+
         # lualine
         lualine = {
           enable = true;

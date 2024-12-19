@@ -15,6 +15,13 @@
       videos = "${homeDir}/Videos";
     };
 
+    # Important home directories
+    dataHome = "${homeDir}/.local/share";
+    cacheHome = "${homeDir}/.cache";
+    stateHome = "${homeDir}/.local/state";
+    configHome = "${homeDir}/.config";
+
+
     # Mime type settings
     mime = {
       enable = true;
@@ -27,4 +34,7 @@
       };
     };
   };
+
+  # Comment out if anything fishy occurs
+  home.preferXdgDirectories = true;
 }

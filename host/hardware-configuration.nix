@@ -12,48 +12,48 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot = {
-    initrd = {
-      availableKernelModules = ["xhci_pci" "nvme" "usb_storage" "sd_mod"];
-      kernelModules = [];
-    };
-    kernelModules = ["kvm-intel"];
-    extraModulePackages = [];
+  boot.initrd.availableKernelModules = ["xhci_pci" "nvme" "usb_storage" "sd_mod"];
+  boot.initrd.kernelModules = [];
+  boot.kernelModules = ["kvm-intel"];
+  boot.extraModulePackages = [];
+
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/49cfddd8-7ec6-46a0-823c-923c26839d24";
+    fsType = "btrfs";
+    options = ["subvol=root" "compress=zstd"];
   };
 
-  fileSystems = {
-    "/" = {
-      device = "/dev/disk/by-uuid/3e39b3b4-5cde-4e2a-b44d-40c601106463";
-      fsType = "btrfs";
-      options = ["subvol=@root" "compress=zstd"];
-    };
-
-    "/boot" = {
-      device = "/dev/disk/by-uuid/3485-D064";
-      fsType = "vfat";
-      options = ["fmask=0022" "dmask=0022"];
-    };
-
-    "/home" = {
-      device = "/dev/disk/by-uuid/3e39b3b4-5cde-4e2a-b44d-40c601106463";
-      fsType = "btrfs";
-      options = ["subvol=@home" "compress=zstd"];
-    };
-
-    "/nix" = {
-      device = "/dev/disk/by-uuid/3e39b3b4-5cde-4e2a-b44d-40c601106463";
-      fsType = "btrfs";
-      options = ["subvol=@nix" "noatime" "compress=zstd"];
-    };
-
-    "/swap" = {
-      device = "/dev/disk/by-uuid/3e39b3b4-5cde-4e2a-b44d-40c601106463";
-      fsType = "btrfs";
-      options = ["subvol=swap" "noatime"];
-    };
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/49cfddd8-7ec6-46a0-823c-923c26839d24";
+    fsType = "btrfs";
+    options = ["subvol=home" "compress=zstd" "relatime"];
   };
 
-  swapDevices = [{device = "/swap/swafile";}];
+  fileSystems."/var" = {
+    device = "/dev/disk/by-uuid/49cfddd8-7ec6-46a0-823c-923c26839d24";
+    fsType = "btrfs";
+    options = ["subvol=var" "compress=zstd" "relatime"];
+  };
+
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-uuid/49cfddd8-7ec6-46a0-823c-923c26839d24";
+    fsType = "btrfs";
+    options = ["subvol=nix" "noatime" "compress=zstd"];
+  };
+
+  fileSystems."/swap" = {
+    device = "/dev/disk/by-uuid/49cfddd8-7ec6-46a0-823c-923c26839d24";
+    fsType = "btrfs";
+    options = ["subvol=swap" "noatime"];
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/12CE-A600";
+    fsType = "vfat";
+    options = ["fmask=0022" "dmask=0022"];
+  };
+
+  swapDevices = [{device = "/swap/swapfile";}];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

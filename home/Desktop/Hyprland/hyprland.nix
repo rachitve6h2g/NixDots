@@ -10,10 +10,12 @@
   wallpaper = "${./../../../wallpapers/wall.jpg}";
   wallpaper2 = "${./../../../wallpapers/totoro.jpg}";
 in {
-  home.packages = with pkgs; [
-    brightnessctl
-    wl-clipboard
-  ];
+  home = {
+    packages = with pkgs; [
+      brightnessctl
+      wl-clipboard
+    ];
+  };
 
   # xdg Settings
   xdg = {
@@ -40,7 +42,11 @@ in {
   # For hyprland
   wayland.windowManager.hyprland = {
     enable = true;
-    package = hyprPackages.hyprland;
+    package = hyprPackages.hyprland.override {
+      enableXWayland = false;
+      legacyRenderer = false;
+      withSystemd = true;
+    };
 
     # Disabling systemd for starting with UWSM see the host directory
     # desktop.nix module
@@ -56,20 +62,17 @@ in {
 
     settings = {
       "$mod" = "SUPER";
-      "$terminal" = "kitty";
-      "$menu" = "tofi-run";
-      "$clipboard" = "cliphist | tofi | cliphist decode | wl-copy";
+      "$terminal" = "uwsm app -T";
+      "$menu" = "exec fuzzel --launch-prefix='uwsm app --' --log-no-syslog --log-level=warning";
+      "$clipboard" = "cliphist | fuzzel --dmenu | cliphist decode | wl-copy";
+      "$filemanager" = "exec uwsm app -- thunar.desktop";
+      "$browser" = "exec uwsm app -- firefox.desktop";
       monitor = "eDP-1,1920x1080@60.06,0x0,1";
 
       # Autostart apps
       exec-once = [
-        "${pkgs.mako}/bin/mako"
         "${pkgs.xfce.thunar}/bin/thunar --daemon"
-        "${pkgs.hyprpaper}/bin/hyprpaper"
-        "${pkgs.hypridle}/bin/hypridle"
         "${pkgs.waybar}/bin/waybar"
-        "wl-paste --type text --watch cliphist store"
-        "wl-paste --image --watch cliphist store"
         "${pkgs.plasma5Packages.kdeconnect-kde}/bin/kdeconnectd"
       ];
 
@@ -426,5 +429,11 @@ in {
       actions = true;
       anchor = "top-left";
     };
+  };
+
+  # Enable hyprland user services
+  systemd.user = {
+    enable = true;
+    startServices = "sd-switch";
   };
 }

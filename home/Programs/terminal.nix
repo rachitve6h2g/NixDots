@@ -3,9 +3,6 @@
   lib,
   ...
 }: {
-  # Disable stylix for kitty
-  stylix.targets.kitty.enable = false;
-
   programs.kitty = {
     enable = true;
     package = pkgs.kitty;
@@ -19,9 +16,9 @@
     # But if you need use
     # lib.mkDefault or lib.mkForce
     font = {
-      name = lib.mkForce "Iosevka Nerd Fonts";
-      package = lib.mkForce pkgs.nerd-fonts.iosevka;
-      size = lib.mkForce 13;
+      name = "Iosevka Nerd Font";
+      package = pkgs.nerd-fonts.iosevka;
+      size = 11.7;
     };
 
     themeFile = "Catppuccin-Mocha";
@@ -32,7 +29,7 @@
       enable_audio_bell = false;
 
       # Background opacity set here
-      background_opacity = 0.8;
+      background_opacity = 0.7;
 
       # blur it bro
       background_blur = 4;

@@ -25,6 +25,7 @@
             FormPosition = "left";
             HaveFormBackground = true;
             PartialBlur = true;
+            Font = "Iosevka Nerd Font";
           };
         };
       };
@@ -49,7 +50,12 @@
       hyprPackages = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
     in {
       enable = true;
-      package = hyprPackages.hyprland;
+      package = hyprPackages.hyprland.override {
+        enableXWayland = false;
+        legacyRenderer = false;
+        withSystemd = true;
+      };
+
       portalPackage = hyprPackages.xdg-desktop-portal-hyprland;
       # start with UWSM
       # Disable systemd in Home-Manger option
@@ -62,14 +68,5 @@
       enableAskPassword = true;
       askPassword = lib.mkForce "${pkgs.seahorse}/libexec/ssh-askpass";
     };
-  };
-  environment = {
-    systemPackages = with pkgs; [
-      gnome-console
-    ];
-    gnome.excludePackages = with pkgs; [
-      gedit
-      gnome-tour
-    ];
   };
 }
