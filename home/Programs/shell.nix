@@ -21,6 +21,7 @@ in {
 
       localVariables = {
         SUDO_PROMPT = "$(tput setaf 1 bold)[sudo]$(tput sgr0) $(tput setaf 3)password for$(tput sgr0) $(tput setaf 5)%p$(tput sgr0):";
+        KITTY_ENABLE_WAYLAND = 1;
       };
 
       syntaxHighlighting.enable = true;

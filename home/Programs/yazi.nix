@@ -16,7 +16,7 @@ in {
       # Settings for yazi.toml
       settings = {
         manager = {
-          show_hidden = true;
+          show_hidden = false;
         };
 
         opener = {

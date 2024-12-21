@@ -19,6 +19,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Catppuccin btop theme
+    btop-catppuccin = {
+      url = "github:catppuccin/btop";
+      flake = false;
+    };
+
     # Enabling hyprland thru this
     hyprland = {
       url = "github:hyprwm/Hyprland";

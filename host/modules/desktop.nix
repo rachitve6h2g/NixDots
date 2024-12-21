@@ -34,18 +34,6 @@
 
   security.pam.services.hyprlock = {};
   programs = {
-    # Enabling Hyprland here for SDDM to recognize
-    # Also enable uswm (the recommended way to start hyprland
-    uwsm = {
-      enable = true;
-      package = pkgs.uwsm;
-      waylandCompositors = {
-        hyprland = {
-          prettyName = "Hyprland";
-          binPath = "/run/current-system/sw/bin/Hyprland";
-        };
-      };
-    };
     hyprland = let
       hyprPackages = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
     in {
@@ -68,5 +56,10 @@
       enableAskPassword = true;
       askPassword = lib.mkForce "${pkgs.seahorse}/libexec/ssh-askpass";
     };
+  };
+
+  # For running electron apps in NixOS with wayland
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
   };
 }
