@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Hyprland (UWSM)
+Comment=Hyprland compositor managed by UWSM
+Exec=/usr/bin/uwsm start -S -F /run/current-system/sw/bin/Hyprland
+Type=Application
