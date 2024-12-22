@@ -30,6 +30,9 @@
       url = "github:hyprwm/Hyprland";
     };
 
+    # Latest yazi package
+    yazi.url = "github:sxyazi/yazi";
+
     # Yazi plugins
     yazi-plugins = {
       url = "github:yazi-rs/plugins";
@@ -39,6 +42,12 @@
     # Yazi flavors
     yazi-flavors = {
       url = "github:yazi-rs/flavors";
+      flake = false;
+    };
+
+    # The icons brew plugin for yazi
+    icons-brew-yazi = {
+      url = "github:lpnh/icons-brew.yazi";
       flake = false;
     };
 

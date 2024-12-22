@@ -66,7 +66,7 @@ in {
       "$clipboard" = "cliphist | fuzzel --dmenu | cliphist decode | wl-copy";
       "$filemanager" = "exec uwsm app -- thunar.desktop";
       "$browser" = "exec uwsm app -- firefox.desktop";
-      monitor = "eDP-1,1920x1080@60.06,0x0,1";
+      monitor = [ "eDP-1,1920x1080@60.06,0x0,1" ];
 
       # Autostart apps
       exec-once = [
@@ -79,7 +79,7 @@ in {
           # Open several apps and stuff
           "$mod, Return, exec, $terminal"
           "$mod, Q, killactive,"
-          "$mod, M, exit,"
+          "$mod, M, exec, uwsm stop"
           "$mod, E, exec, $fileManager"
           "$mod, space, togglefloating,"
           "$mod, D, exec, $menu"
@@ -445,7 +445,7 @@ in {
 
         Service = {
           Type = "exec";
-          ExecCondition = "${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition \"Hyprland\"";
+          ExecCondition = "${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition \"Hyprland\" \"\"";
           ExecStart = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist -max-items 10 store";
           Restart = "on-failure";
           Slice = "app-graphical.slice";

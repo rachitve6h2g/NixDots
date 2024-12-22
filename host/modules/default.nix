@@ -2,6 +2,8 @@
   imports = [
     ./applications.nix
     ./bluetooth.nix
+    ./cachenix.nix
+    ./compileopts.nix
     ./desktop.nix
     ./fonts.nix
     ./graphics.nix

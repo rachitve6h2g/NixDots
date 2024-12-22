@@ -1,3 +1,6 @@
+# See cachenix.nix in host-modules
+# Contains yazi's cache substituters to not build it
+# on the system...
 {
   pkgs,
   inputs,
@@ -6,10 +9,12 @@
 }: let
   yazi-plugins = inputs.yazi-plugins;
   yazi-flavors = inputs.yazi-flavors;
+  yazi-git = inputs.yazi.packages.${pkgs.system}.default;
 in {
   programs = {
     yazi = {
       enable = true;
+      package = yazi-git;
       enableZshIntegration = true;
       shellWrapperName = "y";
 
@@ -45,7 +50,8 @@ in {
       # Use the theme above
       theme = {
         flavor = {
-          use = lib.mkForce "catppuccin-mocha";
+          dark = "catppuccin-mocha";
+          light = "catppuccin-mocha";
         };
       };
     };

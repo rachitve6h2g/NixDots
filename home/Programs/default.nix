@@ -6,9 +6,9 @@
     ./media.nix
     ./shell.nix
     ./terminal.nix
-    ./yazi.nix
 
     ./Editors
+    ./Yazi
   ];
 
   # Misc pakcges go here

@@ -3,7 +3,9 @@
   lib,
   inputs,
   ...
-}: {
+}: let
+  hyprPackages = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
+in {
   # for not building Hyprland for source
   nix.settings = {
     substituters = ["https://hyprland.cachix.org"];
@@ -13,6 +15,7 @@
   # Services
   services = {
     displayManager = {
+      sessionPackages = [ hyprPackages.hyprland ];
       sddm = {
         enable = true;
         wayland.enable = true;
@@ -34,9 +37,7 @@
 
   security.pam.services.hyprlock = {};
   programs = {
-    hyprland = let
-      hyprPackages = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
-    in {
+    hyprland = {
       enable = true;
       package = hyprPackages.hyprland.override {
         enableXWayland = false;
