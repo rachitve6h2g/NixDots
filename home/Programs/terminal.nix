@@ -18,7 +18,7 @@
     font = {
       name = "Iosevka Nerd Font";
       package = pkgs.nerd-fonts.iosevka;
-      size = 11.7;
+      size = 12;
     };
 
     themeFile = "Catppuccin-Mocha";

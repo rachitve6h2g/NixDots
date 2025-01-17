@@ -14,7 +14,17 @@
       # Set certain policies here
       policies = {
         # Change the default download directory
-        DefaultDownloadDirectory = "\${config.xdg.userDirs.download}/Downloads";
+        DefaultDownloadDirectory = "${config.xdg.userDirs.download}/Downloads";
+
+        DisableTelemetry = true;
+        DisableFirefoxStudies = true;
+        EnableTrackingProtection = {
+            Value = true;
+            Locked = true;
+            Cryptomining = true;
+            Fingerprinting = true;
+        };
+        DisablePocket = false;
       };
 
       # Profile settings
@@ -87,6 +97,11 @@
                 name = "WhatsApp";
                 url = "https://web.whatsapp.com/";
               }
+
+              {
+                name = "NixVim Manual";
+                url = "https://nix-community.github.io/nixvim/";
+              }
             ];
           }
 
@@ -94,10 +109,6 @@
             name = "Nix Styling";
             toolbar = true;
             bookmarks = [
-              {
-                name = "Stylix";
-                url = "https://stylix.danth.me/";
-              }
               {
                 name = "Wallies";
                 url = "https://www.pixelstalk.net/";

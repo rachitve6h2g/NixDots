@@ -3,6 +3,7 @@
     ./browsers.nix
     ./essentials.nix
     ./git.nix
+    ./kdeconnect.nix
     ./media.nix
     ./shell.nix
     ./terminal.nix
@@ -16,6 +17,8 @@
     packages = with pkgs; [
       # For bluetooth control
       bluetuith
+      qbittorrent
+
     ];
   };
 }

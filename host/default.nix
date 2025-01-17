@@ -5,6 +5,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
@@ -35,9 +36,12 @@
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowBroken = false;
+  };
 
-  networking.hostName = "nixwolf"; # Define your hostname.
+  networking.hostName = "nixprime"; # Define your hostname.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
@@ -69,12 +73,17 @@
     rtkit.enable = true;
     sudo = {
       enable = true;
-      package = pkgs.sudo.override { withInsults = true; };
+      package = pkgs.sudo.override {withInsults = true;};
     };
   };
 
   # Enable flakes and stuff (idk why the eff, it's experimental?!)
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix = {
+    settings.experimental-features = ["nix-command" "flakes"];
+
+    # Set the path to use from flakes
+    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

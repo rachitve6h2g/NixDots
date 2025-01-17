@@ -15,14 +15,13 @@ in {
   # Services
   services = {
     displayManager = {
-      sessionPackages = [ hyprPackages.hyprland ];
       sddm = {
         enable = true;
         wayland.enable = true;
         sugarCandyNix = {
           enable = true;
           settings = {
-            Background = lib.cleanSource ../../wallpapers/wall.jpg;
+            Background = lib.cleanSource ../../wallpapers/sddm_n_hyprlock;
             ScreenWidth = 1920;
             ScreenHeight = 1080;
             FormPosition = "left";

@@ -7,6 +7,7 @@
 
     # The ricing part is new
     nix-colors.url = "github:misterio77/nix-colors";
+
     # Home-Manager configuration here
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -29,6 +30,17 @@
     hyprland = {
       url = "github:hyprwm/Hyprland";
     };
+    # Some basic plugins
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+
+    # NixVim
+    nixvim = {
+    	url = "github:nix-community/nixvim";
+	inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Latest yazi package
     yazi.url = "github:sxyazi/yazi";
@@ -38,23 +50,11 @@
       url = "github:yazi-rs/plugins";
       flake = false;
     };
-
+    
     # Yazi flavors
     yazi-flavors = {
       url = "github:yazi-rs/flavors";
       flake = false;
-    };
-
-    # The icons brew plugin for yazi
-    icons-brew-yazi = {
-      url = "github:lpnh/icons-brew.yazi";
-      flake = false;
-    };
-
-    # Let's use the NixVim distro
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # A good Display manager is always important
@@ -62,6 +62,9 @@
       url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # This is gonna be the coolest 
+    ags.url = "github:aylur/ags";
   };
 
   outputs = {
@@ -72,7 +75,7 @@
     sddm-sugar-candy-nix,
     ...
   } @ inputs: let
-    hostname = "nixwolf";
+    hostname = "nixprime";
   in {
     nixosConfigurations."${hostname}" = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";

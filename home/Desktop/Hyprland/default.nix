@@ -1,14 +1,14 @@
 {
   imports = [
-    ./fuzzel.nix
-    ./hyprland.nix
     ./theme.nix
-    ./waybar.nix
+    ./HyprEssenceMain
+    ./AGS
   ];
 
   # For Hyprland UWSM enviroment settings
-  xdg.configFile."uwsm" = {
-    source = ./uwsm_envs;
-    recursive = true;
+  xdg.configFile = {
+    "uwsm/env-hyprland" = {
+      source = ./HyprStuff/env-hyprland;
+    };
   };
 }
