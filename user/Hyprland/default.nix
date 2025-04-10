@@ -7,6 +7,7 @@ in
     ./hypridle.nix
     ./hyprlock.nix
     ./hyprpaper.nix
+    ./theme.nix
   ];
 
   wayland.windowManager.hyprland = {
