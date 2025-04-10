@@ -38,4 +38,9 @@
       size = 11;
     };
   };
+
+  qt = {
+    enable = true;
+    platformTheme = "gtk";
+  };
 }
