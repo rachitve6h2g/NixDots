@@ -11,6 +11,19 @@
 
         # For Other stuff
         youtube = "https://www.youtube.com/";
+        moviesmod = "https://moviesmod.gift/";
+        reddit = "https://www.reddit.com/";
+        letstype = "https://monkeytype.com/";
+        letstype2 = "https://www.keybr.com/";
+        whatsapp = "https://web.whatsapp.com/";
+      };
+
+      # Searchengines
+      searchEngines = {
+        chatgpt = "https://chat.openai.com/?q={}";
+        wa = "https://wiki.archlinux.org/?search={}";
+        yt = "https://www.youtube.com/results?search_query={}";
+        mynixos = "https://mynixos.com/search?q={}";
       };
     };
   };
