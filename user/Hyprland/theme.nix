@@ -26,9 +26,7 @@
     };
 
     iconTheme = {
-      package = pkgs.gruvbox-plus-icons.override {
-        folder-color = "pumpkin";
-      };
+      package = pkgs.gruvbox-plus-icons;
       name = "Gruvbox-Plus-Dark";
     };
 
