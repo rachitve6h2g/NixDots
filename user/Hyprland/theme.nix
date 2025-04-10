@@ -21,6 +21,8 @@
         ];
         iconVariants = [ "Dark" ];
       };
+
+      name = "Gruvbox-Yellow-Dark";
     };
 
     iconTheme = {
