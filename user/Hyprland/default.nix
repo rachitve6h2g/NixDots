@@ -163,6 +163,11 @@ in
         allow_session_lock_restore = true;
       };
 
+      dwindle = {
+        pseudotile = true;
+        preserve_split = true;
+      };
+
       general = {
         gaps_in = 5;
         gaps_out = 15;
