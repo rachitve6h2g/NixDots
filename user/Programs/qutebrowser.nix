@@ -16,6 +16,7 @@
         letstype = "https://monkeytype.com/";
         letstype2 = "https://www.keybr.com/";
         whatsapp = "https://web.whatsapp.com/";
+        nvf = "https://notashelf.github.io/nvf/options.xhtml";
       };
 
       # Searchengines

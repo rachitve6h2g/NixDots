@@ -46,6 +46,10 @@ in
       ];
 
       bind =
+        let
+          menu = "killall wofi || exec uwsm app -- $(wofi --show drun --define=drun-print_desktop_file=true)";
+          clipboard = "killall killall wofi || exec cliphist list | wofi -S dmenu | cliphist decode | wl-copy";
+        in
         [
           "$mod, Q, exec, kitty"
           "$mod, C, killactive,"
@@ -54,6 +58,9 @@ in
           "$mod, I, exec, exec uwsm app -- org.qutebrowser.qutebrowser.desktop"
           "$mod, F, fullscreen, 0"
           "$modSHIFT, F, fullscreen, 1"
+
+          "$mod, D, exec, ${menu}"
+          "$mod, V, exec, ${clipboard}"
 
           # Move focus with MainMod + vim keys
           "$mod, H, movefocus, l"
