@@ -47,6 +47,8 @@ in
         [
           "$mod, Q, exec, kitty"
           "$mod, C, killactive,"
+          "$mod, M, exec, exec uwsm stop"
+          "$mod, S, togglesplit,"
           "$mod, I, exec, exec uwsm app -- org.qutebrowser.qutebrowser.desktop"
           "$mod, F, fullscreen, 0"
           "$modSHIFT, F, fullscreen, 1"
@@ -56,6 +58,12 @@ in
           "$mod, L, movefocus, r"
           "$mod, J, movefocus, d"
           "$mod, K, movefocus, u"
+
+          # Move windows around in a workspace
+          "$mainModSHIFT, H, movewindow, l"
+          "$mainModSHIFT, L, movewindow, r"
+          "$mainModSHIFT, K, movewindow, u"
+          "$mainModSHIFT, J, movewindow, d"
 
           # Toggle b/w different workspaces
           "$mod, Tab, workspace, e+1"
@@ -85,9 +93,25 @@ in
           ) 9
         ));
 
+      bindl = [
+        ", XF86AudioNext, exec, playerctl next"
+        ", XF86AudioPause, exec, playerctl play-pause"
+        ", XF86AudioPlay, exec, playerctl play-pause"
+        ", XF86AudioPrev, exec, playerctl previous"
+      ];
+
       bindel = [
-        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.0"
-        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.0"
+        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+        ",XF86MonBrightnessUp, exec, brightnessctl s 10%+"
+        ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
+      ];
+
+      bindm = [
+        "$mainMod, mouse:272, movewindow"
+        "$mainMod, mouse:273, resizewindow"
       ];
 
       # The decorations go here
@@ -153,5 +177,28 @@ in
         "col.inactive_border" = "rgba(${myTheme.base00}30)";
       };
     };
+
+    extraConfig = # hyprls
+      ''
+        # Submap
+        # will switch to a submap called resize
+        bind = $mod, R, submap, resize
+
+        # will start a submap called "resize"
+        submap = resize
+
+        # sets repeatable binds for resizing the active window
+        binde = , l, resizeactive, 10 0
+        binde = , h, resizeactive, -10 0
+        binde = , k, resizeactive, 0 -10
+        binde = , j, resizeactive, 0 10
+
+        # use reset to go back to the global submap
+        bind = , return, submap, reset 
+        bind = , escape, submap, reset
+
+        # will reset the submap, which will return to the global submap
+        submap = reset
+      '';
   };
 }
