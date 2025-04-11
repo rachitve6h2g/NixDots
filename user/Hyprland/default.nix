@@ -60,10 +60,10 @@ in
           "$mod, K, movefocus, u"
 
           # Move windows around in a workspace
-          "$mainModSHIFT, H, movewindow, l"
-          "$mainModSHIFT, L, movewindow, r"
-          "$mainModSHIFT, K, movewindow, u"
-          "$mainModSHIFT, J, movewindow, d"
+          "$modSHIFT, H, movewindow, l"
+          "$modSHIFT, L, movewindow, r"
+          "$modSHIFT, K, movewindow, u"
+          "$modSHIFT, J, movewindow, d"
 
           # Toggle b/w different workspaces
           "$mod, Tab, workspace, e+1"
@@ -110,8 +110,8 @@ in
       ];
 
       bindm = [
-        "$mainMod, mouse:272, movewindow"
-        "$mainMod, mouse:273, resizewindow"
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
       ];
 
       # The decorations go here
