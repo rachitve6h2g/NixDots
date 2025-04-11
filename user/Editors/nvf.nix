@@ -103,6 +103,14 @@
               desc = "Map esc to jj";
             };
           };
+
+          normal = {
+            "\\" = {
+              action = ":Neotree float toggle<CR>";
+              desc = "Neotree toggle";
+              silent = true;
+            };
+          };
         };
 
         options = {
@@ -121,24 +129,6 @@
             package = nvim-highlight-colors;
             setup = "require(\"nvim-highlight-colors\").setup({})";
             after = [ "lspkind" ];
-          };
-        };
-
-        # Lazy load keymaps
-        lazy = {
-          plugins = {
-            neo-tree = {
-              package = "neo-tree-nvim";
-              keys = [
-                {
-                  mode = "n";
-                  key = "\\";
-                  action = ":Neotree float toggle<CR>";
-                  desc = "Neotree Toggle";
-                  silent = true;
-                }
-              ];
-            };
           };
         };
       };
