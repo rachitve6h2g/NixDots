@@ -16,6 +16,8 @@
         viAlias = true;
         vimAlias = true;
 
+        git.enable = true;
+
         useSystemClipboard = true;
         undoFile = {
           enable = true;
@@ -57,6 +59,9 @@
               type = "nixfmt";
             };
           };
+
+          css.enable = true;
+          bash.enable = true;
         };
 
         visuals = {
@@ -116,6 +121,24 @@
             package = nvim-highlight-colors;
             setup = "require(\"nvim-highlight-colors\").setup({})";
             after = [ "lspkind" ];
+          };
+        };
+
+        # Lazy load keymaps
+        lazy = {
+          plugins = {
+            neo-tree = {
+              package = "neo-tree-nvim";
+              keys = [
+                {
+                  mode = "n";
+                  key = "\\";
+                  action = ":Neotree float toggle<CR>";
+                  desc = "Neotree Toggle";
+                  silent = true;
+                }
+              ];
+            };
           };
         };
       };
