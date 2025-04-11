@@ -4,6 +4,7 @@ let
 in
 {
   imports = [
+    ./clipboard.nix
     ./hypridle.nix
     ./hyprlock.nix
     ./hyprpaper.nix
