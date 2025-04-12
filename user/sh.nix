@@ -118,7 +118,7 @@ in
 
         os = {
           disabled = false;
-          style = "bg:peach fg:text";
+          style = "bg:peach fg:blue";
 
           symbols = {
             Windows = "󰍲";
@@ -142,18 +142,19 @@ in
             Redhat = "󱄛";
             RedHatEnterprise = "󱄛";
             Pop = "";
+            NixOS = " ";
           };
         };
 
         username = {
           show_always = true;
-          style_user = "bg:peach fg:text";
-          style_root = "bg:peach fg:text";
+          style_user = "bg:peach fg:subtext1";
+          style_root = "bg:peach fg:subtext1";
           format = "[ $user ]($style)";
         };
 
         directory = {
-          style = "fg:text bg:yellow";
+          style = "fg:subtext1 bg:yellow";
           format = "[ $path ]($style)";
           truncation_length = 3;
           truncation_symbol = "…/";
@@ -170,36 +171,36 @@ in
         git_branch = {
           symbol = "";
           style = "bg:teal";
-          format = "[[ $symbol $branch ](fg:text bg:teal)]($style)";
+          format = "[[ $symbol $branch ](fg:subtext1 bg:teal)]($style)";
         };
 
         git_status = {
           style = "bg:teal";
-          format = "[[($all_status$ahead_behind )](fg:text bg:teal)]($style)";
+          format = "[[($all_status$ahead_behind )](fg:subtext1 bg:teal)]($style)";
         };
 
         nodejs = {
           symbol = "";
           style = "bg:blue";
-          format = "[[ $symbol( $version) ](fg:text bg:blue)]($style)";
+          format = "[[ $symbol( $version) ](fg:subtext1 bg:blue)]($style)";
         };
 
         c = {
           symbol = " ";
           style = "bg:blue";
-          format = "[[ $symbol( $version) ](fg:text bg:blue)]($style)";
+          format = "[[ $symbol( $version) ](fg:subtext1 bg:blue)]($style)";
         };
 
         rust = {
           symbol = "";
           style = "bg:blue";
-          format = "[[ $symbol( $version) ](fg:text bg:blue)]($style)";
+          format = "[[ $symbol( $version) ](fg:subtext1 bg:blue)]($style)";
         };
 
         java = {
           symbol = "";
           style = "bg:blue";
-          format = "[[ $symbol( $version) ](fg:text bg:blue)]($style)";
+          format = "[[ $symbol( $version) ](fg:subtext1 bg:blue)]($style)";
         };
 
         time = {
