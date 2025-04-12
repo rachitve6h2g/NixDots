@@ -87,7 +87,7 @@ in
           "$line_break$character"
         ];
 
-        palette = "\'catpuccin_mocha\'";
+        palette = "catppuccin_mocha";
 
         palettes.catppuccin_mocha = [
           {
