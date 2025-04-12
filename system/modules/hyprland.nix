@@ -6,6 +6,7 @@
 
   # Configure thru home-manager
   programs = {
+    dconf.enable = true;
     hyprlock.enable = true;
 
     hyprland = {
