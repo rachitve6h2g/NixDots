@@ -11,22 +11,41 @@
     enable = true;
 
     theme = {
-      package = pkgs.gruvbox-gtk-theme.override {
-        colorVariants = [ "dark" ];
-        sizeVariants = [ "standard" ];
-        themeVariants = [ "yellow" ];
-        tweakVariants = [
+
+      # The Gruvbox Material Gtk theme
+      # Uncomment below lines and comment others to use new
+      # Themes
+      #package = pkgs.gruvbox-gtk-theme.override {
+      #  colorVariants = [ "dark" ];
+      #  sizeVariants = [ "standard" ];
+      #  themeVariants = [ "yellow" ];
+      #  tweakVariants = [
+      #    "black"
+      #    "macos"
+      #  ];
+      #  iconVariants = [ "Dark" ];
+      #};
+
+      #name = "Gruvbox-Yellow-Dark";
+
+      package = pkgs.magnetic-catppuccin-gtk.override {
+        accent = [ "purple" ];
+        shade = [ "dark" ];
+        size = [ "standard" ];
+        tweaks = [
           "black"
           "macos"
         ];
-        iconVariants = [ "Dark" ];
       };
 
-      name = "Gruvbox-Yellow-Dark";
+      name = "Catppuccin-Purple-Dark";
     };
 
     iconTheme = {
-      package = pkgs.gruvbox-plus-icons;
+      package = pkgs.catppuccin-papirus-folders.override {
+        flavor = [ "mocha" ];
+        accent = [ "mauve" ];
+      };
       name = "Gruvbox-Plus-Dark";
     };
 
