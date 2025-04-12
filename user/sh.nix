@@ -60,15 +60,15 @@ in
         add_newline = true;
 
         format = lib.concatStrings [
-          "[](peach)"
+          "[](surface0)"
           "$os"
           "$username"
-          "[](bg:yellow fg:peach)"
+          "[](bg:peach fg:surface0)"
           "$directory"
-          "[](fg:yellow bg:teal)"
+          "[](fg:peach bg:green)"
           "$git_branch"
           "$git_status"
-          "[](fg:teal bg:blue)"
+          "[](fg:green bg:teal)"
           "$c"
           "$rust"
           "$golang"
@@ -78,12 +78,12 @@ in
           "$kotlin"
           "$haskell"
           "$python"
-          "[](fg:blue bg:surface1)"
+          "[](fg:teal bg:blue)"
           "$docker_context"
           "$conda"
-          "[](fg:surface1 bg:surface0)"
+          "[](fg:blue bg:mauve)"
           "$time"
-          "[ ](fg:surface0)"
+          "[ ](fg:mauve)"
           "$line_break$character"
         ];
 
