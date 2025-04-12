@@ -38,7 +38,7 @@
         ];
       };
 
-      name = "Catppuccin-Purple-Dark";
+      name = "Catppuccin-GTK-Dark";
     };
 
     iconTheme = {
@@ -46,7 +46,7 @@
         flavor = "mocha";
         accent = "mauve";
       };
-      name = "Gruvbox-Plus-Dark";
+      name = "Papirus-Dark";
     };
 
     font = {
