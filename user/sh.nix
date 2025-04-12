@@ -1,11 +1,9 @@
-{ lib, config, ... }:
+{ lib, ... }:
 let
   myAliases = {
     update = "sudo nixos-rebuild switch";
     cleanall = "sudo nix-collect-garbage -d && nix-collect-garbage -d";
   };
-
-  myTheme = config.colorScheme.palette;
 in
 {
   # home = {
@@ -60,15 +58,15 @@ in
         add_newline = true;
 
         format = lib.concatStrings [
-          "[](color_orange)"
+          "[](peach)"
           "$os"
           "$username"
-          "[](bg:color_yellow fg:color_orange)"
+          "[](bg:yellow fg:peach)"
           "$directory"
-          "[](fg:color_yellow bg:color_aqua)"
+          "[](fg:yellow bg:teal)"
           "$git_branch"
           "$git_status"
-          "[](fg:color_aqua bg:color_blue)"
+          "[](fg:teal bg:blue)"
           "$c"
           "$rust"
           "$golang"
@@ -78,33 +76,49 @@ in
           "$kotlin"
           "$haskell"
           "$python"
-          "[](fg:color_blue bg:color_bg3)"
+          "[](fg:blue bg:surface1)"
           "$docker_context"
           "$conda"
-          "[](fg:color_bg3 bg:color_bg1)"
+          "[](fg:surface1 bg:surface0)"
           "$time"
-          "[ ](fg:color_bg1)"
+          "[ ](fg:surface0)"
           "$line_break$character"
         ];
 
         palette = "catppuccin_mocha";
 
         palettes.catppuccin_mocha = {
-          color_fg0 = "#${myTheme.base05}";
-          color_bg1 = "#${myTheme.base02}";
-          color_bg3 = "#${myTheme.base03}";
-          color_blue = "#${myTheme.base0D}";
-          color_aqua = "#${myTheme.base0C}";
-          color_green = "#${myTheme.base0C}";
-          color_orange = "#${myTheme.base09}";
-          color_purple = "#${myTheme.base0E}";
-          color_red = "#${myTheme.base08}";
-          color_yellow = "#${myTheme.base0A}";
+          rosewater = "#f4dbd6";
+          flamingo = "#f0c6c6";
+          pink = "#f5bde6";
+          mauve = "#c6a0f6";
+          red = "#ed8796";
+          maroon = "#ee99a0";
+          peach = "#f5a97f";
+          yellow = "#eed49f";
+          green = "#a6da95";
+          teal = "#8bd5ca";
+          sky = "#91d7d3";
+          sapphire = "#7dc4e4";
+          blue = "#8aadf4";
+          lavender = "#b7bdf8";
+          text = "#cad3f5";
+          subtext1 = "#b8c0e0";
+          subtext0 = "#a5adcb";
+          overlay2 = "#939ab7";
+          overlay1 = "#8087a2";
+          overlay0 = "#6e738d";
+          surface0 = "#363a4f";
+          surface1 = "#494d64";
+          surface2 = "#5b6078";
+          base = "#24273a";
+          mantle = "#1e2030";
+          crust = "#181926";
         };
 
         os = {
           disabled = false;
-          style = "bg:color_orange fg:color_fg0";
+          style = "bg:peach fg:text";
 
           symbols = {
             Windows = "󰍲";
@@ -133,13 +147,13 @@ in
 
         username = {
           show_always = true;
-          style_user = "bg:color_orange fg:color_fg0";
-          style_root = "bg:color_orange fg:color_fg0";
+          style_user = "bg:peach fg:text";
+          style_root = "bg:peach fg:text";
           format = "[ $user ]($style)";
         };
 
         directory = {
-          style = "fg:color_fg0 bg:color_yellow";
+          style = "fg:text bg:yellow";
           format = "[ $path ]($style)";
           truncation_length = 3;
           truncation_symbol = "…/";
@@ -155,44 +169,44 @@ in
 
         git_branch = {
           symbol = "";
-          style = "bg:color_aqua";
-          format = "[[ $symbol $branch ](fg:color_fg0 bg:color_aqua)]($style)";
+          style = "bg:teal";
+          format = "[[ $symbol $branch ](fg:text bg:teal)]($style)";
         };
 
         git_status = {
-          style = "bg:color_aqua";
-          format = "[[($all_status$ahead_behind )](fg:color_fg0 bg:color_aqua)]($style)";
+          style = "bg:teal";
+          format = "[[($all_status$ahead_behind )](fg:text bg:teal)]($style)";
         };
 
         nodejs = {
           symbol = "";
-          style = "bg:color_blue";
-          format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
+          style = "bg:blue";
+          format = "[[ $symbol( $version) ](fg:text bg:blue)]($style)";
         };
 
         c = {
           symbol = " ";
-          style = "bg:color_blue";
-          format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
+          style = "bg:blue";
+          format = "[[ $symbol( $version) ](fg:text bg:blue)]($style)";
         };
 
         rust = {
           symbol = "";
-          style = "bg:color_blue";
-          format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
+          style = "bg:blue";
+          format = "[[ $symbol( $version) ](fg:text bg:blue)]($style)";
         };
 
         java = {
           symbol = "";
-          style = "bg:color_blue";
-          format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)";
+          style = "bg:blue";
+          format = "[[ $symbol( $version) ](fg:text bg:blue)]($style)";
         };
 
         time = {
           disabled = false;
           time_format = "%R";
-          style = "bg:color_bg1";
-          format = "[[  $time ](fg:color_fg0 bg:color_bg1)]($style)";
+          style = "bg:surface0";
+          format = "[[  $time ](fg:text bg:surface0)]($style)";
         };
 
         line_break = {
@@ -201,12 +215,12 @@ in
 
         character = {
           disabled = false;
-          success_symbol = "[](bold fg:color_green)";
-          error_symbol = "[](bold fg:color_red)";
-          vimcmd_symbol = "[](bold fg:color_green)";
-          vimcmd_replace_one_symbol = "[](bold fg:color_purple)";
-          vimcmd_replace_symbol = "[](bold fg:color_purple)";
-          vimcmd_visual_symbol = "[](bold fg:color_yellow)";
+          success_symbol = "[](bold fg:green)";
+          error_symbol = "[](bold fg:red)";
+          vimcmd_symbol = "[](bold fg:green)";
+          vimcmd_replace_one_symbol = "[](bold fg:mauve)";
+          vimcmd_replace_symbol = "[](bold fg:mauve)";
+          vimcmd_visual_symbol = "[](bold fg:yellow)";
         };
       };
     };
