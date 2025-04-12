@@ -15,6 +15,13 @@ in
   # };
   home.sessionVariables = lib.mkForce {
     EDITOR = "vim";
+    SUDO_PROMPT = lib.concatStrings [
+      "$(tput setaf 1 bold)[sudo]"
+      "$(tput sgr0) $(tput setaf 3)password for"
+      "$(tput sgr0)"
+      "$(tput setaf 5)%p"
+      "$(tput sgr0): "
+    ];
   };
 
   programs = {

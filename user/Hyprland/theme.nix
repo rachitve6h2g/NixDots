@@ -30,8 +30,8 @@
 
       package = pkgs.magnetic-catppuccin-gtk.override {
         accent = [ "purple" ];
-        shade = [ "dark" ];
-        size = [ "standard" ];
+        shade = "dark";
+        size = "standard";
         tweaks = [
           "black"
           "macos"
@@ -43,8 +43,8 @@
 
     iconTheme = {
       package = pkgs.catppuccin-papirus-folders.override {
-        flavor = [ "mocha" ];
-        accent = [ "mauve" ];
+        flavor = "mocha";
+        accent = "mauve";
       };
       name = "Gruvbox-Plus-Dark";
     };
