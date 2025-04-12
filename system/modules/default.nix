@@ -10,6 +10,7 @@
     ./security.nix
     # ./sound.nix # comment this out if using in VM
     # Otherwise the sound in host will stop working
+    ./thunar.nix
     ./usersettings.nix
   ];
 }
