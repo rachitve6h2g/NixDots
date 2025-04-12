@@ -88,32 +88,32 @@ in
         palette = "catppuccin_mocha";
 
         palettes.catppuccin_mocha = {
-          rosewater = "#f2d5cf";
-          flamingo = "#eebebe";
-          pink = "#f5bde6";
-          mauve = "#ca9ee6";
-          red = "#e78284";
-          maroon = "#ea999c";
-          peach = "#ef9f76";
-          yellow = "#e5c890";
-          green = "#a6d189";
-          teal = "#81c8be";
-          sky = "#99d1db";
-          sapphire = "#85c1dc";
-          blue = "#8caaee";
-          lavender = "#babbf1";
-          text = "#c6d0f5";
-          subtext1 = "#b5bfe2";
-          subtext0 = "#a5adce";
-          overlay2 = "#949cbb";
-          overlay1 = "#838ba7";
-          overlay0 = "#737994";
-          surface0 = "#414559";
-          surface1 = "#51576d";
-          surface2 = "#626880";
-          base = "#303446";
-          mantle = "#292c3c";
-          crust = "#232634";
+          rosewater = "#dc8a78";
+          flamingo = "#dd7878";
+          pink = "#ea76cb";
+          mauve = "#8839ef";
+          red = "#d20f39";
+          maroon = "#e64553";
+          peach = "#fe640b";
+          yellow = "#df8e1d";
+          green = "#40a02b";
+          teal = "#179299";
+          sky = "#04a5e5";
+          sapphire = "#209fb5";
+          blue = "#1e66f5";
+          lavender = "#7287fd";
+          text = "#4c4f69";
+          subtext1 = "#5c5f77";
+          subtext0 = "#6c6f85";
+          overlay2 = "#7c7f93";
+          overlay1 = "#8c8fa1";
+          overlay0 = "#9ca0b0";
+          surface0 = "#ccd0da";
+          surface1 = "#bcc0cc";
+          surface2 = "#acb0be";
+          base = "#eff1f5";
+          mantle = "#e6e9ef";
+          crust = "#dce0e8";
         };
 
         os = {
@@ -148,13 +148,13 @@ in
 
         username = {
           show_always = true;
-          style_user = "bg:peach fg:subtext1";
-          style_root = "bg:peach fg:subtext1";
+          style_user = "bg:peach fg:text";
+          style_root = "bg:peach fg:text";
           format = "[ $user ]($style)";
         };
 
         directory = {
-          style = "fg:subtext1 bg:yellow";
+          style = "fg:text bg:yellow";
           format = "[ $path ]($style)";
           truncation_length = 3;
           truncation_symbol = "…/";
@@ -171,36 +171,36 @@ in
         git_branch = {
           symbol = "";
           style = "bg:teal";
-          format = "[[ $symbol $branch ](fg:subtext1 bg:teal)]($style)";
+          format = "[[ $symbol $branch ](fg:text bg:teal)]($style)";
         };
 
         git_status = {
           style = "bg:teal";
-          format = "[[($all_status$ahead_behind )](fg:subtext1 bg:teal)]($style)";
+          format = "[[($all_status$ahead_behind )](fg:text bg:teal)]($style)";
         };
 
         nodejs = {
           symbol = "";
           style = "bg:blue";
-          format = "[[ $symbol( $version) ](fg:subtext1 bg:blue)]($style)";
+          format = "[[ $symbol( $version) ](fg:text bg:blue)]($style)";
         };
 
         c = {
           symbol = " ";
           style = "bg:blue";
-          format = "[[ $symbol( $version) ](fg:subtext1 bg:blue)]($style)";
+          format = "[[ $symbol( $version) ](fg:text bg:blue)]($style)";
         };
 
         rust = {
           symbol = "";
           style = "bg:blue";
-          format = "[[ $symbol( $version) ](fg:subtext1 bg:blue)]($style)";
+          format = "[[ $symbol( $version) ](fg:text bg:blue)]($style)";
         };
 
         java = {
           symbol = "";
           style = "bg:blue";
-          format = "[[ $symbol( $version) ](fg:subtext1 bg:blue)]($style)";
+          format = "[[ $symbol( $version) ](fg:text bg:blue)]($style)";
         };
 
         time = {
