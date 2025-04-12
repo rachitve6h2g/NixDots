@@ -89,20 +89,18 @@ in
 
         palette = "catppuccin_mocha";
 
-        palettes.catppuccin_mocha = [
-          {
-            color_fg0 = "#${myTheme.base05}";
-            color_bg1 = "#${myTheme.base02}";
-            color_bg3 = "#${myTheme.base03}";
-            color_blue = "#${myTheme.base0D}";
-            color_aqua = "#${myTheme.base0C}";
-            color_green = "#${myTheme.base0C}";
-            color_orange = "#${myTheme.base09}";
-            color_purple = "#${myTheme.base0E}";
-            color_red = "#${myTheme.base08}";
-            color_yellow = "#${myTheme.base0A}";
-          }
-        ];
+        palettes.catppuccin_mocha = {
+          color_fg0 = "#${myTheme.base05}";
+          color_bg1 = "#${myTheme.base02}";
+          color_bg3 = "#${myTheme.base03}";
+          color_blue = "#${myTheme.base0D}";
+          color_aqua = "#${myTheme.base0C}";
+          color_green = "#${myTheme.base0C}";
+          color_orange = "#${myTheme.base09}";
+          color_purple = "#${myTheme.base0E}";
+          color_red = "#${myTheme.base08}";
+          color_yellow = "#${myTheme.base0A}";
+        };
       };
     };
 
