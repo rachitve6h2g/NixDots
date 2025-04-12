@@ -1,9 +1,11 @@
-{ lib, ... }:
+{ lib, config, ... }:
 let
   myAliases = {
     update = "sudo nixos-rebuild switch";
     cleanall = "sudo nix-collect-garbage -d && nix-collect-garbage -d";
   };
+
+  myTheme = config.colorScheme.palette;
 in
 {
   # home = {
@@ -88,37 +90,27 @@ in
         palette = "catppuccin_mocha";
 
         palettes.catppuccin_mocha = {
-          rosewater = "#dc8a78";
-          flamingo = "#dd7878";
-          pink = "#ea76cb";
-          mauve = "#8839ef";
-          red = "#d20f39";
-          maroon = "#e64553";
-          peach = "#fe640b";
-          yellow = "#df8e1d";
-          green = "#40a02b";
-          teal = "#179299";
-          sky = "#04a5e5";
-          sapphire = "#209fb5";
-          blue = "#1e66f5";
-          lavender = "#7287fd";
-          text = "#4c4f69";
-          subtext1 = "#5c5f77";
-          subtext0 = "#6c6f85";
-          overlay2 = "#7c7f93";
-          overlay1 = "#8c8fa1";
-          overlay0 = "#9ca0b0";
-          surface0 = "#ccd0da";
-          surface1 = "#bcc0cc";
-          surface2 = "#acb0be";
-          base = "#eff1f5";
-          mantle = "#e6e9ef";
-          crust = "#dce0e8";
+          rosewater = "#${myTheme.base06}";
+          flamingo = "#${myTheme.base0F}";
+          mauve = "#${myTheme.base0E}";
+          red = "#${myTheme.base08}";
+          peach = "#${myTheme.base09}";
+          yellow = "#${myTheme.base0A}";
+          green = "#${myTheme.base0B}";
+          teal = "#${myTheme.base0C}";
+          blue = "#${myTheme.base0D}";
+          lavender = "#${myTheme.base07}";
+          text = "#${myTheme.base05}";
+          surface0 = "#${myTheme.base02}";
+          surface1 = "#${myTheme.base03}";
+          surface2 = "#${myTheme.base04}";
+          base = "#${myTheme.base00}";
+          mantle = "#${myTheme.base01}";
         };
 
         os = {
           disabled = false;
-          style = "bg:peach fg:blue";
+          style = "bg:surface0 fg:text";
 
           symbols = {
             Windows = "󰍲";
@@ -148,13 +140,13 @@ in
 
         username = {
           show_always = true;
-          style_user = "bg:peach fg:text";
-          style_root = "bg:peach fg:text";
+          style_user = "bg:surface0 fg:text";
+          style_root = "bg:surface0 fg:text";
           format = "[ $user ]($style)";
         };
 
         directory = {
-          style = "fg:text bg:yellow";
+          style = "fg:mantle bg:peach";
           format = "[ $path ]($style)";
           truncation_length = 3;
           truncation_symbol = "…/";
@@ -171,43 +163,43 @@ in
         git_branch = {
           symbol = "";
           style = "bg:teal";
-          format = "[[ $symbol $branch ](fg:text bg:teal)]($style)";
+          format = "[[ $symbol $branch ](fg:base bg:teal)]($style)";
         };
 
         git_status = {
           style = "bg:teal";
-          format = "[[($all_status$ahead_behind )](fg:text bg:teal)]($style)";
+          format = "[[($all_status$ahead_behind )](fg:base bg:teal)]($style)";
         };
 
         nodejs = {
           symbol = "";
           style = "bg:blue";
-          format = "[[ $symbol( $version) ](fg:text bg:blue)]($style)";
+          format = "[[ $symbol( $version) ](fg:base bg:blue)]($style)";
         };
 
         c = {
           symbol = " ";
           style = "bg:blue";
-          format = "[[ $symbol( $version) ](fg:text bg:blue)]($style)";
+          format = "[[ $symbol( $version) ](fg:base bg:blue)]($style)";
         };
 
         rust = {
           symbol = "";
           style = "bg:blue";
-          format = "[[ $symbol( $version) ](fg:text bg:blue)]($style)";
+          format = "[[ $symbol( $version) ](fg:base bg:blue)]($style)";
         };
 
         java = {
           symbol = "";
           style = "bg:blue";
-          format = "[[ $symbol( $version) ](fg:text bg:blue)]($style)";
+          format = "[[ $symbol( $version) ](fg:base bg:blue)]($style)";
         };
 
         time = {
           disabled = false;
           time_format = "%R";
           style = "bg:surface0";
-          format = "[[  $time ](fg:text bg:surface0)]($style)";
+          format = "[[  $time ](fg:mantle bg:mauve)]($style)";
         };
 
         line_break = {
