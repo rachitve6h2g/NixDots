@@ -17,7 +17,7 @@ in
     EDITOR = "vim";
     SUDO_PROMPT = lib.concatStrings [
       "$(tput setaf 1 bold)[sudo]"
-      "$(tput sgr0) $(tput setaf 2)password "
+      "$(tput sgr0) $(tput setaf 2)password"
       "$(tput sgr0) $(tput setaf 4) for"
       "$(tput sgr0) $(tput setaf 5)%p"
       "$(tput sgr0) $(tput setaf 3): "
