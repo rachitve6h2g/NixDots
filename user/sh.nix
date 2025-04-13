@@ -62,7 +62,7 @@ in
 
       enableZshIntegration = true;
 
-      # TODO: Set a catppuccin starship configuration
+      # TODO: Set read only file system icon somewhere
       settings = {
         add_newline = true;
 
