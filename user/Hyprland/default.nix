@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 let
   myTheme = config.colorScheme.palette;
 in
@@ -47,8 +52,8 @@ in
 
       bind =
         let
-          menu = "killall wofi || exec uwsm app -- $(wofi --show drun --define=drun-print_desktop_file=true)";
-          clipboard = "killall killall wofi || exec cliphist list | wofi -S dmenu | cliphist decode | wl-copy";
+          menu = "killall ${pkgs.wofi}/bin/wofi || exec uwsm app -- $(${pkgs.wofi}/bin/wofi --show drun --define=drun-print_desktop_file=true)";
+          clipboard = "killall killall ${pkgs.wofi}/bin/wofi || exec cliphist list | ${pkgs.wofi}/bin/wofi -S dmenu | cliphist decode | wl-copy";
         in
         [
           "$mod, Q, exec, kitty"

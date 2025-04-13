@@ -1,3 +1,7 @@
+{ config, ... }:
+let
+  myTheme = config.colorScheme.palette;
+in
 {
   programs.wofi = {
     enable = true;
@@ -20,9 +24,9 @@
         window {
           margin: 0px;
           padding: 10px;
-          border: 0.16em solid @mauve;
+          border: 0.16em solid ${myTheme.base0E};
           border-radius: 0.1em;
-          background-color: @base;
+          background-color: ${myTheme.base00};
           animation: slideIn 0.5s ease-in-out both;
         }
 
@@ -42,7 +46,7 @@
           margin: 5px;
           padding: 10px;
           border: none;
-          background-color: @base;
+          background-color: ${myTheme.base00};
           animation: fadeIn 0.5s ease-in-out both;
         }
 
@@ -62,7 +66,7 @@
           margin: 5px;
           padding: 10px;
           border: none;
-          background-color: @base;
+          background-color: ${myTheme.base00};
         }
 
         /* Scroll */
@@ -70,7 +74,7 @@
           margin: 0px;
           padding: 10px;
           border: none;
-          background-color: @base;
+          background-color: ${myTheme.base00};
         }
 
         /* Input */
@@ -79,48 +83,48 @@
           padding: 10px;
           border: none;
           border-radius: 0.1em;
-          color: @text;
-          background-color: @base;
+          color: ${myTheme.base05};
+          background-color: ${myTheme.base00};
           animation: fadeIn 0.5s ease-in-out both;
         }
 
         #input image {
             border: none;
-            color: @red;
+            color: ${myTheme.base08};
         }
 
         #input * {
-          outline: 4px solid @red!important;
+          outline: 4px solid ${myTheme.base08}!important;
         }
 
         /* Text */
         #text {
           margin: 5px;
           border: none;
-          color: @text;
+          color: ${myTheme.base05};
           animation: fadeIn 0.5s ease-in-out both;
         }
 
         #entry {
-          background-color: @base;
+          background-color: ${myTheme.base00};
         }
 
         #entry arrow {
           border: none;
-          color: @yellow;
+          color: ${myTheme.base0A};
         }
 
         /* Selected Entry */
         #entry:selected {
-          border: 0.11em solid @blue;
+          border: 0.11em solid ${myTheme.base0D};
         }
 
         #entry:selected #text {
-          color: @mauve;
+          color: ${myTheme.base0E};
         }
 
         #entry:drop(active) {
-          background-color: @yellow!important;
+          background-color: ${myTheme.base0A}!important;
         }
       '';
   };
