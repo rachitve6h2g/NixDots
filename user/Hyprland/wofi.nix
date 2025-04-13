@@ -24,9 +24,9 @@ in
         window {
           margin: 0px;
           padding: 10px;
-          border: 0.16em solid ${myTheme.base0E};
+          border: 0.16em solid #${myTheme.base0E};
           border-radius: 0.1em;
-          background-color: ${myTheme.base00};
+          background-color: #${myTheme.base00};
           animation: slideIn 0.5s ease-in-out both;
         }
 
@@ -46,7 +46,7 @@ in
           margin: 5px;
           padding: 10px;
           border: none;
-          background-color: ${myTheme.base00};
+          background-color: #${myTheme.base00};
           animation: fadeIn 0.5s ease-in-out both;
         }
 
@@ -66,7 +66,7 @@ in
           margin: 5px;
           padding: 10px;
           border: none;
-          background-color: ${myTheme.base00};
+          background-color: #${myTheme.base00};
         }
 
         /* Scroll */
@@ -74,7 +74,7 @@ in
           margin: 0px;
           padding: 10px;
           border: none;
-          background-color: ${myTheme.base00};
+          background-color: #${myTheme.base00};
         }
 
         /* Input */
@@ -83,48 +83,48 @@ in
           padding: 10px;
           border: none;
           border-radius: 0.1em;
-          color: ${myTheme.base05};
-          background-color: ${myTheme.base00};
+          color: #${myTheme.base05};
+          background-color: #${myTheme.base00};
           animation: fadeIn 0.5s ease-in-out both;
         }
 
         #input image {
             border: none;
-            color: ${myTheme.base08};
+            color: #${myTheme.base08};
         }
 
         #input * {
-          outline: 4px solid ${myTheme.base08}!important;
+          outline: 4px solid #${myTheme.base08}!important;
         }
 
         /* Text */
         #text {
           margin: 5px;
           border: none;
-          color: ${myTheme.base05};
+          color: #${myTheme.base05};
           animation: fadeIn 0.5s ease-in-out both;
         }
 
         #entry {
-          background-color: ${myTheme.base00};
+          background-color: #${myTheme.base00};
         }
 
         #entry arrow {
           border: none;
-          color: ${myTheme.base0A};
+          color: #${myTheme.base0A};
         }
 
         /* Selected Entry */
         #entry:selected {
-          border: 0.11em solid ${myTheme.base0D};
+          border: 0.11em solid #${myTheme.base0D};
         }
 
         #entry:selected #text {
-          color: ${myTheme.base0E};
+          color: #${myTheme.base0E};
         }
 
         #entry:drop(active) {
-          background-color: ${myTheme.base0A}!important;
+          background-color: #${myTheme.base0A}!important;
         }
       '';
   };
