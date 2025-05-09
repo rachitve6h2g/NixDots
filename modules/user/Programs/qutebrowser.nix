@@ -1,38 +1,37 @@
 {pkgs, ...}: {
-  nixpkgs.overlays = [
-    (final: prev: {
-      qutebrowser-overlay = prev.qutebrowser.override {
-        enableWideVine = true;
-        enableVulkan = true;
-      };
-    })
-  ];
   programs = {
     qutebrowser = {
       enable = true;
-      pacakge = pkgs.qutebrowser-overlay;
 
       settings = {
         tabs.background = true;
         downloads.position = "bottom";
         colors.webpage.preferred_color_scheme = "dark";
 
+	content.autoplay = false;
+
         content.blocking = {
+	  enabled = true;
           method = "both";
           adblock.lists = [
-            "https://github.com/uBlockOrigin/uAssets/raw/master/filters/legacy.txt"
-            "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt"
+            "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances-cookies.txt"
+            "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances-others.txt"
+            "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances.txt"
+            "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badlists.txt"
+            "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badware.txt"
             "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2020.txt"
             "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2021.txt"
             "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2022.txt"
             "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2023.txt"
-            "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badware.txt"
+            "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2024.txt"
+            "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2025.txt"
+            "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2025.txt"
+            "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-general.txt"
+            "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-mobile.txt"
+            "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt"
+            "https://github.com/uBlockOrigin/uAssets/raw/master/filters/lan-block.txt"
+            "https://github.com/uBlockOrigin/uAssets/raw/master/filters/legacy.txt"
             "https://github.com/uBlockOrigin/uAssets/raw/master/filters/privacy.txt"
-            "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badlists.txt"
-            "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances.txt"
-            "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances-cookies.txt"
-            "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances-others.txt"
-            "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badlists.txt"
             "https://github.com/uBlockOrigin/uAssets/raw/master/filters/quick-fixes.txt"
             "https://github.com/uBlockOrigin/uAssets/raw/master/filters/resource-abuse.txt"
             "https://github.com/uBlockOrigin/uAssets/raw/master/filters/unbreak.txt"
@@ -53,7 +52,6 @@
         letstype = "https://monkeytype.com/";
         letstype2 = "https://www.keybr.com/";
         whatsapp = "https://web.whatsapp.com/";
-        nvf = "https://notashelf.github.io/nvf/options.xhtml";
       };
 
       # Searchengines
@@ -62,6 +60,8 @@
         wa = "https://wiki.archlinux.org/?search={}";
         yt = "https://www.youtube.com/results?search_query={}";
         mynixos = "https://mynixos.com/search?q={}";
+	nixpackages = "https://search.nixos.org/packages?query={}";
+	nixoptions = "https://search.nixos.org/options?query={}";
       };
 
       # Extras
