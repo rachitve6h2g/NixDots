@@ -4,6 +4,10 @@ let
     update = "sudo nixos-rebuild switch";
     cleanall = "sudo nix-collect-garbage -d && nix-collect-garbage -d";
     rm = "echo \"Don't use this, use trash\";false";
+<<<<<<< HEAD
+=======
+    ".." = "cd ..";
+>>>>>>> 481349b (Added new tasks)
   };
 
   myTheme = config.colorScheme.palette;

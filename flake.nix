@@ -3,12 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
-
-<<<<<<< HEAD
-=======
     flake-parts.url = "github:hercules-ci/flake-parts";
 
->>>>>>> efc1686 (Added flake parts and refreshed it)
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,6 +28,5 @@
         "x86_64-linux"
       ];
       imports = [ ./hosts ];
->>>>>>> efc1686 (Added flake parts and refreshed it)
     };
 }
