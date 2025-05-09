@@ -1,4 +1,4 @@
-{ pkgs, ...}: {
+{ pkgs, lib, ...}: {
 	programs.waybar = {
 		enable = true;
 
@@ -42,7 +42,7 @@
 					format = "{icon}";
 					format-icons = {
 						urgent = " ";
-						focused = " ";
+						active = " ";
 						default = " ";
 					};
 					persistent-workspaces = {
@@ -100,4 +100,27 @@
 			};
 		};
 	};
+  	# For making it conform with UWSM
+  	systemd.user.services = lib.mkForce {
+  	  waybar = {
+  	    Install = {
+  	      WantedBy = [ "graphical-session.target" ];
+  	    };
+
+  	    Unit = {
+  	      Description = "Waybar Service started thru UWSM";
+  	      Documentation = [ "man:waybar(1)" ];
+  	      After = [ "graphical-session.target" ];
+  	    };
+
+  	    Service = {
+  	      Type = "exec";
+	      # QUESTION: does the pkgs.waybar here use the same package as the above overriden or does it create a different one
+  	      ExecStart = "${pkgs.waybar}/bin/waybar";
+  	      ExecCondition = "${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition \"Hyprland\" \"\" ";
+  	      Restart = "on-failure";
+  	      Slice = "background-graphical.slice";
+  	    };
+  	  };
+  	};
 }
