@@ -4,3 +4,5 @@
 # TODO
 - [ ] Package fast-syntax-highlighting for zsh
 - [ ] Learn how to setup nixCats.
+- [ ] Get Disko Configuration ready
+- [ ] Borrow tasks from SwayDots repo
