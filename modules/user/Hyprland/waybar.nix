@@ -1,13 +1,6 @@
 { pkgs, lib, ...}: {
 	programs.waybar = {
 		enable = true;
-
-		package = (pkgs.waybar.override {
-			evdevSupport = false;
-			# niriSupport = false;
-			swaySupport = false;
-			traySupport = false;
-		});
 		
 		systemd = {
 			enable = true;
