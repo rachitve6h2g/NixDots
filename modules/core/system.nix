@@ -1,5 +1,14 @@
 { pkgs, ... }:
 {
+  boot = {
+	kernelPackages = pkgs.linuxPackages_latest;
+	kernelParams = [
+		"quiet"
+		"splash"
+		"i915.force_probe=!a7a0"
+		"xe.force_probe=a7a0"
+	];
+  };
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
