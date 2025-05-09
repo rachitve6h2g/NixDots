@@ -27,7 +27,15 @@
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/32503939-7c1c-4240-9e8d-a757f53461f2";
     fsType = "btrfs";
-    options = [ "subvol=@" ];
+    options = [ 
+	"subvol=@" 
+	"autodefrag"
+	"discard=async"
+	"noatime"
+	"ssd"
+	"space_cache=v2"
+	"compress=zstd"
+    ];
   };
 
   boot.initrd.luks.devices."root".device = "/dev/disk/by-uuid/34565279-727f-4bca-831d-53c9abe97312";
@@ -35,25 +43,57 @@
   fileSystems."/home" = {
     device = "/dev/disk/by-uuid/32503939-7c1c-4240-9e8d-a757f53461f2";
     fsType = "btrfs";
-    options = [ "subvol=@home" ];
+    options = [ 
+	"subvol=@home" 
+	"autodefrag"
+	"discard=async"
+	"noatime"
+	"ssd"
+	"space_cache=v2"
+	"compress=zstd"
+    ];
   };
 
   fileSystems."/var" = {
     device = "/dev/disk/by-uuid/32503939-7c1c-4240-9e8d-a757f53461f2";
     fsType = "btrfs";
-    options = [ "subvol=@var" ];
+    options = [ 
+	"subvol=@var" 
+	"autodefrag"
+	"discard=async"
+	"noatime"
+	"ssd"
+	"space_cache=v2"
+	"compress=zstd"
+    ];
   };
 
   fileSystems."/nix" = {
     device = "/dev/disk/by-uuid/32503939-7c1c-4240-9e8d-a757f53461f2";
     fsType = "btrfs";
-    options = [ "subvol=@nix" ];
+    options = [ 
+	"subvol=@nix" 
+	"autodefrag"
+	"discard=async"
+	"noatime"
+	"ssd"
+	"space_cache=v2"
+	"compress=zstd"
+    ];
   };
 
   fileSystems."/swap" = {
     device = "/dev/disk/by-uuid/32503939-7c1c-4240-9e8d-a757f53461f2";
     fsType = "btrfs";
-    options = [ "subvol=@swap" ];
+    options = [ 
+	"subvol=@swap" 
+	"autodefrag"
+	"discard=async"
+	"noatime"
+	"ssd"
+	"space_cache=v2"
+	"compress=zstd"
+     ];
   };
 
   fileSystems."/efi" = {
@@ -65,7 +105,7 @@
     ];
   };
 
-  swapDevices = [ ];
+  swapDevices = [ { device = "/swap/swapfile"; } ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
