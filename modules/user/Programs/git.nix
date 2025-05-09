@@ -9,6 +9,12 @@
       userName = "Rachit Kumar Verma";
       userEmail = "rachitverma1122@gmail.com";
 
+      aliases = {
+	co = "checkout";
+	s = "status";
+	ss = "status --short --branch";
+      };
+
       extraConfig = {
         credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
 
