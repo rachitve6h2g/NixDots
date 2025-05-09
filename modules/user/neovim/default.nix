@@ -1,4 +1,4 @@
-{ config, lib, inputs, ... }: let
+{ config, lib, inputs, pkgsUnstable, ... }: let
   utils = inputs.nixCats.utils;
 in {
   imports = [
@@ -13,7 +13,7 @@ in {
       # this will add the overlays from ./overlays and also,
       # add any plugins in inputs named "plugins-pluginName" to pkgs.neovimPlugins
       # It will not apply to overall system, just nixCats.
-      addOverlays = /* (import ./overlays inputs) ++ */ [
+      addOverlays = /*(import ./overlays inputs) ++ */ [
         (utils.standardPluginOverlay inputs)
       ];
       # see the packageDefinitions below.
@@ -64,11 +64,10 @@ in {
             # lazy loading isnt required with a config this small
             # but as a demo, we do it anyway.
             lze
-            lzextras
             snacks-nvim
             onedark-nvim
             vim-sleuth
-          ];
+          ] ++ ([ inputs.nixpkgs-unstable.${pkgs.system}.lzextras ]);
         };
 
         # not loaded automatically at startup.

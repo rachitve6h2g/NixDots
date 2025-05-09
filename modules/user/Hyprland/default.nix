@@ -14,6 +14,7 @@ in
     ./hyprlock.nix
     ./hyprpaper.nix
     ./theme.nix
+    ./waybar.nix
     ./wofi.nix
   ];
 

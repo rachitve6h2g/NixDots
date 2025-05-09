@@ -9,10 +9,10 @@
     ./sh.nix
     ./terminal.nix
 
-    ./neovim
+    #./neovim
     ./Hyprland
     ./Programs
-    ./Unstable
+    #./Unstable
   ];
 
   # TODO: see how to make a custom module for this
