@@ -1,4 +1,7 @@
-{ pkgs, lib, ...}: {
+{ pkgs, lib, inputs, ...}:
+let 
+	theme = inputs.colorScheme.palette;
+in {
 	programs.waybar = {
 		enable = true;
 		
@@ -89,6 +92,15 @@
 				wireplumber = {
 					format = "VOL:{volume} %";	
 					format-muted = "MUTE";
+				};
+				
+				network = {
+        				format-wifi = "<span color = '#a6e3a1' size='12pt'> </span> {essid}({signalStrength}%)";
+        				on-click = "killall nm-connection-editor || exec uwsm app -- nm-connection-editor.desktop";
+        				format-ethernet = "{ipaddr}/{cidr}  ";
+        				tooltip-format = "{essid} ({signalStrength}%)";
+        				format-linked = "{ifname} (No IP) ";
+        				format-disconnected = "󰤮 ";
 				};
 			};
 		};
