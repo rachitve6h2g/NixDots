@@ -16,6 +16,6 @@
         };
     in
     {
-      hp_pavilion = mkHost "hp_pavilion";
+      hppavilion = mkHost "hppavilion";
     };
 }

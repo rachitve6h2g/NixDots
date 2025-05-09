@@ -1,6 +1,8 @@
 {
   networking = {
-    hostName = "hp_pavilion"; # Define your hostname.
+    # Refer this https://mynixos.com/nixpkgs/option/networking.hostName
+    # For properly setting your hostname
+    hostName = "hppavilion"; # Define your hostname.
     networkmanager = {
       enable = true;
       wifi = {

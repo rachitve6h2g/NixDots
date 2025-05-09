@@ -9,6 +9,7 @@
     ./sh.nix
     ./terminal.nix
 
+    ./neovim
     ./Hyprland
     ./Programs
   ];
