@@ -11,6 +11,7 @@
           };
           modules = [
             ../modules/core
+	    ../modules/overlays
             ./${hostname}
           ];
         };
