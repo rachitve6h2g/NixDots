@@ -9,11 +9,6 @@
     ./sh.nix
     ./terminal.nix
 
-<<<<<<< HEAD
-    ./Editors
-=======
-    # ./Editors
->>>>>>> 481349b (Added new tasks)
     ./Hyprland
     ./Programs
   ];
