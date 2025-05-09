@@ -3,11 +3,9 @@
   config,
   pkgs,
   ...
-}:
-let
+}: let
   myTheme = config.colorScheme.palette;
-in
-{
+in {
   imports = [
     ./clipboard.nix
     ./hypridle.nix
@@ -19,9 +17,10 @@ in
   ];
 
   # For uwsm login from tty
-  xdg.configFile."zsh/.zprofile".text = # bash
+  xdg.configFile."zsh/.zprofile".text =
+    # bash
     ''
-      if uwsm check may-start; then 
+      if uwsm check may-start; then
         exec uwsm start -S -F Hyprland
       fi
     '';
@@ -59,15 +58,14 @@ in
         # "${pkgs.hyprpaper}/bin/hyprpaper &"
       ];
 
-      bind =
-        let
-          menu = "killall ${pkgs.wofi}/bin/wofi || exec uwsm app -- $(${pkgs.wofi}/bin/wofi --show drun --define=drun-print_desktop_file=true)";
-          clipboard = "killall killall ${pkgs.wofi}/bin/wofi || exec cliphist list | ${pkgs.wofi}/bin/wofi -S dmenu | cliphist decode | wl-copy";
-        in
+      bind = let
+        menu = "killall ${pkgs.wofi}/bin/wofi || exec uwsm app -- $(${pkgs.wofi}/bin/wofi --show drun --define=drun-print_desktop_file=true)";
+        clipboard = "killall killall ${pkgs.wofi}/bin/wofi || exec cliphist list | ${pkgs.wofi}/bin/wofi -S dmenu | cliphist decode | wl-copy";
+      in
         [
           "$mod, Q, exec, kitty"
           "$mod, C, killactive,"
-          "$mod, M, exec, exec uwsm stop"
+          "$mod, M, exec, exec loginctl terminate-user \"\""
           "$mod, S, togglesplit,"
           "$mod, I, exec, exec uwsm app -- org.qutebrowser.qutebrowser.desktop"
           "$mod, F, fullscreen, 0"
@@ -105,15 +103,14 @@ in
         ]
         ++ (builtins.concatLists (
           builtins.genList (
-            i:
-            let
+            i: let
               ws = i + 1;
-            in
-            [
+            in [
               "$mod, code:1${toString i}, workspace, ${toString ws}"
               "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
             ]
-          ) 9
+          )
+          9
         ));
 
       bindl = [
@@ -204,9 +201,21 @@ in
         "col.active_border" = "rgba(${myTheme.base0D}ee) rgba(${myTheme.base0E}ee) 45deg";
         "col.inactive_border" = "rgba(${myTheme.base00}30)";
       };
+
+      gestures = {
+        workspace_swipe = true;
+        workspace_swipe_distance = 700;
+        workspace_swipe_fingers = 3;
+        workspace_swipe_cancel_ratio = 0.2;
+        workspace_swipe_direction_lock = true;
+        workspace_swipe_min_speed_to_force = 5;
+        workspace_swipe_direction_lock_threshold = 10;
+        workspace_swipe_create_new = true;
+      };
     };
 
-    extraConfig = # hyprls
+    extraConfig =
+      # hyprls
       ''
         # Submap
         # will switch to a submap called resize
@@ -222,7 +231,7 @@ in
         binde = , j, resizeactive, 0 10
 
         # use reset to go back to the global submap
-        bind = , return, submap, reset 
+        bind = , return, submap, reset
         bind = , escape, submap, reset
 
         # will reset the submap, which will return to the global submap

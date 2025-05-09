@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.pointerCursor = {
     gtk.enable = true;
     package = pkgs.bibata-cursors;
@@ -11,7 +10,6 @@
     enable = true;
 
     theme = {
-
       # The Gruvbox Material Gtk theme
       # Uncomment below lines and comment others to use new
       # Themes
@@ -29,7 +27,7 @@
       #name = "Gruvbox-Yellow-Dark";
 
       package = pkgs.magnetic-catppuccin-gtk.override {
-        accent = [ "purple" ];
+        accent = ["purple"];
         shade = "dark";
         size = "standard";
         tweaks = [
@@ -51,7 +49,7 @@
 
     font = {
       package = pkgs.nerdfonts.override {
-        fonts = [ "JetBrainsMono" ];
+        fonts = ["JetBrainsMono"];
       };
       name = "JetBrainsMono Nerd Font";
       size = 11;

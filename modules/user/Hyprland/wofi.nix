@@ -1,8 +1,6 @@
-{ config, ... }:
-let
+{config, ...}: let
   myTheme = config.colorScheme.palette;
-in
-{
+in {
   programs.wofi = {
     enable = true;
 
@@ -13,7 +11,8 @@ in
       allow_markup = true;
     };
 
-    style = # css
+    style =
+      # css
       ''
         * {
           font-family: 'IosevkaTerm Nerd Font';
