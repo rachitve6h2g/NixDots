@@ -13,6 +13,7 @@ in {
     ./hyprpaper.nix
     ./theme.nix
     ./waybar.nix
+    ./wlsunset.nix
     ./wofi.nix
   ];
 
@@ -94,8 +95,8 @@ in {
           "$mod, O, workspace, -1"
 
           # Move the window to different workspace
-          "$modSHIFT, P, movetoworkspace, +1"
-          "$modSHIFT, O, movetoworkspace, -1"
+          "$modSHIFT, P, movetoworkspacesilent, +1"
+          "$modSHIFT, O, movetoworkspacesilent, -1"
 
           # Example special workspace (scratchpad)
           "$mod, minus, togglespecialworkspace, magic"
@@ -107,7 +108,7 @@ in {
               ws = i + 1;
             in [
               "$mod, code:1${toString i}, workspace, ${toString ws}"
-              "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+              "$mod SHIFT, code:1${toString i}, movetoworkspacesilent, ${toString ws}"
             ]
           )
           9
@@ -212,6 +213,10 @@ in {
         workspace_swipe_direction_lock_threshold = 10;
         workspace_swipe_create_new = true;
       };
+
+      layerrule = [
+	"blur, waybar"
+      ];
     };
 
     extraConfig =
