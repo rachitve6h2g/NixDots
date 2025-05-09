@@ -18,6 +18,7 @@
     },
     "flake-parts": {
       "inputs": {
+<<<<<<< HEAD
         "nixpkgs-lib": "nixpkgs-lib_2"
       },
       "locked": {
@@ -26,6 +27,16 @@
         "owner": "hercules-ci",
         "repo": "flake-parts",
         "rev": "f4330d22f1c5d2ba72d3d22df5597d123fdb60a9",
+=======
+        "nixpkgs-lib": "nixpkgs-lib"
+      },
+      "locked": {
+        "lastModified": 1743550720,
+        "narHash": "sha256-hIshGgKZCgWh6AYJpJmRgFdR3WUbkY04o82X05xqQiY=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "c621e8422220273271f52058f618c94e405bb0f5",
+>>>>>>> efc1686 (Added flake parts and refreshed it)
         "type": "github"
       },
       "original": {
@@ -34,6 +45,7 @@
         "type": "github"
       }
     },
+<<<<<<< HEAD
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -52,6 +64,8 @@
         "type": "github"
       }
     },
+=======
+>>>>>>> efc1686 (Added flake parts and refreshed it)
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -59,11 +73,19 @@
         ]
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1744117652,
         "narHash": "sha256-t7dFCDl4vIOOUMhEZnJF15aAzkpaup9x4ZRGToDFYWI=",
         "owner": "nix-community",
         "repo": "home-manager",
         "rev": "b4e98224ad1336751a2ac7493967a4c9f6d9cb3f",
+=======
+        "lastModified": 1746171682,
+        "narHash": "sha256-EyXUNSa+H+YvGVuQJP1nZskXAowxKYp79RNUsNdQTj4=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "50eee705bbdbac942074a8c120e8194185633675",
+>>>>>>> efc1686 (Added flake parts and refreshed it)
         "type": "github"
       },
       "original": {
@@ -73,6 +95,7 @@
         "type": "github"
       }
     },
+<<<<<<< HEAD
     "mnw": {
       "locked": {
         "lastModified": 1742255973,
@@ -118,6 +141,12 @@
       "inputs": {
         "base16-schemes": "base16-schemes",
         "nixpkgs-lib": "nixpkgs-lib"
+=======
+    "nix-colors": {
+      "inputs": {
+        "base16-schemes": "base16-schemes",
+        "nixpkgs-lib": "nixpkgs-lib_2"
+>>>>>>> efc1686 (Added flake parts and refreshed it)
       },
       "locked": {
         "lastModified": 1707825078,
@@ -133,6 +162,7 @@
         "type": "github"
       }
     },
+<<<<<<< HEAD
     "nixpkgs": {
       "locked": {
         "lastModified": 1744309437,
@@ -140,6 +170,30 @@
         "owner": "NixOS",
         "repo": "nixpkgs",
         "rev": "f9ebe33a928b5d529c895202263a5ce46bdf12f7",
+=======
+    "nixCats": {
+      "locked": {
+        "lastModified": 1745981676,
+        "narHash": "sha256-KGkNQbZaX+1KKBjUoltOby36+rH2CPNLFpm1blZ5Li4=",
+        "owner": "BirdeeHub",
+        "repo": "nixCats-nvim",
+        "rev": "a4b78fc624b31b68536cdead4699c27bcb9e655a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "BirdeeHub",
+        "repo": "nixCats-nvim",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1746557022,
+        "narHash": "sha256-QkNoyEf6TbaTW5UZYX0OkwIJ/ZMeKSSoOMnSDPQuol0=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "1d3aeb5a193b9ff13f63f4d9cc169fb88129f860",
+>>>>>>> efc1686 (Added flake parts and refreshed it)
         "type": "github"
       },
       "original": {
@@ -151,6 +205,24 @@
     },
     "nixpkgs-lib": {
       "locked": {
+<<<<<<< HEAD
+=======
+        "lastModified": 1743296961,
+        "narHash": "sha256-b1EdN3cULCqtorQ4QeWgLMrd5ZGOjLSLemfa00heasc=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "e4822aea2a6d1cdd36653c134cacfd64c97ff4fa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "type": "github"
+      }
+    },
+    "nixpkgs-lib_2": {
+      "locked": {
+>>>>>>> efc1686 (Added flake parts and refreshed it)
         "lastModified": 1697935651,
         "narHash": "sha256-qOfWjQ2JQSQL15KLh6D7xQhx0qgZlYZTYlcEiRuAMMw=",
         "owner": "nix-community",
@@ -164,6 +236,7 @@
         "type": "github"
       }
     },
+<<<<<<< HEAD
     "nixpkgs-lib_2": {
       "locked": {
         "lastModified": 1740877520,
@@ -283,6 +356,15 @@
         "owner": "nix-systems",
         "repo": "default",
         "type": "github"
+=======
+    "root": {
+      "inputs": {
+        "flake-parts": "flake-parts",
+        "home-manager": "home-manager",
+        "nix-colors": "nix-colors",
+        "nixCats": "nixCats",
+        "nixpkgs": "nixpkgs"
+>>>>>>> efc1686 (Added flake parts and refreshed it)
       }
     }
   },
