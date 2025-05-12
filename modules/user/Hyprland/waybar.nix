@@ -63,7 +63,7 @@ in {
         clock = {
           interval = 1;
           format = "<span size='12pt'> </span> {:%I:%M:%S %p}";
-          tooltip-format = "big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
           format-alt = "<span size='12pt'> </span> {:%Y-%m-%d}";
         };
 

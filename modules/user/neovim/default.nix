@@ -9,7 +9,7 @@ in {
     # it will be the namespace for your options.
     nixCats = {
       enable = true;
-      nixpkgs_version = inputs.nixpkgs;
+      #nixpkgs_version = inputs.nixpkgs;
       # this will add the overlays from ./overlays and also,
       # add any plugins in inputs named "plugins-pluginName" to pkgs.neovimPlugins
       # It will not apply to overall system, just nixCats.
@@ -25,7 +25,7 @@ in {
       # the .replace vs .merge options are for modules based on existing configurations,
       # they refer to how multiple categoryDefinitions get merged together by the module.
       # for useage of this section, refer to :h nixCats.flake.outputs.categories
-      categoryDefinitions.replace = ({ pkgs, settings, categories, extra, name, mkPlugin, ... }@packageDef: {
+      categoryDefinitions.replace = ({ pkgs, pkgsUnstable, settings, categories, extra, name, mkPlugin, ... }@packageDef: {
         # to define and use a new category, simply add a new list to a set here,
         # and later, you will include categoryname = true; in the set you
         # provide when you build the package using this builder function.
@@ -67,7 +67,7 @@ in {
             snacks-nvim
             onedark-nvim
             vim-sleuth
-          ] ++ ([ inputs.nixpkgs-unstable.${pkgs.system}.lzextras ]);
+          ] ++ ([pkgsUnstable.lzextras ]);
         };
 
         # not loaded automatically at startup.
@@ -131,7 +131,7 @@ in {
       packageDefinitions.replace = {
         # These are the names of your packages
         # you can include as many as you wish.
-        myHomeModuleNvim = {pkgs, name, ... }: {
+        myHomeModuleNvim = {pkgs, pkgsUnstable, name, ... }: {
           # they contain a settings set defined above
           # see :help nixCats.flake.outputs.settings
           settings = {

@@ -4,14 +4,24 @@
       enable = true;
 
       settings = {
-        tabs.background = true;
+        tabs = {
+		background = true;
+		favicons.scale = 1.0;
+	};
+	window.transparent = true;
         downloads.position = "bottom";
-        colors.webpage.preferred_color_scheme = "dark";
+        colors.webpage = {
+		preferred_color_scheme = "dark";
+		darkmode = {
+			enabled = true;
+			policy.images = "never";
+		};
+	};
 
-	content.autoplay = false;
+        content.autoplay = false;
 
         content.blocking = {
-	  enabled = true;
+          enabled = true;
           method = "both";
           adblock.lists = [
             "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances-cookies.txt"
@@ -60,8 +70,15 @@
         wa = "https://wiki.archlinux.org/?search={}";
         yt = "https://www.youtube.com/results?search_query={}";
         mynixos = "https://mynixos.com/search?q={}";
-	nixpackages = "https://search.nixos.org/packages?query={}";
-	nixoptions = "https://search.nixos.org/options?query={}";
+        nixpackages = "https://search.nixos.org/packages?query={}";
+        nixoptions = "https://search.nixos.org/options?query={}";
+      };
+
+      keyBindings = {
+	normal = {
+		"<ctrl-v>" = "hint links spawn ${pkgs.mpv}/bin/mpv {hint-url}";
+		"<ctrl-shift-v>" = "spawn ${pkgs.mpv}/bin/mpv {url}";
+	};
       };
 
       # Extras

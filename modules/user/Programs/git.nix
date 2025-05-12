@@ -1,5 +1,8 @@
-{ pkgs, config, ... }:
 {
+  pkgs,
+  config,
+  ...
+}: {
   home.file.".ssh/allowed_signers".text = "* ${builtins.readFile ./ssh/id_ed25519.pub}";
 
   programs = {
@@ -10,13 +13,13 @@
       userEmail = "rachitverma1122@gmail.com";
 
       aliases = {
-	co = "checkout";
-	s = "status";
-	ss = "status --short --branch";
+        co = "checkout";
+        s = "status";
+        ss = "status --short --branch";
       };
 
       extraConfig = {
-        credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
+        credential.helper = "${pkgs.git.override {withLibsecret = true;}}/bin/git-credential-libsecret";
 
         push = {
           autoSetupRemote = true;

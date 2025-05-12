@@ -1,10 +1,12 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 let
   myAliases = {
     update = "sudo nixos-rebuild switch";
     cleanall = "sudo nix-collect-garbage -d && nix-collect-garbage -d";
     rm = "echo \"Don't use this, use trash\";false";
     ".." = "cd ..";
+    # peaclock = "${pkgs.peaclock}/bin/peaclock --config-dir ~/.config/peaclock --config ~/.config/peaclock/config";
+    btop = "btop --utf-force";
   };
 
   myTheme = config.colorScheme.palette;
@@ -19,10 +21,10 @@ in
     EDITOR = "vim";
     SUDO_PROMPT = lib.concatStrings [
       "$(tput setaf 1 bold)[sudo]"
-      "$(tput sgr0)$(tput setaf 2)password"
-      "$(tput sgr0)$(tput setaf 4)for"
-      "$(tput sgr0)$(tput setaf 5)%p"
-      "$(tput sgr0)$(tput setaf 3): "
+      "$(tput sgr0)$(tput setaf 2) password"
+      "$(tput sgr0)$(tput setaf 4) for"
+      "$(tput sgr0)$(tput setaf 5) %p"
+      "$(tput sgr0)$(tput setaf 3):󰌾  "
     ];
   };
 

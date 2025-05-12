@@ -36,7 +36,7 @@
         ];
       };
 
-      name = "Catppuccin-GTK-Dark";
+      name = "Catppuccin-GTK-Purple-Dark";
     };
 
     iconTheme = {

@@ -11,6 +11,7 @@ in {
     ./hypridle.nix
     ./hyprlock.nix
     ./hyprpaper.nix
+    ./mako.nix
     ./theme.nix
     ./waybar.nix
     ./wlsunset.nix
@@ -115,10 +116,10 @@ in {
         ));
 
       bindl = [
-        ", XF86AudioNext, exec, playerctl next"
-        ", XF86AudioPause, exec, playerctl play-pause"
-        ", XF86AudioPlay, exec, playerctl play-pause"
-        ", XF86AudioPrev, exec, playerctl previous"
+        ", XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
+        ", XF86AudioPause, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
+        ", XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl  play-pause"
+        ", XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous"
       ];
 
       bindel = [
@@ -215,7 +216,7 @@ in {
       };
 
       layerrule = [
-	"blur, waybar"
+        "blur, waybar"
       ];
     };
 
@@ -243,4 +244,7 @@ in {
         submap = reset
       '';
   };
+	
+  # Enable the playerctl daemon
+  services.playerctld.enable = true;
 }
