@@ -7,6 +7,7 @@
     ./peaclock.nix
     ./qutebrowser.nix
     ./yazi.nix
+    ./zathura.nix
   ];
 
   # Misc
@@ -14,7 +15,9 @@
     trash-cli
 
     (uget.override {
-	aria2 = pkgs.aria2; 
+      aria2 = pkgs.aria2;
     })
+
+    bluetui
   ];
 }

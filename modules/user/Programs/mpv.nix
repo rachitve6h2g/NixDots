@@ -10,7 +10,7 @@ in {
     enable = true;
 
     defaultProfiles = [
-	"gpu-hq"
+      "gpu-hq"
     ];
 
     config = {
@@ -21,7 +21,6 @@ in {
 
       cursor-autohide = 1000;
       cursor-autohide-fs-only = "yes";
-      
 
       background-color = "#${theme.base00}";
       osd-back-color = "#${theme.base01}";
@@ -47,9 +46,9 @@ in {
       ];
     };
 
-    scripts = with pkgs.mpvScripts; [ 
-	mpris
-	autoload
+    scripts = with pkgs.mpvScripts; [
+      mpris
+      autoload
     ];
   };
 }

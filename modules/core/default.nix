@@ -1,5 +1,6 @@
 {
   imports = [
+    ./bluetooth.nix
     ./boot-loader.nix
     ./cleanup.nix
     ./compileopts.nix

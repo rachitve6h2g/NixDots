@@ -5,18 +5,18 @@
 
       settings = {
         tabs = {
-		background = true;
-		favicons.scale = 1.0;
-	};
-	window.transparent = true;
+          background = true;
+          favicons.scale = 1.0;
+        };
+        window.transparent = true;
         downloads.position = "bottom";
         colors.webpage = {
-		preferred_color_scheme = "dark";
-		darkmode = {
-			enabled = true;
-			policy.images = "never";
-		};
-	};
+          preferred_color_scheme = "dark";
+          darkmode = {
+            enabled = true;
+            policy.images = "never";
+          };
+        };
 
         content.autoplay = false;
 
@@ -62,6 +62,10 @@
         letstype = "https://monkeytype.com/";
         letstype2 = "https://www.keybr.com/";
         whatsapp = "https://web.whatsapp.com/";
+        rgba2hex = "https://rgbacolorpicker.com/rgba-to-hex";
+
+        # PhysicsWallah
+        pw = "https://www.pw.live/";
       };
 
       # Searchengines
@@ -75,10 +79,10 @@
       };
 
       keyBindings = {
-	normal = {
-		"<ctrl-v>" = "hint links spawn ${pkgs.mpv}/bin/mpv {hint-url}";
-		"<ctrl-shift-v>" = "spawn ${pkgs.mpv}/bin/mpv {url}";
-	};
+        normal = {
+          "<ctrl-v>" = "hint links spawn ${pkgs.mpv}/bin/mpv {hint-url}";
+          "<ctrl-shift-v>" = "spawn ${pkgs.mpv}/bin/mpv {url}";
+        };
       };
 
       # Extras

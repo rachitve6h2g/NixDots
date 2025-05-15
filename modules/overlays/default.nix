@@ -1,9 +1,9 @@
 {
-	imports = [
-		./hyprland.nix
-		./lzextras.nix
-		./mpv.nix
-		./qutebrowser.nix
-		./waybar.nix
-	];
+  imports = [
+    ./hyprland.nix
+    ./lzextras.nix
+    ./mpv.nix
+    ./qutebrowser.nix
+    ./waybar.nix
+  ];
 }

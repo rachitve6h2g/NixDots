@@ -31,6 +31,10 @@ in {
     enable = true;
     sourceFirst = true;
 
+    plugins = with pkgs.hyprlandPlugins; [
+      hyprexpo
+    ];
+
     importantPrefixes = [
       "$"
       "bezier"
@@ -52,12 +56,24 @@ in {
         ",preferred,auto,1"
       ];
 
+      plugin = {
+        hyprexpo = {
+          columns = 3;
+          gap_size = 5;
+          bg_col = "rgb(141617)";
+          workspace_method = "center current";
+          enable_gesture = true;
+          gesture_distance = 300;
+          gesture_positive = false;
+        };
+      };
+
       env = [
         "LIBGL_ALWAYS_SOFTWARE,1"
       ];
 
-      exec = [
-        # "${pkgs.hyprpaper}/bin/hyprpaper &"
+      exec-once = [
+        "hyprpm reload -n"
       ];
 
       bind = let
@@ -102,6 +118,9 @@ in {
           # Example special workspace (scratchpad)
           "$mod, minus, togglespecialworkspace, magic"
           "$modSHIFT, minus, movetoworkspacesilent, special:magic"
+
+          # For plugins
+          "$mod, grave, hyprexpo:expo, toggle" # can be: toggle, off/disable or on/enable
         ]
         ++ (builtins.concatLists (
           builtins.genList (
@@ -244,7 +263,22 @@ in {
         submap = reset
       '';
   };
-	
+
   # Enable the playerctl daemon
-  services.playerctld.enable = true;
+  # systemd.user.services = lib.mkForce {
+  #   playerctld = {
+  #     Install = {
+  #       WantedBy = ["graphical-session.target"];
+  #     };
+
+  #     Unit = {
+  #       Description = "Keep track of media player activity";
+  #     };
+
+  #     Service = {
+  #       Type = "oneshot";
+  #       ExecStart = "${pkgs.playerctl}/bin/playerctld daemon";
+  #     };
+  #   };
+  # };
 }

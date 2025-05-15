@@ -1,8 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-{
+{pkgs, ...}: {
   security = {
     sudo = {
       enable = true;
@@ -10,7 +6,8 @@
         withInsults = true;
       };
 
-      extraConfig = # bash
+      extraConfig =
+        # bash
         ''
           Defaults pwfeedback
         '';

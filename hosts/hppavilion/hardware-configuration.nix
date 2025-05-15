@@ -6,9 +6,7 @@
   lib,
   modulesPath,
   ...
-}:
-
-{
+}: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -20,21 +18,21 @@
     "usbhid"
     "sd_mod"
   ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+  boot.initrd.kernelModules = [];
+  boot.kernelModules = ["kvm-intel"];
+  boot.extraModulePackages = [];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/32503939-7c1c-4240-9e8d-a757f53461f2";
     fsType = "btrfs";
-    options = [ 
-	"subvol=@" 
-	"autodefrag"
-	"discard=async"
-	"noatime"
-	"ssd"
-	"space_cache=v2"
-	"compress=zstd"
+    options = [
+      "subvol=@"
+      "autodefrag"
+      "discard=async"
+      "noatime"
+      "ssd"
+      "space_cache=v2"
+      "compress=zstd"
     ];
   };
 
@@ -43,57 +41,57 @@
   fileSystems."/home" = {
     device = "/dev/disk/by-uuid/32503939-7c1c-4240-9e8d-a757f53461f2";
     fsType = "btrfs";
-    options = [ 
-	"subvol=@home" 
-	"autodefrag"
-	"discard=async"
-	"noatime"
-	"ssd"
-	"space_cache=v2"
-	"compress=zstd"
+    options = [
+      "subvol=@home"
+      "autodefrag"
+      "discard=async"
+      "noatime"
+      "ssd"
+      "space_cache=v2"
+      "compress=zstd"
     ];
   };
 
   fileSystems."/var" = {
     device = "/dev/disk/by-uuid/32503939-7c1c-4240-9e8d-a757f53461f2";
     fsType = "btrfs";
-    options = [ 
-	"subvol=@var" 
-	"autodefrag"
-	"discard=async"
-	"noatime"
-	"ssd"
-	"space_cache=v2"
-	"compress=zstd"
+    options = [
+      "subvol=@var"
+      "autodefrag"
+      "discard=async"
+      "noatime"
+      "ssd"
+      "space_cache=v2"
+      "compress=zstd"
     ];
   };
 
   fileSystems."/nix" = {
     device = "/dev/disk/by-uuid/32503939-7c1c-4240-9e8d-a757f53461f2";
     fsType = "btrfs";
-    options = [ 
-	"subvol=@nix" 
-	"autodefrag"
-	"discard=async"
-	"noatime"
-	"ssd"
-	"space_cache=v2"
-	"compress=zstd"
+    options = [
+      "subvol=@nix"
+      "autodefrag"
+      "discard=async"
+      "noatime"
+      "ssd"
+      "space_cache=v2"
+      "compress=zstd"
     ];
   };
 
   fileSystems."/swap" = {
     device = "/dev/disk/by-uuid/32503939-7c1c-4240-9e8d-a757f53461f2";
     fsType = "btrfs";
-    options = [ 
-	"subvol=@swap" 
-	"autodefrag"
-	"discard=async"
-	"noatime"
-	"ssd"
-	"space_cache=v2"
-	"compress=zstd"
-     ];
+    options = [
+      "subvol=@swap"
+      "autodefrag"
+      "discard=async"
+      "noatime"
+      "ssd"
+      "space_cache=v2"
+      "compress=zstd"
+    ];
   };
 
   fileSystems."/efi" = {
@@ -105,7 +103,7 @@
     ];
   };
 
-  swapDevices = [ { device = "/swap/swapfile"; } ];
+  swapDevices = [{device = "/swap/swapfile";}];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

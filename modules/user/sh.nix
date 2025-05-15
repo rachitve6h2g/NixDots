@@ -1,5 +1,9 @@
-{ lib, config, pkgs, ... }:
-let
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}: let
   myAliases = {
     update = "sudo nixos-rebuild switch";
     cleanall = "sudo nix-collect-garbage -d && nix-collect-garbage -d";
@@ -10,8 +14,7 @@ let
   };
 
   myTheme = config.colorScheme.palette;
-in
-{
+in {
   # home = {
   # 	shell = {
   # 		enableZshIntegration = true;
@@ -20,11 +23,11 @@ in
   home.sessionVariables = lib.mkForce {
     EDITOR = "vim";
     SUDO_PROMPT = lib.concatStrings [
-      "$(tput setaf 1 bold)[sudo]"
+      "$(tput setaf 1 bold)󰌾 "
       "$(tput sgr0)$(tput setaf 2) password"
       "$(tput sgr0)$(tput setaf 4) for"
       "$(tput sgr0)$(tput setaf 5) %p"
-      "$(tput sgr0)$(tput setaf 3):󰌾  "
+      "$(tput sgr0)$(tput setaf 3):"
     ];
   };
 
@@ -58,7 +61,6 @@ in
       };
 
       shellAliases = myAliases;
-
     };
 
     starship = {

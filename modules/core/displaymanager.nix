@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   services = {
     displayManager = {
       sddm = {

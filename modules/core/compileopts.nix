@@ -1,6 +1,6 @@
 {
-	nix.settings = {
-		cores = 4;
-		max-jobs = 1;
-	};
+  nix.settings = {
+    cores = 4;
+    max-jobs = 1;
+  };
 }

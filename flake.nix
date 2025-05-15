@@ -16,16 +16,15 @@
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
   };
 
-  outputs =
-    {
-      self,
-      flake-parts,
-      ...
-    }@inputs:
-    flake-parts.lib.mkFlake { inherit inputs; } {
+  outputs = {
+    self,
+    flake-parts,
+    ...
+  } @ inputs:
+    flake-parts.lib.mkFlake {inherit inputs;} {
       systems = [
         "x86_64-linux"
       ];
-      imports = [ ./hosts ];
+      imports = [./hosts];
     };
 }
