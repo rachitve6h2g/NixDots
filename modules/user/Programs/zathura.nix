@@ -11,7 +11,7 @@ in {
     package = pkgs.zathura.override {
       useMupdf = true;
       # TODO: Customize here
-      plugins = [pkgs.zathuraPkgs.zathura_cb];
+      plugins = with pkgs.zathuraPkgs; [zathura_cb zathura_pdf_mupdf];
     };
 
     options = {

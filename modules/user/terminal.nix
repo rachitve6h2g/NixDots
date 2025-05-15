@@ -18,7 +18,7 @@
         enableBashIntegration = true;
       };
 
-      themeFile = "Catppuccin-Mocha";
+      themeFile = "GruvboxMaterialDarkHard";
 
       settings = {
         background_opacity = 0.8;

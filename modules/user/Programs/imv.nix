@@ -8,7 +8,7 @@ in {
       options = {
         background = "${theme.base00}";
         overlay_text_color = "${theme.base05}";
-        overlay_background_color = "${theme.base01}";
+        overlay_background_color = "11111b";
       };
     };
   };

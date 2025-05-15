@@ -14,5 +14,5 @@
   # TODO: see how to make a custom module for this
   # Instead of doing myTheme everywhere with a let binding
   # Use it as a custom module
-  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
+  colorScheme = inputs.nix-colors.colorSchemes.gruvbox-material-dark-hard;
 }

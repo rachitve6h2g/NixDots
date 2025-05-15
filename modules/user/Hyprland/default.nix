@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  myTheme = config.colorScheme.palette;
+  theme = config.colorScheme.palette;
 in {
   imports = [
     ./clipboard.nix
@@ -33,6 +33,8 @@ in {
 
     plugins = with pkgs.hyprlandPlugins; [
       hyprexpo
+      hyprtrails
+      hypr-dynamic-cursors
     ];
 
     importantPrefixes = [
@@ -60,11 +62,40 @@ in {
         hyprexpo = {
           columns = 3;
           gap_size = 5;
-          bg_col = "rgb(141617)";
+          bg_col = "rgb(${theme.base00})";
           workspace_method = "center current";
           enable_gesture = true;
+          gesture_fingers = 3;
           gesture_distance = 300;
           gesture_positive = false;
+        };
+
+        hyprtrails.color = "rgba(${theme.base0E}cc)";
+
+        dynamic-cursors = {
+          enabled = true;
+          mode = "none";
+
+          threshold = 2;
+
+          shake = {
+            enabled = true;
+            nearest = true;
+            threshold = 6.0;
+            base = 4.0;
+            speed = 4.0;
+            influence = 0.0;
+            limit = 0.0;
+            timeout = 2000;
+            effects = false;
+            ipc = false;
+          };
+          hyprcursor = {
+            nearest = true;
+            enabled = true;
+            resolution = -1;
+            fallback = "clientside";
+          };
         };
       };
 
@@ -73,7 +104,7 @@ in {
       ];
 
       exec-once = [
-        "hyprpm reload -n"
+        # "hyprpm reload -n"
       ];
 
       bind = let
@@ -118,6 +149,9 @@ in {
           # Example special workspace (scratchpad)
           "$mod, minus, togglespecialworkspace, magic"
           "$modSHIFT, minus, movetoworkspacesilent, special:magic"
+
+          # For toggling float
+          "$modSHIFT, Space, togglefloating,"
 
           # For plugins
           "$mod, grave, hyprexpo:expo, toggle" # can be: toggle, off/disable or on/enable
@@ -219,8 +253,8 @@ in {
         no_focus_fallback = true;
         layout = "dwindle";
 
-        "col.active_border" = "rgba(${myTheme.base0D}ee) rgba(${myTheme.base0E}ee) 45deg";
-        "col.inactive_border" = "rgba(${myTheme.base00}30)";
+        "col.active_border" = "rgba(${theme.base0D}ee) rgba(${theme.base0E}ee) 45deg";
+        "col.inactive_border" = "rgba(${theme.base00}30)";
       };
 
       gestures = {

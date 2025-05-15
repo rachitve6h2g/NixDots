@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./bottom.nix
     ./btop.nix
     ./git.nix
     ./imv.nix

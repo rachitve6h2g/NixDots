@@ -12,11 +12,11 @@
         # spash = false;
 
         preload = [
-          "${./current}"
+          "${./wallpapers/current}"
         ];
 
         wallpaper = [
-          ",${./current}"
+          ",${./wallpapers/current}"
         ];
       };
     };

@@ -54,7 +54,7 @@ in {
         background = [
           {
             color = "rgba(000000FF)";
-            path = "${./current}";
+            path = "${./wallpapers/current}";
             blur_size = 3;
             blur_passes = 1;
           }
