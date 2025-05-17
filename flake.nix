@@ -5,20 +5,22 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    flake-parts.url = "github:hercules-ci/flake-parts";
-
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-colors.url = "github:misterio77/nix-colors";
+
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
+
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
+    git-hooks-nix.url = "github:cachix/git-hooks.nix";
   };
 
   outputs =
     {
-      self,
       flake-parts,
       ...
     }@inputs:
@@ -26,6 +28,16 @@
       systems = [
         "x86_64-linux"
       ];
-      imports = [ ./hosts ];
+      imports = [ 
+        ./hosts 
+        inputs.git-hooks-nix.flakeModule
+      ];
+
+      perSystem = {
+        pre-commit.settings.hooks.nixfmt-rfc-style.enable = true;
+      };
+      flake = {
+        formatter = inputs.nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+      };
     };
 }

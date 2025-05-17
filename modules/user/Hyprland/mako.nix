@@ -16,7 +16,7 @@ in {
     sort = "-time";
 
     icons = true;
-    iconPath = "${pkgs.papirus-icon-theme}/share/icons/Gruvbox-Plus-Dark";
+    iconPath = "${pkgs.gruvbox-plus-icons}/share/icons/Gruvbox-Plus-Dark";
 
     actions = true;
 

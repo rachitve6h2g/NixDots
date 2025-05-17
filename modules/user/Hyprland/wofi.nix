@@ -6,7 +6,7 @@ in {
 
     settings = {
       allow_images = true;
-      width = 30;
+      # width = 30;
       insensitive = true;
       allow_markup = true;
     };
@@ -15,7 +15,7 @@ in {
       # css
       ''
         * {
-          font-family: 'IosevkaTerm Nerd Font';
+          font-family: 'ComicShannsMono Nerd Font';
           font-size: 14px;
         }
 
@@ -93,7 +93,7 @@ in {
         }
 
         #input * {
-          outline: 4px solid #${myTheme.base08}!important;
+          outline: 4px solid #${myTheme.base08};
         }
 
         /* Text */
@@ -123,7 +123,7 @@ in {
         }
 
         #entry:drop(active) {
-          background-color: #${myTheme.base0A}!important;
+          background-color: #${myTheme.base0A};
         }
       '';
   };

@@ -129,7 +129,7 @@ vim.keymap.set("x", "<leader>P", '"_dP', { noremap = true, silent = true, desc =
 vim.g.gruvbox_material_enable_italic = true
 vim.g.gruvbox_material_background = 'hard'
 vim.g.gruvbox_material_foreground = 'mix'
-vim.g.gruvbox_material_transparent_background = 1
+vim.g.gruvbox_material_transparent_background = 2
 vim.cmd.colorscheme('gruvbox-material')
 require("snacks").setup({
   explorer = {},
@@ -198,7 +198,7 @@ require('lze').load {
     event = "DeferredUIEnter",
     -- ft = "",
     -- keys = "",
-    -- colorscheme = "",
+    colorscheme = "gruvbox-material",
     load = function (name)
         vim.cmd.packadd(name)
         vim.cmd.packadd("nvim-treesitter-textobjects")

@@ -83,7 +83,7 @@ in
               lze
               lzextras
               snacks-nvim
-              gruvbox-material-nvim
+              gruvbox-material
               vim-sleuth
             ];
           };
