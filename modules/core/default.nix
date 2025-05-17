@@ -1,5 +1,6 @@
 {
   imports = [
+    ./battery.nix
     ./bluetooth.nix
     ./boot-loader.nix
     ./cleanup.nix
@@ -16,5 +17,6 @@
     ./system.nix
     ./thunar.nix
     ./user.nix
+    ./xdgsettings.nix
   ];
 }

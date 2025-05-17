@@ -4,8 +4,9 @@
 
     ./sh.nix
     ./terminal.nix
+    ./xdgsettings.nix
 
-    #./neovim
+    ./neovim
     ./Hyprland
     ./Programs
     #./Unstable

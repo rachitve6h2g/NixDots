@@ -1,7 +1,6 @@
 {
   pkgs,
   config,
-  lib,
   ...
 }: let
   theme = config.colorScheme.palette;
@@ -17,7 +16,7 @@ in {
     sort = "-time";
 
     icons = true;
-    iconPath = "${pkgs.papirus-icon-theme}/share/icons/Papirus";
+    iconPath = "${pkgs.papirus-icon-theme}/share/icons/Gruvbox-Plus-Dark";
 
     actions = true;
 

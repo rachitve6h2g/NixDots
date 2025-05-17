@@ -28,15 +28,18 @@ vim.wo.number = true
 -- Enable mouse mode
 vim.o.mouse = 'a'
 
+-- Set nowrap
+vim.o.wrap = false
+
 -- Indent
 -- vim.o.smarttab = true
 vim.opt.cpoptions:append('I')
 vim.o.expandtab = true
--- vim.o.smartindent = true
+vim.o.smartindent = true
 -- vim.o.autoindent = true
--- vim.o.tabstop = 4
--- vim.o.softtabstop = 4
--- vim.o.shiftwidth = 4
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
 
 -- stops line wrapping from being confusing
 vim.o.breakindent = true
@@ -114,7 +117,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
--- vim.o.clipboard = 'unnamedplus'
+vim.o.clipboard = 'unnamedplus'
 
 -- You should instead use these keybindings so that they are still easy to use, but dont conflict
 vim.keymap.set({"v", "x", "n"}, '<leader>y', '"+y', { noremap = true, silent = true, desc = 'Yank to clipboard' })
@@ -123,7 +126,11 @@ vim.keymap.set({'n', 'v', 'x'}, '<leader>p', '"+p', { noremap = true, silent = t
 vim.keymap.set('i', '<C-p>', '<C-r><C-p>+', { noremap = true, silent = true, desc = 'Paste from clipboard from within insert mode' })
 vim.keymap.set("x", "<leader>P", '"_dP', { noremap = true, silent = true, desc = 'Paste over selection without erasing unnamed register' })
 
-vim.cmd.colorscheme('onedark')
+vim.g.gruvbox_material_enable_italic = true
+vim.g.gruvbox_material_background = 'hard'
+vim.g.gruvbox_material_foreground = 'mix'
+vim.g.gruvbox_material_transparent_background = 1
+vim.cmd.colorscheme('gruvbox-material')
 require("snacks").setup({
   explorer = {},
   picker = {},
@@ -295,7 +302,7 @@ require('lze').load {
       require('lualine').setup({
         options = {
           icons_enabled = false,
-          theme = 'onedark',
+          theme = 'gruvbox-material',
           component_separators = '|',
           section_separators = '',
         },
@@ -750,7 +757,7 @@ require('lze').load {
             }
           },
           formatting = {
-            command = { "alejandra" }
+            command = { "nixfmt" }
           },
           diagnostic = {
             suppress = {

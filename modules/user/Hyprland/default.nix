@@ -112,7 +112,7 @@ in {
         clipboard = "killall killall ${pkgs.wofi}/bin/wofi || exec cliphist list | ${pkgs.wofi}/bin/wofi -S dmenu | cliphist decode | wl-copy";
       in
         [
-          "$mod, Q, exec, kitty"
+          "$mod, Q, exec, exec uwsm app -T"
           "$mod, C, killactive,"
           "$mod, M, exec, exec loginctl terminate-user \"\""
           "$mod, S, togglesplit,"
@@ -181,7 +181,7 @@ in {
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ",XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl s 5%+"
-        ",XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl 5%-"
+        ",XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl s 5%-"
       ];
 
       bindm = [
@@ -269,7 +269,7 @@ in {
       };
 
       layerrule = [
-        "blur, waybar"
+        # "blur, waybar" # blur waybar
       ];
     };
 

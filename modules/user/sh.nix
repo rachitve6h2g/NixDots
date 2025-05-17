@@ -11,6 +11,7 @@
     ".." = "cd ..";
     # peaclock = "${pkgs.peaclock}/bin/peaclock --config-dir ~/.config/peaclock --config ~/.config/peaclock/config";
     btop = "btop --utf-force";
+    ffetch = "${pkgs.fastfetch}/bin/fastfetch";
   };
 
   myTheme = config.colorScheme.palette;
@@ -21,7 +22,7 @@ in {
   # 	};
   # };
   home.sessionVariables = lib.mkForce {
-    EDITOR = "vim";
+    EDITOR = "myHomeModuleNvim";
     SUDO_PROMPT = lib.concatStrings [
       "$(tput setaf 1 bold)󰌾 "
       "$(tput sgr0)$(tput setaf 2) password"

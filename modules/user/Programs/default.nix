@@ -8,6 +8,7 @@
     ./peaclock.nix
     ./qutebrowser.nix
     ./yazi.nix
+    ./ytdlp.nix
     ./zathura.nix
   ];
 
