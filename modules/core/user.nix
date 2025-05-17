@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     inputs.home-manager.nixosModules.home-manager
   ];
@@ -11,7 +12,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     users.krish = {
-      imports = [../user];
+      imports = [ ../user ];
       home = {
         username = "krish";
         homeDirectory = "/home/krish";
@@ -42,5 +43,5 @@
   programs.zsh.enable = true;
 
   # Refer https://mynixos.com/home-manager/option/programs.zsh.enableCompletion
-  environment.pathsToLink = ["/share/zsh"];
+  environment.pathsToLink = [ "/share/zsh" ];
 }

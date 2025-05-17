@@ -3,9 +3,11 @@
   lib,
   inputs,
   ...
-}: let
+}:
+let
   theme = inputs.colorScheme.palette;
-in {
+in
+{
   programs.waybar = {
     enable = true;
 
@@ -26,7 +28,7 @@ in {
           "hyprland/workspaces"
         ];
 
-        modules-center = ["clock"];
+        modules-center = [ "clock" ];
 
         modules-right = [
           "wireplumber"
@@ -46,9 +48,9 @@ in {
             default = " ";
           };
           persistent-workspaces = {
-            "1" = [];
-            "2" = [];
-            "3" = [];
+            "1" = [ ];
+            "2" = [ ];
+            "3" = [ ];
           };
         };
 
@@ -69,7 +71,17 @@ in {
 
         backlight = {
           format = "{percent}% <span size='12pt'>{icon}</span>";
-          format-icons = [" " " " " " " " " " " " " " " " " "];
+          format-icons = [
+            " "
+            " "
+            " "
+            " "
+            " "
+            " "
+            " "
+            " "
+            " "
+          ];
         };
         battery = {
           interval = 1;
@@ -112,13 +124,13 @@ in {
   systemd.user.services = lib.mkForce {
     waybar = {
       Install = {
-        WantedBy = ["graphical-session.target"];
+        WantedBy = [ "graphical-session.target" ];
       };
 
       Unit = {
         Description = "Waybar Service started thru UWSM";
-        Documentation = ["man:waybar(1)"];
-        After = ["graphical-session.target"];
+        Documentation = [ "man:waybar(1)" ];
+        After = [ "graphical-session.target" ];
       };
 
       Service = {

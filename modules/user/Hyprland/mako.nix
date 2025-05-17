@@ -2,9 +2,11 @@
   pkgs,
   config,
   ...
-}: let
+}:
+let
   theme = config.colorScheme.palette;
-in {
+in
+{
   services.mako = {
     enable = true;
 

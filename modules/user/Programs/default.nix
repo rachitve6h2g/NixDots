@@ -1,7 +1,9 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./bottom.nix
     ./btop.nix
+    ./fastfetch.nix
     ./git.nix
     ./imv.nix
     ./mpv.nix

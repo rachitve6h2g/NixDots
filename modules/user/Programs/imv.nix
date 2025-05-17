@@ -1,6 +1,8 @@
-{config, ...}: let
+{ config, ... }:
+let
   theme = config.colorScheme.palette;
-in {
+in
+{
   programs.imv = {
     enable = true;
 

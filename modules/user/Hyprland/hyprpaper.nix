@@ -2,7 +2,8 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   services = {
     hyprpaper = {
       enable = true;
@@ -26,13 +27,13 @@
   systemd.user.services = lib.mkForce {
     hyprpaper = {
       Install = {
-        WantedBy = ["graphical-session.target"];
+        WantedBy = [ "graphical-session.target" ];
       };
 
       Unit = {
         Description = "Hyprpaper wallpaper utility for Hyprland";
-        Documentation = ["man:hyprpaper(1)"];
-        After = ["graphical-session.target"];
+        Documentation = [ "man:hyprpaper(1)" ];
+        After = [ "graphical-session.target" ];
       };
 
       Service = {

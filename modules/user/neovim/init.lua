@@ -769,3 +769,6 @@ require('lze').load {
     },
   },
 }
+
+-- my settings
+require("config")

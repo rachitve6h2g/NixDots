@@ -28,14 +28,17 @@
       systems = [
         "x86_64-linux"
       ];
-      imports = [ 
-        ./hosts 
+      imports = [
+        ./hosts
         inputs.git-hooks-nix.flakeModule
       ];
 
-      perSystem = {
-        pre-commit.settings.hooks.nixfmt-rfc-style.enable = true;
-      };
+      perSystem =
+        { pkgs, ... }:
+        {
+          pre-commit.settings.hooks.nixfmt-rfc-style.enable = true;
+          formatter = pkgs.nixfmt-rfc-style;
+        };
       flake = {
         formatter = inputs.nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
       };

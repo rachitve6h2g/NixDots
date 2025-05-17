@@ -2,7 +2,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   home.file.".ssh/allowed_signers".text = "* ${builtins.readFile ./ssh/id_ed25519.pub}";
 
   programs = {
@@ -19,7 +20,7 @@
       };
 
       extraConfig = {
-        credential.helper = "${pkgs.git.override {withLibsecret = true;}}/bin/git-credential-libsecret";
+        credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
 
         push = {
           autoSetupRemote = true;

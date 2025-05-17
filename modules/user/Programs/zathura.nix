@@ -2,16 +2,21 @@
   pkgs,
   config,
   ...
-}: let
+}:
+let
   theme = config.colorScheme.palette;
-in {
+in
+{
   programs.zathura = {
     enable = true;
 
     package = pkgs.zathura.override {
       useMupdf = true;
       # TODO: Customize here
-      plugins = with pkgs.zathuraPkgs; [zathura_cb zathura_pdf_mupdf];
+      plugins = with pkgs.zathuraPkgs; [
+        zathura_cb
+        zathura_pdf_mupdf
+      ];
     };
 
     options = {

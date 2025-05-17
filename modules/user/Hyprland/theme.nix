@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.pointerCursor = {
     gtk.enable = true;
     package = pkgs.bibata-cursors;
@@ -14,14 +15,14 @@
       # Uncomment below lines and comment others to use new
       # Themes
       package = pkgs.gruvbox-gtk-theme.override {
-        colorVariants = ["dark"];
-        sizeVariants = ["standard"];
-        themeVariants = ["yellow"];
+        colorVariants = [ "dark" ];
+        sizeVariants = [ "standard" ];
+        themeVariants = [ "yellow" ];
         tweakVariants = [
           "black"
           "macos"
         ];
-        iconVariants = ["Dark"];
+        iconVariants = [ "Dark" ];
       };
 
       name = "Gruvbox-Yellow-Dark";
@@ -55,7 +56,7 @@
     };
     font = {
       package = pkgs.nerdfonts.override {
-        fonts = ["ComicShannsMono"];
+        fonts = [ "ComicShannsMono" ];
       };
       name = "ComicShannsMono Nerd Font";
       size = 12;

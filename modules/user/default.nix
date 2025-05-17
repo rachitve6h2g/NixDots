@@ -1,4 +1,5 @@
-{inputs, ...}: {
+{ inputs, ... }:
+{
   imports = [
     inputs.nix-colors.homeManagerModules.default
 
@@ -9,7 +10,6 @@
     ./neovim
     ./Hyprland
     ./Programs
-    #./Unstable
   ];
 
   # TODO: see how to make a custom module for this

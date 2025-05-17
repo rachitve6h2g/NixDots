@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, ... }:
+{
   home.preferXdgDirectories = true;
   xdg = {
     enable = true;

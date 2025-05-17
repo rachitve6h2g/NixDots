@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   theme = config.colorScheme.palette;
-in {
+in
+{
   imports = [
     ./clipboard.nix
     ./hypridle.nix
@@ -107,10 +109,11 @@ in {
         # "hyprpm reload -n"
       ];
 
-      bind = let
-        menu = "killall ${pkgs.wofi}/bin/wofi || exec uwsm app -- $(${pkgs.wofi}/bin/wofi --show drun --define=drun-print_desktop_file=true)";
-        clipboard = "killall killall ${pkgs.wofi}/bin/wofi || exec cliphist list | ${pkgs.wofi}/bin/wofi -S dmenu | cliphist decode | wl-copy";
-      in
+      bind =
+        let
+          menu = "killall ${pkgs.wofi}/bin/wofi || exec uwsm app -- $(${pkgs.wofi}/bin/wofi --show drun --define=drun-print_desktop_file=true)";
+          clipboard = "killall killall ${pkgs.wofi}/bin/wofi || exec cliphist list | ${pkgs.wofi}/bin/wofi -S dmenu | cliphist decode | wl-copy";
+        in
         [
           "$mod, Q, exec, exec uwsm app -T"
           "$mod, C, killactive,"
@@ -158,14 +161,15 @@ in {
         ]
         ++ (builtins.concatLists (
           builtins.genList (
-            i: let
+            i:
+            let
               ws = i + 1;
-            in [
+            in
+            [
               "$mod, code:1${toString i}, workspace, ${toString ws}"
               "$mod SHIFT, code:1${toString i}, movetoworkspacesilent, ${toString ws}"
             ]
-          )
-          9
+          ) 9
         ));
 
       bindl = [

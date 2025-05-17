@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs = {
     kitty = {
       enable = true;
@@ -7,7 +8,7 @@
 
       font = {
         package = pkgs.nerdfonts.override {
-          fonts = ["ComicShannsMono"];
+          fonts = [ "ComicShannsMono" ];
         };
         name = "ComicShannsMono Nerd Font";
         size = 13;

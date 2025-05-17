@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   myAliases = {
     update = "sudo nixos-rebuild switch";
     cleanall = "sudo nix-collect-garbage -d && nix-collect-garbage -d";
@@ -15,7 +16,8 @@
   };
 
   myTheme = config.colorScheme.palette;
-in {
+in
+{
   # home = {
   # 	shell = {
   # 		enableZshIntegration = true;
@@ -32,7 +34,7 @@ in {
     ];
   };
 
-  home.packages = [pkgs.sl];
+  home.packages = [ pkgs.sl ];
 
   programs = {
     zsh = {
@@ -252,14 +254,14 @@ in {
       enable = true;
       enableZshIntegration = true;
       options = [
-       "--cmd cd"
+        "--cmd cd"
       ];
     };
   };
 
-  # TODO: replace colors here with nix-colors 
+  # TODO: replace colors here with nix-colors
   xdg.configFile."eza/theme.yml".text =
-    # yml
+    # yaml
     ''
       colourful: true
 

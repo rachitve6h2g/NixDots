@@ -3,9 +3,11 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   theme = config.colorScheme.palette;
-in {
+in
+{
   programs.mpv = {
     enable = true;
 

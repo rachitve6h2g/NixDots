@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs = {
     qutebrowser = {
       enable = true;
@@ -93,9 +94,7 @@
 
       # Extras
       extraConfig =
-        /*
-        python
-        */
+        # python
         ''
           import os
           from urllib.request import urlopen

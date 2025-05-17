@@ -1,4 +1,5 @@
-{lib, ...}: {
+{ lib, ... }:
+{
   # Configure it through home-manager
   services = {
     hypridle.enable = true;
@@ -29,7 +30,7 @@
   };
 
   # For hyprlock
-  security.pam.services.hyprlock = {};
+  security.pam.services.hyprlock = { };
 
   # Refer https://nixos.org/manual/nixos/stable/options.html programs.uwsm.enable note
   services.dbus = {

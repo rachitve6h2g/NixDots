@@ -1,5 +1,6 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [wl-clipboard-rs];
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [ wl-clipboard-rs ];
   services = {
     cliphist = {
       enable = true;
