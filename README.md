@@ -31,3 +31,4 @@ Bro explains declaratively kekw
 - [ ] See how nix can be used to set wallpapers automatically, write conditional statements so that we can change themes and wallpapers and all. 
 - [ ] See how to package the btop-catppuccin theme for btop
 - [ ] Create a Hyprcursor patch for Bibata Cursors.
+- [ ] Move to treefmt-nix from nixfmt

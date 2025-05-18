@@ -1,9 +1,10 @@
 {
   imports = [
     ./hyprland.nix
-    ./lzextras.nix
     ./mpv.nix
     ./qutebrowser.nix
+    ./unstablepkgs.nix
     ./waybar.nix
+    ./yazi.nix
   ];
 }

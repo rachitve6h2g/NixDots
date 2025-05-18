@@ -17,10 +17,13 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     git-hooks-nix.url = "github:cachix/git-hooks.nix";
+
+    yazi.url = "github:sxyazi/yazi";
   };
 
   outputs =
     {
+      self,
       flake-parts,
       ...
     }@inputs:
@@ -34,7 +37,11 @@
       ];
 
       perSystem =
-        { pkgs, ... }:
+        {
+          pkgs,
+          system,
+          ...
+        }:
         {
           pre-commit.settings.hooks.nixfmt-rfc-style.enable = true;
           formatter = pkgs.nixfmt-rfc-style;

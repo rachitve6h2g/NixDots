@@ -112,7 +112,7 @@ in
       bind =
         let
           menu = "killall ${pkgs.wofi}/bin/wofi || exec uwsm app -- $(${pkgs.wofi}/bin/wofi --show drun --define=drun-print_desktop_file=true)";
-          clipboard = "killall killall ${pkgs.wofi}/bin/wofi || exec cliphist list | ${pkgs.wofi}/bin/wofi -S dmenu | cliphist decode | wl-copy";
+          clipboard = "killall killall ${pkgs.wofi}/bin/wofi || exec ${pkgs.cliphist}/bin/cliphist list | ${pkgs.wofi}/bin/wofi -S dmenu | ${pkgs.cliphist}/bin/cliphist decode | ${pkgs.wl-clipboard-rs}/bin/wl-copy";
         in
         [
           "$mod, Q, exec, exec uwsm app -T"

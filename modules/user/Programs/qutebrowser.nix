@@ -57,6 +57,7 @@
         # Options for NixOS
         home-manager = "https://nix-community.github.io/home-manager/options.xhtml";
         nixconfig = "https://nixos.org/manual/nixos/stable/options.html";
+        nixdisco = "https://discourse.nixos.org/";
 
         # For Other stuff
         youtube = "https://www.youtube.com/";
@@ -87,8 +88,8 @@
         normal = {
           "<ctrl-v>" = "hint links spawn ${pkgs.mpv}/bin/mpv {hint-url}";
           "<ctrl-shift-v>" = "spawn ${pkgs.mpv}/bin/mpv {url}";
-          "ya" = "spawn ${pkgs.mpv}/bin/mpv --no-video {url}";
-          "yA" = "hint links spawn ${pkgs.mpv}/bin/mpv {hint-url}";
+          "ya" = "spawn ${pkgs.mpv}/bin/mpv --force-window --no-video {url}";
+          "yA" = "hint links spawn ${pkgs.mpv}/bin/mpv --force-window --no-video {hint-url}";
         };
       };
 

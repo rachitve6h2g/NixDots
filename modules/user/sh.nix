@@ -18,10 +18,11 @@ let
   myTheme = config.colorScheme.palette;
 in
 {
+  # It's for unstable of 25.05
   # home = {
-  # 	shell = {
-  # 		enableZshIntegration = true;
-  # 	};
+  #   shell = {
+  #     enableZshIntegration = true;
+  #   };
   # };
   home.sessionVariables = lib.mkForce {
     EDITOR = "myHomeModuleNvim";
