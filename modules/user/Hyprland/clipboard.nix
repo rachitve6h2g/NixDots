@@ -1,6 +1,6 @@
 { pkgs, lib, ... }:
 {
-  home.packages = with pkgs; [ wl-clipboard-rs ];
+  home.packages = with pkgs; [ wl-clipboard ];
   services.cliphist = {
     enable = true;
     allowImages = true;
@@ -27,7 +27,7 @@
 
       Service = {
         Type = "exec";
-        ExecStart = "${pkgs.wl-clipboard-rs}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist -max-items 10 store";
+        ExecStart = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist -max-items 10 store";
         ExecCondition = "${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition \"Hyprland\" \"\" ";
         Restart = "on-failure";
         Slice = "app-graphical.slice";

@@ -10,6 +10,7 @@
     ./newsboat.nix
     ./peaclock.nix
     ./qutebrowser.nix
+    ./ripgrep.nix
     ./yazi.nix
     ./ytdlp.nix
     ./zathura.nix
