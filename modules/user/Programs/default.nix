@@ -7,6 +7,7 @@
     ./git.nix
     ./imv.nix
     ./mpv.nix
+    ./newsboat.nix
     ./peaclock.nix
     ./qutebrowser.nix
     ./yazi.nix

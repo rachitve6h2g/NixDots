@@ -42,7 +42,7 @@ in
           entry_background_color = "rgba(${myTheme.base02}11)";
           entry_border_color = "rgba(${myTheme.base0D}55)";
           entry_color = "rgba(FFFFFFFF)";
-          font_family = "IosevkaTerm Nerd Font";
+          font_family = "ComicShannsMono Nerd Font";
           font_family_clock = font_family;
           font_material_symbols = font_family;
         in
@@ -151,6 +151,18 @@ in
               position = "30, -30";
               halign = "left";
               valign = "top";
+            }
+          ];
+
+          image = [
+            {
+              monitor = " ";
+              path = "${./face}";
+              size = 100;
+              border_color = "rgb(${myTheme.base0E})";
+              position = "0, 75";
+              halign = "center";
+              valign = "center";
             }
           ];
         };

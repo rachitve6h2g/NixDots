@@ -18,12 +18,13 @@
 
     git-hooks-nix.url = "github:cachix/git-hooks.nix";
 
+    # Refer https://yazi-rs.github.io/docs/installation/
+    # Home-manager method
     yazi.url = "github:sxyazi/yazi";
   };
 
   outputs =
     {
-      self,
       flake-parts,
       ...
     }@inputs:
@@ -39,7 +40,6 @@
       perSystem =
         {
           pkgs,
-          system,
           ...
         }:
         {
@@ -50,4 +50,9 @@
         formatter = inputs.nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
       };
     };
+
+  nixConfig = {
+    extra-substituters = [ "https://yazi.cachix.org" ];
+    extra-trusted-public-keys = [ "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k=" ];
+  };
 }
