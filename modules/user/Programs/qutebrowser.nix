@@ -55,7 +55,6 @@
       # TODO: Add stuff here
       quickmarks = {
         # Options for NixOS
-        home-manager = "https://nix-community.github.io/home-manager/options.xhtml";
         nixconfig = "https://nixos.org/manual/nixos/stable/options.html";
         nixdisco = "https://discourse.nixos.org/";
 
@@ -82,6 +81,7 @@
         nixoptions = "https://search.nixos.org/options?query={}";
         g = "https://www.google.co.in/search?q={}";
         github = "https://www.github.com/search?q={}";
+        home-manager = "https://home-manager-options.extranix.com/?query={}";
       };
 
       keyBindings = {
