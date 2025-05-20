@@ -17,6 +17,7 @@
         username = "krish";
         homeDirectory = "/home/krish";
         stateVersion = "24.11";
+        enableNixpkgsReleaseCheck = true;
       };
       programs.home-manager.enable = true;
     };
