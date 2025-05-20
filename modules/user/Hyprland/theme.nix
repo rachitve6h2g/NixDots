@@ -55,9 +55,7 @@
       name = "Gruvbox-Plus-Dark";
     };
     font = {
-      package = pkgs.nerdfonts.override {
-        fonts = [ "ComicShannsMono" ];
-      };
+      package = pkgs.nerd-fonts.comic-shanns-mono;
       name = "ComicShannsMono Nerd Font";
       size = 12;
     };
