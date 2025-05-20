@@ -35,7 +35,7 @@ in
 
     plugins = with pkgs.hyprlandPlugins; [
       hyprexpo
-      hyprtrails
+      # hyprtrails
       hypr-dynamic-cursors
     ];
 
@@ -72,7 +72,7 @@ in
           gesture_positive = false;
         };
 
-        hyprtrails.color = "rgba(${theme.base0E}cc)";
+        # hyprtrails.color = "rgba(${theme.base0E}cc)";
 
         dynamic-cursors = {
           enabled = true;
@@ -102,7 +102,7 @@ in
       };
 
       env = [
-        "LIBGL_ALWAYS_SOFTWARE,1"
+        # "LIBGL_ALWAYS_SOFTWARE,1"
       ];
 
       exec-once = [
