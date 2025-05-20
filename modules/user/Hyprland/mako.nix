@@ -10,37 +10,40 @@ in
   services.mako = {
     enable = true;
 
-    anchor = "top-right";
-    # max-history = 10;
-    font = "ComicShannsMono Nerd Font 11";
-    layer = "top";
-    markup = true;
-    sort = "-time";
+    settings = {
+      anchor = "top-right";
+      # max-history = 10;
+      font = "ComicShannsMono Nerd Font 11";
+      layer = "top";
+      markup = true;
+      sort = "-time";
 
-    icons = true;
-    iconPath = "${pkgs.gruvbox-plus-icons}/share/icons/Gruvbox-Plus-Dark";
+      icons = true;
+      icon-path = "${pkgs.gruvbox-plus-icons}/share/icons/Gruvbox-Plus-Dark";
 
-    actions = true;
+      actions = true;
 
-    backgroundColor = "#${theme.base00}";
-    textColor = "#${theme.base05}";
-    borderColor = "#${theme.base0E}";
-    progressColor = "over #${theme.base02}";
+      background-color = "#${theme.base00}";
+      text-color = "#${theme.base05}";
+      border-color = "#${theme.base0E}";
+      progress-color = "over #${theme.base02}";
 
-    borderRadius = 10;
+      border-radius = 10;
 
-    defaultTimeout = 5000;
-    ignoreTimeout = true;
-    extraConfig = ''
-      on-notify=exec ${pkgs.mpv}/bin/mpv ${pkgs.sound-theme-freedesktop}/share/sounds/freedesktop/stereo/message.oga
-      on-button-middle=exec makoctl menu -n \"$id\" wofi -S dmenu -p 'Select Action: '
+      default-timeout = 5000;
+      ignore-timeout = true;
+      on-notify = "exec ${pkgs.mpv}/bin/mpv ${pkgs.sound-theme-freedesktop}/share/sounds/freedesktop/stereo/message.oga";
+      on-button-middle = "exec makoctl menu -n \"$id\" wofi -S dmenu -p 'Select Action: '";
 
-      [mode=do-not-disturb]
-      invisible=1
+      # Sections are written like this
+      "mode=do-not-disturb" = {
+        invisible = 1;
+      };
 
-      [urgency=high]
-      border-color=#${theme.base09}
-    '';
+      "urgency=high" = {
+        border-color = "#${theme.base09}";
+      };
+    };
   };
   # For making it conform with UWSM
   #systemd.user.services = lib.mkForce {
