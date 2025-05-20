@@ -7,9 +7,7 @@
       # TODO: Set the theme and integration of shell
 
       font = {
-        package = pkgs.nerdfonts.override {
-          fonts = [ "ComicShannsMono" ];
-        };
+        package = pkgs.nerd-fonts.comic-shanns-mono;
         name = "ComicShannsMono Nerd Font";
         size = 13;
       };
