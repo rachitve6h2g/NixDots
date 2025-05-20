@@ -2,11 +2,11 @@
   description = "My experimental flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    # nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05"; # The nixpkgs version and home-manager version should be same
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -20,7 +20,7 @@
 
     # Refer https://yazi-rs.github.io/docs/installation/
     # Home-manager method
-    yazi.url = "github:sxyazi/yazi";
+    # yazi.url = "github:sxyazi/yazi";
   };
 
   outputs =
@@ -51,8 +51,8 @@
       };
     };
 
-  nixConfig = {
-    extra-substituters = [ "https://yazi.cachix.org" ];
-    extra-trusted-public-keys = [ "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k=" ];
-  };
+  # nixConfig = {
+  #   extra-substituters = [ "https://yazi.cachix.org" ];
+  #   extra-trusted-public-keys = [ "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k=" ];
+  # };
 }
