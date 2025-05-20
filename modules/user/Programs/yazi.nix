@@ -1,11 +1,11 @@
 { pkgs, ... }:
 let
-  # yazi-plugins = pkgs.fetchFromGitHub {
-  #   owner = "yazi-rs";
-  #   repo = "plugins";
-  #   rev = "55bf6996ada3df4cbad331ce3be0c1090769fc7c";
-  #   hash = "sha256-v/C+ZBrF1ghDt1SXpZcDELmHMVAqfr44iWxzUWynyRk=";
-  # };
+  yazi-plugins = pkgs.fetchFromGitHub {
+    owner = "yazi-rs";
+    repo = "plugins";
+    rev = "55bf6996ada3df4cbad331ce3be0c1090769fc7c";
+    hash = "sha256-v/C+ZBrF1ghDt1SXpZcDELmHMVAqfr44iWxzUWynyRk=";
+  };
 in
 {
   programs = {
@@ -48,13 +48,13 @@ in
 
       # Refer https://github.com/nix-community/home-manager/issues/7088
       # and https://github.com/nix-community/home-manager/pull/7090
-      # plugins = {
-      #   full-border = pkgs.yaziPlugins.full-border;
-      #   vcs-files = pkgs.yaziPlugins.vcs-files;
-      #   smart-enter = pkgs.yaziPlugins.smart-enter;
-      #   git = pkgs.yaziPlugins.git;
-      #   toggle-pane = pkgs.yaziPlugins.toggle-pane;
-      # };
+      plugins = {
+        full-border = pkgs.yaziPlugins.full-border;
+        vcs-files = pkgs.yaziPlugins.vcs-files;
+        smart-enter = pkgs.yaziPlugins.smart-enter;
+        git = pkgs.yaziPlugins.git;
+        toggle-pane = pkgs.yaziPlugins.toggle-pane;
+      };
 
       keymap = {
         manager = {
