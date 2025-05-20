@@ -14,7 +14,7 @@ in
     # it will be the namespace for your options.
     nixCats = {
       enable = true;
-      nixpkgs_version = inputs.nixpkgs-unstable;
+      nixpkgs_version = inputs.nixpkgs; # use nixpkgs-unstable if packages not available in nixpkgs stable
       # this will add the overlays from ./overlays and also,
       # add any plugins in inputs named "plugins-pluginName" to pkgs.neovimPlugins
       # It will not apply to overall system, just nixCats.
