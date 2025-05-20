@@ -3,11 +3,7 @@
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
-      (nerdfonts.override {
-        fonts = [
-          "JetBrainsMono"
-        ];
-      })
+      nerd-fonts.comic-shanns-mono
     ];
   };
 }
