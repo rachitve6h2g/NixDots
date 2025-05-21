@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
+let
+  theme = config.colorScheme.palette;
+in
 {
   programs = {
     qutebrowser = {
@@ -49,6 +52,54 @@
               "https://github.com/uBlockOrigin/uAssets/raw/master/filters/unbreak.txt"
             ];
           };
+
+          # Colors
+          colors = {
+            completion = {
+              fg = "${theme.base05}";
+              odd.bg = "${theme.base01}";
+              even.bg = "${theme.base00}";
+              category = {
+                fg = "${theme.base0A}";
+                bg = "${theme.base00}";
+                border = {
+                  top = "${theme.base00}";
+                  bottom = "${theme.base00}";
+                };
+              };
+              item = {
+                selected = {
+                  fg = "${theme.base05}";
+                  bg = "${theme.base02}";
+                  border = {
+                    top = "${theme.base02}";
+                    bottom = "${theme.base02}";
+                  };
+                  match.fg = "${theme.base0B}";
+                };
+              };
+              match.fg = "${theme.base0B}";
+              scrollbar = {
+                fg = "${theme.base05}";
+                bg = "${theme.base00}";
+              };
+            };
+          };
+
+          contextmenu = {
+            disabled = {
+              bg = "${theme.base01}";
+              fg = "${theme.base04}";
+            };
+            menu = {
+              bg = "${theme.base00}";
+              fg = "${theme.base05}";
+            };
+            selected = {
+              bg = "${theme.base02}";
+              fg = "${theme.base05}";
+            };
+          };
         };
       };
 
@@ -77,7 +128,7 @@
         wa = "https://wiki.archlinux.org/?search={}";
         yt = "https://www.youtube.com/results?search_query={}";
         mynixos = "https://mynixos.com/search?q={}";
-        nixpackages = "https://search.nixos.org/packages?query={}";
+        nixpackages = "https://search.nixos.org/packages?channel=25.05&query={}";
         nixoptions = "https://search.nixos.org/options?query={}";
         g = "https://www.google.co.in/search?q={}";
         github = "https://www.github.com/search?q={}";
@@ -94,25 +145,25 @@
       };
 
       # Extras
-      extraConfig =
-        # python
-        ''
-          import os
-          from urllib.request import urlopen
-
-          # load your autoconfig, use this, if the rest of your config is empty!
-          config.load_autoconfig()
-
-          if not os.path.exists(config.configdir / "theme.py"):
-              theme = "https://raw.githubusercontent.com/catppuccin/qutebrowser/main/setup.py"
-              with urlopen(theme) as themehtml:
-                  with open(config.configdir / "theme.py", "a") as file:
-                      file.writelines(themehtml.read().decode("utf-8"))
-
-          if os.path.exists(config.configdir / "theme.py"):
-              import theme
-              theme.setup(c, 'mocha', True)
-        '';
+      # extraConfig =
+      #   # python
+      #   ''
+      #     import os
+      #     from urllib.request import urlopen
+      #
+      #     # load your autoconfig, use this, if the rest of your config is empty!
+      #     config.load_autoconfig()
+      #
+      #     if not os.path.exists(config.configdir / "theme.py"):
+      #         theme = "https://raw.githubusercontent.com/catppuccin/qutebrowser/main/setup.py"
+      #         with urlopen(theme) as themehtml:
+      #             with open(config.configdir / "theme.py", "a") as file:
+      #                 file.writelines(themehtml.read().decode("utf-8"))
+      #
+      #     if os.path.exists(config.configdir / "theme.py"):
+      #         import theme
+      #         theme.setup(c, 'mocha', True)
+      #   '';
     };
   };
 }
