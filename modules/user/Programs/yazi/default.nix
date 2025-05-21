@@ -70,6 +70,14 @@
           toggle-pane = pkgs.yaziPlugins.toggle-pane;
           eza-preview = eza-preview-yazi;
           yatline = pkgs.yaziPlugins.yatline;
+          yatline-gruvbox-material = (
+            pkgs.fetchFromGitHub {
+              owner = "imsi32";
+              repo = "yatline-gruvbox-material.yazi";
+              rev = "8e18dad0b398089e47c578b0a696df3733b3e376";
+              hash = "sha256-J9koKA4g8yGKxjIWTlLJiuyJMmhXt6n7Xt/PCBshOEg=";
+            }
+          );
         };
 
       keymap = {

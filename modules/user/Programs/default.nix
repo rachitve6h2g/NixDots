@@ -11,7 +11,7 @@
     ./peaclock.nix
     ./qutebrowser.nix
     ./ripgrep.nix
-    ./yazi.nix
+    ./yazi
     ./ytdlp.nix
     ./zathura.nix
   ];
