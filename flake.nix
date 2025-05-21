@@ -21,6 +21,14 @@
     # Refer https://yazi-rs.github.io/docs/installation/
     # Home-manager method
     # yazi.url = "github:sxyazi/yazi";
+
+    # Hyprland plugins fix
+    # Remove this once it's fixed
+    # Refer https://github.com/hyprwm/hyprland-plugins/pull/338/files (CShader replaced by SShader)
+    hyprlandPlugins = {
+      url = "github:hyprwm/hyprland-plugins/c491d2831448645f24a1597a17f564aa52691ac6";
+      flake = false;
+    };
   };
 
   outputs =

@@ -112,6 +112,23 @@
         "type": "github"
       }
     },
+    "hyprlandPlugins": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1746806942,
+        "narHash": "sha256-fziL5ORI599D6Wp+BKlspxOqZ1HhCCLkq4C4FBwIwJo=",
+        "owner": "hyprwm",
+        "repo": "hyprland-plugins",
+        "rev": "c491d2831448645f24a1597a17f564aa52691ac6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hyprwm",
+        "repo": "hyprland-plugins",
+        "rev": "c491d2831448645f24a1597a17f564aa52691ac6",
+        "type": "github"
+      }
+    },
     "nix-colors": {
       "inputs": {
         "base16-schemes": "base16-schemes",
@@ -213,6 +230,7 @@
         "flake-parts": "flake-parts",
         "git-hooks-nix": "git-hooks-nix",
         "home-manager": "home-manager",
+        "hyprlandPlugins": "hyprlandPlugins",
         "nix-colors": "nix-colors",
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs_2"
