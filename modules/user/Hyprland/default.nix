@@ -2,10 +2,19 @@
   lib,
   config,
   pkgs,
+  inputs,
   ...
 }:
 let
   theme = config.colorScheme.palette;
+
+  # Remove this once the error is fixed
+  # Keep track of it https://github.com/hyprwm/hyprland-plugins/pull/338/files
+  hyprtrails = pkgs.hyprlandPlugins.hyprtrails.overrideAttrs (
+    _: _: {
+      src = "${inputs.hyprlandPlugins}/hyprtrails";
+    }
+  );
 in
 {
   imports = [
@@ -35,7 +44,7 @@ in
 
     plugins = with pkgs.hyprlandPlugins; [
       hyprexpo
-      # hyprtrails
+      hyprtrails
       hypr-dynamic-cursors
     ];
 
@@ -72,7 +81,7 @@ in
           gesture_positive = false;
         };
 
-        # hyprtrails.color = "rgba(${theme.base0E}cc)";
+        hyprtrails.color = "rgba(${theme.base0E}cc)";
 
         dynamic-cursors = {
           enabled = true;
@@ -248,8 +257,8 @@ in
       };
 
       general = {
-        gaps_in = 5;
-        gaps_out = 15;
+        gaps_in = 4;
+        gaps_out = 8;
         gaps_workspaces = 50;
         border_size = 2;
         resize_on_border = false;
