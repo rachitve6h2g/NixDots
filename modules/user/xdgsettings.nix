@@ -16,6 +16,7 @@
 
       defaultApplications = {
         "application/pdf" = "org.pwmt.zathura-pdf.desktop";
+        "application/zip" = "7zz";
       };
     };
 

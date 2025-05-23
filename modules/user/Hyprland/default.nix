@@ -30,13 +30,13 @@ in
   ];
 
   # For uwsm login from tty
-  xdg.configFile."zsh/.zprofile".text =
-    # bash
-    ''
-      if uwsm check may-start; then
-        exec uwsm start -S -F Hyprland
-      fi
-    '';
+  # xdg.configFile."zsh/.zprofile".text =
+  #   # bash
+  #   ''
+  #     if uwsm check may-start; then
+  #       exec uwsm start -S -F Hyprland
+  #     fi
+  #   '';
 
   wayland.windowManager.hyprland = {
     enable = true;

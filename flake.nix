@@ -20,7 +20,7 @@
 
     # Refer https://yazi-rs.github.io/docs/installation/
     # Home-manager method
-    # yazi.url = "github:sxyazi/yazi";
+    yazi.url = "github:sxyazi/yazi";
 
     # Hyprland plugins fix
     # Remove this once it's fixed
@@ -59,8 +59,8 @@
       };
     };
 
-  # nixConfig = {
-  #   extra-substituters = [ "https://yazi.cachix.org" ];
-  #   extra-trusted-public-keys = [ "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k=" ];
-  # };
+  nixConfig = {
+    extra-substituters = [ "https://yazi.cachix.org" ];
+    extra-trusted-public-keys = [ "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k=" ];
+  };
 }

@@ -19,7 +19,7 @@ let
   myTheme = config.colorScheme.palette;
 in
 {
-  # It's for unstable of 25.05
+  # It's for unstable of 25.11
   # home = {
   #   shell = {
   #     enableZshIntegration = true;
@@ -39,8 +39,17 @@ in
   home.packages = [ pkgs.sl ];
 
   programs = {
+    fd = {
+      enable = true;
+    };
     zsh = {
       enable = true;
+      profileExtra = # bash
+        ''
+          if uwsm check may-start && uwsm select; then
+            exec systemd-cat -t uwsm_start uwsm start default
+          fi
+        '';
 
       # Don't forget to add
       # environment.pathsToLink = [ "/share/zsh" ];
@@ -68,6 +77,20 @@ in
       };
 
       shellAliases = myAliases;
+
+      plugins = [
+        {
+          name = "fzf-tab";
+          src = (
+            pkgs.fetchFromGitHub {
+              owner = "Aloxaf";
+              repo = "fzf-tab";
+              rev = "2abe1f2f1cbcb3d3c6b879d849d683de5688111f";
+              hash = "sha256-zc9Sc1WQIbJ132hw73oiS1ExvxCRHagi6vMkCLd4ZhI=";
+            }
+          );
+        }
+      ];
     };
 
     starship = {
@@ -258,6 +281,29 @@ in
       options = [
         "--cmd cd"
       ];
+    };
+
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+
+      colors = {
+        "bg+" = "#313244";
+        bg = "#1e1e2e";
+        spinner = "#f5e0dc";
+        hl = "#f38ba8";
+        fg = "#cdd6f4";
+        header = "#f38ba8";
+        info = "#cba6f7";
+        pointer = "#f5e0dc";
+        marker = "#b4befe";
+        "fg+" = "#cdd6f4";
+        prompt = "#cba6f7";
+        "hl+" = "#f38ba8";
+        selected-bg = "#45475a";
+        border = "#313244";
+        label = "#cdd6f4";
+      };
     };
   };
 

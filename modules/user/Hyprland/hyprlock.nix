@@ -76,7 +76,7 @@ in
               font_color = entry_color;
               fade_on_empty = true;
 
-              position = "0, 20";
+              position = "0, -15";
               halign = "center";
               valign = "center";
             }
