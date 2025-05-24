@@ -40,45 +40,22 @@
 
       # Refer https://github.com/nix-community/home-manager/issues/7088
       # and https://github.com/nix-community/home-manager/pull/7090
-      plugins =
-        let
-          eza-preview-yazi = (
-            pkgs.stdenv.mkDerivation {
-              pname = "yaziPlugins-eza-preview";
-              version = "unstable-2025-02-18";
-
-              src = pkgs.fetchFromGitHub {
-                owner = "sharklasers996";
-                repo = "eza-preview.yazi";
-                rev = "7ca4c2558e17bef98cacf568f10ec065a1e5fb9b";
-                hash = "sha256-ncOOCj53wXPZvaPSoJ5LjaWSzw1omHadKDrXdIb7G5U=";
-              };
-
-              buildPhase = ''
-                mkdir $out
-                cp $src/* $out
-                mv $out/init.lua $out/main.lua
-              '';
-            }
-          );
-        in
-        {
-          full-border = pkgs.yaziPlugins.full-border;
-          vcs-files = pkgs.yaziPlugins.vcs-files;
-          smart-enter = pkgs.yaziPlugins.smart-enter;
-          git = pkgs.yaziPlugins.git;
-          toggle-pane = pkgs.yaziPlugins.toggle-pane;
-          eza-preview = eza-preview-yazi;
-          yatline = pkgs.yaziPlugins.yatline;
-          yatline-gruvbox-material = (
-            pkgs.fetchFromGitHub {
-              owner = "imsi32";
-              repo = "yatline-gruvbox-material.yazi";
-              rev = "8e18dad0b398089e47c578b0a696df3733b3e376";
-              hash = "sha256-J9koKA4g8yGKxjIWTlLJiuyJMmhXt6n7Xt/PCBshOEg=";
-            }
-          );
-        };
+      plugins = {
+        full-border = pkgs.yaziPlugins.full-border;
+        vcs-files = pkgs.yaziPlugins.vcs-files;
+        smart-enter = pkgs.yaziPlugins.smart-enter;
+        git = pkgs.yaziPlugins.git;
+        toggle-pane = pkgs.yaziPlugins.toggle-pane;
+        yatline = pkgs.yaziPlugins.yatline;
+        yatline-gruvbox-material = (
+          pkgs.fetchFromGitHub {
+            owner = "imsi32";
+            repo = "yatline-gruvbox-material.yazi";
+            rev = "8e18dad0b398089e47c578b0a696df3733b3e376";
+            hash = "sha256-J9koKA4g8yGKxjIWTlLJiuyJMmhXt6n7Xt/PCBshOEg=";
+          }
+        );
+      };
 
       keymap = {
         manager = {
@@ -123,13 +100,6 @@
               run = "git";
             }
             # For git.yazi
-          ];
-
-          prepend_previewers = [
-            {
-              name = "*/";
-              run = "eza-preview";
-            }
           ];
         };
       };

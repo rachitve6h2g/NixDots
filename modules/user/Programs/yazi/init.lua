@@ -7,11 +7,11 @@ require("full-border"):setup {
 require("git"):setup()
 
 -- For eza-preview
-require("eza-preview"):setup({
-  level = 3,
-  follow_symlinks = false,
-  dereference = false,
-})
+-- require("eza-preview"):setup({
+--   level = 3,
+--   follow_symlinks = false,
+--   dereference = false,
+-- })
 
 -- Gruvbox yatline
 local gruvbox_theme = require("yatline-gruvbox-material"):setup({ mode = "dark", toughness = "hard" })
