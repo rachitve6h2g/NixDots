@@ -34,8 +34,8 @@ in
           "wireplumber"
           "network"
           "backlight"
-          "upower"
-          # "battery"
+          # "upower"
+          "battery"
         ];
 
         "hyprland/workspaces" = {

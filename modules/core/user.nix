@@ -34,6 +34,7 @@
       "networkmanager"
       "wheel"
       "input"
+      "vboxusers"
       "video"
       "audio"
     ];

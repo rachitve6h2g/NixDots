@@ -3,6 +3,7 @@
   imports = [
     ./bottom.nix
     ./btop.nix
+    ./cmus.nix
     ./fastfetch.nix
     ./git.nix
     ./imv.nix

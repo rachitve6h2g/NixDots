@@ -17,6 +17,7 @@
     ./system.nix
     ./thunar.nix
     ./user.nix
+    ./virtualbox.nix
     ./xdgsettings.nix
   ];
 }

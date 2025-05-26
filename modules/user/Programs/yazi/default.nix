@@ -1,4 +1,19 @@
 { pkgs, ... }:
+let
+  yazi-plugins = pkgs.fetchFromGitHub {
+    owner = "yazi-rs";
+    repo = "plugins";
+    rev = "55bf6996ada3df4cbad331ce3be0c1090769fc7c";
+    hash = "sha256-v/C+ZBrF1ghDt1SXpZcDELmHMVAqfr44iWxzUWynyRk=";
+  };
+
+  yatline = pkgs.fetchFromGitHub {
+    owner = "imsi32";
+    repo = "yatline.yazi";
+    rev = "2ecf715d33866e5f8a63af25f6a242821746ddb7";
+    hash = "sha256-l4IrdALlgKd1USxE2+bD0Lkw3DgBoQDBxgxevrFhytU=";
+  };
+in
 {
   programs = {
     yazi = {
@@ -41,12 +56,12 @@
       # Refer https://github.com/nix-community/home-manager/issues/7088
       # and https://github.com/nix-community/home-manager/pull/7090
       plugins = {
-        full-border = pkgs.yaziPlugins.full-border;
-        vcs-files = pkgs.yaziPlugins.vcs-files;
-        smart-enter = pkgs.yaziPlugins.smart-enter;
-        git = pkgs.yaziPlugins.git;
-        toggle-pane = pkgs.yaziPlugins.toggle-pane;
-        yatline = pkgs.yaziPlugins.yatline;
+        full-border = "${yazi-plugins}/full-border.yazi";
+        vcs-files = "${yazi-plugins}/vcs-files.yazi";
+        smart-enter = "${yazi-plugins}/smart-enter.yazi";
+        git = "${yazi-plugins}/git.yazi";
+        toggle-pane = "${yazi-plugins}/toggle-pane.yazi";
+        yatline = "${yatline}/";
         yatline-gruvbox-material = (
           pkgs.fetchFromGitHub {
             owner = "imsi32";

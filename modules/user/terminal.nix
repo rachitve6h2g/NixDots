@@ -9,7 +9,7 @@
       font = {
         package = pkgs.nerd-fonts.comic-shanns-mono;
         name = "ComicShannsMono Nerd Font";
-        size = 13;
+        size = 14;
       };
 
       shellIntegration = {

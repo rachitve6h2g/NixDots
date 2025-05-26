@@ -282,7 +282,7 @@ in
         nixpackages = "https://search.nixos.org/packages?channel=25.05&query={}";
         nixoptions = "https://search.nixos.org/options?query={}";
         g = "https://www.google.co.in/search?q={}";
-        github = "https://www.github.com/search?q={}";
+        gitrepo = "https://www.github.com/search?q={}&type=repositories";
         home-manager = "https://home-manager-options.extranix.com/?query={}&release=master";
       };
 
