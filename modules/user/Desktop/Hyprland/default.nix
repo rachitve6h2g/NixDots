@@ -18,15 +18,10 @@ let
 in
 {
   imports = [
-    ./clipboard.nix
     ./hypridle.nix
     ./hyprlock.nix
     ./hyprpaper.nix
-    ./mako.nix
-    ./theme.nix
     ./waybar.nix
-    ./wlsunset.nix
-    ./wofi.nix
   ];
 
   # For uwsm login from tty

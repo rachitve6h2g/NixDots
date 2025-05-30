@@ -11,7 +11,7 @@ let
     rm = "echo \"Don't use this, use trash\";false";
     ".." = "cd ..";
     # peaclock = "${pkgs.peaclock}/bin/peaclock --config-dir ~/.config/peaclock --config ~/.config/peaclock/config";
-    btop = "btop --utf-force";
+    # btop = "btop --utf-force";
     ffetch = "${pkgs.fastfetch}/bin/fastfetch";
     oldvim = "${pkgs.vim}/bin/vim";
   };

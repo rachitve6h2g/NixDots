@@ -26,5 +26,7 @@
     })
 
     bluetui
+
+    pavucontrol
   ];
 }

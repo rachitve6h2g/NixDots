@@ -7,8 +7,8 @@
     ./terminal.nix
     ./xdgsettings.nix
 
+    ./Desktop
     ./neovim
-    ./Hyprland
     ./Programs
   ];
 

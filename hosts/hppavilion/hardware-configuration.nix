@@ -24,7 +24,7 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/32503939-7c1c-4240-9e8d-a757f53461f2";
+    device = "/dev/disk/by-uuid/c977906b-f48e-46a4-9340-24642242b47c";
     fsType = "btrfs";
     options = [
       "subvol=@"
@@ -40,7 +40,7 @@
   boot.initrd.luks.devices."root".device = "/dev/disk/by-uuid/34565279-727f-4bca-831d-53c9abe97312";
 
   fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/32503939-7c1c-4240-9e8d-a757f53461f2";
+    device = "/dev/disk/by-uuid/c977906b-f48e-46a4-9340-24642242b47c";
     fsType = "btrfs";
     options = [
       "subvol=@home"
@@ -53,22 +53,8 @@
     ];
   };
 
-  fileSystems."/var" = {
-    device = "/dev/disk/by-uuid/32503939-7c1c-4240-9e8d-a757f53461f2";
-    fsType = "btrfs";
-    options = [
-      "subvol=@var"
-      "autodefrag"
-      "discard=async"
-      "noatime"
-      "ssd"
-      "space_cache=v2"
-      "compress=zstd"
-    ];
-  };
-
   fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/32503939-7c1c-4240-9e8d-a757f53461f2";
+    device = "/dev/disk/by-uuid/c977906b-f48e-46a4-9340-24642242b47c";
     fsType = "btrfs";
     options = [
       "subvol=@nix"
@@ -82,7 +68,7 @@
   };
 
   fileSystems."/swap" = {
-    device = "/dev/disk/by-uuid/32503939-7c1c-4240-9e8d-a757f53461f2";
+    device = "/dev/disk/by-uuid/c977906b-f48e-46a4-9340-24642242b47c";
     fsType = "btrfs";
     options = [
       "subvol=@swap"
@@ -96,7 +82,7 @@
   };
 
   fileSystems."/efi" = {
-    device = "/dev/disk/by-uuid/B62B-5639";
+    device = "/dev/disk/by-uuid/D0A4-2E78";
     fsType = "vfat";
     options = [
       "fmask=0022"

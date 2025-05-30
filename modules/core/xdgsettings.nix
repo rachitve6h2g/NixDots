@@ -11,6 +11,9 @@
         Hyprland = [
           "kitty.desktop"
         ];
+        sway = [
+          "kitty.desktop"
+        ];
       };
     };
     icons = {
