@@ -34,6 +34,7 @@ in
 
     config = {
       workspaceAutoBackAndForth = true;
+      defaultWorkspace = "workspace number 1";
 
       colors = {
         background = "#${theme.base07}";
@@ -165,27 +166,28 @@ in
           mod = config.wayland.windowManager.sway.config.modifier;
           term = config.wayland.windowManager.sway.config.terminal;
           browser = "exec uwsm app -- org.qutebrowser.qutebrowser.desktop";
+          num_of_workspaces = "10";
         in
         lib.mkOptionDefault {
           "${mod}+q" = "exec ${term}";
           "${mod}+c" = "kill";
           "${mod}+n" = "split none";
           "${mod}+u" = "sticky toggle";
-          "${mod}+i" = "${browser}";
+          "${mod}+i" = "exec ${browser}";
 
           "${mod}+tab" = "workspace next";
 
           "${mod}+Shift+e" =
-            "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'loginctl terminate-user \"\"' ";
+            "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'loginctl terminate-user \"\"' ";
 
           "${mod}+o" =
-            "swaymsg -pt get_workspaces | gawk -f ${workspace_gawk} -v move_type=\"left\"  -v num_of_workspaces=$num_of_workspaces";
+            "exec swaymsg -pt get_workspaces | gawk -f ${workspace_gawk} -v move_type=\"left\" -v num_of_workspaces=${num_of_workspaces}";
           "${mod}+p" =
-            "swaymsg -pt get_workspaces | gawk -f ${workspace_gawk} -v move_type=\"right\"  -v num_of_workspaces=$num_of_workspaces";
+            "exec swaymsg -pt get_workspaces | gawk -f ${workspace_gawk} -v move_type=\"right\" -v num_of_workspaces=${num_of_workspaces}";
           "${mod}+Shift+o" =
-            "swaymsg -pt get_workspaces | gawk -f ${workspace_gawk} -v move_type=\"container_left\"  -v num_of_workspaces=$num_of_workspaces";
+            "exec swaymsg -pt get_workspaces | gawk -f ${workspace_gawk} -v move_type=\"container_left\" -v num_of_workspaces=${num_of_workspaces}";
           "${mod}+Shift+p" =
-            "swaymsg -pt get_workspaces | gawk -f ${workspace_gawk} -v move_type=\"container_right\"  -v num_of_workspaces=$num_of_workspaces";
+            "exec swaymsg -pt get_workspaces | gawk -f ${workspace_gawk} -v move_type=\"container_right\" -v num_of_workspaces=${num_of_workspaces}";
         };
     };
   };
