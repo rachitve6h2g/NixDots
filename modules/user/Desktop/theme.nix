@@ -19,8 +19,7 @@
       name = "rose-pine";
     };
     font = {
-      package = pkgs.nerd-fonts.comic-shanns-mono;
-      name = "ComicShannsMono Nerd Font";
+      name = "sansserif";
       size = 12;
     };
   };

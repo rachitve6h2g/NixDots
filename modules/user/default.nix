@@ -1,8 +1,9 @@
-{ inputs, pkgs, ... }:
+{ inputs, ... }:
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
 
+    ./fontconfig.nix
     ./terminal.nix
     ./xdgsettings.nix
 

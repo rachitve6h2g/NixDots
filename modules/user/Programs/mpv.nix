@@ -12,7 +12,7 @@ in
     enable = true;
 
     defaultProfiles = [
-      "gpu-hq"
+      "fast"
     ];
 
     config = {

@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   programs = {
     kitty = {
@@ -7,8 +6,7 @@
       # TODO: Set the theme and integration of shell
 
       font = {
-        package = pkgs.nerd-fonts.comic-shanns-mono;
-        name = "ComicShannsMono Nerd Font";
+        name = "monospace";
         size = 14;
       };
 

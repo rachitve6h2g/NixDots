@@ -162,7 +162,7 @@ in {
             monitor = " ";
             path = "${./face}";
             size = 100;
-            border_color = "rgb(${myTheme.base0E})";
+            border_color = "rgb(${myTheme.base0A})";
             position = "0, 75";
             halign = "center";
             valign = "center";

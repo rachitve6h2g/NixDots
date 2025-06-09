@@ -132,7 +132,7 @@ in {
       # css
       ''
          *{
-            font-family: ComicShannsMonoNerdFont;
+            font-family: monospace;
             font-size: 13px;
             color: #${theme.base05};
          }

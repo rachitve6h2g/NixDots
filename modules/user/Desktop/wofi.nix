@@ -27,7 +27,7 @@ in {
           border-radius: 0px;
           border: 2px solid #eb6f92;
           color: #e0def4;
-          font-family: 'Monofur Nerd Font';
+          font-family: 'monospace';
           font-size: 20px;
         }
         #input {
