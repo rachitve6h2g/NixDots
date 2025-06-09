@@ -6,7 +6,6 @@
     ./cleanup.nix
     ./compileopts.nix
     #./displaymanager.nix
-    ./fonts.nix
     ./graphics.nix
     ./hyprland.nix
     ./networking.nix
