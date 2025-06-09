@@ -57,24 +57,27 @@ in
     lazygit = {
       enable = true;
       settings = {
-        gui.theme = {
-          activeBorderColor = [
-            "#${theme.base0A}"
-            "bold"
-          ];
-          inactiveBorderColor = [ "#${theme.base0B}" ];
-          searchingActiveBorderColor = [
-            "#${theme.base0A}"
-            "bold"
-          ];
-          optionsTextColor = [ "#${theme.base0C}" ];
-          selectedLineBgColor = [ "#283457" ]; # This is a rose-pine color.
-          cherryPickedCommitFgColor = [ "#${theme.base0C}" ];
-          cherryPickedCommitBgColor = [ "#${theme.base0D}" ];
-          markedBaseCommitFgColor = [ "#${theme.base0C}" ];
-          markedBaseCommitBgColor = [ "#${theme.base09}" ];
-          unstagedChangesColor = [ "#${theme.base08}" ];
-          defaultFgColor = [ "#${theme.base05}" ];
+        gui = {
+          nerdFontsVersion = 3;
+          theme = {
+            activeBorderColor = [
+              "#${theme.base0A}"
+              "bold"
+            ];
+            inactiveBorderColor = [ "#${theme.base0B}" ];
+            searchingActiveBorderColor = [
+              "#${theme.base0A}"
+              "bold"
+            ];
+            optionsTextColor = [ "#${theme.base0C}" ];
+            selectedLineBgColor = [ "#283457" ]; # This is a rose-pine color.
+            cherryPickedCommitFgColor = [ "#${theme.base0C}" ];
+            cherryPickedCommitBgColor = [ "#${theme.base0D}" ];
+            markedBaseCommitFgColor = [ "#${theme.base0C}" ];
+            markedBaseCommitBgColor = [ "#${theme.base09}" ];
+            unstagedChangesColor = [ "#${theme.base08}" ];
+            defaultFgColor = [ "#${theme.base05}" ];
+          };
         };
       };
     };
