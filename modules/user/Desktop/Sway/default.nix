@@ -3,19 +3,18 @@
   lib,
   config,
   ...
-}:
-let
+}: let
   theme = config.colorScheme.palette;
   # Remember to provide the appropriate shebang when using this
   workspace_gawk =
     pkgs.pkgs.writeScript "workspace_gawk" # gawk
-      ''
-        #!${pkgs.gawk}/bin/gawk -f
-        ${builtins.readFile ./workspace.gawk}
-      '';
-in
-{
-  imports = [ ./i3status-rs.nix ];
+    
+    ''
+      #!${pkgs.gawk}/bin/gawk -f
+      ${builtins.readFile ./workspace.gawk}
+    '';
+in {
+  imports = [./i3status-rs.nix];
   home.pointerCursor.sway.enable = true;
 
   xdg.configFile."uwsm/env-sway".source = ./uwsm/env-sway;
@@ -105,7 +104,7 @@ in
           };
           statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs $HOME/.config/i3status-rust/config-default.toml";
           fonts = {
-            names = [ "ComicShannsMono Nerd Font" ];
+            names = ["ComicShannsMono Nerd Font"];
             style = "Regular Bold";
             size = 10.0;
           };
@@ -161,13 +160,12 @@ in
       right = "l";
 
       # Now come the keybindings
-      keybindings =
-        let
-          mod = config.wayland.windowManager.sway.config.modifier;
-          term = config.wayland.windowManager.sway.config.terminal;
-          browser = "exec uwsm app -- org.qutebrowser.qutebrowser.desktop";
-          num_of_workspaces = "10";
-        in
+      keybindings = let
+        mod = config.wayland.windowManager.sway.config.modifier;
+        term = config.wayland.windowManager.sway.config.terminal;
+        browser = "exec uwsm app -- org.qutebrowser.qutebrowser.desktop";
+        num_of_workspaces = "10";
+      in
         lib.mkOptionDefault {
           "${mod}+q" = "exec ${term}";
           "${mod}+c" = "kill";
@@ -177,17 +175,12 @@ in
 
           "${mod}+tab" = "workspace next";
 
-          "${mod}+Shift+e" =
-            "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'loginctl terminate-user \"\"' ";
+          "${mod}+Shift+e" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'loginctl terminate-user \"\"' ";
 
-          "${mod}+o" =
-            "exec swaymsg -pt get_workspaces | gawk -f ${workspace_gawk} -v move_type=\"left\" -v num_of_workspaces=${num_of_workspaces}";
-          "${mod}+p" =
-            "exec swaymsg -pt get_workspaces | gawk -f ${workspace_gawk} -v move_type=\"right\" -v num_of_workspaces=${num_of_workspaces}";
-          "${mod}+Shift+o" =
-            "exec swaymsg -pt get_workspaces | gawk -f ${workspace_gawk} -v move_type=\"container_left\" -v num_of_workspaces=${num_of_workspaces}";
-          "${mod}+Shift+p" =
-            "exec swaymsg -pt get_workspaces | gawk -f ${workspace_gawk} -v move_type=\"container_right\" -v num_of_workspaces=${num_of_workspaces}";
+          "${mod}+o" = "exec swaymsg -pt get_workspaces | gawk -f ${workspace_gawk} -v move_type=\"left\" -v num_of_workspaces=${num_of_workspaces}";
+          "${mod}+p" = "exec swaymsg -pt get_workspaces | gawk -f ${workspace_gawk} -v move_type=\"right\" -v num_of_workspaces=${num_of_workspaces}";
+          "${mod}+Shift+o" = "exec swaymsg -pt get_workspaces | gawk -f ${workspace_gawk} -v move_type=\"container_left\" -v num_of_workspaces=${num_of_workspaces}";
+          "${mod}+Shift+p" = "exec swaymsg -pt get_workspaces | gawk -f ${workspace_gawk} -v move_type=\"container_right\" -v num_of_workspaces=${num_of_workspaces}";
         };
     };
   };

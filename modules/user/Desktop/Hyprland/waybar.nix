@@ -3,11 +3,9 @@
   lib,
   config,
   ...
-}:
-let
+}: let
   theme = config.colorScheme.palette;
-in
-{
+in {
   programs.waybar = {
     enable = true;
 
@@ -28,14 +26,14 @@ in
           "hyprland/workspaces"
         ];
 
-        modules-center = [ "clock" ];
+        modules-center = ["clock"];
 
         modules-right = [
           "wireplumber"
           "network"
           "backlight"
-          # "upower"
-          "battery"
+          "upower"
+          # "battery"
         ];
 
         "hyprland/workspaces" = {
@@ -49,9 +47,9 @@ in
             default = " ";
           };
           persistent-workspaces = {
-            "1" = [ ];
-            "2" = [ ];
-            "3" = [ ];
+            "1" = [];
+            "2" = [];
+            "3" = [];
           };
         };
 
@@ -120,7 +118,7 @@ in
         };
 
         network = {
-          format-wifi = "<span color = '#a6e3a1' size='12pt'> </span> {essid}({signalStrength}%)";
+          format-wifi = "<span color = '#${theme.base0C}' size='12pt'> </span> {essid}({signalStrength}%)";
           on-click = "killall nm-connection-editor || exec uwsm app -- nm-connection-editor.desktop";
           format-ethernet = "{ipaddr}/{cidr}  ";
           tooltip-format = "{essid} ({signalStrength}%)";
@@ -156,16 +154,16 @@ in
           }
 
           #workspaces button.empty {
-              color: #282828;
+              color: #${theme.base00};
           }
 
           #workspaces button.urgent {
-              background-color: #ea6962;
+              background-color: #${theme.base08};
           }
 
           #mode {
-              background-color: #d8a657;
-              color: #141617;
+              background-color: #${theme.base0B};
+              color: #${theme.base00};
               border-radius: 5px;
               margin: 8px 0px;
               padding: 0px 5px;
@@ -185,7 +183,7 @@ in
           #power-profiles-daemon,
           #mpd {
               padding: 0 10px;
-              color: #d4be98;
+              color: #${theme.base05};
           }
 
           /* If workspaces is the leftmost module, omit left margin */
@@ -199,8 +197,8 @@ in
           }
 
           #clock {
-              background-color: #d4be98;
-              color: #141617;
+              background-color: #${theme.base0E};
+              color: #${theme.base00};
               border-radius: 20px;
               padding: 0px 5px;
               margin: 8px 10px;
@@ -228,8 +226,8 @@ in
 
           /* Using steps() instead of linear as a timing function to limit cpu usage */
           #battery.critical:not(.charging) {
-              background-color: #ea6962;
-              color: #282828;
+              background-color: #${theme.base08};
+              color: #${theme.base00};
               animation-name: blink;
               animation-duration: 0.5s;
               animation-timing-function: steps(12);
@@ -243,7 +241,7 @@ in
 
           #power-profiles-daemon.performance {
               /*background-color: #f53c3c;*/
-              color: #ea6962;
+              color: #${theme.base08};
           }
 
           #power-profiles-daemon.balanced {
@@ -282,12 +280,12 @@ in
           }
 
           #network.wifi {
-              background-color: #32302f;
+              background-color: #${theme.base02};
               border-radius: 30px;
           }
 
           #network.disconnected {
-              color: #ea6962;
+              color: #${theme.base08};
           }
 
           #pulseaudio {
@@ -297,7 +295,7 @@ in
 
           #pulseaudio.muted {
               /*background-color: #90b1b1;*/
-              color: #ea6962;
+              color: #${theme.base08};
           }
 
           #wireplumber {
@@ -311,7 +309,7 @@ in
 
           #custom-media {
               /*background-color: #66cc99;*/
-              /*color: #2a5c45;*/
+              /*color: #${theme.base0B};*/
               min-width: 100px;
           }
 
@@ -348,12 +346,12 @@ in
               padding: 0 10px;
           }
           #idle_inhibitor.activated {
-              color: #ea6962;
+              color: #${theme.base08};
           }
 
           #mpd {
               /*background-color: #66cc99;*/
-              color: #2a5c45;
+              color: #${theme.base0B};
           }
 
           #mpd.disconnected {
@@ -427,13 +425,13 @@ in
   systemd.user.services = lib.mkForce {
     waybar = {
       Install = {
-        WantedBy = [ "graphical-session.target" ];
+        WantedBy = ["graphical-session.target"];
       };
 
       Unit = {
         Description = "Waybar Service started thru UWSM";
-        Documentation = [ "man:waybar(1)" ];
-        After = [ "graphical-session.target" ];
+        Documentation = ["man:waybar(1)"];
+        After = ["graphical-session.target"];
       };
 
       Service = {

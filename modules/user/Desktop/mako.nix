@@ -2,11 +2,9 @@
   pkgs,
   config,
   ...
-}:
-let
+}: let
   theme = config.colorScheme.palette;
-in
-{
+in {
   services.mako = {
     enable = true;
 
@@ -19,14 +17,14 @@ in
       sort = "-time";
 
       icons = true;
-      icon-path = "${pkgs.gruvbox-plus-icons}/share/icons/Gruvbox-Plus-Dark";
+      icon-path = "${pkgs.rose-pine-icon-theme}/share/icons/rose-pine";
 
       actions = true;
 
-      background-color = "#${theme.base00}";
+      background-color = "#${theme.base02}";
       text-color = "#${theme.base05}";
-      border-color = "#${theme.base0E}";
-      progress-color = "over #${theme.base02}";
+      border-color = "#${theme.base07}";
+      progress-color = "over #${theme.base0B}";
 
       border-radius = 10;
 
@@ -41,31 +39,8 @@ in
       };
 
       "urgency=high" = {
-        border-color = "#${theme.base09}";
+        border-color = "#${theme.base08}";
       };
     };
   };
-  # For making it conform with UWSM
-  #systemd.user.services = lib.mkForce {
-  #  mako = {
-  #    Install = {
-  #      WantedBy = ["graphical-session.target"];
-  #    };
-
-  #    Unit = {
-  #      Description = "Lightweight Wayland notification daemon";
-  #      Documentation = ["man:mako(1)"];
-  #      After = ["graphical-session.target"];
-  #    };
-
-  #    Service = {
-  #      Type = "exec";
-  #      ExecStart = "${pkgs.mako}/bin/mako";
-  #      ExecReload = "${pkgs.mako}/bin/makoctl reload";
-  #      ExecCondition = "${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition \"Hyprland\" \"\" ";
-  #      Restart = "on-failure";
-  #      Slice = "background-graphical.slice";
-  #    };
-  #  };
-  #};
 }

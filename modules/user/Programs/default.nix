@@ -10,11 +10,12 @@
     ./mpv.nix
     ./newsboat.nix
     ./peaclock.nix
-    ./qutebrowser.nix
     ./ripgrep.nix
     ./yazi
     ./ytdlp.nix
     ./zathura.nix
+
+    ./qutebrowser
   ];
 
   # Misc
@@ -28,5 +29,9 @@
     bluetui
 
     pavucontrol
+
+    nurl # https://github.com/nix-community/nurl
+
+    figlet
   ];
 }

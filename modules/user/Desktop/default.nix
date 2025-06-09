@@ -1,7 +1,7 @@
 {
   imports = [
-    # ./Hyprland
-    ./Sway
+    ./Hyprland
+    # ./Sway
 
     ./clipboard.nix
     ./mako.nix

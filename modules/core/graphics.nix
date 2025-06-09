@@ -6,10 +6,16 @@
       intel-media-driver
       vpl-gpu-rt
       libvpl
+      vaapiIntel
     ];
   };
   environment.sessionVariables = {
     ANVI_VIDEO_DECODE = 1;
     LIBVA_DRIVER_NAME = "iHD";
   };
+
+  boot.kernelParams = [
+    "i915.force_probe=!a7a0"
+    "xe.force_probe=a7a0"
+  ];
 }

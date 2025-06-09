@@ -1,6 +1,9 @@
-{ pkgs, lib, ... }:
 {
-  home.packages = with pkgs; [ wl-clipboard ];
+  pkgs,
+  lib,
+  ...
+}: {
+  home.packages = with pkgs; [wl-clipboard];
   services.cliphist = {
     enable = true;
     allowImages = true;
@@ -16,13 +19,13 @@
   systemd.user.services = lib.mkForce {
     cliphist = {
       Install = {
-        WantedBy = [ "graphical-session.target" ];
+        WantedBy = ["graphical-session.target"];
       };
 
       Unit = {
         Description = "Clipboard history \"manager\" for wayland";
-        Documentation = [ "https://github.com/sentriz/cliphist" ];
-        After = [ "graphical-session.target" ];
+        Documentation = ["https://github.com/sentriz/cliphist"];
+        After = ["graphical-session.target"];
       };
 
       Service = {

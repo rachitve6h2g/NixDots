@@ -2,18 +2,17 @@
   pkgs,
   lib,
   ...
-}:
-{
+}: {
   systemd.user.services = lib.mkForce {
     wlsunset = {
       Install = {
-        WantedBy = [ "graphical-session.target" ];
+        WantedBy = ["graphical-session.target"];
       };
 
       Unit = {
         Description = "Day/night gamma adjustments for Wayland";
-        Documentation = [ "man:wlsunset(1)" ];
-        After = [ "graphical-session.target" ];
+        Documentation = ["man:wlsunset(1)"];
+        After = ["graphical-session.target"];
       };
 
       Service = {

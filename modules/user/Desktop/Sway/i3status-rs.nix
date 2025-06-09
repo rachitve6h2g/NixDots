@@ -48,7 +48,6 @@
             }
 
             {
-
               block = "sound";
               click = [
                 {
@@ -86,8 +85,8 @@
               interval = 3600;
             }
 
-            { block = "backlight"; }
-            { block = "scratchpad"; }
+            {block = "backlight";}
+            {block = "scratchpad";}
           ];
           theme = "gruvbox-dark";
           icons = "material-nf";

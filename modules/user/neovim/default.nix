@@ -82,8 +82,9 @@ in
               # but as a demo, we do it anyway.
               lze
               lzextras
+              nvim-highlight-colors
+              rose-pine
               snacks-nvim
-              gruvbox-material
               vim-sleuth
             ];
           };

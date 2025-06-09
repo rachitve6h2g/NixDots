@@ -20,44 +20,50 @@ in
     };
 
     options = {
-      font = "ComicShannsMono Nerd Font Mono 10";
+      font = "monospace 10";
       selection-notification = true;
       guioptions = "sv";
       scroll-page-aware = true;
       statusbar-home-tilde = true;
       recolor = true;
+      reclor-keephue = false;
       adjust-open = "width";
       statusbar-h-padding = 10;
       statusbar-v-padding = 10;
 
+      default-bg = "#${theme.base00}";
       default-fg = "#${theme.base05}";
-      default-bg = "#${theme.base01}cc";
 
-      completion-bg = "#${theme.base02}";
-      completion-fg = "#${theme.base05}";
-      completion-highlight-bg = "#${theme.base04}";
-      completion-highlight-fg = "#${theme.base05}";
+      completion-bg = "#${theme.base03}";
+      completion-fg = "#${theme.base0A}";
+
+      completion-highlight-bg = "#${theme.base0A}";
+      completion-highlight-fg = "#${theme.base02}";
+
       completion-group-bg = "#${theme.base02}";
       completion-group-fg = "#${theme.base0D}";
 
       statusbar-fg = "#${theme.base05}";
-      statusbar-bg = "#${theme.base02}";
+      statusbar-bg = "#555169";
 
-      notification-bg = "#${theme.base02}";
-      notification-fg = "#${theme.base05}";
-      notification-error-bg = "#${theme.base02}";
-      notification-error-fg = "#${theme.base08}";
-      notification-warning-bg = "#${theme.base02}";
-      notification-warning-fg = "#fae3b0";
+      notification-bg = "#${theme.base05}";
+      notification-fg = "#555169";
+
+      notification-error-bg = "#${theme.base09}";
+      notification-error-fg = "#555169";
+
+      notification-warning-bg = "#${theme.base0A}";
+      notification-warning-fg = "#555169";
 
       inputbar-fg = "#${theme.base05}";
-      inputbar-bg = "#${theme.base02}";
+      inputbar-bg = "#${theme.base03}";
 
       recolor-lightcolor = "#${theme.base00}";
       recolor-darkcolor = "#${theme.base05}";
 
       index-fg = "#${theme.base05}";
       index-bg = "#${theme.base00}";
+
       index-active-fg = "#${theme.base05}";
       index-active-bg = "#${theme.base02}";
 
