@@ -33,3 +33,5 @@ Bro explains declaratively kekw
 - [ ] Create a Hyprcursor patch for Bibata Cursors.
 - [ ] Move to treefmt-nix from nixfmt
 - [ ] Move to xdg-desktop-portal-termfilechooser
+- [ ] Setup screenshot in Hyprland
+- [ ] Transfer lazyvim config from SwayDots to here.

@@ -12,11 +12,6 @@ in
 
     package = pkgs.zathura.override {
       useMupdf = true;
-      # TODO: Customize here
-      plugins = with pkgs.zathuraPkgs; [
-        zathura_cb
-        zathura_pdf_mupdf
-      ];
     };
 
     options = {
@@ -26,7 +21,7 @@ in
       scroll-page-aware = true;
       statusbar-home-tilde = true;
       recolor = true;
-      reclor-keephue = false;
+      recolor-keephue = false;
       adjust-open = "width";
       statusbar-h-padding = 10;
       statusbar-v-padding = 10;
@@ -70,9 +65,8 @@ in
       render-loading-bg = "#${theme.base00}";
       render-loading-fg = "#${theme.base05}";
 
-      highlight-color = "#57526880";
-      highlight-fg = "#f5c2e780";
-      highlight-active-color = "#f5c2e780";
+      highlight-color = "rgba(0xeb, 0xbc, 0xba, 0.5)";
+      highlight-active-color = "rgba(0xeb, 0x6f, 0x92, 0.5)";
     };
   };
 }
