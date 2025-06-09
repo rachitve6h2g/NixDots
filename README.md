@@ -32,3 +32,4 @@ Bro explains declaratively kekw
 - [ ] See how to package the btop-catppuccin theme for btop
 - [ ] Create a Hyprcursor patch for Bibata Cursors.
 - [ ] Move to treefmt-nix from nixfmt
+- [ ] Move to xdg-desktop-portal-termfilechooser

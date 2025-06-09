@@ -1,4 +1,5 @@
 {
+  # wayland.systemd.target = "graphical-session.target";
   imports = [
     ./Hyprland
     # ./Sway
