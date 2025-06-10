@@ -5,6 +5,7 @@
     ./btop.nix
     ./cmus.nix
     ./fastfetch.nix
+    ./firefox.nix
     ./git.nix
     ./imv.nix
     ./mpv.nix

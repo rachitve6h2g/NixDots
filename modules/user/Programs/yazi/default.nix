@@ -7,20 +7,19 @@
       shellWrapperName = "y";
 
       flavors = {
-        rose-pine = (
+        catppuccin-mocha = (
           pkgs.stdenv.mkDerivation {
-            name = "yazi-rose-pine";
+            name = "catppuccin-mocha-yazi";
             src = pkgs.fetchFromGitHub {
-              owner = "Msouza91";
-              repo = "rose-pine.yazi";
-              rev = "4101d0d9c475f23d94b7262e7fd945930378807e";
-              hash = "sha256-Ygx3tyefGcq3Qqk/72RSJbT5K8G7wVqIk2rCI0vKkNQ=";
+              owner = "yazi-rs";
+              repo = "flavors";
+              rev = "d04a298a8d4ada755816cb1a8cfb74dd46ef7124";
+              hash = "sha256-m3yk6OcJ9vbCwtxkMRVUDhMMTOwaBFlqWDxGqX2Kyvc=";
             };
 
             installPhase = ''
               mkdir -p $out
-              cp -r $src/* $out/
-              mv $out/theme.toml $out/flavor.toml
+              cp -r $src/catppuccin-mocha.yazi/* $out/
             '';
           }
         );
@@ -28,8 +27,8 @@
 
       theme = {
         flavor = {
-          dark = "rose-pine";
-          light = "rose-pine";
+          dark = "catppuccin-mocha";
+          light = "catppuccin-mocha";
         };
       };
 

@@ -14,15 +14,15 @@ in
 
       settings = {
         color = {
-          background = "#${theme.base00}";
+          background = "'#${theme.base00}'";
           gradient = 1;
           gradient_count = 6;
-          gradient_color_1 = "#${theme.base0B}";
-          gradient_color_2 = "#${theme.base0C}";
-          gradient_color_3 = "#${theme.base0D}";
-          gradient_color_4 = "#${theme.base0A}";
-          gradient_color_5 = "#${theme.base09}";
-          gradient_color_6 = "#${theme.base08}";
+          gradient_color_1 = "'#${theme.base0B}'";
+          gradient_color_2 = "'#${theme.base0C}'";
+          gradient_color_3 = "'#${theme.base0D}'";
+          gradient_color_4 = "'#${theme.base0A}'";
+          gradient_color_5 = "'#${theme.base09}'";
+          gradient_color_6 = "'#${theme.base08}'";
         };
       };
     };
