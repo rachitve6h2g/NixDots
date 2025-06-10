@@ -6,6 +6,7 @@
       bind = let
         menu = "killall wofi || exec uwsm app -- $(wofi --show drun --define=drun-print_desktop_file=true)";
         clipboard = "killall wofi || exec cliphist list | wofi -S dmenu | cliphist decode | wl-copy";
+        wofi-power-menu = "${pkgs.wofi-power-menu}/bin/wofi-power-menu";
       in
         [
           "$mod, Return, exec, exec uwsm app -T"
@@ -18,6 +19,7 @@
 
           "$mod, D, exec, ${menu}"
           "$mod, C, exec, ${clipboard}"
+          "$mod, X, exec, ${wofi-power-menu}"
 
           # Move focus with MainMod + vim keys
           "$mod, H, movefocus, l"

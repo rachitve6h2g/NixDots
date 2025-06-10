@@ -5,7 +5,8 @@
     noto-fonts-cjk-sans
     noto-fonts-color-emoji
 
-    nerd-fonts.iosevka-term
+    nerd-fonts.zed-mono
+    nerd-fonts.symbols-only
   ];
 
   fonts.fontconfig = {
@@ -14,7 +15,7 @@
     defaultFonts = {
       emoji = [ "Noto Color Emoji" ];
       monospace = [
-        "IosevkaTerm Nerd Font"
+        "ZedMono Nerd Font"
         "Noto Color Emoji"
       ];
       sansSerif = [

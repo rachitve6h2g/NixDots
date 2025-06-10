@@ -1,6 +1,29 @@
-{config, ...}: let
-  myTheme = config.colorScheme.palette;
-in {
+{ pkgs, ... }:
+let
+  wofi-power-menu = pkgs.pkgs.writeShellScriptBin "wofi-power-menu" ''
+    op=$( echo -e "  Poweroff\n  Reboot\n  Suspend\n  Lock\n  Logout" | wofi -i --dmenu --width 300 --height 300 -x 1590  -y 300 | awk '{print tolower($2)}' )
+
+    case $op in 
+      poweroff)
+        ;&
+      reboot)
+        ;&
+      suspend)
+        systemctl $op
+        ;;
+      lock)
+        loginctl lock-session
+        ;;
+      logout)
+        swaymsg exit
+        ;;
+    esac
+  '';
+in
+{
+  home.packages = [
+    wofi-power-menu
+  ];
   programs.wofi = {
     enable = true;
 
@@ -17,9 +40,7 @@ in {
     };
 
     style =
-      /*
-      css
-      */
+      # css
       ''
         window {
           margin: 0px;
@@ -28,7 +49,7 @@ in {
           border: 2px solid #eb6f92;
           color: #e0def4;
           font-family: 'monospace';
-          font-size: 20px;
+          font-size: 14px;
         }
         #input {
           margin: 5px;

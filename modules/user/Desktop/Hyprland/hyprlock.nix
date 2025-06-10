@@ -46,7 +46,7 @@ in {
         entry_background_color = "rgba(${myTheme.base02}11)";
         entry_border_color = "rgba(${myTheme.base0D}55)";
         entry_color = "rgba(FFFFFFFF)";
-        font_family = "ComicShannsMono Nerd Font";
+        font_family = "monospace";
         font_family_clock = font_family;
         font_material_symbols = font_family;
       in {
