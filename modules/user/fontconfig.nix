@@ -5,7 +5,7 @@
     noto-fonts-cjk-sans
     noto-fonts-color-emoji
 
-    nerd-fonts.zed-mono
+    nerd-fonts.jetbrains-mono
     nerd-fonts.symbols-only
   ];
 
@@ -15,7 +15,7 @@
     defaultFonts = {
       emoji = [ "Noto Color Emoji" ];
       monospace = [
-        "ZedMono Nerd Font"
+        "JetBrainsMono Nerd Font"
         "Noto Color Emoji"
       ];
       sansSerif = [

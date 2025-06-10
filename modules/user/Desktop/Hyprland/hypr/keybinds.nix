@@ -19,7 +19,7 @@
 
           "$mod, D, exec, ${menu}"
           "$mod, C, exec, ${clipboard}"
-          "$mod, X, exec, ${wofi-power-menu}"
+          "$mod, X, exec, exec ${wofi-power-menu}"
 
           # Move focus with MainMod + vim keys
           "$mod, H, movefocus, l"

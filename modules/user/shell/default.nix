@@ -28,6 +28,7 @@ in
     ./eza.nix
     ./fzf.nix
     ./starship.nix
+    ./ripgrep.nix
     ./zoxide.nix
   ];
   # It's for unstable of 25.11
