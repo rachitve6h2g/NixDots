@@ -116,7 +116,7 @@ in {
 
           {
             monitor = "";
-            text = "lock";
+            text = "\"Main Itna Bhi Kuch Khaas Nahi\"";
             shadow_passes = 1;
             shadow_boost = 0.5;
             color = text_color;
@@ -130,7 +130,7 @@ in {
 
           {
             monitor = "";
-            text = "locked";
+            text = "-Shin Chan";
             shadow_passes = 1;
             shadow_boost = 0.5;
             color = text_color;

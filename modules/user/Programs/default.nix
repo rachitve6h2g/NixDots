@@ -11,7 +11,7 @@
     ./newsboat.nix
     ./peaclock.nix
     ./yazi
-    ./ytdlp.nix
+    ./yt-dlp.nix
     ./zathura.nix
 
     ./qutebrowser

@@ -13,6 +13,9 @@ let
     # Jump to the git source dir.
     cdg = "cd $(git rev-parse --show-toplevel)";
 
+    # For audio downloading
+    yt-music = "yt-dlp -x -f bestaudio";
+
     # NixOS specific
     update = "sudo nixos-rebuild switch";
     cleanall = "sudo nix-collect-garbage -d && nix-collect-garbage -d";

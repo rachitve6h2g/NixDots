@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs";
-    # nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager"; # The nixpkgs version and home-manager version should be same
@@ -58,9 +57,4 @@
         formatter = inputs.nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
       };
     };
-
-  nixConfig = {
-    extra-substituters = [ "https://yazi.cachix.org" ];
-    extra-trusted-public-keys = [ "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k=" ];
-  };
 }
