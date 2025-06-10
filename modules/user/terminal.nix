@@ -7,7 +7,7 @@
 
       font = {
         name = "monospace";
-        size = 14;
+        size = 13;
       };
 
       shellIntegration = {
