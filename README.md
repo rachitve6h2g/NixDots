@@ -1,3 +1,11 @@
+<div align="center">
+    <img src="https://raw.githubusercontent.com/NixOS/nixos-artwork/refs/heads/master/logo/nix-snowflake-colours.svg" alt="NixOS logo" width="20%">
+</div>
+
+<h3 align="center">
+            NixOS+Hyprland+Rose-Pine Dots
+</h3>
+
 # Sources 
 -> read the dotfiles of Librephoenix, (he's got a way to blur qutebrowser)
 
