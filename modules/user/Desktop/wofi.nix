@@ -1,29 +1,4 @@
-{ pkgs, ... }:
-let
-  wofi-power-menu = pkgs.pkgs.writeShellScriptBin "wofi-power-menu" ''
-    op=$( echo -e "  Poweroff\n  Reboot\n  Suspend\n  Lock\n  Logout" | wofi -i --dmenu --width 300 --height 300 -x 1590  -y 300 | awk '{print tolower($2)}' )
-
-    case $op in 
-      poweroff)
-        ;&
-      reboot)
-        ;&
-      suspend)
-        systemctl $op
-        ;;
-      lock)
-        loginctl lock-session
-        ;;
-      logout)
-        swaymsg exit
-        ;;
-    esac
-  '';
-in
 {
-  home.packages = [
-    wofi-power-menu
-  ];
   programs.wofi = {
     enable = true;
 

@@ -4,6 +4,7 @@
     ./Hyprland
     # ./Sway
 
+    ./battery-notifier.nix
     ./clipboard.nix
     ./mako.nix
     ./theme.nix

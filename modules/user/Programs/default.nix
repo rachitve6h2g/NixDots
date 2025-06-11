@@ -5,7 +5,6 @@
     ./btop.nix
     ./cmus.nix
     ./fastfetch.nix
-    ./firefox.nix
     ./git.nix
     ./imv.nix
     ./mpv.nix
@@ -14,24 +13,21 @@
     ./yazi
     ./yt-dlp.nix
     ./zathura.nix
+    ./zen.nix
 
     ./qutebrowser
   ];
 
   # Misc
   home.packages = with pkgs; [
+    bluetui
+    figlet
+    nurl # https://github.com/nix-community/nurl
+    pavucontrol
     trash-cli
-
     (uget.override {
       aria2 = pkgs.aria2;
     })
-
-    bluetui
-
-    pavucontrol
-
-    nurl # https://github.com/nix-community/nurl
-
-    figlet
+    wgetpaste
   ];
 }
