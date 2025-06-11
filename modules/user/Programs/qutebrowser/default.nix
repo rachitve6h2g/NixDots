@@ -9,9 +9,11 @@
       enable = true;
 
       settings = {
-        # Not working properly with enableVulkan in the
-        # Overlay.
-        qt.force_software_rendering = "chromium";
+        # See the enableVulkan flag in the qutebrowser
+        # overlay.
+        # qt = {
+        #   force_software_rendering = "chromium";
+        # };
 
         fonts = {
           default_family = "monospace";

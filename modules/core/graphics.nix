@@ -11,8 +11,9 @@
     ];
   };
   environment.sessionVariables = {
-    ANVI_VIDEO_DECODE = 1;
+    ANV_VIDEO_DECODE = 1;
     LIBVA_DRIVER_NAME = "iHD";
+    NIXOS_OZONE_WL = 1;
   };
 
   boot.kernelParams = [

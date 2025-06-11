@@ -19,6 +19,7 @@ in
       ytdl-format = "bestvideo+bestaudio";
       hwdec = "auto";
       sub-auto = "fuzzy";
+      sub-font = "monospace";
       profile = "high-quality";
 
       cursor-autohide = 1000;
