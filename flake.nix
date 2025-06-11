@@ -2,17 +2,6 @@
   description = "My experimental flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    home-manager = {
-      url = "github:nix-community/home-manager"; # The nixpkgs version and home-manager version should be same
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nix-colors.url = "github:misterio77/nix-colors";
-
-    nixCats.url = "github:BirdeeHub/nixCats-nvim";
-
     battery-notifier = {
       url = "github:luisnquin/battery-notifier";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,9 +11,10 @@
 
     git-hooks-nix.url = "github:cachix/git-hooks.nix";
 
-    # Refer https://yazi-rs.github.io/docs/installation/
-    # Home-manager method
-    yazi.url = "github:sxyazi/yazi";
+    home-manager = {
+      url = "github:nix-community/home-manager"; # The nixpkgs version and home-manager version should be same
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Hyprland plugins fix
     # Remove this once it's fixed
@@ -33,6 +23,16 @@
       url = "github:hyprwm/hyprland-plugins/c491d2831448645f24a1597a17f564aa52691ac6";
       flake = false;
     };
+
+    nix-colors.url = "github:misterio77/nix-colors";
+
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    nixCats.url = "github:BirdeeHub/nixCats-nvim";
+
+    # Refer https://yazi-rs.github.io/docs/installation/
+    # Home-manager method
+    yazi.url = "github:sxyazi/yazi";
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
