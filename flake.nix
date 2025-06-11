@@ -30,6 +30,11 @@
 
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Refer https://yazi-rs.github.io/docs/installation/
     # Home-manager method
     yazi.url = "github:sxyazi/yazi";
@@ -57,11 +62,20 @@
       perSystem =
         {
           pkgs,
+          # system,
           ...
         }:
         {
           pre-commit.settings.hooks.nixfmt-rfc-style.enable = true;
           formatter = pkgs.nixfmt-rfc-style;
+
+          # _module.args.pkgs = import inputs.nixpkgs {
+          #   inherit system;
+          #   overlays = [ 
+          #     inputs.nur.overlays.default
+          #   ];
+          #   config = { };
+          # };
         };
       flake = {
         formatter = inputs.nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;

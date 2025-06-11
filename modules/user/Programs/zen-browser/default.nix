@@ -1,4 +1,9 @@
-{ inputs, lib, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 {
   imports = [ inputs.zen-browser.homeModules.beta ];
 
@@ -16,6 +21,11 @@
       profiles = {
         krish = {
           isDefault = true;
+
+          settings = {
+            "extensions.autoDisableScopes" = 0; # This will automatically enable installed extensions
+          };
+
           bookmarks = {
             force = true;
             settings = [
@@ -51,6 +61,23 @@
                 ];
               }
             ];
+
+          };
+          extensions = {
+            force = true;
+
+            packages = with pkgs.nur.repos.rycee.firefox-addons; [
+              stylus
+            ];
+
+            settings = {
+              "{7a7a4a92-a2a0-41d1-9fd7-1e92480d612d}" = {
+                force = true;
+                settings = {
+                  dbInChromeStorage = true;
+                };
+              };
+            };
           };
 
           userChrome =

@@ -1,4 +1,10 @@
 { pkgs, ... }:
+let 
+  rose-pine-userstyle = (pkgs.fetchurl {
+    url = "https://raw.githubusercontent.com/rachitve6h2g/SwayDots/refs/heads/master/qutebrowser/.local/share/qutebrowser/userstyles/rose-pine-dark-all-sites.css";
+    hash = "sha256-jCRcrBLEKdb/rlZgwcAhF/WltmRu0+wpv+wU4bfVGZI=";
+  });
+  in
 {
   imports = [
     # When using the base16 scheme just uncomment this line
@@ -65,6 +71,8 @@
               "https://github.com/uBlockOrigin/uAssets/raw/master/filters/unbreak.txt"
             ];
           };
+
+          user_stylesheets = "${rose-pine-userstyle}";
         };
       };
 
