@@ -20,6 +20,7 @@
 
   # Misc
   home.packages = with pkgs; [
+    ansifilter
     bluetui
     figlet
     nurl # https://github.com/nix-community/nurl

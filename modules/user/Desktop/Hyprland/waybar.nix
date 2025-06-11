@@ -9,6 +9,13 @@ in {
   programs.waybar = {
     enable = true;
 
+    package = (pkgs.waybar.override {
+        evdevSupport = false;
+        niriSupport = false;
+        traySupport = false;
+        swaySupport = false;
+    });
+
     systemd = {
       enable = true;
     };

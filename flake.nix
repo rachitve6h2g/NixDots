@@ -2,7 +2,7 @@
   description = "My experimental flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager"; # The nixpkgs version and home-manager version should be same
