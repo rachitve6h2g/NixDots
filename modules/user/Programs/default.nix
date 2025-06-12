@@ -24,6 +24,7 @@
     ansifilter
     bluetui
     figlet
+    gthumb
     nurl # https://github.com/nix-community/nurl
     pavucontrol
     trash-cli

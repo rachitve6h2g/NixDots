@@ -6,19 +6,10 @@
 
     urls = [
       {
-        url = "https://github.com/nix-community/home-manager/issues.atom";
-        title = "Home Manager Issues";
+        url = "https://discourse.nixos.org/c/links.rss";
+        title = "NixOS Discourse";
         tags = [
           "issues"
-          "nixos"
-        ];
-      }
-
-      {
-        url = "https://saylesss88.github.io//index.xml";
-        title = "SayLess88 NixOS Blog";
-        tags = [
-          "news"
           "nixos"
         ];
       }

@@ -1,4 +1,4 @@
-{lib, ...}: {
+{lib, pkgs, ...}: {
   imports = [
     ./hypridle.nix
     ./hyprlock.nix
@@ -10,6 +10,8 @@
   ];
 
   xdg.configFile."uwsm/env-hyprland".source = ./uwsm/env-hyprland;
+
+  home.packages = with pkgs; [ swappy ];
 
   wayland.windowManager.hyprland = {
     enable = true;
