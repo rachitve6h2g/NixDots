@@ -6,20 +6,27 @@
       enableZshIntegration = true;
       shellWrapperName = "y";
 
+      plugins = {
+        full-border = pkgs.yaziPlugins.full-border;
+        git = pkgs.yaziPlugins.git;
+        lazygit = pkgs.yaziPlugins.lazygit;
+        vcs-files = pkgs.yaziPlugins.vcs-files;
+      };
+
       flavors = {
-        catppuccin-mocha = (
+        rose-pine = (
           pkgs.stdenv.mkDerivation {
-            name = "catppuccin-mocha-yazi";
+            name = "rose-pine-yazi";
             src = pkgs.fetchFromGitHub {
-              owner = "yazi-rs";
-              repo = "flavors";
-              rev = "d04a298a8d4ada755816cb1a8cfb74dd46ef7124";
-              hash = "sha256-m3yk6OcJ9vbCwtxkMRVUDhMMTOwaBFlqWDxGqX2Kyvc=";
+              owner = "rachitve6h2g";
+              repo = "rose-pine.yazi";
+              rev = "3db994e71b0f42dd1f713a544c917145560ce5bb";
+              hash = "sha256-hWFlVcpUEOoeBqkWw7Lmd6vlegW+vJvQrz54xvAkxc8=";
             };
 
             installPhase = ''
               mkdir -p $out
-              cp -r $src/catppuccin-mocha.yazi/* $out/
+              cp -r $src/* $out/
             '';
           }
         );
@@ -27,12 +34,61 @@
 
       theme = {
         flavor = {
-          dark = "catppuccin-mocha";
-          light = "catppuccin-mocha";
+          dark = "rose-pine";
+          light = "rose-pine";
         };
       };
 
-      # initLua = builtins.readFile ./init.lua;
+      settings = {
+        log = {
+          enabled = false;
+        };
+
+        mgr = {
+          show_hidden = true;
+          sort_dir_first = true;
+        };
+
+        plugin = {
+          prepend_fetchers = [
+            {
+              id = "git";
+              name = "*";
+              run = "git";
+            }
+            {
+              id = "git";
+              name = "*/";
+              run = "git";
+            }
+          ];
+        };
+
+      };
+      keymap = {
+        mgr = {
+          prepend_keymap = [
+            {
+              on = [
+                "g"
+                "i"
+              ];
+              run = "plugin lazygit";
+              desc = "run lazygit";
+            }
+            {
+              on = [
+                "g"
+                "c"
+              ];
+              run = "plugin vcs-files";
+              desc = "Show Git file changes";
+            }
+          ];
+        };
+      };
+
+      initLua = builtins.readFile ./init.lua;
     };
   };
 }

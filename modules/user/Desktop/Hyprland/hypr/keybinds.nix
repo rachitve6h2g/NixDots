@@ -7,6 +7,10 @@
         menu = "killall wofi || exec uwsm app -- $(wofi --show drun --define=drun-print_desktop_file=true)";
         clipboard = "killall wofi || exec cliphist list | wofi -S dmenu | cliphist decode | wl-copy";
         wofi-power-menu = "${pkgs.wofi-power-menu}/bin/wofi-power-menu";
+
+        screenshot-window = "${pkgs.hyprshot}/bin/hyprshot -m window";
+        screenshot-region = "${pkgs.hyprshot}/bin/hyprshot -m region";
+        screenshot-output = "${pkgs.hyprshot}/bin/hyprshot -m output";
       in
         [
           "$mod, Return, exec, exec uwsm app -T"
@@ -20,6 +24,11 @@
           "$mod, D, exec, ${menu}"
           "$mod, C, exec, ${clipboard}"
           "$mod, X, exec, exec ${wofi-power-menu}"
+
+          # For Screenshot
+          "$mod, PRINT, exec, exec ${screenshot-window}"
+          "$modSHIFT, PRINT, exec, exec ${screenshot-region}"
+          ", PRINT, exec, exec ${screenshot-output}"
 
           # Move focus with MainMod + vim keys
           "$mod, H, movefocus, l"
