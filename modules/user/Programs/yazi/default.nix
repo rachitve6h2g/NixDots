@@ -10,6 +10,7 @@
         full-border = pkgs.yaziPlugins.full-border;
         git = pkgs.yaziPlugins.git;
         lazygit = pkgs.yaziPlugins.lazygit;
+        mediainfo = pkgs.yaziPlugins.mediainfo;
         vcs-files = pkgs.yaziPlugins.vcs-files;
       };
 
@@ -20,8 +21,8 @@
             src = pkgs.fetchFromGitHub {
               owner = "rachitve6h2g";
               repo = "rose-pine-yazi";
-              rev = "860081ad782f9740212d4cbf1a0493a8afc55d13";
-              hash = "sha256-kmE/cZAXhqlAlGUsvTZAe1mAaKncBAKbYiEV2zc4JME=";
+              rev = "02d0644c1c29d5a6370f21ca831be877f039f5e9";
+              hash = "sha256-pD6wVauBdc2H/4K7TnOXkFaCotnNhCsCEuZJYYpd0SQ=";
             };
             installPhase = ''
               mkdir $out
@@ -59,6 +60,29 @@
               id = "git";
               name = "*/";
               run = "git";
+            }
+          ];
+
+          prepend_preloaders = [
+            {
+              mime = "{audio,video,image}/*";
+              run = "mediainfo";
+            }
+            {
+              mime = "application/subrip";
+              run = "mediainfo";
+            }
+          ];
+
+          prepend_previewrs = [
+            {
+              mime = "{audio,video,image}/*";
+              run = "mediainfo";
+            }
+
+            {
+              mime = "application/subrip";
+              run = "mediainfo";
             }
           ];
         };
