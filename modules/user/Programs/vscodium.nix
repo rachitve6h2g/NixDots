@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  home.packages = [ pkgs.clang-tools ];
   programs = {
     vscode = {
       enable = true;
@@ -13,10 +14,13 @@
           enableExtensionUpdateCheck = true;
           enableUpdateCheck = true;
 
-          extensions = with pkgs.vscode-extensions; [
-            vscodevim.vim
-            mvllow.rose-pine
-          ];
+          extensions =
+            with pkgs.vscode-extensions;
+            [
+              vscodevim.vim
+              mvllow.rose-pine
+              llvm-vs-code-extensions.vscode-clangd
+            ];
 
           userSettings = {
             "workbench.iconTheme" = "rose-pine-icons";

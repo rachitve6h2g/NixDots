@@ -26,15 +26,16 @@ I just made a list of learning resources that I used to understand NixOS, so per
 - [ ] Package fast-syntax-highlighting for zsh
 - [ ] Learn how to setup nixCats.
 - [ ] Get Disko Configuration ready
-- [ ] Borrow tasks from SwayDots repo
 - [ ] See how to get a graphical cool screen to enter the encryption password
-- [ ] See how nix can be used to set wallpapers automatically, write conditional statements so that we can change themes and wallpapers and all. 
-- [ ] See how to package the btop-catppuccin theme for btop
-- [ ] Create a Hyprcursor patch for Bibata Cursors.
+- [ ] Write a event for pausing Song/Video on unplugging earphones and playing them when plugged back in
+- [X] See how nix can be used to set wallpapers automatically
+- [ ] Learn writing conditional statements so that we can change themes and wallpapers and all. 
+- [X] See how to package the btop-catppuccin theme for btop
 - [ ] Move to treefmt-nix from nixfmt
 - [ ] Move to xdg-desktop-portal-termfilechooser
-- [ ] Setup screenshot in Hyprland
+- [X] Setup screenshot in Hyprland
 - [ ] Transfer lazyvim config from SwayDots to here.
+- [ ] Make systemd timer to regularly clear cache files of 'Qutebrowser and other stuff'
 
 ## License
 

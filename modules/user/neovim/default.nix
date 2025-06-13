@@ -56,6 +56,10 @@ in
             general = with pkgs; [
               lazygit
             ];
+            clang = with pkgs; [ 
+              clang-tools
+            ];
+
             lua = with pkgs; [
               lua-language-server
               stylua
@@ -179,6 +183,7 @@ in
             # (and other information to pass to lua)
             # and a set of categories that you want
             categories = {
+              clang = true;
               general = true;
               lua = true;
               nix = true;

@@ -21,6 +21,12 @@ let
         #   force_software_rendering = "chromium";
         # };
 
+        # Can save lost stuff.
+        auto_save = {
+          session = true;
+          interval = 20000;
+        };
+
         fonts = {
           default_family = "monospace";
         };
