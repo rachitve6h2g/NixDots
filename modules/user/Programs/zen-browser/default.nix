@@ -1,9 +1,13 @@
 {
+  config,
   inputs,
   lib,
   pkgs,
   ...
 }:
+let
+  theme = config.colorScheme.palette;
+in
 {
   imports = [ inputs.zen-browser.homeModules.beta ];
 
@@ -83,7 +87,26 @@
           userChrome =
             let
               userChrome = ''${builtins.readFile ./userChrome.css}'';
-              rose-pine = ''${builtins.readFile ./rose-pine-main.css}'';
+              rose-pine = # css
+                ''
+                  * {
+                    --base: #${theme.base00};
+                    --surface: #${theme.base01};
+                    --overlay: #${theme.base02};
+                    --muted: #${theme.base03};
+                    --subtle: #${theme.base04};
+                    --text: #${theme.base05};
+                    --love: #${theme.base08};
+                    --gold: #${theme.base09};
+                    --rose: #${theme.base0A};
+                    --pine: #${theme.base0B};
+                    --foam: #${theme.base0C};
+                    --iris: #${theme.base0D};
+                    --highlightLow: #2a283e;
+                    --highlightMed: #44415a;
+                    --highlightHigh: #${theme.base0F};
+                  }
+                '';
             in
             lib.mkMerge [
               rose-pine

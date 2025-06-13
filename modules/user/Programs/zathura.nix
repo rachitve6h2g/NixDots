@@ -67,6 +67,8 @@ in
 
       highlight-color = "rgba(0xeb, 0xbc, 0xba, 0.5)";
       highlight-active-color = "rgba(0xeb, 0x6f, 0x92, 0.5)";
+
+      include = "hello";
     };
   };
 }

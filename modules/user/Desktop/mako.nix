@@ -11,7 +11,7 @@ in {
     settings = {
       anchor = "top-right";
       # max-history = 10;
-      font = "ComicShannsMono Nerd Font 11";
+      font = "monospace 11";
       layer = "top";
       markup = true;
       sort = "-time";

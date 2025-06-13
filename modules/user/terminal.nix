@@ -15,7 +15,7 @@
         enableBashIntegration = true;
       };
 
-      themeFile = "rose-pine";
+      themeFile = "rose-pine-moon";
 
       settings = {
         background_opacity = 0.8;

@@ -1,4 +1,6 @@
-{
+{ config, ... }: let 
+  theme = config.colorscheme.palette;
+in {
   programs.wofi = {
     enable = true;
 
@@ -19,10 +21,10 @@
       ''
         window {
           margin: 0px;
-          background-color: #191724;
+          background-color: #${theme.base00};
           border-radius: 0px;
-          border: 2px solid #eb6f92;
-          color: #e0def4;
+          border: 2px solid #${theme.base08};
+          color: #${theme.base05};
           font-family: 'monospace';
           font-size: 14px;
         }
@@ -31,22 +33,22 @@
           border-radius: 0px;
           border: none;
           border-radius: 0px;;
-          color: #eb6f92;
-          background-color: #26233a;
+          color: #${theme.base08};
+          background-color: #${theme.base02};
         }
 
         #inner-box {
           margin: 5px;
           border: none;
-          background-color: #26233a;
-          color: #191724;
+          background-color: #${theme.base02};
+          color: #${theme.base00};
           border-radius: 0px;
         }
 
         #outer-box {
           margin: 15px;
           border: none;
-          background-color: #191724;
+          background-color: #${theme.base00};
         }
 
         #scroll {
@@ -57,19 +59,19 @@
         #text {
           margin: 5px;
           border: none;
-          color: #e0def4;
+          color: #${theme.base05};
         }
 
         #entry:selected {
-          background-color: #eb6f92;
-          color: #191724;
+          background-color: #${theme.base08};
+          color: #${theme.base00};
           border-radius: 0px;;
           outline: none;
         }
 
         #entry:selected * {
-          background-color: #eb6f92;
-          color: #191724;
+          background-color: #${theme.base08};
+          color: #${theme.base00};
           border-radius: 0px;;
           outline: none;
         }

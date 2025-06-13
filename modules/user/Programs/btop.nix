@@ -1,7 +1,7 @@
 { pkgs, ... }: let
   rose-pine-btop = (pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/rose-pine/btop/refs/heads/main/rose-pine.theme";
-    hash = "sha256-CIZ1OHsLNmXwQkrGslB0jezY8jh6Cs+CG8j0eoDP0sY=";
+    url = "https://raw.githubusercontent.com/rose-pine/btop/refs/heads/main/rose-pine-moon.theme";
+    hash = "sha256-iJNhWAQ6xzl6EsI0wWxtN14/KqZ7YWZFJaqFOZjLO8g=";
   });
 in {
   programs.btop = {

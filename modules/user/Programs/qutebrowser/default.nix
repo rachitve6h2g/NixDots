@@ -141,7 +141,7 @@ let
 
           if os.path.exists(config.configdir / "theme.py"):
               import theme
-              theme.setup(c, 'rose-pine', True)
+              theme.setup(c, 'rose-pine-moon', True)
         '';
     };
   };

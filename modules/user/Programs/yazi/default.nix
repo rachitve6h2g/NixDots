@@ -15,11 +15,18 @@
 
       flavors = {
         rose-pine = (
-          pkgs.fetchFromGitHub {
-            owner = "rachitve6h2g";
-            repo = "rose-pine.yazi";
-            rev = "48ca87d7b0a88c01154d76ec6e8af6ed65372fdf";
-            hash = "sha256-6jIp3rsxqbnAQgQfgVnZYjnki5QUnAv/6AVihDthE60=";
+          pkgs.stdenv.mkDerivation {
+            name = "rose-pine-yazi";
+            src = pkgs.fetchFromGitHub {
+              owner = "rachitve6h2g";
+              repo = "rose-pine-yazi";
+              rev = "860081ad782f9740212d4cbf1a0493a8afc55d13";
+              hash = "sha256-kmE/cZAXhqlAlGUsvTZAe1mAaKncBAKbYiEV2zc4JME=";
+            };
+            installPhase = ''
+              mkdir $out
+              cp -r $src/rose-pine-moon.yazi/* $out/
+            '';
           }
         );
       };

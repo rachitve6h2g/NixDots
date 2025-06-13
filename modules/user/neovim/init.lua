@@ -143,7 +143,7 @@ vim.keymap.set(
 
 -- colorscheme will be set here.
 require("rose-pine").setup({
-	variant = "main",
+	variant = "moon",
 	dark_variant = "main",
 	dim_inactive_windows = false,
 	extend_background_behind_borders = true,

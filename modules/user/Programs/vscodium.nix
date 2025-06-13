@@ -23,8 +23,9 @@
             ];
 
           userSettings = {
+            "editor.lineNumbers" = "relative";
             "workbench.iconTheme" = "rose-pine-icons";
-            "workbench.colorTheme" = "Rosé Pine";
+            "workbench.colorTheme" = "Rosé Pine Moon";
             "vim.easymotion" = true;
             "vim.incsearch" = true;
             "vim.useSystemClipboard" = true;

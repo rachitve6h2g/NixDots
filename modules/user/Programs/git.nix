@@ -70,7 +70,7 @@ in
               "bold"
             ];
             optionsTextColor = [ "#${theme.base0C}" ];
-            selectedLineBgColor = [ "#283457" ]; # This is a rose-pine color.
+            selectedLineBgColor = [ "#${theme.base0B}" ]; # This is a rose-pine color.
             cherryPickedCommitFgColor = [ "#${theme.base0C}" ];
             cherryPickedCommitBgColor = [ "#${theme.base0D}" ];
             markedBaseCommitFgColor = [ "#${theme.base0C}" ];

@@ -36,6 +36,9 @@ I just made a list of learning resources that I used to understand NixOS, so per
 - [X] Setup screenshot in Hyprland
 - [ ] Transfer lazyvim config from SwayDots to here.
 - [ ] Make systemd timer to regularly clear cache files of 'Qutebrowser and other stuff'
+- [X] Shift to Rose-Pine Moon (Rose Pine main is too dark)
+- [X] Cook up Rose-Pine-Moon for yazi 
+    - [ ] yatline.
 
 ## License
 

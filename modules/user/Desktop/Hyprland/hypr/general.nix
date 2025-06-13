@@ -37,7 +37,7 @@ in {
 
       blur = {
         enabled = true;
-        xray = false;
+        xray = true;
         special = true;
         new_optimizations = true;
         size = 14;

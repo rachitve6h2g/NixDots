@@ -2,8 +2,8 @@
 let
   rose-pine-eza = (
     pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/eza-community/eza-themes/refs/heads/main/themes/rose-pine.yml";
-      hash = "sha256-P44bk0icBKkySQw17kVkLNGEgI49wav04bf+vJs5dcc=";
+      url = "https://raw.githubusercontent.com/rachitve6h2g/SwayDots/refs/heads/master/eza/.config/eza/rose-pine-eza.yml";
+      hash = "sha256-fwhM45rLF3IJVHuFaYPxNrq/HprfF8pKJvu1JxlTbJc=";
     }
   );
 in
