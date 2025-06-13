@@ -31,6 +31,7 @@
     (uget.override {
       aria2 = pkgs.aria2;
     })
+    update-nix-fetchgit
     wgetpaste
   ];
 }

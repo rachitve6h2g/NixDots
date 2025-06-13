@@ -3,18 +3,22 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   theme = config.colorScheme.palette;
-in {
+in
+{
   programs.waybar = {
     enable = true;
 
-    package = (pkgs.waybar.override {
+    package = (
+      pkgs.waybar.override {
         evdevSupport = false;
         niriSupport = false;
         traySupport = false;
         swaySupport = false;
-    });
+      }
+    );
 
     systemd = {
       enable = true;
@@ -22,26 +26,32 @@ in {
 
     settings = {
       mainBar = {
-        layer = "top";
-        position = "top";
+        position = "bottom";
         spacing = 4;
-
         reload_style_on_change = true;
 
         modules-left = [
           "idle_inhibitor"
           "hyprland/workspaces"
+          "hyprland/submap"
         ];
-
-        modules-center = ["clock"];
-
+        modules-center = [ "clock" ];
         modules-right = [
-          "wireplumber"
-          "network"
+          "pulseaudio"
+          "pulseaudio/slider"
           "backlight"
+          "backlight/slider"
+          "network"
           "upower"
-          # "battery"
         ];
+
+        idle_inhibitor = {
+          format = "{icon}";
+          format-icons = {
+            activated = "";
+            deactivated = "";
+          };
+        };
 
         "hyprland/workspaces" = {
           disable-scroll = true;
@@ -54,18 +64,14 @@ in {
             default = " ";
           };
           persistent-workspaces = {
-            "1" = [];
-            "2" = [];
-            "3" = [];
+            "1" = [ ];
+            "2" = [ ];
+            "3" = [ ];
           };
         };
 
-        idle_inhibitor = {
-          format = "{icon}";
-          format-icons = {
-            activated = " ";
-            deactivated = " ";
-          };
+        "hyprland/submap" = {
+          format = "<span style=\"italic\">{}</span>";
         };
 
         clock = {
@@ -75,53 +81,42 @@ in {
           format-alt = "<span size='12pt'> </span> {:%Y-%m-%d}";
         };
 
-        backlight = {
-          format = "{percent}% <span size='12pt'>{icon}</span>";
-          format-icons = [
-            " "
-            " "
-            " "
-            " "
-            " "
-            " "
-            " "
-            " "
-            " "
-          ];
-        };
-        battery = {
-          interval = 1;
-          states = {
-            good = 80;
-            warning = 30;
-            critical = 20;
+        pulseaudio = {
+          format = "{volume}% <span size='12pt'>{icon}</span>";
+          format-bluetooth = "{volume}% {icon} {format_source}";
+          format-bluetooth-muted = " {icon} {format_source}";
+          format-muted = "<span size='12pt'> </span>{format_source}";
+          format-source = "{volume}% <span size='12pt'></span>";
+          format-source-muted = " ";
+          format-icons = {
+            headphone = "";
+            headset = "";
+            default = [
+              ""
+              ""
+              ""
+            ];
           };
-          format = "{capacity}% <span size='12pt'>{icon}</span>";
-          format-full = "{capacity}% <span size='12pt'>{icon}</span>";
-          format-charging = "{capacity}% <span size='12pt'> </span>";
-          format-plugged = "{capacity}%  ";
-          format-alt = "{time} <span size='12pt'>{icon}</span>";
+        };
+
+        "pulseaudio/slider" = {
+          min = 1;
+          max = 80;
+          orientation = "horizontal";
+        };
+
+        backlight = {
+          format = "{percent}% {icon}";
           format-icons = [
-            "<span foreground = '#f38ba8'> </span>"
-            "<span foreground = '#f38ba8'> </span>"
-            "<span foreground = '#f9e2af'> </span>"
-            " "
-            " "
+            ""
+            ""
           ];
         };
 
-        upower = {
-          icon-size = 10;
-          # native-path = "/org/freedesktop/UPower/devices/battery_BAT0";
-          hide-if-empty = true;
-          tooltip = true;
-          tooltip-spacing = 20;
-          show-icon = true;
-        };
-
-        wireplumber = {
-          format = "VOL:{volume} %";
-          format-muted = "MUTE";
+        "backlight/slider" = {
+          min = 0;
+          max = 100;
+          orientation = "horizontal";
         };
 
         network = {
@@ -135,310 +130,173 @@ in {
       };
     };
 
-    style =
-      # css
+    style = # css
       ''
-         *{
-            font-family: monospace;
-            font-size: 13px;
-            color: #${theme.base05};
-         }
+        * {
+          /* `otf-font-awesome` is required to be installed for icons */
+          font-family: monospace;
+          font-size: 12px;
+          color: #${theme.base05};
+        }
 
-         window#waybar {
-             background-color: #${theme.base00};
-             transition-property: background-color;
-             transition-duration: .5s;
-             margin-top: 0px;
-         }
-          window#waybar.hidden {
-              opacity: 0.2;
-          }
-        #workspaces button {
+        window#waybar {
+          background-color: #${theme.base00};
+          /*border-bottom: 3px solid rgba(100, 114, 125, 0.5);*/
+          color: #${theme.base05};
+          transition-property: background-color;
+          transition-duration: .5s;
+          margin-top: 0px;
+        }
+
+        window#waybar.hidden {
+          opacity: 0.2;
+        }
+
+        #workspaces {
+          padding: 0px;
+          background-color: #${theme.base02};
+          margin-bottom: 5px;
+          margin-top: 5px;
+          /*padding-left: 10px;*/
+          border-radius: 30px;
+        }
+          #workspaces button {
             padding: 0px;
           }
-              #workspaces button.active {
-         /*box-shadow: inset 0 -3px #ffffff;*/
+
+          #workspaces button.active {
+            color: #${theme.base0A};
+            /*box-shadow: inset 0 -3px #ffffff;*/
+
           }
 
           #workspaces button.empty {
-              color: #${theme.base00};
+            color: #${theme.base01};
           }
 
           #workspaces button.urgent {
-              background-color: #${theme.base08};
+            background-color: #${theme.base08};
           }
 
-          #mode {
-              background-color: #${theme.base0B};
-              color: #${theme.base00};
-              border-radius: 5px;
-              margin: 8px 0px;
-              padding: 0px 5px;
+          #submap {
+            background-color: #${theme.base0A};
+            color: #${theme.base00};
+            border-radius: 5px;
+            margin: 8px 0px;
+            padding: 0px 5px;
           }
 
-          #cpu,
-          #memory,
-          #disk,
-          #temperature,
           #backlight,
           #network,
-          #pulseaudio,
-          #wireplumber,
-          #custom-media,
-          #tray,
-          #scratchpad,
-          #power-profiles-daemon,
-          #mpd {
-              padding: 0 10px;
-              color: #${theme.base05};
+          #pulseaudio {
+            padding: 0 10px;
+            color: #${theme.base05};
           }
 
           /* If workspaces is the leftmost module, omit left margin */
           .modules-left > widget:first-child > #workspaces {
-              margin-left: 5px;
+            margin-left: 5px;
           }
 
           /* If workspaces is the rightmost module, omit right margin */
           .modules-right > widget:last-child > #workspaces {
-              margin-right: 0;
+            margin-right: 0;
           }
 
           #clock {
-              background-color: #${theme.base0E};
-              color: #${theme.base00};
-              border-radius: 20px;
-              padding: 0px 5px;
-              margin: 8px 10px;
+            background-color: #${theme.base05};
+            color: #${theme.base00};
+            border-radius: 20px;
+            padding: 0px 5px;
+            margin: 8px 10px;
           }
 
-          #battery {
-              /*background-color: #ffffff;*/
-              /*color: #j;*/
-              border-radius: 5px;
-              margin: 8px 0px;
-              padding: 0px 5px;
+          #upower {
+            border-radius: 5px;
+            margin: 8px 0px;
+            padding: 0px 5px;
           }
 
-          #battery.charging, #battery.plugged {
-              color: #282828;
-              background-color: #a9b665;
+          #upower.charging {
+            background-color: #${theme.base0B};
           }
 
-          @keyframes blink {
-              to {
-                  /*background-color: #ffffff;*/
-                  /*color: #000000;*/
-              }
-          }
-
-          /* Using steps() instead of linear as a timing function to limit cpu usage */
-          #battery.critical:not(.charging) {
-              background-color: #${theme.base08};
-              color: #${theme.base00};
-              animation-name: blink;
-              animation-duration: 0.5s;
-              animation-timing-function: steps(12);
-              animation-iteration-count: infinite;
-              animation-direction: alternate;
-          }
-
-          #power-profiles-daemon {
-              padding-right: 15px;
-          }
-
-          #power-profiles-daemon.performance {
-              /*background-color: #f53c3c;*/
-              color: #${theme.base08};
-          }
-
-          #power-profiles-daemon.balanced {
-              /*background-color: #2980b9;*/
-              color: #d8a657;
-          }
-
-          #power-profiles-daemon.power-saver {
-              /*background-color: #2ecc71;*/
-              color: #a9b665;
-          }
-
-          label:focus {
-              /*background-color: #000000;*/
-          }
-
-          #cpu {
-              /*background-color: #2ecc71;*/
-              /*color: #000000;*/
-          }
-
-          #memory {
-              /*background-color: #9b59b6;*/
-          }
-
-          #disk {
-              /*background-color: #964B00;*/
-          }
-
-          #backlight {
-              /*background-color: #90b1b1;*/
+          #upower.discharging {
+            color: #${theme.base09};
           }
 
           #network {
-              margin: 8px 0px;
+            margin: 8px 0px;
           }
 
           #network.wifi {
-              background-color: #${theme.base02};
-              border-radius: 30px;
+            background-color: #${theme.base02};
+            border-radius: 30px;
           }
 
           #network.disconnected {
-              color: #${theme.base08};
+            color: #${theme.base08};
           }
 
-          #pulseaudio {
-              /*background-color: #f1c40f;*/
-              /*color: #000000;*/
-          }
 
           #pulseaudio.muted {
-              /*background-color: #90b1b1;*/
-              color: #${theme.base08};
-          }
-
-          #wireplumber {
-              /*background-color: #fff0f5;*/
-              /*color: #000000;*/
-          }
-
-          #wireplumber.muted {
-              /*background-color: #f53c3c;*/
-          }
-
-          #custom-media {
-              /*background-color: #66cc99;*/
-              /*color: #${theme.base0B};*/
-              min-width: 100px;
-          }
-
-          #custom-media.custom-spotify {
-              /*background-color: #66cc99;*/
-          }
-
-          #custom-media.custom-vlc {
-              background-color: #ffa000;
-          }
-
-          #temperature {
-              /*background-color: #f0932b;*/
-          }
-
-          #temperature.critical {
-              /*background-color: #eb4d4b;*/
-          }
-
-          #tray {
-              background-color: #2980b9;
-          }
-
-          #tray > .passive {
-              -gtk-icon-effect: dim;
-          }
-
-          #tray > .needs-attention {
-              -gtk-icon-effect: highlight;
-              background-color: #eb4d4b;
+            /*background-color: #90b1b1;*/
+            color: #${theme.base08};
           }
 
           #idle_inhibitor {
-              padding: 0 10px;
+            padding: 0 10px;
           }
           #idle_inhibitor.activated {
-              color: #${theme.base08};
+            color: #${theme.base08};
           }
 
-          #mpd {
-              /*background-color: #66cc99;*/
-              color: #${theme.base0B};
+
+
+          #pulseaudio-slider slider,
+          #backlight-slider slider {
+            min-width: 5px;
+            min-height: 5px;
+            border: none;
+            box-shadow: none;
+            background-color: #${theme.base03};
           }
 
-          #mpd.disconnected {
-              /*background-color: #f53c3c;*/
-          }
+          #pulseaudio-slider trough,
+          #backlight-slider trough {
+            min-height: 3px;
+            min-width: 80px;
+            border-radius: 5px;
+            background-color: #${theme.base02};
+        }
 
-          #mpd.stopped {
-              /*background-color: #90b1b1;*/
-          }
+        #pulseaudio-slider highlight,
+        #backlight-slider highlight {
+            min-width: 10px;
+            border-radius: 5px;
+        }
 
-          #mpd.paused {
-              /*background-color: #51a37a;*/
-          }
+        #pulseaudio-slider highlight {
+          background-color: #${theme.base0D};
+        }
 
-          #language {
-              /*background: #00b093;*/
-              color: #740864;
-              padding: 0 5px;
-              margin: 0 5px;
-              min-width: 16px;
-          }
-
-          #keyboard-state {
-              /*background: #97e1ad;*/
-              /*color: #000000;*/
-              padding: 0 0px;
-              margin: 0 5px;
-              min-width: 16px;
-          }
-
-          #keyboard-state > label {
-              padding: 0 5px;
-          }
-
-          #keyboard-state > label.locked {
-              background: rgba(0, 0, 0, 0.2);
-          }
-
-          #scratchpad {
-              background: rgba(0, 0, 0, 0.2);
-          }
-
-          #scratchpad.empty {
-          	background-color: transparent;
-          }
-
-          #privacy {
-              padding: 0;
-          }
-
-          #privacy-item {
-              padding: 0 5px;
-              color: white;
-          }
-
-          #privacy-item.screenshare {
-              /*background-color: #cf5700;*/
-          }
-
-          #privacy-item.audio-in {
-              /*background-color: #1ca000;*/
-          }
-
-          #privacy-item.audio-out {
-              /*background-color: #0069d4;*/
-          }
-
+        #background-color highlight {
+          color: #${theme.base09};
+        }
       '';
   };
+
   # For making it conform with UWSM
   systemd.user.services = lib.mkForce {
     waybar = {
       Install = {
-        WantedBy = ["graphical-session.target"];
+        WantedBy = [ "graphical-session.target" ];
       };
 
       Unit = {
         Description = "Waybar Service started thru UWSM";
-        Documentation = ["man:waybar(1)"];
-        After = ["graphical-session.target"];
+        Documentation = [ "man:waybar(1)" ];
+        After = [ "graphical-session.target" ];
       };
 
       Service = {

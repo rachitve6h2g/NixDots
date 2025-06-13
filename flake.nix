@@ -35,6 +35,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Refer https://yazi-rs.github.io/docs/installation/
     # Home-manager method
     yazi.url = "github:sxyazi/yazi";
@@ -56,6 +61,7 @@
       ];
       imports = [
         ./hosts
+        ./treefmt/flake-module.nix
         inputs.git-hooks-nix.flakeModule
       ];
 

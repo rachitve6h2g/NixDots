@@ -1,6 +1,6 @@
 {
-  pkgs,
   config,
+  pkgs,
   ...
 }:
 let
@@ -20,55 +20,43 @@ in
       guioptions = "sv";
       scroll-page-aware = true;
       statusbar-home-tilde = true;
-      recolor = true;
-      recolor-keephue = false;
       adjust-open = "width";
       statusbar-h-padding = 10;
       statusbar-v-padding = 10;
 
-      default-bg = "#${theme.base00}";
-      default-fg = "#${theme.base05}";
+      # Rose Pine Moon
+      default-bg = "#232136";
+      default-fg = "#e0def4";
 
-      completion-bg = "#${theme.base03}";
-      completion-fg = "#${theme.base0A}";
+      statusbar-fg = "#e0def4";
+      statusbar-bg = "#59546d";
 
-      completion-highlight-bg = "#${theme.base0A}";
-      completion-highlight-fg = "#${theme.base02}";
+      inputbar-bg = "#817c9c";
+      inputbar-fg = "#232136";
 
-      completion-group-bg = "#${theme.base02}";
-      completion-group-fg = "#${theme.base0D}";
+      notification-bg = "#817c9c";
+      notification-fg = "#232136";
 
-      statusbar-fg = "#${theme.base05}";
-      statusbar-bg = "#555169";
+      notification-error-bg = "#817c9c";
+      notification-error-fg = "#ea9a97";
 
-      notification-bg = "#${theme.base05}";
-      notification-fg = "#555169";
+      notification-warning-bg = "#817c9c";
+      notification-warning-fg = "#f6c177";
 
-      notification-error-bg = "#${theme.base09}";
-      notification-error-fg = "#555169";
+      highlight-color = "rgba(0x3e, 0x8f, 0xb0, 0.5)";
+      highlight-active-color = "rgba(0x9c, 0xcf, 0xd8, 0.5)";
 
-      notification-warning-bg = "#${theme.base0A}";
-      notification-warning-fg = "#555169";
+      completion-bg = "#817c9c";
+      completion-fg = "#9ccfd8";
 
-      inputbar-fg = "#${theme.base05}";
-      inputbar-bg = "#${theme.base03}";
+      completion-highlight-fg = "#e0def4";
+      completion-highlight-bg = "#9ccfd8";
 
-      recolor-lightcolor = "#${theme.base00}";
-      recolor-darkcolor = "#${theme.base05}";
+      recolor-lightcolor = "#232136";
+      recolor-darkcolor = "#e0def4";
 
-      index-fg = "#${theme.base05}";
-      index-bg = "#${theme.base00}";
-
-      index-active-fg = "#${theme.base05}";
-      index-active-bg = "#${theme.base02}";
-
-      render-loading-bg = "#${theme.base00}";
-      render-loading-fg = "#${theme.base05}";
-
-      highlight-color = "rgba(0xeb, 0xbc, 0xba, 0.5)";
-      highlight-active-color = "rgba(0xeb, 0x6f, 0x92, 0.5)";
-
-      include = "hello";
+      recolor = "false";
+      recolor-keephue = "false";
     };
   };
 }
