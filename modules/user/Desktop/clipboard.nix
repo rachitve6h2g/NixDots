@@ -31,7 +31,7 @@
       Service = {
         Type = "exec";
         ExecStart = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist -max-items 10 store";
-        ExecCondition = "${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition \"Hyprland\" \"\" ";
+        ExecCondition = "${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition \"Hyprland:niri:sway\" \"\" ";
         Restart = "on-failure";
         Slice = "app-graphical.slice";
       };

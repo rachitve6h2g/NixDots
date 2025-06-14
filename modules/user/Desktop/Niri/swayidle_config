@@ -1,0 +1,6 @@
+timeout 240 'brightnessctl -s set 10%' resume 'brightnessctl --restore'
+timeout 600 'hyprlock'
+timeout 660 'niri msg action power-off-monitors' resume 'niri msg power-on-monitors && brightnessctl -r'
+timeout 1500 'systemctl suspend' resume 'niri msg action power-on-monitors && brightnessctl -r'
+before-sleep 'hyprlock'
+lock 'hyprlock'

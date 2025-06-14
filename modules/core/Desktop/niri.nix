@@ -8,7 +8,7 @@
     uwsm = {
       enable = true;
       waylandCompositors = {
-        hyprland = {
+        niri = {
           prettyName = "niri";
           comment = "Niri compositor managed by UWSM";
           binPath = "/run/current-system/sw/bin/niri";
@@ -16,4 +16,5 @@
       };
     };
   };
+  security.pam.services.hyprlock = { };
 }

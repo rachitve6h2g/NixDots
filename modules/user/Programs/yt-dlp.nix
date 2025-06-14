@@ -4,7 +4,7 @@
       enable = true;
       settings = {
         embed-thumbnail = true;
-        embed-metadata = true;
+        add-metadata = true;
         downloader = "aria2c";
         downloader-args = "aria2c:'-c -x8 -s8 -k1M'";
         format = "bestvideo+bestaudio/best";

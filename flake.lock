@@ -16,27 +16,6 @@
         "type": "github"
       }
     },
-    "battery-notifier": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "systems": "systems"
-      },
-      "locked": {
-        "lastModified": 1747875985,
-        "narHash": "sha256-eAOvQZ/9DshHC2kPcI7ili0OY+Z6d8qcWryhKJa7c5E=",
-        "owner": "luisnquin",
-        "repo": "battery-notifier",
-        "rev": "d8a6dd01f160a833473aabc14058e826d08a60cc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "luisnquin",
-        "repo": "battery-notifier",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -94,7 +73,7 @@
     },
     "flake-utils": {
       "inputs": {
-        "systems": "systems_2"
+        "systems": "systems"
       },
       "locked": {
         "lastModified": 1731533236,
@@ -345,7 +324,6 @@
     },
     "root": {
       "inputs": {
-        "battery-notifier": "battery-notifier",
         "flake-parts": "flake-parts",
         "git-hooks-nix": "git-hooks-nix",
         "home-manager": "home-manager",
@@ -381,21 +359,6 @@
       }
     },
     "systems": {
-      "locked": {
-        "lastModified": 1689347949,
-        "narHash": "sha256-12tWmuL2zgBgZkdoB6qXZsgJEH9LR3oUgpaQq2RbI80=",
-        "owner": "nix-systems",
-        "repo": "default-linux",
-        "rev": "31732fcf5e8fea42e59c2488ad31a0e651500f68",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "default-linux",
-        "type": "github"
-      }
-    },
-    "systems_2": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",

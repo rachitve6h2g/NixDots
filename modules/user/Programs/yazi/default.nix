@@ -1,6 +1,16 @@
 { pkgs, ... }:
+let
+  rose-pine = (
+    pkgs.fetchFromGitHub {
+      owner = "rachitve6h2g";
+      repo = "rose-pine-yazi";
+      rev = "02d0644c1c29d5a6370f21ca831be877f039f5e9";
+      hash = "sha256-pD6wVauBdc2H/4K7TnOXkFaCotnNhCsCEuZJYYpd0SQ=";
+    }
+  );
+in
 {
-  # home.packages = with pkgs; [ mediainfo ]; # for mediainfo.yazi
+  home.packages = with pkgs; [ mediainfo ]; # for mediainfo.yazi
 
   programs = {
     yazi = {
@@ -19,27 +29,14 @@
       };
 
       flavors = {
-        rose-pine = (
-          pkgs.stdenv.mkDerivation {
-            name = "rose-pine-yazi";
-            src = pkgs.fetchFromGitHub {
-              owner = "rachitve6h2g";
-              repo = "rose-pine-yazi";
-              rev = "02d0644c1c29d5a6370f21ca831be877f039f5e9";
-              hash = "sha256-pD6wVauBdc2H/4K7TnOXkFaCotnNhCsCEuZJYYpd0SQ=";
-            };
-            installPhase = ''
-              mkdir $out
-              cp -r $src/rose-pine-moon.yazi/* $out/
-            '';
-          }
-        );
+        rose-pine-moon = "${rose-pine}/rose-pine-moon.yazi";
+        rose-pine-main = "${rose-pine}/rose-pine-main.yazi";
       };
 
       theme = {
         flavor = {
-          dark = "rose-pine";
-          light = "rose-pine";
+          dark = "rose-pine-main";
+          light = "rose-pine-main";
         };
       };
 

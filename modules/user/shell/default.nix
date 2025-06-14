@@ -44,6 +44,7 @@ in
   home.sessionVariables = {
     EDITOR = "myHomeModuleNvim";
     MOZ_ENABLE_WAYLAND = 1;
+    QT_QPA_PLATFORM = "wayland";
     SUDO_PROMPT = lib.concatStrings [
       "$(tput setaf 1 bold)󰌾 "
       "$(tput sgr0)$(tput setaf 2) password"

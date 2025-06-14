@@ -2,11 +2,6 @@
   description = "My experimental flake";
 
   inputs = {
-    battery-notifier = {
-      url = "github:luisnquin/battery-notifier";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     git-hooks-nix.url = "github:cachix/git-hooks.nix";

@@ -14,6 +14,8 @@
         sway = [
           "kitty.desktop"
         ];
+
+        niri = [ "kitty.desktop" ];
       };
     };
     icons = {

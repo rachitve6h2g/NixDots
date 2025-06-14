@@ -18,7 +18,7 @@
       Service = {
         Type = "exec";
         ExecStart = "${pkgs.wlsunset}/bin/wlsunset -t 5000 -T 7000 -s 18:00 -S 06:30";
-        ExecCondition = "${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition \"Hyprland\" \"\" ";
+        ExecCondition = "${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition \"Hyprland:niri:sway\" \"\" ";
         Restart = "on-failure";
         Slice = "background-graphical.slice";
       };

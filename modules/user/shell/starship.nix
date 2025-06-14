@@ -2,8 +2,8 @@
 let
   rose-pine-starship = (
     pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/rose-pine/starship/refs/heads/main/rose-pine-moon.toml";
-      hash = "sha256-otDEoVh1WGRsQmWMmJPekqPWwcX3REm9TjTF13vXnGw=";
+      url = "https://raw.githubusercontent.com/rose-pine/starship/refs/heads/main/rose-pine.toml";
+      hash = "sha256-0nK3gRQDuoH+jAvKWbM04rVUXtFNRgvB86jKhuvnr9g=";
     }
   );
 in

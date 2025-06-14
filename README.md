@@ -23,6 +23,7 @@ I just made a list of learning resources that I used to understand NixOS, so per
     - [ ] https://docs.nix.zone/;
 
 # TODO
+- [ ] Have one directory for lock icons, wallpapers, etc. Makes no sense to copy around.
 - [ ] Package fast-syntax-highlighting for zsh
 - [ ] Learn how to setup nixCats.
 - [ ] Get Disko Configuration ready
@@ -39,6 +40,8 @@ I just made a list of learning resources that I used to understand NixOS, so per
 - [X] Shift to Rose-Pine Moon (Rose Pine main is too dark)
 - [X] Cook up Rose-Pine-Moon for yazi 
     - [ ] yatline.
+- [ ] Setup Niri:
+    - [ ] Learn difference b/w focus-ring and border (Read the Wiki Properly).
 
 ## License
 

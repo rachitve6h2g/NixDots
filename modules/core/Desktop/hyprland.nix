@@ -1,4 +1,3 @@
-{ lib, ... }:
 {
   # Configure it through home-manager
   services = {

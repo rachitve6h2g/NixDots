@@ -15,10 +15,10 @@
         enableBashIntegration = true;
       };
 
-      themeFile = "rose-pine-moon";
+      themeFile = "rose-pine";
 
       settings = {
-        background_opacity = 0.8;
+        # background_opacity = 0.8;
         notify_on_cmd_finish = "invisible 5.0 command notify-send --icon=kitty \"job finished with status: %s %c\"";
         enable_audio_bell = "no";
         cursor_trail = 3;
