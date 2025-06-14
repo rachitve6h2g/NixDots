@@ -10,8 +10,8 @@
 
   imports = [
     # ./displaymanager.nix
-    ./hyprland.nix
-    # ./niri.nix
+    # ./hyprland.nix
+    ./niri.nix
     # ./sway.nix
     ./xdgsettings.nix
   ];

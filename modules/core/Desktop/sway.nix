@@ -27,10 +27,4 @@
 
   # For swaylock, configure thru home-manager
   security.pam.services.swaylock = { };
-
-  # Refer https://nixos.org/manual/nixos/stable/options.html programs.uwsm.enable note
-  services.dbus = {
-    enable = true;
-    implementation = lib.mkForce "broker";
-  };
 }

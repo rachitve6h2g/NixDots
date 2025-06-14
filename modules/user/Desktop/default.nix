@@ -1,7 +1,8 @@
 {
   # wayland.systemd.target = "graphical-session.target";
   imports = [
-    ./Hyprland
+    # ./Hyprland
+    ./Niri/
     # ./Sway
 
     ./battery-notifier.nix
