@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  # home.packages = with pkgs; [ mediainfo ]; # for mediainfo.yazi
+
   programs = {
     yazi = {
       enable = true;
@@ -7,8 +9,10 @@
       shellWrapperName = "y";
 
       plugins = {
+        bypass = pkgs.yaziPlugins.bypass;
         full-border = pkgs.yaziPlugins.full-border;
         git = pkgs.yaziPlugins.git;
+        glow = pkgs.yaziPlugins.glow;
         lazygit = pkgs.yaziPlugins.lazygit;
         mediainfo = pkgs.yaziPlugins.mediainfo;
         vcs-files = pkgs.yaziPlugins.vcs-files;
@@ -41,7 +45,7 @@
 
       settings = {
         log = {
-          enabled = false;
+          enabled = true;
         };
 
         mgr = {
@@ -74,7 +78,7 @@
             }
           ];
 
-          prepend_previewrs = [
+          prepend_previewers = [
             {
               mime = "{audio,video,image}/*";
               run = "mediainfo";
@@ -83,6 +87,11 @@
             {
               mime = "application/subrip";
               run = "mediainfo";
+            }
+
+            {
+              name = "*.md";
+              run = "glow";
             }
           ];
         };
@@ -106,6 +115,28 @@
               ];
               run = "plugin vcs-files";
               desc = "Show Git file changes";
+            }
+
+            {
+              on = [ "<C-e>" ];
+              run = "seek 5";
+            }
+
+            {
+              on = [ "<C-y>" ];
+              run = "seek -5";
+            }
+
+            {
+              on = [ "L" ];
+              run = "plugin bypass";
+              desc = "Recursively enter the child directory, skipping children with only a single subdirectory";
+            }
+
+            {
+              on = [ "H" ];
+              run = "plugin bypass reverse";
+              desc = "Recursively enter the child directory, skipping children with only a single subdirectory";
             }
           ];
         };

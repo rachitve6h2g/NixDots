@@ -1,7 +1,6 @@
 { pkgs, lib, ... }:
 {
   programs = {
-    dconf.enable = true;
     sway = {
       enable = true;
       extraPackages = with pkgs; [
