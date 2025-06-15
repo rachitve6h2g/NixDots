@@ -63,6 +63,12 @@ input {
     focus-follows-mouse max-scroll-amount="0%"
 }
 
+cursor {
+    xcursor-theme "BreezeX-RosePine-Linux"
+    hide-when-typing
+    hide-after-inactive-ms 100
+}
+
 // You can configure outputs by their name, which you can find
 // by running `niri msg outputs` while inside a niri instance.
 // The built-in laptop monitor is usually called "eDP-1".

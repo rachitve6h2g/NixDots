@@ -1,8 +1,14 @@
 {pkgs, ...}: {
   home.pointerCursor = {
     gtk.enable = true;
+
+    # Use this when on Hyprland
+    # package = pkgs.rose-pine-hyprcursor;
+    # name = "rose-pine-hyprcursor";
+
     package = pkgs.rose-pine-hyprcursor;
-    name = "rose-pine-hyprcursor";
+    name = "BreezeX-RosePine-Linux";
+
     size = 24;
   };
 
