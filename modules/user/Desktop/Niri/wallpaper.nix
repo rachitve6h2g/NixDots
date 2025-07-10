@@ -2,8 +2,8 @@
   wallpaper = "%h/Pictures/Wallpapers/rose-pine-room.jpeg";
 in {
   # For making it conform with UWSM
-  systemd.user.services = lib.mkForce {
-    wbg = {
+  systemd.user.services = {
+    wbg = lib.mkForce {
       Install = {
         WantedBy = ["graphical-session.target"];
       };

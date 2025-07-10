@@ -16,8 +16,8 @@
     ];
   };
   # For making it conform with UWSM
-  systemd.user.services = lib.mkForce {
-    cliphist = {
+  systemd.user.services = {
+    cliphist = lib.mkForce {
       Install = {
         WantedBy = ["graphical-session.target"];
       };

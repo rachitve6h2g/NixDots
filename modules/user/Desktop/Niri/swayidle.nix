@@ -47,8 +47,8 @@
   xdg.configFile."swayidle/config".source = ./swayidle_config;
 
   # For making it conform with UWSM
-  systemd.user.services = lib.mkForce {
-    swayidle = {
+  systemd.user.services = {
+    swayidle = lib.mkForce {
       Install = {
         WantedBy = [ "graphical-session.target" ];
       };

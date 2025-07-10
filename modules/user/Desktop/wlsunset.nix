@@ -3,8 +3,8 @@
   lib,
   ...
 }: {
-  systemd.user.services = lib.mkForce {
-    wlsunset = {
+  systemd.user.services = {
+    wlsunset = lib.mkForce {
       Install = {
         WantedBy = ["graphical-session.target"];
       };
