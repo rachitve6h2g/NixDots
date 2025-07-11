@@ -9,11 +9,11 @@
       events = [
         {
           event = "before-sleep";
-          command = "${pkgs.hyprlock}/bin/hyprlock";
+          command = "${pkgs.swaylock-effects}/bin/swaylock";
         }
         {
           event = "lock";
-          command = "${pkgs.hyprlock}/bin/hyprlock";
+          command = "${pkgs.swaylock-effects}/bin/swaylock";
         }
       ];
 
@@ -26,19 +26,19 @@
 
         {
           timeout = 600;
-          command = "${pkgs.hyprlock}/bin/hyprlock";
+          command = "${pkgs.swaylock-effects}/bin/swaylock";
         }
 
         {
           timeout = 660;
-          command = "${pkgs.niri}/bin/niri msg output eDP-1 off";
-          resumeCommand = "${pkgs.niri}/bin/niri msg output eDP-1 on && ${pkgs.brightnessctl}/bin/brightnessctl --restore";
+          command = "${pkgs.niri}/bin/niri msg action power-off-monitors";
+          resumeCommand = "${pkgs.niri}/bin/niri msg action power-on-monitors && ${pkgs.brightnessctl}/bin/brightnessctl --restore";
         }
 
         {
           timeout = 1500;
           command = "${pkgs.systemd}bin/loginctl suspend";
-          resumeCommand = "${pkgs.niri}/bin/niri msg output eDP-1 on && ${pkgs.brightnessctl}/bin/brightnessctl --restore";
+          resumeCommand = "${pkgs.niri}/bin/niri msg action power-on-monitors && ${pkgs.brightnessctl}/bin/brightnessctl --restore";
         }
       ];
     };
@@ -48,23 +48,18 @@
 
   # For making it conform with UWSM
   systemd.user.services = {
-    swayidle = lib.mkForce {
-      Install = {
-        WantedBy = [ "graphical-session.target" ];
-      };
-
-      Unit = {
+    swayidle = {
+      Unit = lib.mkForce {
         Description = "Sway idle and locking handler";
         Documentation = [ "man:swayidle(1)" ];
         After = [ "graphical-session.target" ];
       };
 
       Service = {
-        Type = "exec";
-        ExecStart = "${pkgs.swayidle}/bin/swayidle";
-        ExecCondition = "${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition \"niri:sway\" \"\" ";
-        Restart = "on-failure";
-        Slice = "background-graphical.slice";
+        Type = lib.mkForce "exec";
+        ExecCondition = lib.mkForce "${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition \"niri:sway\" \"\" ";
+        Restart = lib.mkForce "on-failure";
+        Slice = lib.mkForce "background-graphical.slice";
       };
     };
   };
