@@ -17,6 +17,7 @@
     ./user.nix
     # ./virtualbox.nix
     ./vivid.nix
+    ./zram.nix
 
     ./Desktop
   ];
