@@ -71,11 +71,53 @@ in
       defaultKeymap = "emacs";
 
       sessionVariables = {
-       CASE_INSENSITIVE = "true";
+        CASE_INSENSITIVE = "true";
       };
 
-      # initContent = let 
-      # in lib.mkMerge [  ];
+      initContent =
+        let
+          interactive_functions =
+            lib.mkAfter
+              # bash
+              ''
+                rm() { command rm -i "''${@}"; }
+                cp() { command cp -i "''${@}"; }
+                mv() { command mv -i "''${@}"; }
+                trash() { command trash -i "''${@}"; }
+
+              '';
+
+          extract_function =
+            lib.mkAfter
+              # bash
+              ''
+               extract() {
+                  if [ -f $1 ]; then
+                    case $1 in
+                    *.tar.bz2) tar xvjf $1 ;;
+                    *.tar.gz) tar xvzf $1 ;;
+                    *.bz2) bunzip2 $1 ;;
+                    *.rar) unrar x $1 ;;
+                    *.gz) gunzip $1 ;;
+                    *.tar) tar xvf $1 ;;
+                    *.tbz2) tar xvjf $1 ;;
+                    *.tgz) tar xvzf $1 ;;
+                    *.zip) unzip $1 ;;
+                    *.Z) uncompress $1 ;;
+                    *.7z) 7z x $1 ;;
+                    *) echo "don't know how to extract '$1'..." ;;
+                    esac
+                  else
+                    echo "'$1' is not a valid file!"
+                  fi
+                }
+
+              '';
+        in
+        lib.mkMerge [
+          interactive_functions
+          extract_function
+        ];
 
       # Don't forget to add
       # environment.pathsToLink = [ "/share/zsh" ];
