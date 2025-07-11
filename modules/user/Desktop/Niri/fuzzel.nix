@@ -37,6 +37,9 @@ in
         main = {
           terminal = "${app2unit}/bin/app2unit -T";
           font = "monospace:size=11";
+          placeholder = "Enter App Name";
+          prompt = "󱡴 ";
+          use-bold = "yes";
           # icon-theme = "${pkgs.rose-pine-icon-theme}/share/icons/rose-pine";
           icon-theme = "rose-pine";
           layer = "overlay";
@@ -46,14 +49,14 @@ in
         colors = {
           background = "#${theme.base00}dd";
           text = "#${theme.base05}ff";
-          prompt = "#${theme.base0A}ff";
-          placeholder = "#${theme.base02}ff";
+          prompt = "#${theme.base0D}ff";
+          placeholder = "#${theme.base03}ff";
           input = "#${theme.base05}ff";
           match = "#${theme.base0A}ff";
-          selection = "#${theme.base08}ff";
-          selection-text = "#${theme.base08}ff";
+          selection = "#${theme.base0F}ff";
+          selection-text = "#${theme.base06}ff";
           selection-match = "#${theme.base0A}ff";
-          counter = "#${theme.base03}ff";
+          counter = "#${theme.base0F}ff";
           border = "#${theme.base0A}ff";
         };
       };

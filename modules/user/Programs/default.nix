@@ -15,7 +15,7 @@
     ./yt-dlp.nix
     ./zathura.nix
 
-    ./qutebrowser
+    # ./qutebrowser
     ./zen-browser
   ];
 

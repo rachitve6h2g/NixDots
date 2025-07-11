@@ -71,7 +71,6 @@ in
             force = true;
 
             packages = with pkgs.nur.repos.rycee.firefox-addons; [
-              darkreader
               localcdn
               stylus
               ublock-origin

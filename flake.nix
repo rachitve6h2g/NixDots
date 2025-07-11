@@ -2,6 +2,11 @@
   description = "My experimental flake";
 
   inputs = {
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     git-hooks-nix.url = "github:cachix/git-hooks.nix";
@@ -14,10 +19,10 @@
     # Hyprland plugins fix
     # Remove this once it's fixed
     # Refer https://github.com/hyprwm/hyprland-plugins/pull/338/files (CShader replaced by SShader)
-    hyprlandPlugins = {
-      url = "github:hyprwm/hyprland-plugins/c491d2831448645f24a1597a17f564aa52691ac6";
-      flake = false;
-    };
+    #hyprlandPlugins = {
+    #  url = "github:hyprwm/hyprland-plugins/c491d2831448645f24a1597a17f564aa52691ac6";
+    #  flake = false;
+    #};
 
     nix-colors.url = "github:misterio77/nix-colors";
 
@@ -58,6 +63,7 @@
         ./hosts
         ./treefmt/flake-module.nix
         inputs.git-hooks-nix.flakeModule
+        inputs.home-manager.flakeModules.home-manager
       ];
 
       perSystem =

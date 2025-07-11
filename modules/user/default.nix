@@ -4,13 +4,14 @@
     inputs.nix-colors.homeManagerModules.default
 
     ./fontconfig.nix
+    ./keymap.nix
     ./terminal.nix
     ./xdgsettings.nix
 
     ./Desktop
-    ./neovim
+    ./Editors
     ./Programs
-    ./shell
+    ./Shell
   ];
 
   # TODO: see how to make a custom module for this

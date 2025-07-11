@@ -1,7 +1,7 @@
 {
-  pkgs,
-  lib,
   config,
+  lib,
+  pkgs,
   ...
 }:
 let
@@ -14,10 +14,11 @@ in
     package = (
       pkgs.waybar.override {
         evdevSupport = false;
+        gpsSupport = false;
+        mpdSupport = false;
+        mprisSupport = false;
         niriSupport = true;
         traySupport = false;
-        swaySupport = false;
-        hyprlandSupport = false;
       }
     );
 
@@ -27,6 +28,7 @@ in
 
     settings = {
       mainBar = {
+        layer = "top";
         position = "bottom";
         spacing = 4;
         reload_style_on_change = true;
@@ -136,7 +138,8 @@ in
         }
 
         window#waybar {
-          background-color: #${theme.base00};
+          background-color: transparent;
+          /* background-color: #${theme.base00}; */
           /*border-bottom: 3px solid rgba(100, 114, 125, 0.5);*/
           color: #${theme.base05};
           transition-property: background-color;
@@ -180,6 +183,13 @@ in
             border-radius: 5px;
             margin: 8px 0px;
             padding: 0px 5px;
+          }
+          .modules-right {
+              background: #${theme.base00};
+              color: #${theme.base05};
+              border-radius: 15px;
+              margin-bottom: 5px;
+              margin-right: 5px;
           }
 
           #backlight,
@@ -283,26 +293,26 @@ in
   };
 
   # # For making it conform with UWSM
-  # systemd.user.services = lib.mkForce {
-  #   waybar = {
-  #     Install = {
-  #       WantedBy = [ "graphical-session.target" ];
-  #     };
-  #
-  #     Unit = {
-  #       Description = "Waybar Service started thru UWSM";
-  #       Documentation = [ "man:waybar(1)" ];
-  #       After = [ "graphical-session.target" ];
-  #     };
-  #
-  #     Service = {
-  #       Type = "exec";
-  #       # QUESTION: does the pkgs.waybar here use the same package as the above overriden or does it create a different one
-  #       ExecStart = "${pkgs.waybar}/bin/waybar";
-  #       ExecCondition = "${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition \"niri\" \"\" ";
-  #       Restart = "on-failure";
-  #       Slice = "background-graphical.slice";
-  #     };
-  #   };
-  # };
+  systemd.user.services = {
+    waybar = lib.mkForce {
+      Install = {
+        WantedBy = [ "graphical-session.target" ];
+      };
+
+      Unit = {
+        Description = "Waybar Service started thru UWSM";
+        Documentation = [ "man:waybar(1)" ];
+        After = [ "graphical-session.target" ];
+      };
+
+      Service = {
+        Type = "exec";
+        # QUESTION: does the pkgs.waybar here use the same package as the above overriden or does it create a different one
+        ExecStart = "${pkgs.waybar}/bin/waybar";
+        ExecCondition = "${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition \"niri\" \"\" ";
+        Restart = "on-failure";
+        Slice = "background-graphical.slice";
+      };
+    };
+  };
 }

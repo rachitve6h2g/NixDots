@@ -16,25 +16,25 @@
     ];
   };
   # For making it conform with UWSM
-  systemd.user.services = {
-    cliphist = lib.mkForce {
-      Install = {
-        WantedBy = ["graphical-session.target"];
-      };
-
-      Unit = {
-        Description = "Clipboard history \"manager\" for wayland";
-        Documentation = ["https://github.com/sentriz/cliphist"];
-        After = ["graphical-session.target"];
-      };
-
-      Service = {
-        Type = "exec";
-        ExecStart = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist -max-items 10 store";
-        ExecCondition = "${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition \"Hyprland:niri:sway\" \"\" ";
-        Restart = "on-failure";
-        Slice = "app-graphical.slice";
-      };
-    };
-  };
+  # systemd.user.services = {
+  #   cliphist = lib.mkForce {
+  #     Install = {
+  #       WantedBy = ["graphical-session.target"];
+  #     };
+  #
+  #     Unit = {
+  #       Description = "Clipboard history \"manager\" for wayland";
+  #       Documentation = ["https://github.com/sentriz/cliphist"];
+  #       After = ["graphical-session.target"];
+  #     };
+  #
+  #     Service = {
+  #       Type = "exec";
+  #       ExecStart = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist -max-items 10 store";
+  #       ExecCondition = "${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition \"Hyprland:niri:sway\" \"\" ";
+  #       Restart = "on-failure";
+  #       Slice = "app-graphical.slice";
+  #     };
+  #   };
+  # };
 }

@@ -6,6 +6,7 @@
     ./cleanup.nix
     ./compileopts.nix
     ./graphics.nix
+    ./keymap.nix
     ./networking.nix
     ./nix.nix
     ./security.nix
@@ -15,6 +16,7 @@
     ./thunar.nix
     ./user.nix
     # ./virtualbox.nix
+    ./vivid.nix
 
     ./Desktop
   ];

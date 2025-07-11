@@ -48,6 +48,8 @@ in
         mgr = {
           show_hidden = true;
           sort_dir_first = true;
+          sort_by = "natural";
+          linemode = "size_and_mtime";
         };
 
         plugin = {

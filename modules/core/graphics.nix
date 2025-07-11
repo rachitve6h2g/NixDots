@@ -2,12 +2,13 @@
 {
   hardware.graphics = {
     enable = true;
+
+    package = pkgs.mesa;
     extraPackages = with pkgs; [
       intel-media-driver
       intel-compute-runtime
       vpl-gpu-rt
       libvpl
-      vaapiIntel
     ];
   };
   environment.sessionVariables = {

@@ -1,19 +1,23 @@
-{pkgs, ...}: {
+{pkgs, config, ...}: {
   home.pointerCursor = {
     gtk.enable = true;
 
-    # Use this when on Hyprland
-    # package = pkgs.rose-pine-hyprcursor;
-    # name = "rose-pine-hyprcursor";
-
-    package = pkgs.rose-pine-hyprcursor;
+    package = pkgs.rose-pine-cursor;
     name = "BreezeX-RosePine-Linux";
 
-    size = 24;
+    size = 32;
+
+    dotIcons.enable = false;
   };
 
   gtk = {
     enable = true;
+
+    cursorTheme = {
+      name = config.home.pointerCursor.name;
+      package = config.home.pointerCursor.package;
+      size = config.home.pointerCursor.size;
+    };
 
     theme = {
       package = pkgs.rose-pine-gtk-theme;

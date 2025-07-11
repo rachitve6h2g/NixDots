@@ -2,7 +2,9 @@
   theme = config.colorscheme.palette;
 in {
   programs.wofi = {
-    enable = true;
+    enable = if (config.programs.fuzzel.enable == true ) 
+      then false
+      else true;
 
     settings = {
       allow_images = true;

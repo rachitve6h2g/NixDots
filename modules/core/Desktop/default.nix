@@ -10,9 +10,11 @@
 
   imports = [
     # ./displaymanager.nix
+    # ./gnome.nix
     # ./hyprland.nix
     ./niri.nix
     # ./sway.nix
     ./xdgsettings.nix
+    # ./xfce.nix
   ];
 }

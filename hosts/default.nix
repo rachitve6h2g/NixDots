@@ -10,6 +10,7 @@
             inherit inputs;
           };
           modules = [
+            inputs.disko.nixosModules.disko
             ../modules/core
             ../modules/overlays
             ./${hostname}

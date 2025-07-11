@@ -1,9 +1,9 @@
 { lib, pkgs, ... }: let 
-  wallpaper = "%h/Pictures/Wallpapers/rose-pine-room.jpeg";
+  wallpaper = "%h/Pictures/Wallpapers/Courtside-Sunset.png";
 in {
   # For making it conform with UWSM
   systemd.user.services = {
-    wbg = lib.mkForce {
+    wallpaper = lib.mkForce {
       Install = {
         WantedBy = ["graphical-session.target"];
       };

@@ -10,9 +10,9 @@ in {
 
     settings = {
       anchor = "top-right";
-      # max-history = 10;
+      max-history = 10;
       font = "monospace 11";
-      layer = "top";
+      layer = "overlay";
       markup = true;
       sort = "-time";
 
@@ -21,10 +21,10 @@ in {
 
       actions = true;
 
-      background-color = "#${theme.base02}";
+      background-color = "#${theme.base00}";
       text-color = "#${theme.base05}";
-      border-color = "#${theme.base07}";
-      progress-color = "over #${theme.base0B}";
+      border-color = "#${theme.base0E}";
+      progress-color = "over #${theme.base0F}";
 
       border-radius = 10;
 
