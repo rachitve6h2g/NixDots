@@ -16,7 +16,7 @@ let
         [ -d "$thumbnail_dir" ] || mkdir -p "$thumbnail_dir"
 
         # Write square shaped thumbnail to cache if it doesn't exist
-        read -r -d \'\' thumbnail <<EOF
+        read -r -d ''' thumbnail <<EOF
         /^[0-9]+\s<meta http-equiv=/ { next }
         match(\$0, /^([0-9]+)\s(\[\[\s)?binary.*(jpg|jpeg|png|bmp)/, grp) {
           cliphist_item_id=grp[1]
@@ -56,6 +56,27 @@ let
           fi
         done
       '';
+
+  fuzzel-powermenu = pkgs.pkgs.writeShellScriptBin "fuzzel-powermenu" ''
+    SELECTION="$(printf "1 - Lock\n2 - Suspend\n3 - Log out\n4 - Reboot\n5 - Reboot to UEFI\n6 - Hard reboot\n7 - Shutdown" | fuzzel --dmenu -l 7 -p "Power Menu: ")"
+
+    case $SELECTION in
+    	*"Lock")
+    		swaylock;;
+    	*"Suspend")
+    		systemctl suspend;;
+    	*"Log out")
+    		loginctl termniate-user "";;
+    	*"Reboot")
+    		systemctl reboot;;
+    	*"Reboot to UEFI")
+    		systemctl reboot --firmware-setup;;
+    	*"Hard reboot")
+    		pkexec "echo b > /proc/sysrq-trigger";;
+    	*"Shutdown")
+    		systemctl poweroff;;
+    esac
+  '';
 in
 {
   imports = [
@@ -71,6 +92,7 @@ in
     playerctl
     xwayland-satellite
     clipboard
+    fuzzel-powermenu
   ];
 
   xdg.configFile = {

@@ -358,6 +358,8 @@ binds {
   Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
   Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
+  Mod+X hotkey-overlay-title="Open fuzzel Power menu: fuzzel" { spawn "fuzzel-powermenu"; }
+
   // You can also use a shell. Do this if you need pipes, multiple commands, etc.
   // Note: the entire command goes as a single argument in the end.
   // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
