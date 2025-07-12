@@ -6,10 +6,10 @@
     ./Niri
     # ./Sway
 
+    ./battery_notifier.nix
     ./clipboard.nix
     ./dconf.nix
     ./mako.nix
-    ./poweralertd.nix
     ./theme.nix
     ./wlsunset.nix
     ./wofi.nix

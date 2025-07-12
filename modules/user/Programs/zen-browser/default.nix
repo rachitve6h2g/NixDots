@@ -20,14 +20,134 @@ in
       policies = {
         DisableAppUpdate = true;
         DisableTelemetry = true;
+        DisableBuiltinPDFViewer = true;
+        DisableFirefoxStudies = true;
+        DisableFirefoxScreenshots = true;
+        DisableFormHistory = true;
+        DisablePocket = true;
+        DisableSetDesktopBackground = true;
+        DontCheckDefaultBrowser = true;
+        EnableTrackingProtection = {
+          Value = true;
+          Locked = true;
+          Cryptomining = true;
+          Fingerprinting = true;
+          EmailTracking = true;
+        };
+
+        ExtensionUpdate = true;
+        HardwareAcceleration = true;
+        PDFjs = {
+          Enabled = false;
+          EnablePermissions = false;
+        };
+
+        Permissions = {
+          Camera = {
+            Allow = [ ];
+            BlockNewRequests = true;
+            Locked = true;
+          };
+
+          Microphone = {
+            Allow = [ ];
+            BlockNewRequests = true;
+            Locked = true;
+          };
+          Location = {
+            Allow = [ ];
+            BlockNewRequests = true;
+            Locked = true;
+          };
+        };
       };
 
       profiles = {
         krish = {
           isDefault = true;
 
+          search = {
+            force = true;
+
+            default = "ddg";
+            privateDefault = "ddg";
+
+            engines = {
+              nixos-wiki = {
+                name = "NixOS Wiki";
+                urls = [ { template = "https://wiki.nixos.org/w/index.php?search={searchTerms}"; } ];
+                iconMapObj."16" = "https://wiki.nixos.org/favicon.ico";
+                definedAliases = [ "@nw" ];
+              };
+
+              nix-packages = {
+                name = "Nix Packages";
+                urls = [
+                  {
+                    template = "https://search.nixos.org/packages";
+                    params = [
+                      {
+                        name = "type";
+                        value = "packages";
+                      }
+                      {
+                        name = "query";
+                        value = "{searchTerms}";
+                      }
+                    ];
+                  }
+                ];
+
+                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                definedAliases = [ "@np" ];
+              };
+
+              home-manager-options = {
+                name = "Home Manager Options";
+                urls = [
+                  {
+                    template = "https://home-manager-options.extranix.com";
+                    params = [
+                      {
+                        name = "query";
+                        value = "{searchTerms}";
+                      }
+                      {
+                        name = "release";
+                        value = "master";
+                      }
+                    ];
+                  }
+                ];
+                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                definedAliases = [ "@hmopts" ];
+              };
+
+              mynixos = {
+                name = "MyNixOS";
+                urls = [
+                  {
+                    template = "https://mynixos.com/search";
+                    params = [
+                      {
+                        name = "q";
+                        value = "{searchTerms}";
+                      }
+                    ];
+                  }
+                ];
+                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+
+                definedAliases = [ "@mynixos" ];
+              };
+
+              bing.metaData.hidden = true;
+              google.metaData.alias = "@g";
+            };
+          };
           settings = {
             "extensions.autoDisableScopes" = 0; # This will automatically enable installed extensions
+            "browser.startup.homepage" = "https://www.startpage.com/";
           };
 
           bookmarks = {
@@ -81,6 +201,19 @@ in
                 force = true;
                 settings = {
                   dbInChromeStorage = true;
+                };
+              };
+
+              "uBlock0@raymondhill.net" = {
+                force = true;
+                settings = {
+                  selectedFilterLists = [
+                    "ublock-filters"
+                    "ublock-badware"
+                    "ublock-privacy"
+                    "ublock-unbreak"
+                    "ublock-quick-fixes"
+                  ];
                 };
               };
             };
