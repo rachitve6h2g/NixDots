@@ -1,7 +1,6 @@
 {
   imports = [
     ./hyprland.nix
-    ./mpv.nix
     ./nix-emacs.nix
     ./nur.nix
     ./qutebrowser.nix

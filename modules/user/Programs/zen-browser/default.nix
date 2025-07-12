@@ -64,11 +64,16 @@ in
         # If not available in NUR.
         ExtensionSettings = {
           # Unhook, YouTube suggestions removed.
-          "{b588803b-6bc1-4fe0-8ca9-36e624b9b0b0}" = {
+          "myallychou@gmail.com" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/file/4263531/youtube_recommended_videos-1.6.7.xpi";
             installation_mode = "force_installed";
             private_browsing = "true";
           };
+        };
+
+        # about:config settings defined globally
+        Preferences = {
+          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         };
       };
 
@@ -151,6 +156,23 @@ in
                 definedAliases = [ "@mynixos" ];
               };
 
+              archwiki = {
+                name = "ArchWiki";
+                urls = [
+                  {
+                    template = "https://wiki.archlinux.org/index.php";
+                    params = [
+                      {
+                        name = "search";
+                        value = "{searchTerms}";
+                      }
+                    ];
+                  }
+                ];
+                icon = "https://archlinux.org/static/logos/legacy/arch-legacy-blue2.svg";
+                definedAliases = [ "@alwiki" ];
+              };
+
               bing.metaData.hidden = true;
               google.metaData.alias = "@g";
             };
@@ -158,7 +180,6 @@ in
           settings = {
             "extensions.autoDisableScopes" = 0; # This will automatically enable installed extensions
             "browser.startup.homepage" = "https://www.startpage.com/";
-            "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
           };
 
           bookmarks = {

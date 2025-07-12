@@ -5,8 +5,8 @@
       settings = {
         embed-thumbnail = true;
         add-metadata = true;
-        # downloader = "aria2c";
-        # downloader-args = "aria2c:'-c -x8 -s8 -k1M'";
+        downloader = "aria2c";
+        downloader-args = "aria2c:'-c -x8 -s8 -k1M'";
         format = "bestvideo+bestaudio/best";
       };
     };

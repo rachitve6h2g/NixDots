@@ -1,5 +1,5 @@
 { lib, pkgs, ... }: let 
-  wallpaper = "%h/Pictures/Wallpapers/Courtside-Sunset.png";
+  wallpaper = "%h/Pictures/Wallpapers/Pastel-Window.png";
 in {
   # For making it conform with UWSM
   systemd.user.services = {
