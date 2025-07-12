@@ -1,4 +1,4 @@
-{
+{ lib, ... }: {
   programs = {
     kitty = {
       enable = true;
@@ -7,7 +7,7 @@
 
       font = {
         name = "monospace";
-        size = 13;
+        size = 14;
       };
 
       shellIntegration = {
@@ -26,4 +26,5 @@
       };
     };
   };
+  stylix.targets.kitty.enable = false;
 }

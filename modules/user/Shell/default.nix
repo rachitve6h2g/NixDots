@@ -5,7 +5,6 @@
   ...
 }:
 let
-  theme = config.colorScheme.palette;
   myAliases = {
     gocon = "cd $HOME/.dotfiles";
 
@@ -59,7 +58,6 @@ in
     # There is already one module for it in configuration.nix
     # programs.vivid.enable in core modules. Enable that first.
     # LS_COLORS = "$(${pkgs.vivid}/bin/vivid generate rose-pine)";
-    GTK_THEME = lib.mkForce "${config.gtk.theme.name}";
   };
 
   home.packages = [ pkgs.sl ];
@@ -163,88 +161,88 @@ in
     };
   };
 
-  xdg.configFile."fsh/custom.ini".text =
-    # ini
-    ''
-      [base]
-      default          = #${theme.base05}
-      unknown-token    = #${theme.base08},bold
-      commandseparator = #${theme.base0C}
-      redirection      = #${theme.base0C}
-      here-string-tri  = #bac2de
-      here-string-text = #bac2de
-      here-string-var  = #bac2de
-      exec-descriptor  = none
-      comment          = #6c7086
-      correct-subtle   = #${theme.base07}
-      incorrect-subtle = #eba0ac
-      subtle-separator = none
-      subtle-bg        = none
-      secondary        =
-      recursive-base   = #${theme.base05}
-
-      [command-point]
-      reserved-word     = #${theme.base0E}
-      subcommand        = #74c7ec
-      alias             = #${theme.base0D}
-      suffix-alias      = #${theme.base0D}
-      global-alias      = #${theme.base0D}
-      builtin           = #${theme.base0E}
-      function          = #${theme.base0D}
-      command           = #${theme.base0D}
-      precommand        = #${theme.base0E}
-      hashed-command    = #${theme.base0D}
-      single-sq-bracket = #${theme.base0A}
-      double-sq-bracket = #${theme.base0A}
-      double-paren      = #${theme.base0B}
-
-      [paths]
-      path          = #${theme.base06}
-      pathseparator = #${theme.base06}
-      path-to-dir   = #${theme.base06}
-      globbing      = #f5c2e7
-      globbing-ext  = none
-
-      [brackets]
-      paired-bracket  = bold
-      bracket-level-1 = #${theme.base08}
-      bracket-level-2 = #${theme.base0A}
-      bracket-level-3 = #74c7ec
-
-      [arguments]
-      single-hyphen-option   = #${theme.base0C}
-      double-hyphen-option   = #${theme.base0C}
-      back-quoted-argument   = #${theme.base0C}
-      single-quoted-argument = #${theme.base0B}
-      double-quoted-argument = #${theme.base0B}
-      dollar-quoted-argument = #${theme.base0B}
-      optarg-string          = #${theme.base0B}
-      optarg-number          = #${theme.base09}
-
-      [in-string]
-      back-dollar-quoted-argument           = #${theme.base09}
-      back-or-dollar-double-quoted-argument = #${theme.base09}
-
-      [other]
-      variable             = #${theme.base09}
-      assign               = none
-      assign-array-bracket = none
-      history-expansion    = none
-
-      [math]
-      mathvar = #f5c2e7
-      mathnum = #${theme.base09}
-      matherr = #${theme.base08},bold
-
-      [for-loop]
-      forvar  = #${theme.base05}
-      fornum  = #${theme.base09}
-      foroper = #${theme.base0D}
-      forsep  = #${theme.base0D}
-
-      [case]
-      case-input       = #${theme.base09}
-      case-parentheses = #9399b2
-      case-condition   = #${theme.base0E}
-    '';
+  # xdg.configFile."fsh/custom.ini".text =
+  #   # ini
+  #   ''
+  #     [base]
+  #     default          = #${theme.base05}
+  #     unknown-token    = #${theme.base08},bold
+  #     commandseparator = #${theme.base0C}
+  #     redirection      = #${theme.base0C}
+  #     here-string-tri  = #bac2de
+  #     here-string-text = #bac2de
+  #     here-string-var  = #bac2de
+  #     exec-descriptor  = none
+  #     comment          = #6c7086
+  #     correct-subtle   = #${theme.base07}
+  #     incorrect-subtle = #eba0ac
+  #     subtle-separator = none
+  #     subtle-bg        = none
+  #     secondary        =
+  #     recursive-base   = #${theme.base05}
+  #
+  #     [command-point]
+  #     reserved-word     = #${theme.base0E}
+  #     subcommand        = #74c7ec
+  #     alias             = #${theme.base0D}
+  #     suffix-alias      = #${theme.base0D}
+  #     global-alias      = #${theme.base0D}
+  #     builtin           = #${theme.base0E}
+  #     function          = #${theme.base0D}
+  #     command           = #${theme.base0D}
+  #     precommand        = #${theme.base0E}
+  #     hashed-command    = #${theme.base0D}
+  #     single-sq-bracket = #${theme.base0A}
+  #     double-sq-bracket = #${theme.base0A}
+  #     double-paren      = #${theme.base0B}
+  #
+  #     [paths]
+  #     path          = #${theme.base06}
+  #     pathseparator = #${theme.base06}
+  #     path-to-dir   = #${theme.base06}
+  #     globbing      = #f5c2e7
+  #     globbing-ext  = none
+  #
+  #     [brackets]
+  #     paired-bracket  = bold
+  #     bracket-level-1 = #${theme.base08}
+  #     bracket-level-2 = #${theme.base0A}
+  #     bracket-level-3 = #74c7ec
+  #
+  #     [arguments]
+  #     single-hyphen-option   = #${theme.base0C}
+  #     double-hyphen-option   = #${theme.base0C}
+  #     back-quoted-argument   = #${theme.base0C}
+  #     single-quoted-argument = #${theme.base0B}
+  #     double-quoted-argument = #${theme.base0B}
+  #     dollar-quoted-argument = #${theme.base0B}
+  #     optarg-string          = #${theme.base0B}
+  #     optarg-number          = #${theme.base09}
+  #
+  #     [in-string]
+  #     back-dollar-quoted-argument           = #${theme.base09}
+  #     back-or-dollar-double-quoted-argument = #${theme.base09}
+  #
+  #     [other]
+  #     variable             = #${theme.base09}
+  #     assign               = none
+  #     assign-array-bracket = none
+  #     history-expansion    = none
+  #
+  #     [math]
+  #     mathvar = #f5c2e7
+  #     mathnum = #${theme.base09}
+  #     matherr = #${theme.base08},bold
+  #
+  #     [for-loop]
+  #     forvar  = #${theme.base05}
+  #     fornum  = #${theme.base09}
+  #     foroper = #${theme.base0D}
+  #     forsep  = #${theme.base0D}
+  #
+  #     [case]
+  #     case-input       = #${theme.base09}
+  #     case-parentheses = #9399b2
+  #     case-condition   = #${theme.base0E}
+  #   '';
 }

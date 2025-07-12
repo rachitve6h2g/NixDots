@@ -26,7 +26,10 @@
     #  flake = false;
     #};
 
-    nix-colors.url = "github:misterio77/nix-colors";
+    stylix = {
+      url = "github:danth/stylix"; # use "github:nix-community/stylix" for stable.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
@@ -39,7 +42,6 @@
 
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Refer https://yazi-rs.github.io/docs/installation/
@@ -63,10 +65,9 @@
       ];
       imports = [
         ./hosts
-        ./treefmt/flake-module.nix
+        ./modules/treefmt/flake-module.nix
         inputs.git-hooks-nix.flakeModule
         inputs.home-manager.flakeModules.home-manager
-        inputs.treefmt-nix.flakeModule
       ];
 
       perSystem =
@@ -81,14 +82,11 @@
 
           # _module.args.pkgs = import inputs.nixpkgs {
           #   inherit system;
-          #   overlays = [ 
+          #   overlays = [
           #     inputs.nur.overlays.default
           #   ];
           #   config = { };
           # };
         };
-      flake = {
-        formatter = inputs.nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
-      };
     };
 }

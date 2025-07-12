@@ -1,12 +1,8 @@
 {
   pkgs,
-  config,
   lib,
   ...
 }:
-let
-  theme = config.colorScheme.palette;
-in
 {
   home.file.".ssh/allowed_signers".text = "* ${builtins.readFile ./ssh/id_ed25519.pub}";
 
@@ -59,25 +55,6 @@ in
       settings = {
         gui = {
           nerdFontsVersion = 3;
-          theme = {
-            activeBorderColor = [
-              "#${theme.base0A}"
-              "bold"
-            ];
-            inactiveBorderColor = [ "#${theme.base0B}" ];
-            searchingActiveBorderColor = [
-              "#${theme.base0A}"
-              "bold"
-            ];
-            optionsTextColor = [ "#${theme.base0C}" ];
-            selectedLineBgColor = [ "#${theme.base0B}" ]; # This is a rose-pine color.
-            cherryPickedCommitFgColor = [ "#${theme.base0C}" ];
-            cherryPickedCommitBgColor = [ "#${theme.base0D}" ];
-            markedBaseCommitFgColor = [ "#${theme.base0C}" ];
-            markedBaseCommitBgColor = [ "#${theme.base09}" ];
-            unstagedChangesColor = [ "#${theme.base08}" ];
-            defaultFgColor = [ "#${theme.base05}" ];
-          };
         };
       };
     };

@@ -1,12 +1,8 @@
 {
-  config,
   lib,
   pkgs,
   ...
 }:
-let
-  theme = config.colorScheme.palette;
-in
 {
   programs.waybar = {
     enable = true;
@@ -118,7 +114,7 @@ in
         };
 
         network = {
-          format-wifi = "<span color = '#${theme.base0C}' size='12pt'> </span> {essid}({signalStrength}%)";
+          format-wifi = "<span size='12pt'> </span> {essid}({signalStrength}%)";
           on-click = "killall nm-connection-editor || exec uwsm app -- nm-connection-editor.desktop";
           format-ethernet = "{ipaddr}/{cidr}  ";
           tooltip-format = "{essid} ({signalStrength}%)";
@@ -128,20 +124,21 @@ in
       };
     };
 
-    style = # css
+    # Managed by stylix
+    style = lib.mkAfter # css
       ''
         * {
           /* `otf-font-awesome` is required to be installed for icons */
           font-family: monospace;
           font-size: 12px;
-          color: #${theme.base05};
+          color: @base05;
         }
 
         window#waybar {
           background-color: transparent;
-          /* background-color: #${theme.base00}; */
+          /* background-color: @base00; */
           /*border-bottom: 3px solid rgba(100, 114, 125, 0.5);*/
-          color: #${theme.base05};
+          color: @base05;
           transition-property: background-color;
           transition-duration: .5s;
           margin-top: 0px;
@@ -153,7 +150,7 @@ in
 
         #workspaces {
           padding: 0px;
-          background-color: #${theme.base02};
+          background-color: @base02;
           margin-bottom: 5px;
           margin-top: 5px;
           /*padding-left: 10px;*/
@@ -164,29 +161,29 @@ in
           }
 
           #workspaces button.active {
-            color: #${theme.base0A};
+            color: @base0A;
             /*box-shadow: inset 0 -3px #ffffff;*/
 
           }
 
           #workspaces button.empty {
-            color: #${theme.base01};
+            color: @base01;
           }
 
           #workspaces button.urgent {
-            background-color: #${theme.base08};
+            background-color: @base08;
           }
 
           #submap {
-            background-color: #${theme.base0A};
-            color: #${theme.base00};
+            background-color: @base0A;
+            color: @base00;
             border-radius: 5px;
             margin: 8px 0px;
             padding: 0px 5px;
           }
           .modules-right {
-              background: #${theme.base00};
-              color: #${theme.base05};
+              background: @base00;
+              color: @base05;
               border-radius: 15px;
               margin-bottom: 5px;
               margin-right: 5px;
@@ -196,7 +193,7 @@ in
           #network,
           #pulseaudio {
             padding: 0 10px;
-            color: #${theme.base05};
+            color: @base05;
           }
 
           /* If workspaces is the leftmost module, omit left margin */
@@ -210,8 +207,8 @@ in
           }
 
           #clock {
-            background-color: #${theme.base05};
-            color: #${theme.base00};
+            background-color: @base05;
+            color: @base00;
             border-radius: 20px;
             padding: 0px 5px;
             margin: 8px 10px;
@@ -224,11 +221,11 @@ in
           }
 
           #upower.charging {
-            background-color: #${theme.base0B};
+            background-color: @base0B;
           }
 
           #upower.discharging {
-            color: #${theme.base09};
+            color: @base09;
           }
 
           #network {
@@ -236,25 +233,25 @@ in
           }
 
           #network.wifi {
-            background-color: #${theme.base02};
+            background-color: @base02;
             border-radius: 30px;
           }
 
           #network.disconnected {
-            color: #${theme.base08};
+            color: @base08;
           }
 
 
           #pulseaudio.muted {
             /*background-color: #90b1b1;*/
-            color: #${theme.base08};
+            color: @base08;
           }
 
           #idle_inhibitor {
             padding: 0 10px;
           }
           #idle_inhibitor.activated {
-            color: #${theme.base08};
+            color: @base08;
           }
 
 
@@ -265,7 +262,7 @@ in
             min-height: 5px;
             border: none;
             box-shadow: none;
-            background-color: #${theme.base03};
+            background-color: @base03;
           }
 
           #pulseaudio-slider trough,
@@ -273,7 +270,7 @@ in
             min-height: 3px;
             min-width: 80px;
             border-radius: 5px;
-            background-color: #${theme.base02};
+            background-color: @base02;
         }
 
         #pulseaudio-slider highlight,
@@ -283,11 +280,11 @@ in
         }
 
         #pulseaudio-slider highlight {
-          background-color: #${theme.base0D};
+          background-color: @base0D;
         }
 
         #background-color highlight {
-          color: #${theme.base09};
+          color: @base09;
         }
       '';
   };

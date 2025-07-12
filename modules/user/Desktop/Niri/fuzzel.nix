@@ -1,11 +1,9 @@
 {
-  config,
+  lib,
   pkgs,
   ...
 }:
 let
-  theme = config.colorScheme.palette;
-
   app2unit = (
     pkgs.stdenv.mkDerivation {
 
@@ -36,28 +34,13 @@ in
       settings = {
         main = {
           terminal = "${app2unit}/bin/app2unit -T";
-          font = "monospace:size=11";
+          font = lib.mkForce "monospace:size=11";
           placeholder = "Enter App Name";
-          prompt = "󱡴 ";
+          prompt = "󱡴  ";
           use-bold = "yes";
-          # icon-theme = "${pkgs.rose-pine-icon-theme}/share/icons/rose-pine";
-          icon-theme = "rose-pine";
+          # icon-theme = "rose-pine";
           layer = "overlay";
           launch-prefix = "${app2unit}/bin/app2unit --fuzzel-compat --";
-        };
-
-        colors = {
-          background = "#${theme.base00}dd";
-          text = "#${theme.base05}ff";
-          prompt = "#${theme.base0D}ff";
-          placeholder = "#${theme.base03}ff";
-          input = "#${theme.base05}ff";
-          match = "#${theme.base0A}ff";
-          selection = "#${theme.base0F}ff";
-          selection-text = "#${theme.base06}ff";
-          selection-match = "#${theme.base0A}ff";
-          counter = "#${theme.base0F}ff";
-          border = "#${theme.base0A}ff";
         };
       };
     };

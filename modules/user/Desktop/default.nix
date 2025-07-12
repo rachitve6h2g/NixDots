@@ -8,9 +8,10 @@
 
     ./battery_notifier.nix
     ./clipboard.nix
-    ./dconf.nix
+    # ./dconf.nix
     ./mako.nix
     ./theme.nix
+    ./wayprompt.nix
     ./wlsunset.nix
     ./wofi.nix
   ];

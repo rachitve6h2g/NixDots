@@ -1,5 +1,5 @@
 {
-  programs.bottom = {
+  programs.wayprompt = {
     enable = true;
   };
 }

@@ -1,12 +1,16 @@
 {
-  config,
   inputs,
   lib,
   pkgs,
   ...
 }:
 let
-  theme = config.colorScheme.palette;
+  rosepine-main-css = (
+    builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/rose-pine/zen-browser/refs/heads/main/dist/rose-pine-main.css";
+      sha256 = "sha256:0vn2pv0qhm54rn7vpa845zdgxv0511q8nc4hb594448xypkpfkcf";
+    }
+  );
 in
 {
   imports = [ inputs.zen-browser.homeModules.beta ];
@@ -252,34 +256,17 @@ in
               };
             };
           };
-
           userChrome =
             let
-              userChrome = ''${builtins.readFile ./userChrome.css}'';
-              rose-pine = # css
+              rose-pine-main-css-import = # css
                 ''
-                  * {
-                    --base: #${theme.base00};
-                    --surface: #${theme.base01};
-                    --overlay: #${theme.base02};
-                    --muted: #${theme.base03};
-                    --subtle: #${theme.base04};
-                    --text: #${theme.base05};
-                    --love: #${theme.base08};
-                    --gold: #${theme.base09};
-                    --rose: #${theme.base0A};
-                    --pine: #${theme.base0B};
-                    --foam: #${theme.base0C};
-                    --iris: #${theme.base0D};
-                    --highlightLow: #2a283e;
-                    --highlightMed: #44415a;
-                    --highlightHigh: #${theme.base0F};
-                  }
+                  @import "${rosepine-main-css}";
                 '';
+              rose-pine-css = "${builtins.readFile ./userChrome.css}";
             in
             lib.mkMerge [
-              rose-pine
-              userChrome
+              rose-pine-main-css-import
+              rose-pine-css
             ];
         };
       };

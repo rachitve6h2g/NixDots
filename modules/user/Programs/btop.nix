@@ -10,7 +10,7 @@ in {
       rose-pine = ''${rose-pine-btop}'';
     };
     settings = {
-      color_theme = "rose-pine";
+      # color_theme = "rose-pine";
       theme_background = false;
       vim_keys = true;
       rounded_corners = true;

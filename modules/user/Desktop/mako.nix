@@ -1,17 +1,15 @@
 {
   pkgs,
-  config,
   ...
-}: let
-  theme = config.colorScheme.palette;
-in {
+}: 
+{
   services.mako = {
     enable = true;
 
     settings = {
       anchor = "top-right";
       max-history = 10;
-      font = "monospace 11";
+      # font = "monospace 11";
       layer = "overlay";
       markup = true;
       sort = "-time";
@@ -20,11 +18,6 @@ in {
       icon-path = "${pkgs.rose-pine-icon-theme}/share/icons/rose-pine";
 
       actions = true;
-
-      background-color = "#${theme.base00}";
-      text-color = "#${theme.base05}";
-      border-color = "#${theme.base0E}";
-      progress-color = "over #${theme.base0F}";
 
       border-radius = 10;
 
@@ -36,10 +29,6 @@ in {
       # Sections are written like this
       "mode=do-not-disturb" = {
         invisible = 1;
-      };
-
-      "urgency=high" = {
-        border-color = "#${theme.base08}";
       };
     };
   };

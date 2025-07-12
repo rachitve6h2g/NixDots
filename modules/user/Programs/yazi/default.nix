@@ -33,12 +33,12 @@ in
         rose-pine-main = "${rose-pine}/rose-pine-main.yazi";
       };
 
-      theme = {
-        flavor = {
-          dark = "rose-pine-main";
-          light = "rose-pine-main";
-        };
-      };
+      # theme = {
+      #   flavor = {
+      #     dark = "rose-pine-main";
+      #     light = "rose-pine-main";
+      #   };
+      # };
 
       settings = {
         log = {
