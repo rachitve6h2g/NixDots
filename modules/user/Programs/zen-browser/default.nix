@@ -148,6 +148,7 @@ in
           settings = {
             "extensions.autoDisableScopes" = 0; # This will automatically enable installed extensions
             "browser.startup.homepage" = "https://www.startpage.com/";
+            "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
           };
 
           bookmarks = {

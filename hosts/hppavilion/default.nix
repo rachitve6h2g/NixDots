@@ -1,7 +1,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    # ./disko-config.nix
+    ./disko-config.nix
   ];
 
   boot.kernel.sysctl = {
