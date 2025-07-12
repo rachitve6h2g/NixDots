@@ -25,6 +25,8 @@ let
     ".." = "cd ..";
     ffetch = "${pkgs.fastfetch}/bin/fastfetch";
     oldvim = "${pkgs.vim}/bin/vim";
+
+    ec = "emacsclient -c";
   };
 in
 {

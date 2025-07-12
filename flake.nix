@@ -66,6 +66,7 @@
         ./treefmt/flake-module.nix
         inputs.git-hooks-nix.flakeModule
         inputs.home-manager.flakeModules.home-manager
+        inputs.treefmt-nix.flakeModule
       ];
 
       perSystem =
