@@ -60,6 +60,16 @@ in
             Locked = true;
           };
         };
+
+        # If not available in NUR.
+        ExtensionSettings = {
+          # Unhook, YouTube suggestions removed.
+          "{b588803b-6bc1-4fe0-8ca9-36e624b9b0b0}" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/file/4263531/youtube_recommended_videos-1.6.7.xpi";
+            installation_mode = "force_installed";
+            private_browsing = "true";
+          };
+        };
       };
 
       profiles = {
@@ -195,6 +205,8 @@ in
               localcdn
               stylus
               ublock-origin
+              facebook-container
+              # firefox-color
             ];
 
             settings = {
