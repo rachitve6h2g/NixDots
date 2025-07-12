@@ -5,6 +5,7 @@
     ./boot-loader.nix
     ./cleanup.nix
     ./compileopts.nix
+    ./consoleKeymap.nix
     ./graphics.nix
     ./keymap.nix
     ./networking.nix

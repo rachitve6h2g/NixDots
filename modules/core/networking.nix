@@ -1,14 +1,37 @@
-{ lib, ... }:
 {
   networking = {
     # Refer this https://mynixos.com/nixpkgs/option/networking.hostName
     # For properly setting your hostname
-    hostName = "hppavilion"; # Define your hostname.
-    networkmanager = {
+    hostName = "hppavilion"; # Define your
+
+    useHostResolvConf = false;
+
+    wireless.iwd = {
       enable = true;
-      wifi = {
-        backend = "iwd";
+      settings = {
+        Settings = {
+          AutoConnect = true;
+        };
       };
+    };
+    nameservers = [
+      "1.1.1.1#one.one.one.one"
+      "1.0.0.1#one.one.one.one"
+    ];
+  };
+
+  services = {
+    gnome.gnome-keyring.enable = true;
+
+    resolved = {
+      enable = true;
+      dnssec = "true";
+      domains = [ "~." ];
+      fallbackDns = [
+        "1.1.1.1#one.one.one.one"
+        "1.0.0.1#one.one.one.one"
+      ];
+      dnsovertls = "true";
     };
   };
 }

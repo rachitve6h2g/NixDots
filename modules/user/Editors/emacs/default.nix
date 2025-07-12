@@ -1,9 +1,9 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   programs = {
     emacs = {
       enable = true;
-      package = pkgs.emacs-pgtk;
+      package = pkgs.emacs-unstable-pgtk;
 
       extraConfig = # lisp
         ''
@@ -47,6 +47,9 @@
         arguments = [ "-c" ];
       };
       defaultEditor = true;
+
+      package = if config.programs.emacs.enable then config.programs.emacs.finalPackage
+      else pkgs.emacs-pgtk;
     };
   };
 }

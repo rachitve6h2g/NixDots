@@ -7,6 +7,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
+
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     git-hooks-nix.url = "github:cachix/git-hooks.nix";
