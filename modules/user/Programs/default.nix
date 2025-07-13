@@ -10,7 +10,6 @@
     ./mpv.nix
     ./newsboat.nix
     ./peaclock.nix
-    ./vscodium.nix
     ./yazi
     ./yt-dlp.nix
     ./zathura.nix

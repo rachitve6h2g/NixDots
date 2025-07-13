@@ -162,13 +162,13 @@
           };
 
           border = {
-            width = 2;
+            width = 3;
 
             active.gradient = {
               from = colors.base0D;
               to = colors.base08;
               angle = 45;
-              in' = "oklch shorter hue";
+              in' = "oklab";
               relative-to = "workspace-view";
             };
           };
@@ -214,6 +214,9 @@
         clipboard.disable-primary = true;
         overview = {
           zoom = 0.5;
+          workspace-shadow = {
+            enable = false;
+          };
         };
 
         animations.window-resize.custom-shader = builtins.readFile ./resize.glsl;

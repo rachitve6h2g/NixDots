@@ -18,4 +18,7 @@
     };
   };
   security.pam.services.swaylock = { };
+
+  # To not use the niri polkit agent
+  systemd.user.services.niri-flake-polkit.enable = false;
 }
