@@ -80,6 +80,7 @@ let
 in
 {
   imports = [
+    ./niri.nix
     ./fuzzel.nix
     ./swayidle.nix
     ./swaylock.nix
@@ -96,9 +97,9 @@ in
   ];
 
   xdg.configFile = {
-    "niri/config.kdl" = {
-      source = ./niri/config.kdl;
-    };
-    "uwsm/env".source = ./niri/niri_uwsm_env;
+    # "niri/config.kdl" = {
+    #   source = ./niri/config.kdl;
+    # };
+    "uwsm/env".source = ./niri_uwsm_env;
   };
 }

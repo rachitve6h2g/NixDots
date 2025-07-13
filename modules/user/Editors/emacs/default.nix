@@ -25,8 +25,8 @@
 
           ;; Choose the font family
           (set-face-attribute 'default nil
-          		    :family "JetBrainsMono Nerd Font"
-          		    :height 140)
+          		    :family "monospace"
+          		    :height 145)
 
           (setq backup-directory-alist '(("." . "~/.emacs.d/backups"))
                 backup-by-copying t    ; don't clobber symlinks

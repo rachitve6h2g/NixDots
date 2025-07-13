@@ -26,10 +26,8 @@
     #  flake = false;
     #};
 
-    stylix = {
-      url = "github:danth/stylix"; # use "github:nix-community/stylix" for stable.
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+
+    niri-flake.url = "github:sodiboo/niri-flake";
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
@@ -37,6 +35,11 @@
 
     nur = {
       url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    stylix = {
+      url = "github:danth/stylix"; # use "github:nix-community/stylix" for stable.
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

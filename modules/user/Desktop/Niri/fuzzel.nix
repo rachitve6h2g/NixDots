@@ -35,7 +35,7 @@ in
         main = {
           terminal = "${app2unit}/bin/app2unit -T";
           font = lib.mkForce "monospace:size=11";
-          placeholder = "Enter App Name";
+          placeholder = "  Enter App Name";
           prompt = "󱡴  ";
           use-bold = "yes";
           # icon-theme = "rose-pine";
