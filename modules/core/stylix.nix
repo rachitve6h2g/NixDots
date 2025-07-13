@@ -21,7 +21,7 @@
         name = "Noto Color Emoji";
       };
     };
-    image = ../../wallpapers/wallpaper.png;
+    # image = ../../wallpapers/wallpaper.png;
   };
 
   # stylix.autoEnable = false; # Turn targets specifically.

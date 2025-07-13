@@ -5,8 +5,10 @@
       settings = {
         embed-thumbnail = true;
         add-metadata = true;
-        downloader = "aria2c";
-        downloader-args = "aria2c:'-c -x8 -s8 -k1M'";
+        # downloader = "aria2c";
+        # See https://wiki.archlinux.org/title/Aria2#Changing_the_User_Agent
+        # The user agent has to be changed for better compatibility
+        # downloader-args = "aria2c:'-c -j 3 -x 3 -s 3 -k 1M'";
         format = "bestvideo+bestaudio/best";
       };
     };
@@ -20,6 +22,7 @@
       settings = {
         continue = true;
         dir = "${config.xdg.userDirs.download}";
+        # user-agent = "Wget";
         file-allocation = "none";
         max-connection-per-server = 4;
         min-split-size = "5M";

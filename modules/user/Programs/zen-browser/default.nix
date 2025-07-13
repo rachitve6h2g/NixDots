@@ -177,13 +177,30 @@ in
                 definedAliases = [ "@alwiki" ];
               };
 
+              gentoowiki = {
+                name = "Gentoo Wiki";
+                urls = [
+                  {
+                    template = "https://wiki.gentoo.org/index.php";
+                    params = [
+                      {
+                        name = "search";
+                        value = "{searchTerms}";
+                      }
+                    ];
+                  }
+                ];
+                iconMapObj."16" = "https://wiki.gentoo.org/images/d/dd/Genchu.png";
+                definedAliases = [ "@gwiki" ];
+              };
+
               bing.metaData.hidden = true;
               google.metaData.alias = "@g";
             };
           };
           settings = {
             "extensions.autoDisableScopes" = 0; # This will automatically enable installed extensions
-            "browser.startup.homepage" = "https://www.startpage.com/";
+            "browser.startup.homepage" = "about:blank";
           };
 
           bookmarks = {

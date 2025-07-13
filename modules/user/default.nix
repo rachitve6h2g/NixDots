@@ -1,7 +1,7 @@
 { config, inputs, pkgs, ... }:
 {
   imports = [
-    ./fontconfig.nix
+    # ./fontconfig.nix
     ./keymap.nix
     ./terminal.nix
     ./xdgsettings.nix

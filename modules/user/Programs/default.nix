@@ -3,17 +3,16 @@
   imports = [
     ./bottom.nix
     ./btop.nix
-    ./cmus.nix
     ./fastfetch.nix
     ./git.nix
     ./imv.nix
-    ./mpv.nix
     ./newsboat.nix
     ./peaclock.nix
     ./yazi
     ./yt-dlp.nix
     ./zathura.nix
 
+    ./media
     # ./qutebrowser
     ./zen-browser
   ];

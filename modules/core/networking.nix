@@ -1,10 +1,11 @@
-{
+{ lib, ... }: {
   networking = {
     # Refer this https://mynixos.com/nixpkgs/option/networking.hostName
     # For properly setting your hostname
     hostName = "hppavilion"; # Define your
 
     useHostResolvConf = false;
+    useDHCP = false;
 
     wireless.iwd = {
       enable = true;
@@ -32,6 +33,28 @@
         "1.0.0.1#one.one.one.one"
       ];
       dnsovertls = "true";
+    };
+  };
+
+  systemd = {
+    network = {
+      enable = true;
+      links = {
+        # Disable the default '80-iwd.link'
+        "80-iwd".enable = false;
+      };
+
+      networks = {
+        "80-wireless" = {
+          enable = true;
+          matchConfig = { Name = "wlan0"; };
+          linkConfig = { RequiredForOnline = "routable"; };
+          networkConfig = {
+            DHCP = "yes";
+            IgnoreCarrierLoss = "3s";
+          };
+        };
+      };
     };
   };
 }
