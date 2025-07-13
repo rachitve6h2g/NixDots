@@ -106,6 +106,8 @@
 
           "Mod+O".action = toggle-overview;
 
+          "Mod+X".action = spawn "fuzzel-powermenu";
+
           XF86AudioRaiseVolume = {
             action = spawn [ "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "3%+" "-l" "1.0" ];
             allow-when-locked = true;
