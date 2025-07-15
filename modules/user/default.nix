@@ -1,4 +1,3 @@
-{ config, inputs, pkgs, ... }:
 {
   imports = [
     # ./fontconfig.nix
@@ -6,6 +5,7 @@
     ./terminal.nix
     ./xdgsettings.nix
 
+    ./Browsers
     ./Desktop
     ./Editors
     ./Programs

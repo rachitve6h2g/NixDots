@@ -200,8 +200,14 @@ in
                   {
                     template = "https://github.com/search";
                     params = [
-                      { name = "q"; value = "{searchTerms}"; }
-                      { name = "type"; value = "repositories"; }
+                      {
+                        name = "q";
+                        value = "{searchTerms}";
+                      }
+                      {
+                        name = "type";
+                        value = "repositories";
+                      }
                     ];
                   }
                 ];
@@ -227,7 +233,11 @@ in
           };
           settings = {
             "extensions.autoDisableScopes" = 0; # This will automatically enable installed extensions
-            "browser.startup.homepage" = "about:blank";
+            "webgl.disabled" = false;
+            # "privacy.resistFingerprinting" = false;
+            # "privacy.clearOnShutdown.history" = false;
+            # "privacy.clearOnShutdown.cookies" = false;
+            # "network.cookie.lifetimePolicy" = 0;
           };
 
           bookmarks = {
@@ -275,7 +285,6 @@ in
               stylus
               ublock-origin
               facebook-container
-              # firefox-color
             ];
 
             settings = {

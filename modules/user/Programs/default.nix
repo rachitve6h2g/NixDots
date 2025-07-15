@@ -13,8 +13,6 @@
     ./zathura.nix
 
     ./media
-    # ./qutebrowser
-    ./zen-browser
   ];
 
   # Misc
