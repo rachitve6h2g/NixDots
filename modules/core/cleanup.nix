@@ -1,9 +1,11 @@
+{ config, ... }:
 {
   nix = {
     settings.auto-optimise-store = true;
 
+    # When using programs.nh.clean.enable, don't use this.
     gc = {
-      automatic = true;
+      automatic = if config.programs.nh.clean.enable == true then false else true;
       dates = "daily";
       options = "--delete-older-than 3d";
     };
