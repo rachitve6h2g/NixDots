@@ -106,30 +106,6 @@
       };
       keymap = {
         mgr = {
-          keymap = [
-            # Keybindings like emacs
-            {
-              on = "<C-n>";
-              run = "arrow next";
-              desc = "Next File";
-            }
-            {
-              on = "<C-p>";
-              run = "arrow prev";
-              desc = "Previous file";
-            }
-            {
-              on = "<C-b>";
-              run = "leave";
-              desc = "Back to parent directory";
-            }
-            {
-              on = "<C-f>";
-              run = "enter";
-              desc = "Enter the child directory";
-            }
-          ];
-
           prepend_keymap = [
             {
               on = [
@@ -168,6 +144,46 @@
               on = [ "H" ];
               run = "plugin bypass reverse";
               desc = "Recursively enter the child directory, skipping children with only a single subdirectory";
+            }
+
+            # Keybindings like emacs
+            {
+              on = "<C-n>";
+              run = "arrow next";
+              desc = "Next File";
+            }
+            {
+              on = "<C-p>";
+              run = "arrow prev";
+              desc = "Previous file";
+            }
+            {
+              on = "<C-b>";
+              run = "leave";
+              desc = "Back to parent directory";
+            }
+            {
+              on = "<C-f>";
+              run = "enter";
+              desc = "Enter the child directory";
+            }
+
+            {
+              on = [ "<C-x>" "c" ];
+              run = "quit";
+              desc = "Quit the process";
+            }
+
+            {
+              on = [ "<C-x>" "h" ];
+              run = "help";
+              desc = "Open help";
+            }
+
+            {
+              on = [ "<C-x>" "k" ];
+              run = "close";
+              desc = "Close the current tab, or quit if it's last";
             }
           ];
         };

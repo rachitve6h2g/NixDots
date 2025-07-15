@@ -29,14 +29,16 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.krish = {
     isNormalUser = true;
+    createHome = true;
+    home = "/home/krish";
+    group = "users";
     description = "Rachit Kumar Verma";
     extraGroups = [
-      "networkmanager"
       "wheel"
       "input"
-      "vboxusers"
       "video"
       "audio"
+      "systemd-journal"
     ];
     initialPassword = "Shouvik@1234";
 
