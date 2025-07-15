@@ -1,14 +1,4 @@
 { pkgs, ... }:
-let
-  rose-pine = (
-    pkgs.fetchFromGitHub {
-      owner = "rachitve6h2g";
-      repo = "rose-pine-yazi";
-      rev = "02d0644c1c29d5a6370f21ca831be877f039f5e9";
-      hash = "sha256-pD6wVauBdc2H/4K7TnOXkFaCotnNhCsCEuZJYYpd0SQ=";
-    }
-  );
-in
 {
   home.packages = with pkgs; [ mediainfo ]; # for mediainfo.yazi
 
@@ -28,28 +18,46 @@ in
         vcs-files = pkgs.yaziPlugins.vcs-files;
       };
 
-      flavors = {
-        rose-pine-moon = "${rose-pine}/rose-pine-moon.yazi";
-        rose-pine-main = "${rose-pine}/rose-pine-main.yazi";
-      };
-
-      # theme = {
-      #   flavor = {
-      #     dark = "rose-pine-main";
-      #     light = "rose-pine-main";
-      #   };
-      # };
-
       settings = {
         log = {
           enabled = true;
         };
 
         mgr = {
+          ratio = [
+            1
+            4
+            3
+          ];
           show_hidden = true;
+          show_symlink = true;
+          sort_reverse = false;
+          sort_sensitive = true;
           sort_dir_first = true;
           sort_by = "natural";
           linemode = "size_and_mtime";
+        };
+
+        preview = {
+          image_filter = "lanczos3";
+          image_quality = 90;
+          tab_size = 1;
+          max_width = 600;
+          max_height = 900;
+          cache_dir = "";
+          ueberzug_scale = 1;
+          ueberzug_offset = [
+            0
+            0
+            0
+            0
+          ];
+        };
+
+        tasks = {
+          micro_workers = 5;
+          macro_workers = 10;
+          bizarre_retry = 5;
         };
 
         plugin = {
@@ -98,6 +106,30 @@ in
       };
       keymap = {
         mgr = {
+          keymap = [
+            # Keybindings like emacs
+            {
+              on = "<C-n>";
+              run = "arrow next";
+              desc = "Next File";
+            }
+            {
+              on = "<C-p>";
+              run = "arrow prev";
+              desc = "Previous file";
+            }
+            {
+              on = "<C-b>";
+              run = "leave";
+              desc = "Back to parent directory";
+            }
+            {
+              on = "<C-f>";
+              run = "enter";
+              desc = "Enter the child directory";
+            }
+          ];
+
           prepend_keymap = [
             {
               on = [
