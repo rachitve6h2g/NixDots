@@ -9,6 +9,7 @@
     ./graphics.nix
     ./keymap.nix
     ./networking.nix
+    ./nh.nix
     ./nix.nix
     ./plymouth.nix
     ./security.nix
