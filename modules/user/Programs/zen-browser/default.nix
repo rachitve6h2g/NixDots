@@ -198,7 +198,7 @@ in
                 name = "Git Repos";
                 urls = [
                   {
-                    template = "https://github.com/search?q=cava&type=repositories";
+                    template = "https://github.com/search";
                     params = [
                       { name = "q"; value = "{searchTerms}"; }
                       { name = "type"; value = "repositories"; }
@@ -207,6 +207,18 @@ in
                 ];
                 iconMapObj."16" = "https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png";
                 definedAliases = [ "@gitrepo" ];
+              };
+
+              chatgpt = {
+                name = "ChatGpt";
+                urls = [
+                  {
+                    template = "https://chat.openai.com/?q={searchTerms}";
+                  }
+                ];
+
+                iconMapObj."16" = "https://chat.openai.com/favicon.ico";
+                definedAliases = [ "@gpt" ];
               };
 
               bing.metaData.hidden = true;

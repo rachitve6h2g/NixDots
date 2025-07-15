@@ -1,6 +1,8 @@
-{ config, ... }: let 
+{ config, ... }:
+let
   colors = config.lib.stylix.colors.withHashtag;
-  in {
+in
+{
   programs = {
     niri = {
       settings = {
@@ -33,7 +35,10 @@
           };
 
           "Mod+Return" = {
-            action = spawn [ "app2unit" "-T" ];
+            action = spawn [
+              "app2unit"
+              "-T"
+            ];
             hotkey-overlay.title = "Spawn Kitty Terminal";
           };
 
@@ -81,10 +86,10 @@
           "Mod+Ctrl+M".action = expand-column-to-available-width;
 
           "Mod+C".action = center-column;
-          
+
           "Mod+Minus".action = set-column-width "-10%";
           "Mod+Equal".action = set-column-width "+10%";
-          
+
           "Mod+Shift+Minus".action = set-window-height "-10%";
           "Mod+Shift+Equal".action = set-window-height "+10%";
 
@@ -109,39 +114,76 @@
           "Mod+X".action = spawn "fuzzel-powermenu";
 
           XF86AudioRaiseVolume = {
-            action = spawn [ "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "3%+" "-l" "1.0" ];
+            action = spawn [
+              "wpctl"
+              "set-volume"
+              "@DEFAULT_AUDIO_SINK@"
+              "3%+"
+              "-l"
+              "1.0"
+            ];
             allow-when-locked = true;
           };
           XF86AudioLowerVolume = {
-            action = spawn [ "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "3%-" ];
+            action = spawn [
+              "wpctl"
+              "set-volume"
+              "@DEFAULT_AUDIO_SINK@"
+              "3%-"
+            ];
             allow-when-locked = true;
           };
           XF86AudioMute = {
-            action = spawn [ "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle" ];
+            action = spawn [
+              "wpctl"
+              "set-mute"
+              "@DEFAULT_AUDIO_SINK@"
+              "toggle"
+            ];
             allow-when-locked = true;
           };
           XF86MonBrightnessUp = {
-            action = spawn [ "brightnessctl" "s" "5%+" ];
+            action = spawn [
+              "brightnessctl"
+              "s"
+              "5%+"
+            ];
             allow-when-locked = true;
           };
           XF86MonBrightnessDown = {
-            action = spawn [ "brightnessctl" "s" "5%-" ];
+            action = spawn [
+              "brightnessctl"
+              "s"
+              "5%-"
+            ];
             allow-when-locked = true;
           };
           XF86AudioNext = {
-            action = spawn [ "playerctl" "next" ];
+            action = spawn [
+              "playerctl"
+              "next"
+            ];
             allow-when-locked = true;
           };
           XF86AudioPause = {
-            action = spawn [ "playerctl" "play-pause" ];
+            action = spawn [
+              "playerctl"
+              "play-pause"
+            ];
             allow-when-locked = true;
           };
           XF86AudioPlay = {
-            action = spawn [ "playerctl" "play-pause" ];
+            action = spawn [
+              "playerctl"
+              "play-pause"
+            ];
             allow-when-locked = true;
           };
           XF86AudioPrev = {
-            action = spawn [ "playerctl" "previous" ];
+            action = spawn [
+              "playerctl"
+              "previous"
+            ];
             allow-when-locked = true;
           };
         };
@@ -197,15 +239,16 @@
         window-rules = [
           {
             draw-border-with-background = false;
-            geometry-corner-radius = let 
-              r = 8.0;
-            in
-            {
-              top-left = r;
-              top-right = r;
-              bottom-right = r;
-              bottom-left = r;
-            };
+            geometry-corner-radius =
+              let
+                r = 8.0;
+              in
+              {
+                top-left = r;
+                top-right = r;
+                bottom-right = r;
+                bottom-left = r;
+              };
 
             clip-to-geometry = true;
           }

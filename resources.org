@@ -1,5 +1,6 @@
 ** Wallpapers
-*** [[https://github.com/the-argus/wallpapers][Great Wallpapers here]]
+*** -[[https://github.com/the-argus/wallpapers][ Great Wallpapers]]
+*** - [[https://github.com/fr0st-iwnl/wallz][From fr0st's wallz repo]]
 
 =============================
 * 💡 Emacs Lisp (Elisp)
