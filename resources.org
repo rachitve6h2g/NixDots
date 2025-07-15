@@ -1,6 +1,7 @@
 ** Wallpapers
 *** -[[https://github.com/the-argus/wallpapers][ Great Wallpapers]]
 *** - [[https://github.com/fr0st-iwnl/wallz][From fr0st's wallz repo]]
+*** - [[https://www.wallrice.xyz/][WallRice(customize any wallpaper to match your theme)]]
 
 =============================
 * 💡 Emacs Lisp (Elisp)
