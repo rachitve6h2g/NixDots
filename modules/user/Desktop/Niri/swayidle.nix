@@ -37,14 +37,12 @@
 
         {
           timeout = 1500;
-          command = "${pkgs.systemd}bin/loginctl suspend";
+          command = "${pkgs.systemd}bin/systemctl suspend";
           resumeCommand = "${pkgs.niri}/bin/niri msg action power-on-monitors && ${pkgs.brightnessctl}/bin/brightnessctl --restore";
         }
       ];
     };
   };
-
-  # xdg.configFile."swayidle/config".source = ./swayidle_config;
 
   # For making it conform with UWSM
   systemd.user.services = {
@@ -57,6 +55,7 @@
 
       Service = {
         Type = lib.mkForce "exec";
+        Environment = lib.mkForce "";
         ExecCondition = lib.mkForce "${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition \"niri:sway\" \"\" ";
         Restart = lib.mkForce "on-failure";
         Slice = lib.mkForce "background-graphical.slice";

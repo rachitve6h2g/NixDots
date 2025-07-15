@@ -194,6 +194,21 @@ in
                 definedAliases = [ "@gwiki" ];
               };
 
+              gitrepos = {
+                name = "Git Repos";
+                urls = [
+                  {
+                    template = "https://github.com/search?q=cava&type=repositories";
+                    params = [
+                      { name = "q"; value = "{searchTerms}"; }
+                      { name = "type"; value = "repositories"; }
+                    ];
+                  }
+                ];
+                iconMapObj."16" = "https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png";
+                definedAliases = [ "@gitrepo" ];
+              };
+
               bing.metaData.hidden = true;
               google.metaData.alias = "@g";
             };
