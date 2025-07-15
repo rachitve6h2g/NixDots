@@ -4,6 +4,19 @@
 
 [[https://raw.githubusercontent.com/NixOS/nixos-artwork/refs/heads/master/logo/nix-snowflake-colours.svg]]
 
+* NOTE
+Use this to download the dots with the wallpapers
+#+BEGIN_SRC bash
+  $git --recurse-submodules <this_git_repo_url>
+#+END_SRC
+
+If it's neccessary to download the git repo fast (cause it takes too much time to download
+a huge wallpaper repo) first git clone this repo. And then use this inside the local repo clone.
+#+BEGIN_SRC bash
+  $git submodule init
+  $git submodule update
+#+END_SRC
+
 * Sources
 - Read the dotfiles of Librephoenix (he's got a way to blur qutebrowser)
 
