@@ -64,7 +64,7 @@ I just made a list of learning resources that I used to understand NixOS, so per
 ***** TODO Cook up Rose-Pine-Moon for yazi
 ***** TODO yatline
 ***** TODO Setup Niri
-***** TODO Learn difference between focus-ring and border (read the wiki properly)
+***** DONE Learn difference between focus-ring and border (read the wiki properly)
 
 * License
 This project is licensed under the GNU General Public License v3.0.
