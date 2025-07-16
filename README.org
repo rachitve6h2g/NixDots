@@ -46,25 +46,15 @@ I just made a list of learning resources that I used to understand NixOS, so per
 - [ ] https://docs.nix.zone/
 
 * todo's
-***** TODO Have one directory for lock icons, wallpapers, etc.
-***** TODO Learn how to setup nixCats
-***** TODO Get Disko Configuration ready
-***** TODO Package fast-syntax-highlighting for zsh
-***** TODO Graphical cool screen for entering the encryption password
-***** TODO Write an event for pausing song/video on earphone unplug, resume on plug-in
-***** TODO Use nix to set wallpapers automatically
-***** TODO Learn conditional statements for theme/wallpaper changes
-***** TODO Package btop-catppuccin theme for btop
-***** TODO Move to treefmt-nix from nixfmt
-***** TODO Move to xdg-desktop-portal-termfilechooser
-***** TODO Setup screenshot in Hyprland
-***** TODO Transfer lazyvim config from SwayDots
-***** TODO systemd timer to regularly clear Qutebrowser (and other) cache files
-***** TODO Shift to Rose-Pine Moon (Rose Pine main is too dark)
-***** TODO Cook up Rose-Pine-Moon for yazi
-***** TODO yatline
-***** TODO Setup Niri
-***** DONE Learn difference between focus-ring and border (read the wiki properly)
+***** TODO - [ ] Have one directory for lock icons, wallpapers, etc.
+***** TODO - [ ] Learn how to setup nixCats
+***** TODO - [ ] Write an event for pausing song/video on earphone unplug, resume on plug-in
+***** TODO - [ ] Move to treefmt-nix from nixfmt
+***** TODO - [ ] Move to xdg-desktop-portal-termfilechooser
+***** TODO - [ ] Setup Niri
+***** TODO - [ ] Learn difference between focus-ring and border (read the wiki properly)
+***** TODO - [ ] Setup rmpc
+***** TODO - [ ] Setup Beets(for tagging music files).
 
 * License
 This project is licensed under the GNU General Public License v3.0.
