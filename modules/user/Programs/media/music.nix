@@ -10,7 +10,8 @@
 
       network = {
         listenAddress = "any";
-        startWhenNeeded = true;
+        # If using rmpc's youtube service, make this false.
+        startWhenNeeded = false;
       };
 
       extraConfig = ''
@@ -25,6 +26,8 @@
           path "/tmp/mpd.fifo"
           format "44100:16:2"
         }
+
+        bind_to_address "/tmp/mpd_socket"
       '';
     };
 
@@ -34,13 +37,18 @@
     };
   };
 
+  # For rmpc youtube support
+  home.packages = with pkgs; [
+    ffmpeg-full
+    (python3.withPackages (ps: [ ps.mutagen ]))
+  ];
   programs = {
     rmpc = {
       enable = true;
       # config = ''${builtins.readFile ./config.ron}'';
     };
-    cava = { 
-      enable = true; 
+    cava = {
+      enable = true;
       package = pkgs.cava.override { withSDL2 = true; };
       settings = {
         general = {
@@ -72,9 +80,9 @@
       };
     };
   };
-  
+
   # xdg.configFile."rmpc/themes/rose-pine.ron".text = ''
   # '';
-  
+
   stylix.targets.cava.rainbow.enable = true;
 }

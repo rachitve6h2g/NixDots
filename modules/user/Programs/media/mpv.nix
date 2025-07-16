@@ -24,6 +24,7 @@
           waylandSupport = true;
           vdpauSupport = false;
           dvdnavSupport = false;
+          ffmpeg = pkgs.ffmpeg-full;
         };
       }
     );
