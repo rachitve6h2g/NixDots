@@ -8,11 +8,12 @@
     ./imv.nix
     ./newsboat.nix
     ./peaclock.nix
-    ./yazi
+    ./udiskie.nix
     ./yt-dlp.nix
     ./zathura.nix
 
     ./media
+    ./yazi
   ];
 
   # Misc
