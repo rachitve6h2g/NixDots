@@ -1,4 +1,4 @@
-#!/bin/env sh
+#!/usr/bin/env bash
 
 LRCLIB_INSTANCE="https://lrclib.net"
 
