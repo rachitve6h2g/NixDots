@@ -1,6 +1,5 @@
 {
   imports = [
-    # ./fontconfig.nix
     ./keymap.nix
     ./terminal.nix
     ./xdgsettings.nix
