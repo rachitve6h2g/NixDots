@@ -4,6 +4,14 @@
 
 [[https://raw.githubusercontent.com/NixOS/nixos-artwork/refs/heads/master/logo/nix-snowflake-colours.svg]]
 
+* Installation
+- For disk partitioning (using [[https://github.com/nix-community/disko][disko]]) ::
+#+BEGIN_SRC bash
+  $git clone --depth=1 https://github.com/rachitve6h2g/dotfiles.git # don't clone with the wallpapers, yet.
+  $cd dotfiles
+  $sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount ./dotfiles/hosts/hppavilion/disko-config.nix
+#+END_SRC
+
 * NOTE
 1. Use this to download the dots with the wallpapers
 #+BEGIN_SRC zsh
