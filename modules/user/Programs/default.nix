@@ -32,4 +32,10 @@
     update-nix-fetchgit
     wgetpaste
   ];
+
+  programs = {
+    jq = {
+      enable = true;
+    };
+  };
 }

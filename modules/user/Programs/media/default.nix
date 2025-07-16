@@ -1,5 +1,6 @@
 {
   imports = [
+    ./beets.nix
     ./mpv.nix
     ./music.nix
   ];

@@ -5,6 +5,7 @@
       settings = {
         embed-thumbnail = true;
         add-metadata = true;
+        output = "~/Videos/%(title)s.%(ext)s";
         # downloader = "aria2c";
         # See https://wiki.archlinux.org/title/Aria2#Changing_the_User_Agent
         # The user agent has to be changed for better compatibility

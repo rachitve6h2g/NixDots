@@ -6,7 +6,7 @@
     password: None,
     theme: "theme",
     cache_dir: "/tmp/rmpc/cache",
-    lyrics_dir: "~/.lyrics",
+    lyrics_dir: "~/Music",
     on_song_change: ["~/.config/rmpc/notify", "~/.config/rmpc/playcount", "~/.config/rmpc/lyrics"],
     volume_step: 5,
     max_fps: 30,

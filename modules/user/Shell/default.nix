@@ -14,7 +14,7 @@ let
     cdg = "cd $(git rev-parse --show-toplevel)";
 
     # For audio downloading
-    yt-music = "yt-dlp -x -f bestaudio";
+    yt-music = "yt-dlp -x -f bestaudio --audio-format mp3 -o '~/Music/%(artist)s/%(album)s/%(title)s.%(ext)s'";
 
     # NixOS specific
     update = "sudo nixos-rebuild switch";
