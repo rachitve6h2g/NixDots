@@ -22,7 +22,7 @@
 	    # text-ver-color = "${theme.base0D}";
 	    # text-wrong-color = "${theme.base08}";
 
-	    image = "$HOME/Pictures/Wallpapers/greenscene-01.jpg";
+	    image = "~/.dotfiles/wallpapers/rosepine-samurai.png";
 	};
   };
 }
