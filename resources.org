@@ -4,6 +4,10 @@
 *** - [[https://github.com/Noob-linux-user/Wallpaper][From Noob-linux user]]
 *** - [[https://www.wallrice.xyz/][WallRice(customize any wallpaper to match your theme)]]
 
+
+** RMPC music player:
+If you have rmpc you can download and configure lyrics from [[https://lrclib.net/][librc.net]].
+
 =============================
 * 💡 Emacs Lisp (Elisp)
 =============================

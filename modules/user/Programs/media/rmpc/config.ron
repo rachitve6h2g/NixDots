@@ -2,11 +2,12 @@
 #![enable(unwrap_newtypes)]
 #![enable(unwrap_variant_newtypes)]
 (
-    address: "127.0.0.1:6600",
+    address: "/tmp/mpd_socket",
     password: None,
-    theme: None,
-    cache_dir: None,
-    on_song_change: None,
+    theme: "theme",
+    cache_dir: "/tmp/rmpc/cache",
+    lyrics_dir: "~/.lyrics",
+    on_song_change: ["~/.config/rmpc/notify", "~/.config/rmpc/playcount", "~/.config/rmpc/lyrics"],
     volume_step: 5,
     max_fps: 30,
     scrolloff: 0,
@@ -121,37 +122,112 @@
         album_sort_by: Date,
     ),
     tabs: [
-        (
-            name: "Queue",
-            pane: Split(
-                direction: Horizontal,
-                panes: [(size: "40%", pane: Pane(AlbumArt)), (size: "60%", pane: Pane(Queue))],
-            ),
+    (
+        name: "Queue",
+        pane: Split(
+            direction: Vertical,
+            panes: [
+                (
+                    size: "100%",
+                    borders: "NONE",
+                    pane: Split(
+                        borders: "NONE",
+                        direction: Horizontal,
+                        panes: [
+                            (
+                                size: "70%",
+                                borders: "ALL",
+                                pane: Pane(Queue),
+                            ),
+                            (
+                                size: "30%",
+                                borders: "NONE",
+                                pane: Split(
+                                    direction: Vertical,
+                                    panes: [
+                                        (
+                                            size: "75%",
+                                            borders: "ALL",
+                                            pane: Pane(AlbumArt),
+                                        ),
+                                        (
+                                            size: "25%",
+                                            borders: "NONE",
+                                            pane: Split(
+                                                direction: Vertical,
+                                                panes: [
+                                                    (
+                                                        size: "100%",
+                                                        pane: Pane(Lyrics),
+                                                    ),
+                                                ]
+                                            ),
+                                        ),
+                                    ]
+                                ),
+                            ),
+                        ]
+                    ),
+                ),
+            ],
         ),
-        (
-            name: "Directories",
-            pane: Pane(Directories),
+    ),
+    (
+        name: "Directories",
+        pane: Split(
+            direction: Horizontal,
+            panes: [(size: "100%", borders: "ALL", pane: Pane(Directories))],
         ),
-        (
-            name: "Artists",
-            pane: Pane(Artists),
+    ),
+    (
+        name: "Artists",
+        pane: Split(
+            direction: Horizontal,
+            panes: [(size: "100%", borders: "ALL", pane: Pane(Artists))],
         ),
-        (
-            name: "Album Artists",
-            pane: Pane(AlbumArtists),
+    ),
+    (
+        name: "Album Artists",
+        pane: Split(
+            direction: Horizontal,
+            panes: [(size: "100%", borders: "ALL", pane: Pane(AlbumArtists))],
         ),
-        (
-            name: "Albums",
-            pane: Pane(Albums),
+    ),
+    (
+        name: "Albums",
+        pane: Split(
+            direction: Horizontal,
+            panes: [(size: "100%", borders: "ALL", pane: Pane(Albums))],
         ),
-        (
-            name: "Playlists",
-            pane: Pane(Playlists),
+    ),
+    (
+        name: "Playlists",
+        pane: Split(
+            direction: Horizontal,
+            panes: [(size: "100%", borders: "ALL", pane: Pane(Playlists))],
         ),
-        (
-            name: "Search",
-            pane: Pane(Search),
+    ),
+    (
+        name: "Search",
+        pane: Split(
+            direction: Horizontal,
+            panes: [(size: "100%", borders: "ALL", pane: Pane(Search))],
         ),
+    ),
+    (
+        name: "Browser",
+        pane: Split(
+            direction: Horizontal,
+            panes: [(size: "100%", borders: "ALL", pane: Pane(Browser(root_tag: "Artist")))],
+        ),
+    ),
+    (
+        name: "Lyrics",
+        pane: Split(
+            direction: Horizontal,
+            panes: [(size: "100%", borders: "ALL", pane: Pane(Lyrics))],
+        ),
+    ),
     ],
 )
 

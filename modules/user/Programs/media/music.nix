@@ -45,7 +45,7 @@
   programs = {
     rmpc = {
       enable = true;
-      # config = ''${builtins.readFile ./config.ron}'';
+      config = ''${builtins.readFile ./rmpc/config.ron}'';
     };
     cava = {
       enable = true;
@@ -81,8 +81,12 @@
     };
   };
 
-  # xdg.configFile."rmpc/themes/rose-pine.ron".text = ''
-  # '';
+  xdg.configFile = {
+    "rmpc/themes/theme.ron".source = ./rmpc/themes/theme.ron;
+    "rmpc/notify" = { source = ./rmpc/notify; executable = true; };
+    "rmpc/playcount" = { source = ./rmpc/playcount; executable = true; };
+    "rmpc/lyrics" = { source = ./rmpc/lyrics; executable = true; };
+  };
 
   stylix.targets.cava.rainbow.enable = true;
 }
