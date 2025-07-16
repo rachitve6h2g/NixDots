@@ -13,6 +13,7 @@
     ./zathura.nix
 
     ./media
+    ./wgetpaste
     ./yazi
   ];
 
