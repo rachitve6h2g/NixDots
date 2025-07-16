@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{
   networking = {
     # Refer this https://mynixos.com/nixpkgs/option/networking.hostName
     # For properly setting your hostname
@@ -6,6 +6,7 @@
 
     useHostResolvConf = false;
     useDHCP = false;
+    useNetworkd = true;
 
     wireless.iwd = {
       enable = true;
@@ -47,8 +48,12 @@
       networks = {
         "80-wireless" = {
           enable = true;
-          matchConfig = { Name = "wlan0"; };
-          linkConfig = { RequiredForOnline = "routable"; };
+          matchConfig = {
+            Name = "wlan0";
+          };
+          linkConfig = {
+            RequiredForOnline = "routable";
+          };
           networkConfig = {
             DHCP = "yes";
             IgnoreCarrierLoss = "3s";
