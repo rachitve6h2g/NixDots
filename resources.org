@@ -19,7 +19,7 @@ If you have rmpc you can download and configure lyrics from [[https://lrclib.net
 
 *** Books
 - [[https://www.gnu.org/software/emacs/manual/eintr.html][An Introduction to Programming in Emacs Lisp (official)]]
-- https://www.masteringemacs.org — Mastering Emacs blog (real-world Elisp tips)
+- [[https://www.masteringemacs.org][Mastering Emacs blog (real-world Elisp tips)]]
 
 *** Practice
 - Customize your `init.el` using `use-package`, write commands/macros
