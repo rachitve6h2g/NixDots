@@ -1,17 +1,8 @@
 {
   inputs,
-  lib,
   pkgs,
   ...
 }:
-let
-  rosepine-main-css = (
-    builtins.fetchurl {
-      url = "https://raw.githubusercontent.com/rose-pine/zen-browser/refs/heads/main/dist/rose-pine-main.css";
-      sha256 = "sha256:0vn2pv0qhm54rn7vpa845zdgxv0511q8nc4hb594448xypkpfkcf";
-    }
-  );
-in
 {
   imports = [ inputs.zen-browser.homeModules.beta ];
 
@@ -309,18 +300,6 @@ in
               };
             };
           };
-          userChrome =
-            let
-              rose-pine-main-css-import = # css
-                ''
-                  @import "${rosepine-main-css}";
-                '';
-              rose-pine-css = "${builtins.readFile ./userChrome.css}";
-            in
-            lib.mkMerge [
-              rose-pine-main-css-import
-              rose-pine-css
-            ];
         };
       };
     };

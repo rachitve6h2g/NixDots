@@ -142,86 +142,101 @@ vim.keymap.set(
 )
 
 -- colorscheme will be set here.
-require("rose-pine").setup({
-	variant = "main",
-	dark_variant = "main",
-	dim_inactive_windows = false,
-	extend_background_behind_borders = true,
+-- require("rose-pine").setup({
+-- 	variant = "main",
+-- 	dark_variant = "main",
+-- 	dim_inactive_windows = false,
+-- 	extend_background_behind_borders = true,
+--
+-- 	enable = {
+-- 		terminal = true,
+-- 		legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+-- 		migrations = true, -- Handle deprecated options automatically
+-- 	},
+--
+-- 	styles = {
+-- 		bold = true,
+-- 		italic = true,
+-- 		transparency = false,
+-- 	},
+--
+-- 	groups = {
+-- 		border = "muted",
+-- 		link = "iris",
+-- 		panel = "surface",
+--
+-- 		error = "love",
+-- 		hint = "iris",
+-- 		info = "foam",
+-- 		note = "pine",
+-- 		todo = "rose",
+-- 		warn = "gold",
+--
+-- 		git_add = "foam",
+-- 		git_change = "rose",
+-- 		git_delete = "love",
+-- 		git_dirty = "rose",
+-- 		git_ignore = "muted",
+-- 		git_merge = "iris",
+-- 		git_rename = "pine",
+-- 		git_stage = "iris",
+-- 		git_text = "rose",
+-- 		git_untracked = "subtle",
+--
+-- 		h1 = "iris",
+-- 		h2 = "foam",
+-- 		h3 = "rose",
+-- 		h4 = "gold",
+-- 		h5 = "pine",
+-- 		h6 = "foam",
+-- 	},
+--
+-- 	palette = {
+-- 		-- Override the builtin palette per variant
+-- 		-- moon = {
+-- 		--     base = '#18191a',
+-- 		--     overlay = '#363738',
+-- 		-- },
+-- 	},
+--
+-- 	-- NOTE: Highlight groups are extended (merged) by default. Disable this
+-- 	-- per group via `inherit = false`
+-- 	highlight_groups = {
+-- 		-- Comment = { fg = "foam" },
+-- 		-- StatusLine = { fg = "love", bg = "love", blend = 15 },
+-- 		-- VertSplit = { fg = "muted", bg = "muted" },
+-- 		-- Visual = { fg = "base", bg = "text", inherit = false },
+-- 	},
+--
+-- 	before_highlight = function(group, highlight, palette)
+-- 		-- Disable all undercurls
+-- 		-- if highlight.undercurl then
+-- 		--     highlight.undercurl = false
+-- 		-- end
+-- 		--
+-- 		-- Change palette colour
+-- 		-- if highlight.fg == palette.pine then
+-- 		--     highlight.fg = palette.foam
+-- 		-- end
+-- 	end,
+-- })
+--
+-- vim.cmd.colorscheme("rose-pine")
 
-	enable = {
-		terminal = true,
-		legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
-		migrations = true, -- Handle deprecated options automatically
-	},
+-- Gruvbox material theme
+local groovies = {
+	gruvbox_material_enable_italic = true,
+	gruvbox_material_background = 'hard',
+	gruvbox_material_better_performance = 1,
+	gruvbox_material_foreground = 'mix',
+	gruvbox_material_transparent_background = '0',
+	gruvbox_material_statusline_style = 'mix'
+}
 
-	styles = {
-		bold = true,
-		italic = true,
-		transparency = false,
-	},
-
-	groups = {
-		border = "muted",
-		link = "iris",
-		panel = "surface",
-
-		error = "love",
-		hint = "iris",
-		info = "foam",
-		note = "pine",
-		todo = "rose",
-		warn = "gold",
-
-		git_add = "foam",
-		git_change = "rose",
-		git_delete = "love",
-		git_dirty = "rose",
-		git_ignore = "muted",
-		git_merge = "iris",
-		git_rename = "pine",
-		git_stage = "iris",
-		git_text = "rose",
-		git_untracked = "subtle",
-
-		h1 = "iris",
-		h2 = "foam",
-		h3 = "rose",
-		h4 = "gold",
-		h5 = "pine",
-		h6 = "foam",
-	},
-
-	palette = {
-		-- Override the builtin palette per variant
-		-- moon = {
-		--     base = '#18191a',
-		--     overlay = '#363738',
-		-- },
-	},
-
-	-- NOTE: Highlight groups are extended (merged) by default. Disable this
-	-- per group via `inherit = false`
-	highlight_groups = {
-		-- Comment = { fg = "foam" },
-		-- StatusLine = { fg = "love", bg = "love", blend = 15 },
-		-- VertSplit = { fg = "muted", bg = "muted" },
-		-- Visual = { fg = "base", bg = "text", inherit = false },
-	},
-
-	before_highlight = function(group, highlight, palette)
-		-- Disable all undercurls
-		-- if highlight.undercurl then
-		--     highlight.undercurl = false
-		-- end
-		--
-		-- Change palette colour
-		-- if highlight.fg == palette.pine then
-		--     highlight.fg = palette.foam
-		-- end
-	end,
-})
-
-vim.cmd.colorscheme("rose-pine")
+for k, v in pairs(groovies) do
+	vim.g[k] = v
+end
+vim.cmd.colorscheme('gruvbox-material')
 
 require("snacks").setup({
 	explorer = {},
@@ -336,7 +351,7 @@ require("lze").load({
 		event = "DeferredUIEnter",
 		-- ft = "",
 		-- keys = "",
-		colorscheme = "rose-pine",
+		colorscheme = "gruvbox-material",
 		load = function(name)
 			vim.cmd.packadd(name)
 			vim.cmd.packadd("nvim-treesitter-textobjects")
@@ -439,7 +454,7 @@ require("lze").load({
 			require("lualine").setup({
 				options = {
 					icons_enabled = false,
-					theme = "rose-pine",
+					theme = "gruvbox-material",
 					component_separators = "|",
 					section_separators = "",
 				},

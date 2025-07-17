@@ -56,6 +56,7 @@ I just made a list of learning resources that I used to understand NixOS, so per
 ***** TODO - [ ] Learn difference between focus-ring and border (read the wiki properly)
 ***** TODO - [ ] Setup rmpc
 ***** TODO - [ ] Setup Beets(for tagging music files).
+***** TODO - [ ] Write gruvbox-material userChrome for zen-browser.
 
 * License
 This project is licensed under the GNU General Public License v3.0.

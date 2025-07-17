@@ -87,7 +87,7 @@ in
               lze
               lzextras
               nvim-highlight-colors
-              rose-pine
+              gruvbox-material
               snacks-nvim
               vim-sleuth
             ];
