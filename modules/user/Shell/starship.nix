@@ -22,7 +22,7 @@
 
         os = {
           disabled = false;
-          style = "fg: blue";
+          style = "blue";
 
           symbols = {
             NixOS = " ";
