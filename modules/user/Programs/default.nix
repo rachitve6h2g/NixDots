@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
+    ./bat.nix
     ./bottom.nix
     ./btop.nix
     ./fastfetch.nix
