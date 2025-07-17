@@ -1,6 +1,5 @@
-{ pkgs, ... }:
-{
-  home.packages = [ pkgs.clang-tools ];
+{ pkgs, ... }: {
+  home.packages = with pkgs; [ clang-tools nixfmt-rfc-style nixd ];
   programs = {
     vscode = {
       enable = true;
@@ -14,13 +13,13 @@
           enableExtensionUpdateCheck = true;
           enableUpdateCheck = true;
 
-          extensions =
-            with pkgs.vscode-extensions;
-            [
-              vscodevim.vim
-              mvllow.rose-pine
-              llvm-vs-code-extensions.vscode-clangd
-            ];
+          extensions = with pkgs.vscode-extensions; [
+            vscodevim.vim
+            mvllow.rose-pine
+            llvm-vs-code-extensions.vscode-clangd
+            jnoortheen.nix-ide
+            redhat.java
+          ];
 
           userSettings = {
             "editor.lineNumbers" = "relative";
@@ -30,15 +29,11 @@
             "vim.incsearch" = true;
             "vim.useSystemClipboard" = true;
             "vim.hlsearch" = true;
-            "vim.insertModeKeyBindings" = [
-              {
-                "before" = [
-                  "j"
-                  "j"
-                ];
-                "after" = [ "Esc" ];
-              }
-            ];
+            "vim.insertModeKeyBindings" = [{
+              "before" = [ "j" "j" ];
+              "after" = [ "Esc" ];
+            }];
+
             "vim.normalModeKeyBindings" = [
               {
                 "before" = [ "<Esc>" ];
@@ -56,7 +51,25 @@
               }
 
             ];
+
             "redhat.telemetry.enabled" = true;
+
+            "nix.enableLanguageServer" = true;
+            "nix.serverPath" = "nixd";
+            "nix.serverSettings" = {
+              "nixd" = {
+                "formatting" = { "command" = [ "nixfmt" ]; };
+
+                "options" = {
+                  "nixos" = {
+                    "expr" = ''
+                      (builtins.getFlake "/home/krish/.dotfiles").nixosConfigurations.hppavilion.options'';
+                  };
+                };
+              };
+            };
+
+            "nix.formatterPath" = "nixfmt";
           };
         };
       };
