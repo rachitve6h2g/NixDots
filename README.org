@@ -2,8 +2,11 @@
 #+AUTHOR: Rachit Kumar Verma
 #+OPTIONS: toc:nil
 
-#+ATTR_HTML: :width 150px :align center
-[[https://raw.githubusercontent.com/NixOS/nixos-artwork/refs/heads/master/logo/nix-snowflake-colours.svg]]
+#+BEGIN_EXPORT html
+<p align="center">
+  <img src="https://raw.githubusercontent.com/NixOS/nixos-artwork/refs/heads/master/logo/nix-snowflake-colours.svg" width="150px" />
+</p>
+#+END_EXPORT
 
 * Installation
 - For disk partitioning (using [[https://github.com/nix-community/disko][disko]]) ::
