@@ -8,89 +8,62 @@
       settings = lib.mkAfter {
         format = lib.concatStrings [
           "$username"
+          "$hostname"
           "$directory"
           "$git_branch"
+          "$git_state"
           "$git_status"
-          "$fill"
+          "$cmd_duration"
+          "$line_break"
+          "$os"
           "$c"
-          "$time\n"
-          "[󱞪](fg:blue) "
+          "$character"
         ];
 
-        # palette = "red-green";
-        #
-        # palettes.red-green = {
-        #   base02 = "#${theme.base02}";
-        #   red = "#${theme.red}";
-        #   orange = "#${theme.base09}";
-        #   green = "#${theme.green}";
-        #   yellow = "#${theme.yellow}";
-        #   cyan = "#${theme.cyan}";
-        #   blue = "#${theme.blue}";
-        # };
+        os = {
+          disabled = false;
+          style = "fg: blue";
 
-        directory = {
-          format = "[](fg:base02)[ $path ]($style)[](fg:base02) ";
-          style = "bg:base02 fg:green";
-          truncation_length = 3;
-          truncation_symbol = "…/";
-
-          substitutions = {
-            Documents = "󰈙";
-            Downloads = " ";
-            Music = " ";
-            Pictures = " ";
+          symbols = {
+            NixOS = " ";
           };
         };
 
-        fill = {
-          style = "fg:base02";
-          symbol = " ";
+        directory = {
+          style = "blue";
         };
+
+        character = {
+          success_symbol = "[❯](purple)";
+          error_symbol = "[❯](red)";
+          vimcmd_symbol = "[❮](green)";
+        };
+
         git_branch = {
-          format = "[](fg:base02)[ $symbol $branch ]($style)[](fg:base02) ";
-          style = "bg:base02 fg:cyan";
-          symbol = "";
+          format = "[$branch]($style)";
+          style = "bright-black";
         };
 
         git_status = {
-          disabled = false;
-          style = "bg:base02 fg:red";
-          format = "[](fg:base02)([$all_status$ahead_behind]($style))[](fg:base02) ";
-          up_to_date = "[ ✓ ](bg:base02 fg:blue)";
-          untracked = "[?\($count\)](bg:base02 fg:orange)";
-          stashed = "[\$](bg:base02 fg:blue)";
-          modified = "[!\($count\)](bg:base02 fg:orange)";
-          renamed = "[»\($count\)](bg:base02 fg:blue)";
-          deleted = "[✘\($count\)](style)";
-          staged = "[++\($count\)](bg:base02 fg:orange)";
-          ahead = "[⇡\(\${count}\)](bg:base02 fg:cyan)";
-          diverged = "⇕[\[](bg:base02 fg:blue)[⇡\(\${ahead_count}\)](bg:base02 fg:cyan)[⇣\(\${behind_count}\)](bg:base02 fg:yellow)[\]](bg:base02 fg:blue)";
-          behind = "[⇣\(\${count}\)](bg:base02 fg:yellow)";
+          format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)";
+          style = "cyan";
+          conflicted = "​";
+          untracked = "​";
+          modified = "​";
+          staged = "​";
+          renamed = "​";
+          deleted = "​";
+          stashed = "≡";
         };
 
-        time = {
-          disabled = false;
-          format = " [](fg:base02)[ $time 󰴈 ]($style)[](fg:base02)";
-          style = "bg:base02 fg:yellow";
-          time_format = "%I:%M%P";
-          use_12hr = true;
+        git_state = {
+          format = "\([$state( $progress_current/$progress_total)]($style)\) ";
+          style = "bright-black";
         };
 
-        username = {
-          disabled = false;
-          format = "[](fg:base02)[ 󰧱 $user ]($style)[](fg:base02) ";
-          show_always = true;
-          style_root = "bg:base02 fg:blue";
-          style_user = "bg:base02 fg:blue";
-        };
-        # Languages;
-
-        c = {
-          style = "bg:base02 fg:green";
-          format = " [](fg:base02)[ $symbol$version ]($style)[](fg:base02)";
-          disabled = false;
-          symbol = " ";
+        cmd_duration = {
+          format = "[$duration]($style) ";
+          style = "yellow";
         };
       };
     };

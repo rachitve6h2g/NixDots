@@ -54,10 +54,6 @@ in
       "$(tput sgr0)$(tput setaf 5) %p"
       "$(tput sgr0)$(tput setaf 3):"
     ];
-
-    # There is already one module for it in configuration.nix
-    # programs.vivid.enable in core modules. Enable that first.
-    # LS_COLORS = "$(${pkgs.vivid}/bin/vivid generate rose-pine)";
   };
 
   home.packages = [ pkgs.sl ];

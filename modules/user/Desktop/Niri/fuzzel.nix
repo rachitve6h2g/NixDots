@@ -38,7 +38,6 @@ in
           placeholder = "  Enter App Name";
           prompt = "󱡴  ";
           use-bold = "yes";
-          # icon-theme = "rose-pine";
           layer = "overlay";
           launch-prefix = "${app2unit}/bin/app2unit --fuzzel-compat --";
         };

@@ -2,7 +2,7 @@
   programs = {
     vivid = {
       enable = true;
-      theme = "rose-pine";
+      theme = "gruvbox-dark-hard";
     };
   };
 }

@@ -70,6 +70,9 @@
             };
 
             "nix.formatterPath" = "nixfmt";
+
+            # Open git repo in parent folder (don't know what that means):
+            "git.openRepositoryInParentFolders" = "always";
           };
         };
       };

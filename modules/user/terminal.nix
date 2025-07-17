@@ -15,7 +15,7 @@
         enableBashIntegration = true;
       };
 
-      themeFile = "rose-pine";
+      themeFile = "GruvboxMaterialDarkHard";
 
       settings = {
         # background_opacity = 0.8;
