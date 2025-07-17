@@ -2,6 +2,7 @@
 #+AUTHOR: Rachit Kumar Verma
 #+OPTIONS: toc:nil
 
+#+ATTR_HTML: :width 150px :align center
 [[https://raw.githubusercontent.com/NixOS/nixos-artwork/refs/heads/master/logo/nix-snowflake-colours.svg]]
 
 * Installation
