@@ -47,10 +47,6 @@
       url = "github:numtide/treefmt-nix";
     };
 
-    # Refer https://yazi-rs.github.io/docs/installation/
-    # Home-manager method
-    # yazi.url = "github:sxyazi/yazi";
-
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";

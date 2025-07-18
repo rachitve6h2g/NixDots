@@ -11,6 +11,7 @@
     ./networking.nix
     ./nh.nix
     ./nix.nix
+    ./nix-index.nix
     ./plymouth.nix
     ./security.nix
     ./sound.nix # comment this out if using in VM

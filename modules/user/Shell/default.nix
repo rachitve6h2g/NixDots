@@ -59,8 +59,9 @@ in
   home.packages = [ pkgs.sl ];
 
   programs = {
-    command-not-found = {
+    nix-index = {
       enable = true;
+      enableZshIntegration = true;
     };
 
     fd = {
@@ -111,12 +112,15 @@ in
                      echo "'$1' is not a valid file!"
                    fi
                  }
-
               '';
+          command-not-found = lib.mkAfter ''
+            source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
+          '';
         in
         lib.mkMerge [
           interactive_functions
           extract_function
+          # command-not-found
         ];
 
       # Don't forget to add
