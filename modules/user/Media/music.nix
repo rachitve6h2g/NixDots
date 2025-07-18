@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
-let 
-  color = config.lib.stylix.colors;
-in
 {
+  imports = [ ./rmpc ];
   services = {
     mpd = {
       enable = true;
@@ -46,10 +44,6 @@ in
     (python3.withPackages (ps: [ ps.mutagen ]))
   ];
   programs = {
-    rmpc = {
-      enable = true;
-      config = ''${builtins.readFile ./rmpc/config.ron}'';
-    };
     cava = {
       enable = true;
       package = pkgs.cava.override { withSDL2 = true; };
@@ -82,13 +76,6 @@ in
         };
       };
     };
-  };
-
-  xdg.configFile = {
-    "rmpc/themes/theme.ron".source = ./rmpc/themes/theme.ron;
-    "rmpc/notify" = { source = ./rmpc/notify; executable = true; };
-    "rmpc/playcount" = { source = ./rmpc/playcount; executable = true; };
-    "rmpc/lyrics" = { source = ./rmpc/lyrics; executable = true; };
   };
 
   stylix.targets.cava.rainbow.enable = true;
