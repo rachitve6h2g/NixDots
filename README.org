@@ -26,12 +26,12 @@
   #+END_SRC
 
 
-If it's neccessary to download the git repo fast (cause it takes too much time to download
-a huge wallpaper repo) first git clone this repo. And then use this inside the local repo clone.
-#+BEGIN_SRC zsh
-  $git submodule init
-  $git submodule update
-#+END_SRC
+  If it's neccessary to download the git repo fast (cause it takes too much time to download
+  a huge wallpaper repo) first git clone this repo. And then use this inside the local repo clone.
+  #+BEGIN_SRC zsh
+    $git submodule init
+    $git submodule update
+  #+END_SRC
 
 
 2. Change .dotfiles/user/Programs/ssh/id_ed25519.pub after running
