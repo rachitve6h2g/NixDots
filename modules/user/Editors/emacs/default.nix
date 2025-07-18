@@ -46,7 +46,7 @@
         enable = true;
         arguments = [ "-c" ];
       };
-      defaultEditor = true;
+      defaultEditor = false;
 
       package = if config.programs.emacs.enable then config.programs.emacs.finalPackage
       else pkgs.emacs-pgtk;

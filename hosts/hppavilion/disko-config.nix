@@ -54,6 +54,13 @@
                         "noatime"
                       ];
                     };
+                    # "/persist" = {
+                    #   mountpoint = "/persist";
+                    #   mountOptions = [
+                    #     "compress=zstd"
+                    #     "noatime"
+                    #   ];
+                    # };
                   };
                 };
               };
