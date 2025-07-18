@@ -21,9 +21,9 @@
 
 * NOTE
 1. Use this to download the dots with the wallpapers
-#+BEGIN_SRC zsh
-  $git --recurse-submodules <this_git_repo_url>
-#+END_SRC
+  #+BEGIN_SRC zsh
+    $git --recurse-submodules <this_git_repo_url>
+  #+END_SRC
 
 
 If it's neccessary to download the git repo fast (cause it takes too much time to download
