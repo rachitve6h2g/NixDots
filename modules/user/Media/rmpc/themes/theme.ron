@@ -8,7 +8,7 @@
     browser_column_widths: [20, 38, 42],
     background_color: "#191724",
     modal_backdrop: true,
-    text_color: "#e0def4",
+    text_color: "#${color.base05}",
     header_background_color: "#191724",
     modal_background_color: "#191724",
     preview_label_style: (fg: "#c4a7e7"),

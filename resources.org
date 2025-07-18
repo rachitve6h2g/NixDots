@@ -3,6 +3,7 @@
 *** - [[https://github.com/fr0st-iwnl/wallz][From fr0st's wallz repo]]
 *** - [[https://github.com/Noob-linux-user/Wallpaper][From Noob-linux user]]
 *** - [[https://www.wallrice.xyz/][WallRice(customize any wallpaper to match your theme)]]
+*** - [[https://ign.schrodinger-hat.it/color-schemes][Another Wallpaper converter]]
 
 
 ** RMPC music player:

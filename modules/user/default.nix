@@ -7,6 +7,7 @@
     ./Browsers
     ./Desktop
     ./Editors
+    ./Media
     ./Programs
     ./Shell
   ];

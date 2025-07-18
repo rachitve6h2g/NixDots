@@ -1,4 +1,7 @@
 { config, pkgs, ... }:
+let 
+  color = config.lib.stylix.colors;
+in
 {
   services = {
     mpd = {

@@ -29,6 +29,7 @@ let
 in
 {
   imports = [
+    ./bat.nix
     ./eza.nix
     ./fzf.nix
     ./readline.nix

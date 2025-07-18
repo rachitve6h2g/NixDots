@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   imports = [
-    ./bat.nix
     ./bottom.nix
     ./btop.nix
     ./fastfetch.nix
@@ -13,7 +12,6 @@
     ./yt-dlp.nix
     ./zathura.nix
 
-    ./media
     ./wgetpaste
     ./yazi
   ];
