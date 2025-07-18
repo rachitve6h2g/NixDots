@@ -31,6 +31,8 @@ in
     fuzzel = {
       enable = true;
 
+      package = pkgs.fuzzel.override { svgBackend = "librsvg"; };
+
       settings = {
         main = {
           terminal = "${app2unit}/bin/app2unit -T";

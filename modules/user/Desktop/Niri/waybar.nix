@@ -189,6 +189,14 @@
               margin-right: 5px;
           }
 
+          .modules-left {
+              background: @base00;
+              color: @base05;
+              border-radius: 15px;
+              margin-bottom: 5px;
+              margin-left: 5px;
+          }
+
           #backlight,
           #network,
           #pulseaudio {
