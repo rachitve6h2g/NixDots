@@ -10,13 +10,15 @@
         nvim = "hx";
 
         btop = "btop --force-utf";
+
+        ec = "emacsclient -c";
       };
 
       extraConfig =
         #nu
         ''
             # For nh
-            $env.FLAKE = "/home/krish/.dotfiles"
+            $env.NH_FLAKE = "/home/krish/.dotfiles"
             
             # Common ls aliases and sort them by type and then name
             # Inspired by https://github.com/nushell/nushell/issues/7190
