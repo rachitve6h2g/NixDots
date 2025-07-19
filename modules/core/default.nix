@@ -21,6 +21,7 @@
     ./thunar.nix
     ./user.nix
     # ./virtualbox.nix
+    ./virtmanager.nix
     ./vivid.nix
     ./zram.nix
 

@@ -12,5 +12,5 @@
   };
 
   # For detection of users
-  environment.systemPackages = with pkgs; [ zsh ];
+  environment.shells = with pkgs; [ zsh ];
 }

@@ -5,7 +5,6 @@
   programs = {
     yazi = {
       enable = true;
-      enableZshIntegration = true;
       shellWrapperName = "y";
 
       plugins = {
@@ -169,19 +168,28 @@
             }
 
             {
-              on = [ "<C-x>" "c" ];
+              on = [
+                "<C-x>"
+                "c"
+              ];
               run = "quit";
               desc = "Quit the process";
             }
 
             {
-              on = [ "<C-x>" "h" ];
+              on = [
+                "<C-x>"
+                "h"
+              ];
               run = "help";
               desc = "Open help";
             }
 
             {
-              on = [ "<C-x>" "k" ];
+              on = [
+                "<C-x>"
+                "k"
+              ];
               run = "close";
               desc = "Close the current tab, or quit if it's last";
             }

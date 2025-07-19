@@ -14,7 +14,7 @@
         programs.ruff.format = true;
         settings.formatter.shellcheck.options = [
           "-s"
-          "bash"
+          "nushell"
         ];
 
         programs.mypy = {

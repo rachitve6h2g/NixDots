@@ -31,6 +31,12 @@
             auto-format = true;
             formatter.command = lib.getExe pkgs.nixfmt-rfc-style;
           }
+
+          {
+            name = "nu";
+            auto-format = true;
+            formatter.command = lib.getExe pkgs.nushell;
+          }
         ];
       };
     };

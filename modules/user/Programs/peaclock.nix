@@ -1,8 +1,9 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [ peaclock ];
-  programs.zsh.shellAliases.peaclock = "${pkgs.peaclock}/bin/peaclock --config-dir ~/.config/peaclock --config ~/.config/peaclock/config";
+  # programs.zsh.shellAliases.peaclock = "${pkgs.peaclock}/bin/peaclock --config-dir ~/.config/peaclock --config ~/.config/peaclock/config";
   xdg.configFile."peaclock/config".text =
+    # ini
     "
 	# peaclock
 	# digital config

@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   imports = [ ./rmpc ];
   services = {
@@ -79,4 +84,11 @@
   };
 
   stylix.targets.cava.rainbow.enable = true;
+
+  systemd.user.services = {
+    mpd.Install.WantedBy = lib.mkForce [ "graphical-session.target" ];
+    mpd-mpris = {
+      Install.WantedBy = lib.mkForce [ "graphical-session.target" ];
+    };
+  };
 }

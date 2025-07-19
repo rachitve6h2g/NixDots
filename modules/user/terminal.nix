@@ -10,10 +10,7 @@
         size = 14;
       };
 
-      shellIntegration = {
-        enableZshIntegration = true;
-        enableBashIntegration = true;
-      };
+      shellIntegration.mode = "enabled";
 
       themeFile = "GruvboxMaterialDarkHard";
 

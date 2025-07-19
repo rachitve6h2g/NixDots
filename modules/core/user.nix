@@ -42,10 +42,7 @@
     ];
     initialPassword = "Shouvik@1234";
 
-    shell = pkgs.zsh;
+    shell = pkgs.nushell;
   };
-  programs.zsh.enable = true;
-
-  # Refer https://mynixos.com/home-manager/option/programs.zsh.enableCompletion
-  environment.pathsToLink = [ "/share/zsh" ];
+  environment.shells = [ pkgs.nushell ];
 }

@@ -3,7 +3,6 @@
   programs = {
     starship = {
       enable = true;
-      enableZshIntegration = true;
 
       settings = lib.mkAfter {
         format = lib.concatStrings [
