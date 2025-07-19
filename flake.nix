@@ -18,6 +18,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    ironbar = {
+      url = "github:JakeStanger/ironbar";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Hyprland plugins fix
     # Remove this once it's fixed
     # Refer https://github.com/hyprwm/hyprland-plugins/pull/338/files (CShader replaced by SShader)
@@ -25,7 +30,6 @@
     #  url = "github:hyprwm/hyprland-plugins/c491d2831448645f24a1597a17f564aa52691ac6";
     #  flake = false;
     #};
-
 
     niri-flake.url = "github:sodiboo/niri-flake";
 

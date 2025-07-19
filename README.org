@@ -19,6 +19,8 @@
     $nix-index
   #+END_SRC
 
+** Important side-note:: I'll be moving to Exherbo in near future. This repository will be archived in case I do.
+
 * NOTE
 1. Use this to download the dots with the wallpapers
   #+BEGIN_SRC zsh

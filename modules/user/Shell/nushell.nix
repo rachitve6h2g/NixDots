@@ -8,6 +8,8 @@
         vi = "hx";
         vim = "hx";
         nvim = "hx";
+
+        btop = "btop --force-utf";
       };
 
       extraConfig =

@@ -82,10 +82,11 @@ in
   imports = [
     ./niri.nix
     ./fuzzel.nix
+    ./ironbar.nix
     ./swayidle.nix
     ./swaylock.nix
     ./wallpaper.nix
-    ./waybar.nix
+    # ./waybar.nix
   ];
 
   home.packages = with pkgs; [
