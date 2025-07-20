@@ -1,7 +1,8 @@
 {
   pkgs,
+  config,
   ...
-}: 
+}:
 {
   services.mako = {
     enable = true;
@@ -15,7 +16,7 @@
       sort = "-time";
 
       icons = true;
-      icon-path = "${pkgs.rose-pine-icon-theme}/share/icons/rose-pine";
+      icon-path = "${config.stylix.iconTheme.package}/share/icons/${config.stylix.iconTheme.light}";
 
       actions = true;
 
