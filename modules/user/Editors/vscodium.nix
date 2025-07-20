@@ -24,6 +24,7 @@
             llvm-vs-code-extensions.vscode-clangd
             jnoortheen.nix-ide
             redhat.java
+            tamasfe.even-better-toml
           ];
 
           userSettings = {
