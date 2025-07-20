@@ -1,5 +1,11 @@
-{ lib, ... }:
+{ inputs, lib, ... }:
 {
+  imports = [ inputs.sddm-sugar-candy-nix.nixosModules.default ];
+
+  nixpkgs.overlays = [
+    inputs.sddm-sugar-candy-nix.overlays.default
+  ];
+
   services = {
     displayManager = {
       sddm = {
@@ -7,22 +13,22 @@
         wayland = {
           enable = true;
         };
-
+        settings = {
+          General.DisplayServer = "wayland";
+        };
         sugarCandyNix = {
           enable = true;
           settings = {
-            HeaderText = "Welcome, Krish!";
-            DimBackgroundImage = 0.3;
-            Background = lib.cleanSource ./../../wallpapers/current;
+            Background = lib.cleanSource ./platform.jpg;
             ScreenWidth = 1920;
             ScreenHeight = 1080;
             FormPosition = "left";
             HaveFormBackground = true;
             PartialBlur = true;
-            Font = "JetBrainsMono Nerd Font";
           };
         };
       };
+      defaultSession = "niri-uwsm";
     };
   };
 }

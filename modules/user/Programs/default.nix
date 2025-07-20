@@ -21,6 +21,8 @@
     bluetui
     figlet
     gthumb
+    kdePackages.qtstyleplugin-kvantum
+    mediawriter
     nurl # https://github.com/nix-community/nurl
     pavucontrol
     trash-cli

@@ -42,6 +42,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sddm-sugar-candy-nix = {
+      url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     stylix = {
       url = "github:danth/stylix"; # use "github:nix-community/stylix" for stable.
       inputs.nixpkgs.follows = "nixpkgs";

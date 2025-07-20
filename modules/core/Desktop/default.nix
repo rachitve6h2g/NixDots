@@ -9,7 +9,7 @@
   };
 
   imports = [
-    # ./displaymanager.nix
+    ./displaymanager.nix
     # ./gnome.nix
     # ./hyprland.nix
     ./niri.nix
