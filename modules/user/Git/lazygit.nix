@@ -1,4 +1,5 @@
-{ lib, ... }: {
+{ lib, ... }:
+{
   programs = {
     lazygit = {
       enable = true;
@@ -13,11 +14,11 @@
             pager = lib.concatStringsSep " " [
               "delta"
               "--dark"
-              "--paging"
+              "--paging=never"
               "--line-numbers"
-              "--hyprelinks"
+              "--hyperlinks"
               "--hyperlinks-file-link-format=\"lazygit-edit://{path}:{line}\""
-            ]; 
+            ];
           };
         };
       };
