@@ -4,7 +4,6 @@
     ./bottom.nix
     ./btop.nix
     ./fastfetch.nix
-    ./git.nix
     ./imv.nix
     ./newsboat.nix
     ./peaclock.nix

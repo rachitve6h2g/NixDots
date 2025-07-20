@@ -8,6 +8,7 @@
     ./Browsers
     ./Desktop
     ./Editors
+    ./Git
     ./Media
     ./Programs
     ./Shell

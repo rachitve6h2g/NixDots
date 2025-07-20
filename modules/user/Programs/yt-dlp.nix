@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, ... }:
+{
   programs = {
     yt-dlp = {
       enable = true;
@@ -6,17 +7,17 @@
         embed-thumbnail = true;
         add-metadata = true;
         output = "~/Videos/%(title)s.%(ext)s";
-        # downloader = "aria2c";
+        downloader = "aria2c";
         # See https://wiki.archlinux.org/title/Aria2#Changing_the_User_Agent
-        # The user agent has to be changed for better compatibility
-        # downloader-args = "aria2c:'-c -j 3 -x 3 -s 3 -k 1M'";
+        # I tried changing the user agent but it still didn't work.
+        downloader-args = "aria2c:'-c -j 3 -x 3 -s 3 -k 1M'";
         format = "bestvideo+bestaudio/best";
       };
     };
 
     # Aria2 in yt-dlp manages itself.
     # If you enable this, ~/.config/aria2/config will
-    # be created which will interfere with other tasks.
+    # be created which interferes with other yt-dlp or something.
 
     aria2 = {
       enable = true;
@@ -27,7 +28,7 @@
         file-allocation = "none";
         max-connection-per-server = 4;
         min-split-size = "5M";
-        log-level="warn";
+        log-level = "warn";
       };
     };
   };

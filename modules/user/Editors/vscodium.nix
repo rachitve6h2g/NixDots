@@ -74,7 +74,7 @@
 
                 "options" = {
                   "nixos" = {
-                    "expr" = ''(builtins.getFlake "/home/krish/.dotfiles").nixosConfigurations.hppavilion.options'';
+                    "expr" = ''(builtins.getFlake "/home/krish/.nixdots").nixosConfigurations.hppavilion.options'';
                   };
                 };
               };

@@ -1,5 +1,6 @@
 {
   imports = [
+    ./aria2.nix
     ./battery.nix
     ./bluetooth.nix
     ./boot-loader.nix

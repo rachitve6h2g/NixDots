@@ -22,7 +22,7 @@
 	    # text-ver-color = "${theme.base0D}";
 	    # text-wrong-color = "${theme.base08}";
 
-	    image = "~/.dotfiles/wallpapers/Mandalorian.jpg";
+	    image = "~/.nixdots/wallpapers/Mandalorian.jpg";
 	};
   };
 }

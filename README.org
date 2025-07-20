@@ -8,9 +8,9 @@
 * Installation
 - For disk partitioning (using [[https://github.com/nix-community/disko][disko]])
   #+BEGIN_SRC bash
-    $git clone --depth=1 https://github.com/rachitve6h2g/dotfiles.git # don't clone with the wallpapers, yet.
-    $cd dotfiles
-    $sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount ./dotfiles/hosts/hppavilion/disko-config.nix
+    $git clone --depth=1 https://github.com/rachitve6h2g/nixdots.git # don't clone with the wallpapers, yet.
+    $cd nixdots
+    $sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount ./nixdots/hosts/hppavilion/disko-config.nix
   #+END_SRC
 
   
@@ -31,14 +31,14 @@
       $git submodule init
       $git submodule update
     #+END_SRC
-2. Change .dotfiles/user/Programs/ssh/id_ed25519.pub after running
+2. Change .nixdots/user/Programs/ssh/id_ed25519.pub after running
    #+BEGIN_SRC zsh
      $gh auth login
    #+END_SRC
 
    
 * Sources
-- Read the dotfiles of Librephoenix (he's got a way to blur qutebrowser)
+- Read the nixdots of Librephoenix (he's got a way to blur qutebrowser)
 
 * Learning Resources
 I just made a list of learning resources that I used to understand NixOS, so perfect timing!

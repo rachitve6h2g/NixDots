@@ -18,7 +18,7 @@
         #nu
         ''
             # For nh
-            $env.NH_FLAKE = "/home/krish/.dotfiles"
+            $env.NH_FLAKE = "/home/krish/.nixdots"
             
             # Common ls aliases and sort them by type and then name
             # Inspired by https://github.com/nushell/nushell/issues/7190

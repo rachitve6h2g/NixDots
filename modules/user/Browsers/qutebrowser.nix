@@ -120,7 +120,7 @@
               #
               # Installation:
               #
-              # 1. Copy this file or add this repo as a submodule to your dotfiles.
+              # 1. Copy this file or add this repo as a submodule to your nixdots.
               # 2. Add this line to your config.py, and point the path to this file:
               # config.source('qutemacs/qutemacs.py')
 

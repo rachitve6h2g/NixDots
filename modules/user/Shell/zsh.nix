@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 let
   myAliases = {
-    gocon = "cd $HOME/.dotfiles";
+    gocon = "cd $HOME/.nixdots";
 
     # Get image on the fly.
     kitcat = "${pkgs.kitty}/bin/kitten icat";
