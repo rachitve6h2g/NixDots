@@ -19,7 +19,6 @@
     $nix-index
   #+END_SRC
 
-** Important side-note:: I'll be moving to Exherbo in near future. This repository will be archived in case I do.
 
 * NOTE
 1. Use this to download the dots with the wallpapers
@@ -63,6 +62,7 @@ I just made a list of learning resources that I used to understand NixOS, so per
 ***** TODO - [ ] Setup rmpc
 ***** TODO - [ ] Setup Beets(for tagging music files).
 ***** TODO - [ ] Write gruvbox-material userChrome for zen-browser.
+***** TODO - [ ] Remove Hyprland and SwayWM configs, coz I don't indent to use it anymore.
 
 - Moving to rust tools::
 ***** TODO - [ ] Configure nushell
@@ -70,4 +70,3 @@ I just made a list of learning resources that I used to understand NixOS, so per
 * License
 This project is licensed under the GNU General Public License v3.0.
 See the [[./LICENSE][LICENSE]] file for details.
-
