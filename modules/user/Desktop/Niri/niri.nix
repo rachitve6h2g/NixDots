@@ -239,16 +239,16 @@ in
         window-rules = [
           {
             draw-border-with-background = false;
-            geometry-corner-radius =
-              let
-                r = 8.0;
-              in
-              {
-                top-left = r;
-                top-right = r;
-                bottom-right = r;
-                bottom-left = r;
-              };
+            # geometry-corner-radius =
+            #   let
+            #     r = 8.0;
+            #   in
+            #   {
+            #     top-left = r;
+            #     top-right = r;
+            #     bottom-right = r;
+            #     bottom-left = r;
+            #   };
 
             clip-to-geometry = true;
           }

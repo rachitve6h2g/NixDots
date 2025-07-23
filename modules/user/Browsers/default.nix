@@ -304,4 +304,7 @@
       };
     };
   };
+
+  # Zen stylix module:
+  stylix.targets.zen-browser.profileNames = [ "krish" ];
 }

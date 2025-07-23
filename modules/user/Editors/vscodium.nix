@@ -19,18 +19,19 @@
           enableUpdateCheck = true;
 
           extensions = with pkgs.vscode-extensions; [
+            foxundermoon.shell-format
             vscodevim.vim
-            mvllow.rose-pine
             llvm-vs-code-extensions.vscode-clangd
             jnoortheen.nix-ide
+            oderwat.indent-rainbow
             redhat.java
             tamasfe.even-better-toml
+            timonwong.shellcheck
           ];
 
           userSettings = {
             "editor.lineNumbers" = "relative";
             "workbench.iconTheme" = "rose-pine-icons";
-            # "workbench.colorTheme" = "Rosé Pine Moon";
             "vim.easymotion" = true;
             "vim.incsearch" = true;
             "vim.useSystemClipboard" = true;
