@@ -93,10 +93,27 @@ in
                    fi
                  }
               '';
+          lazy_git_change_dir =
+            lib.mkAfter
+              # bash
+              ''
+                lg()
+                  {
+                      export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
+
+                      lazygit "$@"
+
+                      if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
+                              cd "$(cat $LAZYGIT_NEW_DIR_FILE)"
+                              rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
+                      fi
+                  }
+              '';
         in
         lib.mkMerge [
           interactive_functions
           extract_function
+          lazy_git_change_dir
         ];
 
       # Don't forget to add
