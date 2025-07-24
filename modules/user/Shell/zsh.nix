@@ -6,6 +6,8 @@ let
     # Get image on the fly.
     kitcat = "${pkgs.kitty}/bin/kitten icat";
 
+    # For btop, coz the l18n is set to indian
+    btop = "btop --force-utf";
     # Jump to the git source dir.
     cdg = "cd $(git rev-parse --show-toplevel)";
 
