@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   ...
@@ -37,6 +38,7 @@ in
         main = {
           terminal = "${app2unit}/bin/app2unit -T";
           font = lib.mkForce "monospace:size=11";
+          icon-theme = config.stylix.iconTheme.light;
           placeholder = "  Enter App Name";
           prompt = "󱡴  ";
           use-bold = "yes";
