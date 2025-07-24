@@ -2,7 +2,7 @@
   programs = {
     vivid = {
       enable = true;
-      theme = "gruvbox-dark-hard";
+      theme = "catppuccin-mocha";
     };
   };
 }

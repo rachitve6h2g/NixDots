@@ -1,4 +1,9 @@
-{ config, inputs, pkgs, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
 {
   imports = [
     inputs.stylix.nixosModules.stylix
@@ -6,7 +11,7 @@
 
   stylix = {
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-hard.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     polarity = "dark";
 
     fonts = {
@@ -21,8 +26,5 @@
         name = "Noto Color Emoji";
       };
     };
-    # image = ../../wallpapers/wallpaper.png;
   };
-
-  # stylix.autoEnable = false; # Turn targets specifically.
 }

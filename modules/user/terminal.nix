@@ -12,7 +12,7 @@
 
       shellIntegration.mode = "enabled";
 
-      themeFile = "GruvboxMaterialDarkHard";
+      themeFile = "Catppuccin-Mocha";
 
       settings = {
         # background_opacity = 0.8;
