@@ -24,7 +24,19 @@ let
 in
 {
   imports = [ ./eza.nix ];
+
+  home.shell.enableZshIntegration = true;
+
   programs = {
+    # All the shellIntegration options
+    kitty.shellIntegration.enableZshIntegration = true;
+    zoxide.enableZshIntegration = true;
+    yazi.enableZshIntegration = true;
+    starship.enableZshIntegration = true;
+    nix-index.enableZshIntegration = true;
+    fzf.enableZshIntegration = true;
+    eza.enableZshIntegration = true;
+
     zsh = {
       enable = true;
       defaultKeymap = "emacs";

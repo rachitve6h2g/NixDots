@@ -1,6 +1,8 @@
 { lib, pkgs, ... }:
 {
 
+  home.shell.enableNushellIntegration = true;
+
   programs = {
     nushell = {
       enable = true;

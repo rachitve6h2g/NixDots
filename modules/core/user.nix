@@ -42,7 +42,8 @@
     ];
     initialPassword = "Shouvik@1234";
 
-    shell = pkgs.nushell;
+    shell = pkgs.zsh;
   };
-  environment.shells = [ pkgs.nushell ];
+  # environment.shells = [ pkgs.nushell ];
+  programs.zsh.enable = true;
 }
